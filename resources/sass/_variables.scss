@@ -1,0 +1,21 @@
+// for custom color include this
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+
+// Body
+// $body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+//custom color
+// Create your own map
+$custom-colors: (
+  "orange": #ffa511
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);

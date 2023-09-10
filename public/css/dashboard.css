@@ -1,0 +1,88 @@
+html,
+body {
+    /* height: 100% !important; */
+    background-color: #ecf0f1 !important;
+}
+
+/* navbar */
+.logonav {
+    height: 40px;
+}
+
+/* background page*/
+.back {
+    background-image: url("../img/backdash.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #ecf0f1;
+}
+
+/* sidemenu  */
+
+.logosdit {
+    height: 75px;
+}
+
+.hover {
+    color: #212529;
+}
+
+.hover:hover {
+    background-color: #f79500;
+    color: white;
+    border-radius: 10px;
+}
+
+.bg-menu {
+    background-color: #f79500;
+    color: white;
+}
+
+.bg-menu:link,
+.bg-menu:visited {
+    color: white;
+}
+
+.tinggi {
+    height: 100vh;
+}
+
+/* pages */
+.logouser {
+    width: 110px;
+    top: 30px;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+.backheight {
+    background-image: url("../img/backdash.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #ecf0f1;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 700px) {
+    .tinggi {
+        height: 100%;
+    }
+
+    .menu-icon {
+        font-size: 1.5rem;
+    }
+
+    .logouser {
+        width: 90px;
+        top: 30px;
+    }
+    .backheight {
+        height: 90px;
+    }
+
+    small {
+        font-size: 12px;
+    }
+}
