@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100 ">
 
         @forelse ($data as $d)
             <a href="{{ URL::previous() }}" class="btn btn-success btn-sm"><i class="bi bi-arrow-left-circle"></i>

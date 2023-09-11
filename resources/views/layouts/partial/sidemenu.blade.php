@@ -20,7 +20,7 @@
             <li class="nav-item my-1">
                 <a class="nav-link hover rounded {{ Route::currentRouteName() == 'user.index' ? 'bg-menu' : '' }}"
                     href="{{ route('user.index') }}">
-                    <i class="menu-icon bi bi-people-fill me-0 me-md-2"></i>
+                    <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Users</span>
                 </a>
             </li>

@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Kategori Biaya Daftar Ulang SDIT Harum Jember</p>
         <hr>
         <div class="table-responsive">

@@ -4,7 +4,7 @@
 
 @section('content')
     @include('layouts.partial.name')
-    <div class="bg-white rounded p-3 ">
+    <div class="bg-white rounded p-3 min-vh-100">
         <p class="text-center fs-5 m-0">Timeline PPDB SDIT Harum Jember</p>
         <div class="bg-orange p-1 text-white text-center rounded">
             <p class="m-0">Tanggal sekarang :

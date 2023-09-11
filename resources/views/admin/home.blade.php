@@ -5,7 +5,7 @@
 @section('content')
 
     @include('layouts.partial.name')
-    <div class="bg-white rounded p-3 text-center ">
+    <div class="bg-white rounded p-3 text-center min-vh-100">
         <div class="bg-orange backheight position-relative rounded">
             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                 src="{{ asset('img/administrator.png') }}" alt="user" />
@@ -17,5 +17,6 @@
         <a class="btn btn-warning w-50 my-4" href="/admin/users">
             Informasi pendaftar</a>
     </div>
+
 
 @endsection

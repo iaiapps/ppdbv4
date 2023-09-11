@@ -6,7 +6,7 @@
 
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 ">
+    <div class="bg-white rounded p-3 min-vh-100">
         <a href="{{ url()->previous() }}" class="btn btn-outline-primary btn-sm mb-3"> <i class="bi bi-arrow-left-circle"></i>
             kembali</a>
         <ul class="nav nav-tabs" id="myTab" role="tablist">

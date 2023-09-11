@@ -6,7 +6,7 @@
     @include('layouts.partial.name')
 
 
-    <div class="bg-white rounded p-3 ">
+    <div class="bg-white rounded p-3 min-vh-100">
         <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Lihat Biaya Daftar ulang
         </button>

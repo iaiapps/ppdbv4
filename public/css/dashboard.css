@@ -43,8 +43,12 @@ body {
     color: white;
 }
 
+.menu {
+    width: 270px;
+}
+
 .tinggi {
-    height: 100vh;
+    height: 100%;
 }
 
 /* pages */
@@ -66,8 +70,8 @@ body {
 }
 
 @media (max-width: 700px) {
-    .tinggi {
-        height: 100%;
+    .menu {
+        width: 100%;
     }
 
     .menu-icon {

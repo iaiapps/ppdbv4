@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Data yang sudah mengisi Formulir Pendaftaran</p>
         <hr>
         <div class="table-responsive">

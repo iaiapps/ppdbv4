@@ -33,6 +33,13 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+    //  override ganti email ke email_number
+    public function username()
+    {
+        return 'email_number';
+    }
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

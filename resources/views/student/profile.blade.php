@@ -6,7 +6,7 @@
 
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100 ">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"

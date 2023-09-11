@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div id="app">
+    {{-- <div id="app">
         @include('layouts.partial.navbar')
         <div class="container-fluid back">
             <div class="row p-3 px-md-3">
@@ -31,7 +31,19 @@
                 <div class="col-12 col-md-10 px-0 px-md-2">
                     @yield('content')
                 </div>
-                {{-- @include('layouts.partial.right') --}}
+            </div>
+        </div>
+    </div> --}}
+    <div id="app">
+        @include('layouts.partial.navbar')
+        <div class="container-fluid back">
+            <div class="d-block d-md-flex py-3 ">
+                <div class="px-0 px-md-2 mb-3 mb-md-0 menu ">
+                    @include('layouts.partial.sidemenu ')
+                </div>
+                <div class=" px-0 px-md-2 w-100">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>

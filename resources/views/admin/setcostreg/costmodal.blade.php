@@ -20,6 +20,7 @@
                                 <th scope="col">Seragam</th>
                                 <th scope="col">Jilbab</th>
                                 <th scope="col">IPP</th>
+                                <th scope="col">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,9 @@
                                     <td>{{ $cost->seragam }}</td>
                                     <td>{{ $cost->jilbab }}</td>
                                     <td>{{ $cost->ipp }}</td>
+                                    <td>Rp.
+                                        {{ $cost->gedung + $cost->perpustakaan + $cost->kegiatan + $cost->bukumedia + $cost->seragam + $cost->jilbab + $cost->ipp }}
+                                    </td>
                                 </tr>
                             @endforeach
 

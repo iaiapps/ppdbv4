@@ -46,7 +46,7 @@ class TimelineController extends Controller
      */
     public function edit(Timeline $timeline)
     {
-        //
+        return view('admin.setting.timeline.edit', compact('timeline'));
     }
 
     /**
@@ -54,7 +54,9 @@ class TimelineController extends Controller
      */
     public function update(Request $request, Timeline $timeline)
     {
-        //
+        // dd($request->all());
+        $timeline->update($request->all());
+        return redirect()->route('timeline.index');
     }
 
     /**

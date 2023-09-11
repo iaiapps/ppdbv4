@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-4 text-center">Jadwal PPDB SDIT Harum Jember</p>
         <hr>
         <div class="table-responsive">
@@ -25,11 +25,9 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $time->icon }}</td>
                             <td>{{ $time->name }}</td>
+                            <td>{{ $time->date }}</td>
                             <td>
-                                {{ $time->date }}
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-orange btn-sm">edit</a>
+                                <a href="{{ route('timeline.edit', $time->id) }}" class="btn btn-orange btn-sm">edit</a>
                                 <a href="#" class="btn btn-danger btn-sm">delete</a>
                             </td>
                         </tr>
