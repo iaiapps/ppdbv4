@@ -5,7 +5,6 @@
 @section('content')
     @include('layouts.partial.name')
 
-
     <div class="bg-white rounded p-3 min-vh-100">
         <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Lihat Biaya Daftar ulang
@@ -46,13 +45,12 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>
     </div>
+    @include('admin.setcostreg.costmodal')
 @endsection
-@include('admin.setcostreg.costmodal')
 @include('layouts.partial.scripts')
 
 @push('scripts')
