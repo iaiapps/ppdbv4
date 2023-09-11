@@ -38,7 +38,7 @@
         @include('layouts.partial.navbar')
         <div class="container-fluid back">
             <div class="d-block d-md-flex py-3 ">
-                <div class="px-0 px-md-2 mb-3 mb-md-0 menu ">
+                <div class="px-0 px-md-2 mb-3 mb-md-0">
                     @include('layouts.partial.sidemenu ')
                 </div>
                 <div class=" px-0 px-md-2 w-100">

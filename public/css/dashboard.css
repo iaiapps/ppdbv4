@@ -44,10 +44,7 @@ body {
 }
 
 .menu {
-    width: 270px;
-}
-
-.tinggi {
+    width: 210px !important;
     height: 100%;
 }
 
@@ -71,7 +68,7 @@ body {
 
 @media (max-width: 700px) {
     .menu {
-        width: 100%;
+        width: 100% !important;
     }
 
     .menu-icon {

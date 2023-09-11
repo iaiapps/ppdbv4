@@ -1,4 +1,4 @@
-<div class="bg-white p-2 rounded tinggi">
+<div class="bg-white p-2 rounded menu">
     <div class="text-center">
         <img class="logosdit" src="{{ asset('img/logosdit.png') }}" alt="logo" />
     </div>
