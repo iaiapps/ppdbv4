@@ -34,21 +34,21 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="nick_name">Nama Panggilan</label>
-                                        <input class="form-control" id="nick_name" name="nick_name" v-model="form.nick_name"
-                                            type="text" required />
+                                        <input class="form-control" id="nick_name" name="nick_name" type="text"
+                                            required />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="school_origin">Asal TK</label>
-                                <input class="form-control" id="school_origin" name="school_origin"
-                                    v-model="form.school_origin" type="text" required />
+                                <input class="form-control" id="school_origin" name="school_origin" type="text"
+                                    required />
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="gender">Jenis Kelamin</label>
-                                <select class="form-select" id="gender" name="gender" v-model="form.gender">
+                                <select class="form-select" id="gender" name="gender">
                                     <option selected disabled>Pilih</option>
                                     <option value="laki-laki">Laki-Laki</option>
                                     <option value="perempuan">Perempuan</option>
@@ -59,23 +59,22 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="place_birth">Tempat Lahir</label>
-                                        <input class="form-control" id="place_birth" name="place_birth"
-                                            v-model="form.place_birth" type="text" required />
+                                        <input class="form-control" id="place_birth" name="place_birth" type="text"
+                                            required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="date_birth">Tanggal Lahir</label>
-                                        <input class="form-control" name="date_birth" v-model="form.date_birth"
-                                            type="date" id="date_birth" placeholder="Bulan/Hari/Tahun" />
+                                        <input class="form-control" name="date_birth" type="date" id="date_birth"
+                                            placeholder="Bulan/Hari/Tahun" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="special_needs">Berkebutuhan Khusus</label>
-                                <select class="form-select" id="special_needs" name="special_needs"
-                                    v-model="form.special_needs">
+                                <select class="form-select" id="special_needs" name="special_needs">
                                     <option>Tidak</option>
                                     <option>Netra</option>
                                     <option>Rungu</option>
@@ -97,23 +96,21 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="saudara_kandung_di_sdit">
-                                    Jumlah saudara kandung yang sekolah di SDIT
-                                    Harapan Umat Jember
+                                    Jumlah saudara kandung yang masih sekolah di SDIT Harum Jember
                                 </label>
-                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit"
-                                    v-model="form.saudara_kandung_di_sdit">
+                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit">
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
-                                    <option>lebih dari 4</option>
+                                    <option>5</option>
                                 </select>
                             </div>
                             <hr />
                             <div class="mb-3">
                                 <label class="form-label" for="living">Tempat Tinggal</label>
-                                <select class="form-select" id="living" name="living" v-model="form.living">
+                                <select class="form-select" id="living" name="living">
                                     <option>Bersama orangtua</option>
                                     <option>Kakek-Nenek</option>
                                     <option>Wali</option>
@@ -126,40 +123,35 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <label for="address" class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" id="address" name="address"
-                                        v-model="form.address" required />
+                                    <input type="text" class="form-control" id="address" name="address" required />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="rt" class="form-label">RT/RW</label>
-                                    <input type="text" class="form-control" id="rt" name="rtrw"
-                                        v-model="form.rtrw" required />
+                                    <input type="text" class="form-control" id="rt" name="rtrw" required />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="postalcode" class="form-label">Kode Pos</label>
-                                    <input type="number" class="form-control" id="postalcode" name="postalcode"
-                                        v-model="form.postalcode" />
+                                    <input type="number" class="form-control" id="postalcode" name="postalcode" />
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="desa" class="form-label">Desa</label>
-                                    <input type="text" required class="form-control" id="desa" name="desa"
-                                        v-model="form.desa" />
+                                    <input type="text" required class="form-control" id="desa" name="desa" />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="kecamatan" class="form-label">Kecamatan</label>
-                                    <input type="text" required class="form-control" id="kecamatan" name="kecamatan"
-                                        v-model="form.kecamatan" />
+                                    <input type="text" required class="form-control" id="kecamatan"
+                                        name="kecamatan" />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="kota" class="form-label">Kabupaten/Kota</label>
-                                    <input type="text" required class="form-control" id="kota" name="kota"
-                                        v-model="form.kota" />
+                                    <input type="text" required class="form-control" id="kota" name="kota" />
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="provinsi" class="form-label">Provinsi</label>
-                                    <input type="text" required class="form-control" id="provinsi" name="provinsi"
-                                        v-model="form.provinsi" />
+                                    <input type="text" required class="form-control" id="provinsi"
+                                        name="provinsi" />
                                 </div>
                             </div>
                         </div>
@@ -171,13 +163,12 @@
 
                             <div class="mb-3">
                                 <label class="form-label" for="dad">Nama Ayah</label>
-                                <input class="form-control" id="dad" name="dad" v-model="form.dad"
-                                    type="text" required />
+                                <input class="form-control" id="dad" name="dad" type="text" required />
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="dad_edu">Pendidikan Ayah</label>
-                                <select class="form-select" id="dad_edu" name="dad_edu" v-model="form.dad_edu">
+                                <select class="form-select" id="dad_edu" name="dad_edu">
                                     <option>SD/Sederajat</option>
                                     <option>SMP/Sederajat</option>
                                     <option>SMA/Sederajat</option>
@@ -192,8 +183,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="dad_occupation">Pekerjaan Ayah</label>
-                                <select class="form-select" id="dad_occupation" name="dad_occupation"
-                                    v-model="form.dad_occupation">
+                                <select class="form-select" id="dad_occupation" name="dad_occupation">
                                     <option>Dosen</option>
                                     <option>Pegawai Bank</option>
                                     <option>Dokter</option>
@@ -226,7 +216,7 @@
                                 <label class="form-label" for="dad_income">
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
-                                <select class="form-select" id="dad_income" name="dad_income" v-model="form.dad_income">
+                                <select class="form-select" id="dad_income" name="dad_income">
                                     <option>kurang dari Rp. 1.000.000</option>
                                     <option>
                                         Rp. 1.000.000 - Rp. 2.000.000
@@ -255,8 +245,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="dad_phone">Nomor Telpon Ayah</label>
-                                <input class="form-control" id="dad_phone" name="dad_phone" v-model="form.dad_phone"
-                                    type="number" />
+                                <input class="form-control" id="dad_phone" name="dad_phone" type="number" />
                             </div>
                         </div>
 
@@ -264,12 +253,11 @@
                             <p class="fs-4">Identitas Ibu</p>
                             <div class="mb-3">
                                 <label class="form-label" for="mom">Nama Ibu</label>
-                                <input class="form-control" id="mom" name="mom" v-model="form.mom"
-                                    type="text" required />
+                                <input class="form-control" id="mom" name="mom" type="text" required />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="mom_edu">Pendidikan Ibu</label>
-                                <select class="form-select" id="mom_edu" name="mom_edu" v-model="form.mom_edu">
+                                <select class="form-select" id="mom_edu" name="mom_edu">
                                     <option>SD/Sederajat</option>
                                     <option>SMP/Sederajat</option>
                                     <option>SMA/Sederajat</option>
@@ -284,8 +272,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="mom_occupation">Pekerjaan Ibu</label>
-                                <select class="form-select" id="mom_occupation" name="mom_occupation"
-                                    v-model="form.mom_occupation">
+                                <select class="form-select" id="mom_occupation" name="mom_occupation">
                                     <option>Dosen</option>
                                     <option>Pegawai Bank</option>
                                     <option>Dokter</option>
@@ -317,7 +304,7 @@
                                 <label class="form-label" for="mom_income">
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
-                                <select class="form-select" id="mom_income" name="mom_income" v-model="form.mom_income">
+                                <select class="form-select" id="mom_income" name="mom_income">
                                     <option>kurang dari Rp. 1.000.000</option>
                                     <option>
                                         Rp. 1.000.000 - Rp. 2.000.000
@@ -346,8 +333,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="mom_phone">Nomor Telpon Ibu</label>
-                                <input class="form-control" id="mom_phone" name="mom_phone" v-model="form.mom_phone"
-                                    type="number" />
+                                <input class="form-control" id="mom_phone" name="mom_phone" type="number" />
                             </div>
                         </div>
                     </div>

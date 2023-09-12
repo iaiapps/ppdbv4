@@ -39,6 +39,11 @@
                                 data-bs-target="#document">
                                 upload
                             </button>
+                            @if (Auth::user()->document)
+                                <button class="btn btn-primary rounded text-white"> <i
+                                        class="bi bi-check-circle"></i></button>
+                            @endif
+
                         </li>
                         <li class="list-group-item">
                             Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a

@@ -21,7 +21,7 @@ class ActionController extends Controller
         $user = User::where('id', $request->id)->get()->first();
         // dd($user);
         $user->syncRoles('akun_diterima');
-        return redirect()->route('admstudent.index');
+        return redirect()->route('student.index');
     }
 
     public function rejected(Request $request)
@@ -29,6 +29,6 @@ class ActionController extends Controller
         $user = User::where('id', $request->id)->get()->first();
         // dd($user);
         $user->syncRoles('akun_ditolak');
-        return redirect()->route('admstudent.index');
+        return redirect()->route('student.index');
     }
 }

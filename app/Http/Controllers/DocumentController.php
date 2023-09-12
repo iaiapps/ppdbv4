@@ -42,10 +42,10 @@ class DocumentController extends Controller
         $file = $request->file('document');
         $file_name = $id . '-user' . '-' . time() . '-' . $file->getClientOriginalName();
 
-        //simpan ke folder
-        // ini di folder public
+        // simpan di folder public
         // $request->file('file')->move(public_path('img-document'), $file_name); 
-        // ini di folder storage
+
+        // simpan di folder storage
         $request->file('document')->storeAs('public/img-document', $file_name);
 
         //masukkan ke array validate
@@ -65,7 +65,7 @@ class DocumentController extends Controller
     {
         $id = $request->user;
         $data = Document::where('user_id', $id)->get();
-        return view('admin.student.document', compact('data'));
+        return view('admin.user.document', compact('data'));
     }
 
     /**

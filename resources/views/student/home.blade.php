@@ -25,11 +25,25 @@
             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                 src="{{ asset('img/user.png') }}" alt="user" />
         </div>
-        <p class="fs-4 m-0 text-center">
-            Terima Kasih telah mendaftar di Web PPDB SDIT Harum Jember
-        </p>
-        <a class="btn btn-orange w-50 my-4" href="{{ route('student.profile') }}">
-            Informasi pendaftar</a>
+        @if (Auth::user()->hasRole('akun_isi_formulir'))
+            <div>
+                <p class="fs-4 m-0 text-center">
+                    Terima Kasih telah mendaftar di Web PPDB SDIT Harum Jember
+                </p>
+                <a class="btn btn-orange w-50 my-4" href="{{ route('student.profile') }}">
+                    Informasi pendaftar</a>
+                <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="img-fluid">
+            </div>
+        @elseif (Auth::user()->hasRole('akun_diterima'))
+            <div>
+                <p class="fs-4 m-0 text-center">
+                    Agenda selanjutnya adalah daftar ulang. Lihat rincian baiaya daftar ulang disini
+                </p>
+                <a class="btn btn-orange w-50 my-4" href="{{ route('student.profile') }}">
+                    Informasi rincian biaya daftar ulang ananda</a>
+            </div>
+        @endif
+
     </div>
 
 @endsection
