@@ -12,7 +12,7 @@
                 Kembali</a>
             <p class="fs-5 text-center">Bukti pembayaran {{ $d->name }}</p>
             <hr>
-            <img src="{{ asset('storage/img-document/' . $d->document) }}" alt="document" class="img-fluid">
+            <img src="{{ url('storage/img-document/' . $d->document) }}" alt="document" class="img-fluid">
         @empty
             <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
         @endforelse

@@ -13,6 +13,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Tanggal Daftar</th>
                         <th scope="col">Nama</th>
                         <th scope="col">No. Handphone</th>
                         <th scope="col">Status</th>
@@ -24,6 +25,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->document->created_at }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
