@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item my-1">
-                <a class="nav-link hover rounded {{ Route::currentRouteName() == 'admstudent.index' ? 'bg-menu' : '' }}"
+                <a class="nav-link hover rounded {{ Route::currentRouteName() == 'student.index' ? 'bg-menu' : '' }}"
                     href="{{ route('student.index') }}">
                     <i class="menu-icon bi bi-people-fill me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Students</span>
