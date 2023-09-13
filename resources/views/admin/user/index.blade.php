@@ -25,7 +25,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->document->created_at }}</td>
+                            <td>{{ $user->document->created_at ?? 'belum upload' }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
