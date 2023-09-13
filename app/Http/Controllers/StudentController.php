@@ -100,4 +100,12 @@ class StudentController extends Controller
         $student = Student::where('user_id', $id)->get()->first();
         return view('student.profile', compact('student'));
     }
+
+    public function studentcost()
+    {
+        $id = Auth::user()->id;
+        $student = Student::where('user_id', $id)->get()->first();
+        // dd($students);
+        return view('student.costreg', compact('student'));
+    }
 }

@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
         Route::get('student-profil', [StudentController::class, 'studentprofil'])->name('student.profile');
         Route::get('student-timeline', [TimelineController::class, 'showtimeline'])->name('student.timeline');
         Route::resource('student', StudentController::class)->only(['create', 'store']);
+        Route::get('student-cost', [StudentController::class, 'studentcost'])->name('student.cost');
+
         // Route::get('student', [StudentController::class, 'isiform'])->name('isiform');
         // });
     });

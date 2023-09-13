@@ -82,8 +82,8 @@
             @if (Auth::user()->hasRole('akun_diterima'))
                 <li class="nav-item my-0 my-md-1">
                     <a class="nav-link hover rounded text-center text-md-start 
-                {{ Route::currentRouteName() == 'student.profile' ? 'bg-menu' : '' }}"
-                        href="{{ route('student.profile') }}">
+                {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
+                        href="{{ route('student.cost') }}">
                         <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
                         <span class="d-none d-md-inline-block">Daftar Ulang</span>
                         <small class="d-block d-md-none">Daftar Ulang</small></a>

@@ -2167,17 +2167,17 @@
      fit-margin-left="0"
      fit-margin-top="0"
      inkscape:window-maximized="1"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:window-height="699"
+     inkscape:window-height="732"
      inkscape:window-width="1366"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="366.66698"
-     inkscape:cx="631.91543"
-     inkscape:zoom="0.57681769"
+     inkscape:cy="258.53038"
+     inkscape:cx="475.22585"
+     inkscape:zoom="1.0637048"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -2811,7 +2811,7 @@
          y="63.735989"
          sodipodi:role="line"
          id="tspan972"
-         style="stroke-width:0.368426">1.000.000</tspan></text>
+         style="stroke-width:0.368426">1.100.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text986"
@@ -2840,7 +2840,7 @@
          sodipodi:role="line"
          id="tspan1024"
          style="stroke-width:0.368426"
-         y="63.735989">1.000.000.</tspan></text>
+         y="63.735989">1.100.000.</tspan></text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text1038"
@@ -3315,7 +3315,7 @@
          y="97.638588"
          sodipodi:role="line"
          id="tspan1748"
-         style="stroke-width:0.368426">750.000</tspan></text>
+         style="stroke-width:0.368426">785.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text1762"
@@ -3335,7 +3335,7 @@
          y="97.638588"
          sodipodi:role="line"
          id="tspan1788"
-         style="stroke-width:0.368426">750.000</tspan></text>
+         style="stroke-width:0.368426">785.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text1802"
@@ -3474,7 +3474,7 @@
          x="94.717216"
          y="111.34405"
          id="tspan1964"
-         style="stroke-width:0.368426">535.000</tspan></text>
+         style="stroke-width:0.368426">575.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text1978"
@@ -3941,7 +3941,7 @@
          y="146.42931"
          sodipodi:role="line"
          id="tspan2704"
-         style="stroke-width:0.368426">10.010.000</tspan></text>
+         style="stroke-width:0.368426">10.145.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:bold;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Bold';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text2718"
@@ -3961,7 +3961,7 @@
          id="tspan2744"
          style="stroke-width:0.368426"
          x="141.23106"
-         y="146.42931">9.850.000</tspan></text>
+         y="146.42931">9.985.000</tspan></text>
     <text
        style="font-variant:normal;font-weight:bold;font-size:4.78954px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Bold';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.368426"
        id="text2758"
@@ -4253,14 +4253,14 @@
          sodipodi:role="line">SDIT HARAPAN UMAT JEMBER</tspan></text>
     <text
        id="text72487"
-       y="9.5369911"
-       x="74.127739"
-       style="font-style:normal;font-weight:normal;font-size:4.45646px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.111412"
+       y="9.6868925"
+       x="70.889595"
+       style="font-style:normal;font-weight:normal;font-size:4.91094px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.122774"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;stroke-width:0.111412"
-         y="9.5369911"
-         x="74.127739"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;stroke-width:0.122774"
+         y="9.6868925"
+         x="70.889595"
          id="tspan72485"
-         sodipodi:role="line">TAHUN PELAJARAN 2023/2024</tspan></text>
+         sodipodi:role="line">TAHUN PELAJARAN 2024/2025</tspan></text>
   </g>
 </svg>

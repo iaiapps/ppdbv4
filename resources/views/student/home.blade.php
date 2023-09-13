@@ -15,17 +15,17 @@
                 Jember
             </p>
         @elseif (Auth::user()->hasRole('akun_ditolak'))
-            <p class="my-1 text-white bg-primary p-1 rounded fs-3 fw-bold">Mohon Maaf ananda Belum Diterima di SDIT Harum
+            <p class="my-1 text-white bg-danger p-1 rounded fs-3 fw-bold">Mohon Maaf ananda Belum Diterima di SDIT Harum
                 Jember</p>
         @endif
     </div>
 
-    <div class="bg-white rounded p-3 min-vh-100 text-center">
-        <div class="bg-orange backheight position-relative rounded">
-            <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
-                src="{{ asset('img/user.png') }}" alt="user" />
-        </div>
-        @if (Auth::user()->hasRole('akun_isi_formulir'))
+    @if (Auth::user()->hasRole('akun_isi_formulir'))
+        <div class="bg-white rounded p-3 min-vh-100 text-center">
+            <div class="bg-orange backheight position-relative rounded">
+                <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
+                    src="{{ asset('img/user.png') }}" alt="user" />
+            </div>
             <div>
                 <p class="fs-4 m-0 text-center">
                     Terima Kasih telah mendaftar di Web PPDB SDIT Harum Jember
@@ -34,16 +34,34 @@
                     Informasi pendaftar</a>
                 <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="img-fluid">
             </div>
-        @elseif (Auth::user()->hasRole('akun_diterima'))
+        </div>
+    @elseif (Auth::user()->hasRole('akun_diterima'))
+        <div class="bg-white rounded p-3 min-vh-100 text-center">
+            <div class="bg-orange backheight position-relative rounded">
+                <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
+                    src="{{ asset('img/user.png') }}" alt="user" />
+            </div>
             <div>
                 <p class="fs-4 m-0 text-center">
                     Agenda selanjutnya adalah daftar ulang. Lihat rincian baiaya daftar ulang disini
                 </p>
-                <a class="btn btn-orange w-50 my-4" href="{{ route('student.profile') }}">
+                <a class="btn btn-orange w-50 my-4" href="{{ route('student.cost') }}">
                     Informasi rincian biaya daftar ulang ananda</a>
             </div>
-        @endif
+        </div>
+    @elseif (Auth::user()->hasRole('akun_ditolak'))
+        <div class="bg-white rounded p-3 min-vh-100 text-center">
+            <div class="bg-orange backheight position-relative rounded">
+                <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
+                    src="{{ asset('img/user.png') }}" alt="user" />
+            </div>
+            <div>
+                <p class="my-1  p-1 rounded fs-3 fw-bold">Jangan putus asa dan tetap semangat</p>
 
-    </div>
+
+            </div>
+        </div>
+    @endif
+
 
 @endsection
