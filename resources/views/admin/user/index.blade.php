@@ -26,7 +26,8 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->document->created_at->isoFormat('DD-MM-YYYY') ?? 'belum upload' }}</td>
+                            <td>{{ $user->document ? $user->document->created_at->isoFormat('DD-MM-YYYY') : 'belum upload' }}
+                            </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
