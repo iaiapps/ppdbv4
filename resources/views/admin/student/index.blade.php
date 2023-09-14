@@ -8,6 +8,8 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Data yang sudah mengisi Formulir Pendaftaran</p>
         <hr>
+        {{-- <a href="{{ route('student.all') }}" class="btn btn-success btn-sm mb-3"> data semua user</a> --}}
+        <a href="{{ route('student.export') }}" class="btn btn-success btn-sm mb-3"> export data user</a>
         <div class="table-responsive">
             <table id="table" class="table table-bordered rounded align-middle">
                 <thead>

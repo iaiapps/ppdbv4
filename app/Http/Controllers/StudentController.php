@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CostCategory;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\CostCategory;
 use Illuminate\Http\Request;
+use App\Exports\StudentExport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -77,6 +79,19 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
+    }
+
+    // all student
+    public function studentall()
+    {
+        $students = Student::all();
+        return view('admin.student.all', compact('students'));
+    }
+
+    //export student
+    public function exportstudent()
+    {
+        return Excel::download(new StudentExport, 'pendaftar.xls');
     }
 
     // set biaya registrasi ulang

@@ -36,6 +36,10 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::resource('user', UserController::class);
             Route::resource('student', StudentController::class);
+
+            Route::get('student-all', [StudentController::class, 'studentall'])->name('student.all');
+            Route::get('student-export', [StudentController::class, 'exportstudent'])->name('student.export');
+
             Route::get('document', [DocumentController::class, 'show'])->name('document.show');
 
             //tombol helper action
