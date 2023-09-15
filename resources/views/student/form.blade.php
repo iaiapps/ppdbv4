@@ -28,7 +28,7 @@
                                         <label class="form-label" for="full_name">Nama Lengkap
                                         </label>
                                         <input class="form-control" id="full_name" name="full_name" type="text"
-                                            value="{{ Auth::user()->name }}" required readonly />
+                                            value="{{ Str::upper(Auth::user()->name) }}" required readonly />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -337,9 +337,8 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-orange btn-lg w-100 mt-3">
-                        Simpan Data
-                    </button>
+                    <input type="submit" class="btn btn-orange btn-lg w-100 mt-3"
+                        onclick="return confirm('Pastikan Data yang anda kirim sudah benar!')" value="Simpan Data">
                 </form>
             </div>
         </div>
