@@ -27,7 +27,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="full_name">Nama Lengkap
                                         </label>
-                                        <input class="form-control" id="full_name" name="full_name" type="text"
+                                        <input class="form-control bg-light" id="full_name" name="full_name" type="text"
                                             value="{{ Str::upper(Auth::user()->name) }}" required readonly />
                                     </div>
                                 </div>
