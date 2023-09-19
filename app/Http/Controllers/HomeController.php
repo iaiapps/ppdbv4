@@ -33,7 +33,7 @@ class HomeController extends Controller
             return view('student.bridge', compact('user'));
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');
-        } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima'])) {
+        } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak'])) {
             return view('student.home');
         }
     }

@@ -79,6 +79,10 @@
                             <td>{{ $student->dad_edu }}</td>
                         </tr>
                         <tr>
+                            <td>Pekerjaan</td>
+                            <td>{{ $student->dad_occupation }}</td>
+                        </tr>
+                        <tr>
                             <td>Penghasilan</td>
                             <td>{{ $student->dad_income }}</td>
                         </tr>
@@ -98,6 +102,10 @@
                         <tr>
                             <td>Pendidikan</td>
                             <td>{{ $student->mom_edu }}</td>
+                        </tr>
+                        <tr>
+                            <td>Pekerjaan</td>
+                            <td>{{ $student->mom_occupation }}</td>
                         </tr>
                         <tr>
                             <td>Penghasilan</td>
