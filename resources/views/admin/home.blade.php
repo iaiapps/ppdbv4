@@ -14,7 +14,7 @@
             Selamat datang Admin di Dashboard website PPDB SDIT Harapan Umat
             Jember
         </p>
-        <a class="btn btn-warning w-50 my-4" href="/admin/users">
+        <a class="btn btn-warning w-50 my-4 btn-orange" href="{{ route('user.index') }}">
             Informasi pendaftar</a>
     </div>
 

@@ -24,26 +24,29 @@
                 </thead>
                 <tbody>
                     @foreach ($students as $student)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $student->full_name }}</td>
-                            <td>{{ $student->cost_category->name ?? 'belum ditentukan' }}</td>
-                            <td>
-                                <form action="{{ route('student.update', $student->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="input-group ">
-                                        <select class="form-select" name="cost_category_id">
-                                            <option selected disabled>pilih kategori</option>
-                                            @foreach ($costs as $cost)
-                                                <option value="{{ $cost->id }}">{{ $cost->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <button type="submit" class="btn btn-success btn-sm">pilih</button>
-                                    </div>
-                                </form>
-                            </td>
-                        </tr>
+                        @if ($student->user->hasRole('akun_diterima'))
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $student->full_name }}</td>
+                                <td>{{ $student->cost_category->name ?? 'belum ditentukan' }}</td>
+                                <td>
+                                    <form action="{{ route('student.update', $student->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="input-group ">
+                                            <select class="form-select" name="cost_category_id">
+                                                <option selected disabled>pilih kategori</option>
+                                                @foreach ($costs as $cost)
+                                                    <option value="{{ $cost->id }}">{{ $cost->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <button type="submit" class="btn btn-success btn-sm">pilih</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
@@ -57,7 +60,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "pageLength": 50
+                paging: false
             });
         });
     </script>

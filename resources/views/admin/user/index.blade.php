@@ -14,11 +14,12 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Tanggal Daftar*</th>
+                        <th scope="col">Tgl_Daftar*</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">No. Handphone</th>
+                        <th scope="col">No. HP</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Transfer</th>
+                        <th scope="col">S_Tf</th>
+                        <th scope="col">Bukti</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -26,26 +27,29 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->document ? $user->document->created_at->isoFormat('DD-MM-YYYY') : 'belum upload' }}
+                            <td>{{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload bukti' }}
                             </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
+                            <td>{!! $user->document
+                                ? '<i class="bi bi-check-circle btn btn-primary btn-sm"></i>'
+                                : '<i class="bi bi-x-circle btn btn-danger btn-sm"></i>' !!}</td>
                             <td>
-                                {{ $user->document ? 'sudah' : 'belum' }}
                                 <a href="{{ route('document.show', ['user' => $user->id]) }}"
-                                    class="btn btn-outline-primary btn-sm">lihat
-                                    bukti</a>
+                                    class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
                             </td>
                             <td>
-                                <div class="d-inline-block">
-                                    <form action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm">aktifkan</button>
-                                    </form>
-                                </div>
+                                @if ($user->hasRole('akun_dibuat'))
+                                    <div class="d-inline-block">
+                                        <form action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm">aktifkan</button>
+                                        </form>
+                                    </div>
+                                @endif
                                 <a href="https://api.whatsapp.com/send?phone=628{{ substr($user->email_number, 2) }}"
-                                    target="_blank" class="btn btn-success btn-sm">kirim wa</a>
+                                    target="_blank" class="btn btn-success btn-sm"><i class="bi bi-whatsapp"></i></a>
                             </td>
                         </tr>
                     @endforeach

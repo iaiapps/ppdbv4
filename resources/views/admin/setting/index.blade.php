@@ -21,7 +21,7 @@
         <div class="p-3 mb-3 border rounded">
             <p class="m-0">Setting Contact</p>
             <hr>
-            <a href="{{ route('costcat.index') }}" class="btn btn-orange">set Kontak</a>
+            <a href="{{ route('setting.contact') }}" class="btn btn-orange">set Kontak</a>
         </div>
     </div>
 @endsection

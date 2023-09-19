@@ -51,6 +51,13 @@ Route::middleware('auth')->group(function () {
 
             // setting
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+
+            //contact
+            Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
+            Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
+            Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
+
+
             Route::resource('costcat', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
         });
