@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class LandingController extends Controller
     {
 
         $times = Timeline::all();
-        return view('landing.index', compact('times'));
+        $contacts = Setting::where('name', 'kontak')->get();
+        return view('landing.index', compact('times', 'contacts'));
     }
 }

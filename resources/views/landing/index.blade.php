@@ -143,7 +143,7 @@
                         <h3>Jam Pelayanan</h3>
                         <h4 class="bg-orange rounded px-3 py-1">Senin s/d Jum'at</h4>
                         <p class="fs-4">08.00-15.30</p>
-                        <h4 class="bg-orange rounded px-3 py-1">Sabtu</h4>
+                        <h4 class="bg-orange rounded px-3 py-1">Sabtu (online)</h4>
                         <p class="fs-4">08.00-11.30</p>
                     </div>
                     <div class="col-2 d-none d-md-block">
@@ -152,10 +152,14 @@
                     <div class="text-center col-12 col-md-5">
                         <img src="{{ asset('img/wa.png') }}" alt="wa" class="gbr-cp" />
                         <h3>Hubungi Kami</h3>
-                        <h4 class="fs-4 bg-orange rounded px-3 py-1">Ust Ristiono</h4>
-                        <p class="fs-4">088-289-378-109</p>
-                        <h4 class="fs-4 bg-orange rounded px-3 py-1">Pak Ikrom (konfirmasi)</h4>
-                        <p class="fs-4">0852-3221-3939</p>
+                        @forelse ($contacts as $contact)
+                            <h4 class="fs-4 bg-orange rounded px-3 py-1">{{ $contact->desc }}</h4>
+                            <p class="fs-4">{{ $contact->value }}</p>
+                        @empty
+                            <div class="p-3 bg-orange">
+                                <p>belum ada data</p>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
