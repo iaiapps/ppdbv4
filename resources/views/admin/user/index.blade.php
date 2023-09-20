@@ -32,11 +32,11 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
-                            <td> {{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload' }}
+                            <td>
                                 {!! $user->document
-                                    ? '<i class="bi bi-check-circle text-primary"></i>'
+                                    ? '<i class="bi bi-check-circle text-primary "></i>'
                                     : '<i class="bi bi-x-circle text-danger"></i>' !!}
-
+                                {{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload' }}
                             </td>
                             <td>
                                 <a href="{{ route('document.show', ['user' => $user->id]) }}"
