@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
 
 
-            Route::resource('costcat', CostCategoryController::class);
+            Route::resource('costCategory', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
         });
     });

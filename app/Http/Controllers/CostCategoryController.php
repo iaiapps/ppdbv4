@@ -21,7 +21,7 @@ class CostCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.setting.costcat.create');
     }
 
     /**
@@ -29,7 +29,9 @@ class CostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        CostCategory::create($data);
+        return redirect()->route('costCategory.index');
     }
 
     /**
@@ -45,7 +47,7 @@ class CostCategoryController extends Controller
      */
     public function edit(CostCategory $costCategory)
     {
-        //
+        return view('admin.setting.costcat.edit', compact('costCategory'));
     }
 
     /**
@@ -53,7 +55,10 @@ class CostCategoryController extends Controller
      */
     public function update(Request $request, CostCategory $costCategory)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+        $costCategory->update($data);
+        return redirect()->route('costCategory.index');
     }
 
     /**
@@ -61,6 +66,7 @@ class CostCategoryController extends Controller
      */
     public function destroy(CostCategory $costCategory)
     {
-        //
+        $costCategory->delete();
+        return redirect()->route('costCategory.index');
     }
 }

@@ -16,7 +16,7 @@
         <div class="p-3 mb-3 border rounded">
             <p class="m-0">Setting Biaya</p>
             <hr>
-            <a href="{{ route('costcat.index') }}" class="btn btn-orange">set kategori biaya</a>
+            <a href="{{ route('costCategory.index') }}" class="btn btn-orange">set kategori biaya</a>
         </div>
         <div class="p-3 mb-3 border rounded">
             <p class="m-0">Setting Contact</p>
