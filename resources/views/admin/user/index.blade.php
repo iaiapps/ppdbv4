@@ -14,11 +14,11 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Tgl_Daftar*</th>
+                        <th scope="col">Tgl_Daftar</th>
                         <th scope="col">Nama</th>
                         <th scope="col">No. HP</th>
                         <th scope="col">Status</th>
-                        <th scope="col">S_Tf</th>
+                        <th scope="col">Tgl_Tf*</th>
                         <th scope="col">Bukti</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -27,14 +27,17 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload bukti' }}
+                            <td>{{ $user->created_at->isoFormat('DD/MM/YY') }}
                             </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
-                            <td>{!! $user->document
-                                ? '<i class="bi bi-check-circle btn btn-primary btn-sm"></i>'
-                                : '<i class="bi bi-x-circle btn btn-danger btn-sm"></i>' !!}</td>
+                            <td> {{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload' }}
+                                {!! $user->document
+                                    ? '<i class="bi bi-check-circle text-primary"></i>'
+                                    : '<i class="bi bi-x-circle text-danger"></i>' !!}
+
+                            </td>
                             <td>
                                 <a href="{{ route('document.show', ['user' => $user->id]) }}"
                                     class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
