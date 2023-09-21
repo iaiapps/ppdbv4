@@ -35,13 +35,15 @@
                         </li>
                         <li class="list-group-item">
                             Upload bukti pembayaran disini
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#document">
-                                upload
-                            </button>
+
                             @if (Auth::user()->document)
-                                <button class="btn btn-primary rounded text-white"> <i
-                                        class="bi bi-check-circle"></i></button>
+                                <button class="btn btn-primary rounded text-white"><i class="bi bi-check-circle"></i> sudah
+                                    upload</button>
+                            @else
+                                <button type="button" class="btn btn-success align-middle" data-bs-toggle="modal"
+                                    data-bs-target="#document">
+                                    upload
+                                </button>
                             @endif
 
                         </li>
