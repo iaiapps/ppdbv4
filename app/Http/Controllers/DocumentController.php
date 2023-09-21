@@ -35,7 +35,7 @@ class DocumentController extends Controller
         //validate
         $imgDocument = $request->validate([
             'name' => 'required',
-            'document' => 'mimes:jpeg,jpg,png|file|max:512',
+            'document' => 'mimes:jpeg,jpg,png|file|max:1024',
         ]);
 
         //beri nama

@@ -8,23 +8,29 @@
             <div class="row">
                 <div class="col-12 col-md-6 pt-md-4 center">
                     <div class="pt-3 pt-md-5 ">
-                        <h2 class="fs-1 bg-dark py-2 px-3 text-white d-inline-block rounded">
+                        <h2 class="fs-2 fw-bold bg-dark py-2 px-3 text-white d-inline-block rounded">
                             PPDB SDIT HARAPAN UMAT JEMBER
                         </h2>
                     </div>
-                    <div class="pt-3">
+                    <div class="py-3">
                         <p class="fs-3 m-0">
                             Telah dibuka untuk tahun 2024/2025
                         </p>
                         <p class="fs-3">Segera daftar, kuota terbatas!</p>
                     </div>
-                    <div class="pt-3 d-grid gap-2 d-md-block">
+                    <div class=" d-grid gap-2 d-md-block">
                         <a class="btn btn-dark btn-lg" href="{{ route('register') }}">
                             DAFTAR SEKARANG
                         </a>
-                        <a href="https://wa.me/6285232213939" target="_blank" class="btn btn-outline-dark btn-lg">
-                            WA ADMIN
-                        </a>
+                        @desktop
+                            <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
+                                class="btn btn-outline-dark btn-lg">
+                                WA ADMIN</a>
+                        @elsedesktop
+                            <a href="whatsapp://send?phone=6285232213939" target="_blank" class="btn btn-outline-dark btn-lg">
+                                WA ADMIN</a>
+                        @enddesktop
+
                     </div>
                 </div>
                 <div class="col-12 col-md-6 pt-4 order-first order-md-last d-flex justify-content-center ">
@@ -34,19 +40,19 @@
         </div>
     </div>
     <div class="text-center bg-dark p-4 p-md-5 text-white top">
-        <p class="fs-1">Sudah punya akun PPDB? <br> Login web disini</p>
-        <a class="btn btn-orange w-50 btn-lg text-white" as="button" href="{{ route('login') }}">LOGIN</a>
+        <p class="fs-2">Sudah punya akun ? <br> Login web disini</p>
+        <a class="btn btn-orange w-50 btn-lg text-white" href="{{ route('login') }}">LOGIN</a>
     </div>
     <div id="panduan" class="bg-orange">
         <div class="container py-md-5 py-4">
-            <h3 class="fs-1 text-center mb-4 text-white">Panduan Pendaftaran</h3>
+            <h3 class="fs-2 text-center mb-4 text-white">Panduan Pendaftaran</h3>
 
-            <ol class="list-group list-group-numbered fs-4">
+            <ol class="list-group list-group-numbered fs-5">
                 <li class="list-group-item">Membuat Akun PPDB, di <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
                 <li class="list-group-item">Membayar biaya pendaftaran sebesar :
-                    <span class="bg-orange text-white px-1 rounded fw-bold">Rp 300.000</span>
-                    ke rekening <span class="bg-orange text-white px-1 rounded fw-bold">BSI 4441234007</span> a.n.
+                    <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 300.000</span>
+                    ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 4441234007</span> a.n.
                     Sekolah Dasar Islam Terpadu Harapan Umat
                     Jember.
                 </li>
@@ -111,7 +117,7 @@
     </div>
 
     <div id="jadwal" class="container">
-        <h3 class="text-center fs-1 pt-3 pt-md-5">
+        <h3 class="text-center fs-2 pt-3 pt-md-5">
             Jadwal Pendaftaran (Timeline)
         </h3>
         <div class="row mb-5 text-center">
@@ -121,7 +127,7 @@
                         <img class="img-ket mb-1" src="{{ asset('img') . '/' . $time->icon }}" />
                         <p class="py-1 px-2 fs-5 my-2 bg-white rounded"> {{ $time->name }}
                         </p>
-                        <p class="fs-4 text-black m-0 ">
+                        <p class="fs-5 text-black m-0 ">
                             {{ $time->date }}
                         </p>
                     </div>
@@ -140,7 +146,7 @@
                 <div class="row text-center">
                     <div class="text-center col-12 col-md-5">
                         <img src="{{ asset('img/scdh.png') }}" alt="scdh" class="gbr-cp" />
-                        <h3>Jam Pelayanan</h3>
+                        <h4>Jam Pelayanan</h4>
                         <h4 class="bg-orange rounded px-3 py-1">Senin s/d Jum'at</h4>
                         <p class="fs-4">08.00-15.30</p>
                         <h4 class="bg-orange rounded px-3 py-1">Sabtu (online)</h4>
@@ -151,9 +157,9 @@
                     </div>
                     <div class="text-center col-12 col-md-5">
                         <img src="{{ asset('img/wa.png') }}" alt="wa" class="gbr-cp" />
-                        <h3>Hubungi Kami</h3>
+                        <h4>Hubungi Kami</h4>
                         @forelse ($contacts as $contact)
-                            <h4 class="fs-4 bg-orange rounded px-3 py-1">{{ $contact->desc }}</h4>
+                            <h4 class="bg-orange rounded px-3 py-1">{{ $contact->desc }}</h4>
                             <p class="fs-4">{{ $contact->value }}</p>
                         @empty
                             <div class="p-3 bg-orange">

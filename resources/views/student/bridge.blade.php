@@ -47,11 +47,20 @@
                             @endif
 
                         </li>
-                        <li class="list-group-item">
-                            Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a
-                                href="https://api.whatsapp.com/send/?phone=6285232213939&text&type=phone_number&app_absent=0"
-                                target="_blank" class="btn btn-orange"> No. WA Admin</a>
-                        </li>
+
+                        @desktop
+                            <li class="list-group-item">
+                                Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a
+                                    href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
+                                    class="btn btn-orange"> No. WA Admin</a>
+                            </li>
+                        @elsedesktop
+                            <li class="list-group-item">
+                                Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a
+                                    href="whatsapp://send?phone=6285232213939" target="_blank" class="btn btn-orange"> No. WA
+                                    Admin</a>
+                            </li>
+                        @enddesktop
                     </ul>
                     <form action="{{ route('logout') }}" method="post">
                         <div class="btn-group w-100 mt-2">

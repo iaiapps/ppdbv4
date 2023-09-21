@@ -6,27 +6,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <p class="fs-5">dokumen berupa .png atau .jpg</p>
-                {{-- <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label class="form-label" for="jenisprestasi">Jenis Dokumen
-                        </label>
-
-                    </div>
-                    <input class="form-control" type="file" name="file" class="pt-2">
-                    <button type="submit" class="btn btn-primary mt-3 float-end">Upload Dokumen</button>
-                </form> --}}
-
-
+                <p class="fs-5 mb-4">gambar berupa .png atau .jpg*</p>
                 <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="name" value="{{ $user->name }} " hidden>
                     <input class="form-control" type="file" name="document" class="pt-2">
-                    <button type="submit" class="btn btn-success mt-4 w-100 ">upload</button>
+                    <small class="d-block py-2 text-start">*ukuran maksimal 1 mb</small>
+                    <button type="submit" class="btn btn-success mt-4 w-100 ">simpan data</button>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

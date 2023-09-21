@@ -32,7 +32,7 @@
 @push('css')
     <style>
         .imglogo {
-            width: 170px;
+            width: 160px;
         }
 
         .bg-nav {
@@ -56,22 +56,13 @@
             color: white;
         }
 
-        .bg-card {
-            height: 100%;
-            border-radius: 10px;
-            background-color: #f79500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .img-ket {
-            width: 80px;
-        }
-
         @media only screen and (max-width: 600px) {
             .bg-nav {
                 background-color: #ffc107;
+            }
+
+            .imglogo {
+                width: 130px;
             }
         }
     </style>

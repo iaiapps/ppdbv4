@@ -1,6 +1,6 @@
 <div class="bg-dark">
-    <div class="container">
-        <div class="row text-white pt-md-5 pt-4">
+    <div class="container ">
+        <div class="row text-white pt-md-5 pt-4 text-center text-md-start">
             <div class="col-12 col-md-6">
                 <h3>SDIT HARAPAN UMAT JEMBER</h3>
                 <p class="fs-6 pt-3">
@@ -8,18 +8,19 @@
                     <br />Kec. Sumbersari, Kabupaten Jember
                     <br />Jawa Timur 68124
                 </p>
-                <div class="pt-3">
-                    <a href="#" class="btn btn-outline-light me-3">
-                        <i class="bi bi-globe fs-5"></i>
+                <div class="py-3 ">
+                    <a href="https://sditharum.id/" class="btn btn-outline-light me-3">
+                        <i class="bi bi-globe"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-light me-3">
-                        <i class="bi bi-facebook fs-5"></i>
+                    <a href="https://web.facebook.com/sditharumjember" class="btn btn-outline-light me-3">
+                        <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-light me-3">
-                        <i class="bi bi-instagram fs-5"></i>
+                    <a href="https://web.facebook.com/sditharumjember" class="btn btn-outline-light me-3">
+                        <i class="bi bi-instagram"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-light me-3">
-                        <i class="bi bi-youtube fs-5"></i>
+                    <a href="https://www.youtube.com/channel/UC6i6NQY1oxXL5MloBQGc8KA"
+                        class="btn btn-outline-light me-3">
+                        <i class="bi bi-youtube"></i>
                     </a>
                 </div>
             </div>

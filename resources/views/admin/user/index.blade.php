@@ -18,7 +18,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">No. HP</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Tgl_Tf*</th>
+                        <th scope="col">Tgl_Up*</th>
                         <th scope="col">Bukti</th>
                         <th scope="col">Action</th>
                     </tr>
