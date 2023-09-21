@@ -22,16 +22,13 @@
                     <ul class="list-group fs-5 mb-3">
                         <li class="list-group-item">
                             Sebelum melanjutkan pendaftaran, lakukan pembayaran
-                            terlebih dahulu untuk mengaktifkan Akun.
+                            terlebih dahulu untuk <b>mengaktifkan Akun</b>.
                         </li>
                         <li class="list-group-item">
                             Biaya pendaftaran sebesar:
                             <span class="badge bg-orange">Rp 300.000</span>, pembayaran melalui
-                            rekening sekolah BSI <span class="badge bg-orange">4441234007</span><br />
-                            a/n
-                            <i>
-                                Sekolah Dasar Islam Terpadu Harapan Umat
-                                Jember</i>
+                            rekening sekolah <span class="badge bg-orange">BSI 4441234007</span><br />
+                            a.n Sekolah Dasar Islam Terpadu Harapan Umat Jember
                         </li>
                         <li class="list-group-item">
                             Upload bukti pembayaran disini
@@ -48,19 +45,16 @@
 
                         </li>
 
-                        @desktop
-                            <li class="list-group-item">
-                                Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a
-                                    href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
+                        <li class="list-group-item">
+                            Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke
+                            @desktop
+                                <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
                                     class="btn btn-orange"> No. WA Admin</a>
-                            </li>
-                        @elsedesktop
-                            <li class="list-group-item">
-                                Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke <a
-                                    href="whatsapp://send?phone=6285232213939" target="_blank" class="btn btn-orange"> No. WA
+                            @elsedesktop
+                                <a href="whatsapp://send?phone=6285232213939" target="_blank" class="btn btn-orange"> No. WA
                                     Admin</a>
-                            </li>
-                        @enddesktop
+                            @enddesktop
+                        </li>
                     </ul>
                     <form action="{{ route('logout') }}" method="post">
                         <div class="btn-group w-100 mt-2">
