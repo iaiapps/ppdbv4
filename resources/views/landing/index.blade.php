@@ -116,6 +116,18 @@
         </div>
     </div>
 
+    <div id="panduan" class="bg-orange">
+        <div class="container pb-md-5 pb-4">
+            <h3 class="fs-2 text-center mb-4 text-white">Syarat Pendaftaran</h3>
+
+            <ol class="list-group list-group-numbered fs-5 text-center">
+                <li class="list-group-item">FC KK (Kartu Keluarga) dan Akte Lahir</li>
+                <li class="list-group-item">FC Ijazah TK atau Surat Keterangan Lulus </li>
+                <li class="list-group-item"> Pas Foto 3x4 3 lembar background biru</li>
+            </ol>
+        </div>
+    </div>
+
     <div id="jadwal" class="container">
         <h3 class="text-center fs-2 pt-3 pt-md-5">
             Jadwal Pendaftaran (Timeline)
