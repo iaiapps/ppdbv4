@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::resource('user', UserController::class);
+            Route::put('reset-pass', [UserController::class, 'resetpass'])->name('reset.pass');
+
             Route::resource('student', StudentController::class);
 
             Route::get('student-all', [StudentController::class, 'studentall'])->name('student.all');

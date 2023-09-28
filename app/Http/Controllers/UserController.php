@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\isNull;
+
 class UserController extends Controller
 {
     /**
@@ -36,7 +39,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
         //
     }
@@ -44,24 +47,54 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $name = $request->name;
+        $email_number = $request->email_number;
+        // $password = $request->password;
+
+        // if (isset($password)) {
+        //     $user->update([
+        //         'name' => $name,
+        //         'email_number' => $email_number,
+        //         'password' => Hash::make($password),
+        //     ]);
+        // } elseif (!isset($password)) {
+        //     $user->update([
+        //         'name' => $name,
+        //         'email_number' => $email_number,
+        //     ]);
+        // }
+
+        $user->update([
+            'name' => $name,
+            'email_number' => $email_number,
+        ]);
+        return redirect()->route('user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
         //
+    }
+
+    // helper
+    public function resetpass(Request $request)
+    {
+        $id = $request->id;
+        User::where('id', $id)->update(['password' => Hash::make('password')]);
+        // dd($id);
+        return redirect()->route('user.index');
     }
 }

@@ -51,7 +51,7 @@
                                 <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
                                     class="btn btn-orange"> No. WA Admin</a>
                             @elsedesktop
-                                <a href="whatsapp://send?phone=6285232213939" target="_blank" class="btn btn-orange"> No. WA
+                                <a href="https://wa.me/6285232213939" target="_blank" class="btn btn-orange"> No. WA
                                     Admin</a>
                             @enddesktop
                         </li>

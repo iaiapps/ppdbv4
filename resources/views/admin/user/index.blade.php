@@ -20,7 +20,8 @@
                         <th scope="col">Status</th>
                         <th scope="col">Tgl_Up*</th>
                         <th scope="col">Bukti</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aktf_Wa</th>
+                        <th scope="col">Act_2</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,14 +46,29 @@
                             <td>
                                 @if ($user->hasRole('akun_dibuat'))
                                     <div class="d-inline-block">
-                                        <form action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
+                                        <form onsubmit="return confirm('Apakah anda yakin untuk mengkatifkan akun ini ?');"
+                                            action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm">aktifkan</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                                    class="bi bi-check-circle"></i></button>
                                         </form>
                                     </div>
                                 @endif
-                                <a href="https://api.whatsapp.com/send?phone=628{{ substr($user->email_number, 2) }}"
-                                    target="_blank" class="btn btn-success btn-sm"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://wa.me/628{{ substr($user->email_number, 2) }}" target="_blank"
+                                    class="btn btn-success btn-sm"><i class="bi bi-whatsapp"></i></a>
+                            </td>
+                            <td>
+                                <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
+                                    href="{{ route('user.edit', $user->id) }}" class="btn btn-warning btn-sm"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <form onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
+                                    action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST"
+                                    class="d-inline-block">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-secondary btn-sm"><i
+                                            class="bi bi-arrow-clockwise"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
