@@ -21,7 +21,7 @@
                         <th scope="col">Tgl_Up*</th>
                         <th scope="col">Bukti</th>
                         <th scope="col">Aktf_Wa</th>
-                        <th scope="col">Act_2</th>
+                        <th scope="col">Action2</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,14 +61,16 @@
                                 <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
                                     href="{{ route('user.edit', $user->id) }}" class="btn btn-warning btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>
-                                <form onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
-                                    action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST"
-                                    class="d-inline-block">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-secondary btn-sm"><i
-                                            class="bi bi-arrow-clockwise"></i></button>
-                                </form>
+                                <div class="d-inline-block">
+                                    <form onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
+                                        action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-secondary btn-sm"><i
+                                                class="bi bi-arrow-clockwise"></i></button>
+                                    </form>
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach
