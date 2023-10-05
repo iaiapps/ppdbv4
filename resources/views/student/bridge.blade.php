@@ -46,7 +46,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            Akun akan aktif 1x24 jam, jika akun belum aktif silahkan hubungi ke
+                            Akun akan aktif dalam 1 x 24 jam, jika akun belum aktif silahkan hubungi ke
                             @desktop
                                 <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
                                     class="btn btn-orange"> No. WA Admin</a>
