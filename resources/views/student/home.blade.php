@@ -27,11 +27,15 @@
                     src="{{ asset('img/user.png') }}" alt="user" />
             </div>
             <div>
-                <p class="fs-4 m-0 text-center">
-                    Terima Kasih telah mendaftar di Web PPDB SDIT Harum Jember
-                </p>
-                <a class="btn btn-orange w-50 my-4" href="{{ route('student.profile') }}">
-                    Informasi pendaftar</a>
+                <p class="fs-5 text-center">
+                    Terima Kasih telah mengisi formulir pendaftaran di Web PPDB SDIT Harapan Umat Jember</p>
+                <p>Tahap selanjutnya adalah psikotest, yang dilaksanakan sesuai jadwal yang ditentukan. </p>
+                <div class="btn-group w-75 my-3" role="group" aria-label="Basic example">
+                    <a class="btn btn-primary" href="{{ route('student.profile') }}">
+                        Informasi pendaftar</a>
+                    <a class="btn btn-orange" href="{{ route('student.timeline') }}">
+                        Informasi Jadwal</a>
+                </div>
                 <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="img-fluid">
             </div>
         </div>
@@ -43,10 +47,10 @@
             </div>
             <div>
                 <p class="fs-4 m-0 text-center">
-                    Agenda selanjutnya adalah daftar ulang. Lihat rincian baiaya daftar ulang disini
+                    Tahap selanjutnya adalah daftar ulang. Rincian biaya daftar ulang bisa dilihat di bawah
                 </p>
                 <a class="btn btn-orange w-50 my-4" href="{{ route('student.cost') }}">
-                    Informasi rincian biaya daftar ulang ananda</a>
+                    Lihat rincian biaya daftar ulang</a>
             </div>
         </div>
     @elseif (Auth::user()->hasRole('akun_ditolak'))

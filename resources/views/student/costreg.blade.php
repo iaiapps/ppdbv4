@@ -60,5 +60,21 @@
                 @endif
             </table>
         </div>
+        <hr>
+        <p>Catatan Registrasi Ulang</p>
+        <div>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Cek Rincian Daftar Ulang yang tertera. Besar biaya daftar ulang di atas sudah
+                    termasuk snack dan makan siang satu bulan pertama. </li>
+                <li class="list-group-item">Pembayaran pertama minimal Rp 6.000.000,-</li>
+                <li class="list-group-item">Pembayaran melalui transfer Bank Syariah Indonesia No. Rek. 4441234007. a/n :
+                    SDIT HARAPAN UMAT </li>
+                <li class="list-group-item">Setelah melakukan transfer, mohon mengirimkan konfirmasi dengan melampirkan
+                    bukti transfer ke nomor 0811-3717-716. dengan format sbb: PPDB#nama pengirim#nama siswa</li>
+                <li class="list-group-item">Batas Daftar Ulang Maksimal hingga 22 Februari 2023. Bagi yang tidak melakukan
+                    daftar ulang (tanpa konfirmasi) hingga waktu yang telah di tentukan, maka kami nyatakan mengundurkan
+                    diri.</li>
+            </ol>
+        </div>
     </div>
 @endsection

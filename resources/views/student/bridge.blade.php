@@ -28,7 +28,7 @@
                             Biaya pendaftaran sebesar:
                             <span class="badge bg-orange">Rp 300.000</span>, pembayaran melalui
                             rekening sekolah <span class="badge bg-orange">BSI 4441234007</span><br />
-                            a.n Sekolah Dasar Islam Terpadu Harapan Umat Jember
+                            a.n SDIT HARAPAN UMAT
                         </li>
                         <li class="list-group-item">
                             Upload bukti pembayaran disini
