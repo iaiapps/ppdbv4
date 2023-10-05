@@ -48,7 +48,7 @@
             <h3 class="fs-2 text-center mb-4 text-white">Panduan Pendaftaran</h3>
 
             <ol class="list-group list-group-numbered fs-5">
-                <li class="list-group-item">Membuat Akun PPDB, di <a
+                <li class="list-group-item">Membuat Akun PPDB, di web <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
                 <li class="list-group-item">Membayar biaya pendaftaran sebesar :
                     <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 300.000</span>
@@ -58,9 +58,9 @@
                 <li class="list-group-item"> Upload bukti pembayaran ke web <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a> dan
                     menunggu konfirmasi admin (maks 1 x 24 jam).</li>
-                <li class="list-group-item"> Setelah konfirmasi berhasil, mengisi formulir pendaftaran <a
+                <li class="list-group-item"> Setelah konfirmasi berhasil, selanjutnya mengisi formulir pendaftaran di <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
-                <li class="list-group-item"> Menunggu pengumuman lanjutan dari sekolah, yang akan ditampilkan di website
+                <li class="list-group-item"> Menunggu pengumuman lanjutan dari sekolah, yang akan ditampilkan di web
                     PPDB.</li>
             </ol>
 
@@ -122,8 +122,8 @@
             <ul class="list-group fs-5 text-center">
                 <li class="list-group-item">FC KK (Kartu Keluarga) dan Akte Lahir</li>
                 <li class="list-group-item">FC Ijazah TK atau Surat Keterangan Lulus </li>
-                <li class="list-group-item"> Pas Foto 3x4 3 lembar background biru</li>
-                <li class="list-group-item"> (Diserahkan setelah dinyatakan lulus dan diterima sebagai siswa SDIT Harapan
+                <li class="list-group-item"> Pas Foto 3x4 3 lembar dengan background biru</li>
+                <li class="list-group-item"> (*Diserahkan setelah dinyatakan lulus dan diterima sebagai siswa SDIT Harapan
                     Umat)</li>
             </ul>
         </div>
