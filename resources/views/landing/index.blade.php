@@ -56,8 +56,8 @@
                     SDIT HARAPAN UMAT
                 </li>
                 <li class="list-group-item"> Upload bukti pembayaran ke web <a
-                        href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a>
-                    tunggu konfirmasi 1 x 24 jam.</li>
+                        href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a> dan
+                    menunggu konfirmasi admin (maks 1 x 24 jam).</li>
                 <li class="list-group-item"> Setelah konfirmasi berhasil, mengisi formulir pendaftaran <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
                 <li class="list-group-item"> Menunggu pengumuman lanjutan dari sekolah, yang akan ditampilkan di website
