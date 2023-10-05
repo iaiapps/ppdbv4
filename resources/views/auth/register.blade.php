@@ -38,7 +38,7 @@
                         <div class="form-group mb-2">
                             <input type="password"
                                 class="form-control form-control-lg @error('password') is-invalid @enderror "
-                                name="password" placeholder="Password" />
+                                name="password" placeholder="Password (min 8 karakter)" />
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
