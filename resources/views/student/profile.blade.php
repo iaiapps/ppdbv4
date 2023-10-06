@@ -55,7 +55,7 @@
                             <td>{{ $student->special_needs }}</td>
                         </tr>
                         <tr>
-                            <td>Saudara di SDIT Harum Jember</td>
+                            <td>Saudara yang sekolah di SDIT Harum Jember</td>
                             <td>{{ $student->saudara_kandung_di_sdit }}</td>
                         </tr>
                         <tr>
