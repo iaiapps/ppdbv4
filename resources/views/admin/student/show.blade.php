@@ -44,7 +44,8 @@
                         </tr>
                         <tr>
                             <td>Tempat, Tanggal lahir</td>
-                            <td>{{ $student->place_birth }}, {{ $student->date_birth }} </td>
+                            <td>{{ $student->place_birth }},
+                                {{ \Carbon\Carbon::parse($student->date_birth)->isoFormat('DD MMMM YYYY') }} </td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
