@@ -47,7 +47,7 @@
             </div>
             <div>
                 <p class="fs-4 m-0 text-center">
-                    Tahap selanjutnya adalah daftar ulang. Rincian biaya daftar ulang bisa dilihat di bawah
+                    Tahap selanjutnya adalah daftar ulang. <br> Untuk melihat rincian biaya daftar ulang klik tombol dibawah
                 </p>
                 <a class="btn btn-orange w-50 my-4" href="{{ route('student.cost') }}">
                     Lihat rincian biaya daftar ulang</a>
