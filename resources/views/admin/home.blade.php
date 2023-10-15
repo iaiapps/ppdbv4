@@ -16,7 +16,7 @@
         </p>
 
         <div class="row py-3">
-            <div class="col-12 col-md-6 gy-2">
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 gy-2">
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
@@ -45,9 +45,9 @@
                             </div> --}}
                 </div>
             </div>
-            <hr class="my-3">
 
-            <div class="col-12 col-md-6 gy-2">
+
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
@@ -59,7 +59,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 gy-2">
+            <hr class="my-3">
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
@@ -72,8 +73,8 @@
                 </div>
             </div>
 
-            <hr class="my-3">
-            <div class="col-12 col-md-6 gy-2">
+
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
@@ -85,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 gy-2">
+            <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
