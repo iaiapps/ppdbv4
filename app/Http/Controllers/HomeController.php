@@ -29,6 +29,7 @@ class HomeController extends Controller
         $user = Auth::user();
 
         //jika pakai spatie
+        $total = User::where('name', '!=', 'admin')->get();
         $akun_dibuat = User::role('akun_dibuat')->get();
         $akun_aktif = User::role('akun_aktif')->get();
         $akun_isi_formulir = User::role('akun_isi_formulir')->get();
@@ -36,7 +37,7 @@ class HomeController extends Controller
         $akun_ditolak = User::role('akun_ditolak')->get();
 
         if ($user->hasRole('admin')) {
-            return view('admin.home', compact('akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak'));
+            return view('admin.home', compact('total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak'));
         } elseif ($user->hasRole('akun_dibuat')) {
             return view('student.bridge', compact('user'));
         } elseif ($user->hasRole('akun_aktif')) {

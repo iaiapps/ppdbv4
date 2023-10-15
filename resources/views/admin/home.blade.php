@@ -16,7 +16,19 @@
         </p>
 
         <div class="row py-3">
-            <div class="col-12 gy-2">
+            <div class="col-12 col-md-6 gy-2">
+                <div class="d-block border-0 bg-secondary card h-100">
+                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
+                        <span class="display-5 ">
+                            {{ $total->count() }}
+                        </span>
+                    </div>
+                    <div class="float-end text-white text-center h-100 middle py-2 px-3 lh-lg">
+                        <span class="fs-4">Akun Total</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-orange w-25 text-white p-2 h-100">
                         <span class="display-5 ">
