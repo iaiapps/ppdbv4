@@ -2,7 +2,7 @@
     <div class="text-center">
         <img class="logosdit" src="{{ asset('img/logosdit.png') }}" alt="logo" />
     </div>
-    <p class="text-center mt-2 py-1 fw-bold text-capitalize ">
+    <p class="text-center mt-2 py-1 text-capitalize ">
         {{ Auth::user()->name }}
     </p>
     <hr>
@@ -14,7 +14,8 @@
                 <a class="nav-link hover rounded {{ Route::currentRouteName() == 'home' ? 'bg-menu' : '' }}"
                     href="{{ route('home') }}">
                     <i class="menu-icon bi bi-bar-chart me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Home</span></a>
+                    <span class="d-none d-md-inline-block">Home</span>
+                </a>
             </li>
 
             <li class="nav-item my-1">

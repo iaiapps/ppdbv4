@@ -31,10 +31,10 @@
                     Terima Kasih telah mengisi formulir pendaftaran di Web PPDB SDIT Harapan Umat Jember</p>
                 <p>Tahap selanjutnya adalah psikotest, yang dilaksanakan sesuai jadwal yang ditentukan. </p>
                 <div class="btn-group w-75 my-3" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary" href="{{ route('student.profile') }}">
-                        Informasi pendaftar</a>
                     <a class="btn btn-orange" href="{{ route('student.timeline') }}">
                         Informasi Jadwal</a>
+                    <a class="btn btn-primary" href="{{ route('student.profile') }}">
+                        Informasi pendaftar</a>
                 </div>
                 <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="img-fluid">
             </div>
@@ -61,8 +61,6 @@
             </div>
             <div>
                 <p class="my-1  p-1 rounded fs-3 fw-bold">Jangan putus asa dan tetap semangat</p>
-
-
             </div>
         </div>
     @endif

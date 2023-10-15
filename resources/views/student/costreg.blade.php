@@ -55,7 +55,9 @@
                     </tbody>
                 @else
                     <tr>
-                        <td colspan="2" class="text-center">Rincian Uang gedung belum ditentukan oleh admin</td>
+                        <td colspan="2" class="text-center">Rincian Uang gedung belum ditentukan, silahkan hubungi <a
+                                href="https://wa.me/085232213939" target="_blank" class="btn btn-primary btn-sm">admin</a>
+                        </td>
                     </tr>
                 @endif
             </table>

@@ -7,6 +7,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100 ">
+        {{-- <a href="" class="btn btn-orange btn-sm mb-3">edit data</a> --}}
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
@@ -62,8 +63,6 @@
                             <td>Tinggal bersama</td>
                             <td>{{ $student->living }}</td>
                         </tr>
-
-
                     </tbody>
                 </table>
             </div>
