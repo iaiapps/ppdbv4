@@ -22,7 +22,6 @@
                         <th scope="col">Saudara Kandung di SDIT</th>
                         <th scope="col">Tinggal Bersama</th>
                         <th scope="col">Alamat</th>
-
                         <th scope="col">Nama Ayah</th>
                         <th scope="col">Pendidikan Ayah</th>
                         <th scope="col">Pekerjaan Ayah</th>

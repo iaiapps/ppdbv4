@@ -16,6 +16,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Asal Sekolah</th>
                         <th scope="col">No. Handphone</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
@@ -26,6 +27,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}</td>
+                            <td>{{ $student->school_origin }}</td>
                             <td>{{ $student->user->email_number }}</td>
                             <td>{{ $student->user->roles->first()->name }}</td>
                             <td>
