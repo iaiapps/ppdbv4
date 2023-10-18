@@ -28,28 +28,20 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->created_at->isoFormat('DD/MM/YY') }}
-                            </td>
+                            <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
-                                {{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload' }}
+                                {!! $user->document
+                                    ? $user->document->created_at->isoFormat('DD/MM/YY')
+                                    : 'belum upload <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i></button>' !!}
 
                                 @if ($user->document)
                                     <a href="{{ route('document.show', ['user' => $user->id]) }}"
                                         class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
                                 @endif
-
-
-                                {{-- {!! $user->document
-                                    ? '<i class="bi bi-check-circle text-primary"></i>'
-                                    : '<i class="bi bi-x-circle text-danger"></i>' !!} --}}
                             </td>
-                            {{-- <td>
-                                <a href="{{ route('document.show', ['user' => $user->id]) }}"
-                                    class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
-                            </td> --}}
                             <td>
                                 @if ($user->hasRole('akun_dibuat'))
                                     <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -57,7 +49,7 @@
                                         <form onsubmit="return confirm('Apakah anda yakin untuk mengkatifkan akun ini ?');"
                                             action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                            <button type="submit" class="btn btn-danger btn-sm"><i
                                                     class="bi bi-check-circle"></i></button>
                                         </form>
                                     </div>
