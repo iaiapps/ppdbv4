@@ -38,11 +38,6 @@
                     <div class="float-end text-white text-center h-100 middle py-2 px-3 lh-lg">
                         <span class="fs-4">Akun Dibuat</span>
                     </div>
-
-                    {{-- <div class="card-footer text-muted bg-transparent border-0 text-end">
-                                <button class="btn btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="View">lihat data</button>
-                            </div> --}}
                 </div>
             </div>
 

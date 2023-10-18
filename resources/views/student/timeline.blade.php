@@ -19,11 +19,9 @@
                         <th scope="col">No</th>
                         <th scope="col">Event</th>
                         <th scope="col">Tanggal</th>
-
                     </tr>
                 </thead>
                 <tbody>
-
                     @forelse ($times as $time)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -33,17 +31,9 @@
                     @empty
                         <p>belum ada data</p>
                     @endforelse
-
-
                 </tbody>
             </table>
         </div>
-
-
-
-
-
-
     </div>
 @endsection
 @push('scripts')

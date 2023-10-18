@@ -18,10 +18,10 @@
                         <th scope="col">Nama</th>
                         <th scope="col">No. HP</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Tgl_Up*</th>
-                        <th scope="col">Bukti</th>
-                        <th scope="col">Aktf_Wa</th>
-                        <th scope="col">Action2</th>
+                        {{-- <th scope="col">Tgl_Up*</th> --}}
+                        <th scope="col">Bukti_Upload*</th>
+                        <th scope="col">Aktfkan_Wa</th>
+                        <th scope="col">Action_Button</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,22 +34,30 @@
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
-                                {!! $user->document
-                                    ? '<i class="bi bi-check-circle text-primary"></i>'
-                                    : '<i class="bi bi-x-circle text-danger"></i>' !!}
                                 {{ $user->document ? $user->document->created_at->isoFormat('DD/MM/YY') : 'belum upload' }}
+
+                                @if ($user->document)
+                                    <a href="{{ route('document.show', ['user' => $user->id]) }}"
+                                        class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
+                                @endif
+
+
+                                {{-- {!! $user->document
+                                    ? '<i class="bi bi-check-circle text-primary"></i>'
+                                    : '<i class="bi bi-x-circle text-danger"></i>' !!} --}}
                             </td>
-                            <td>
+                            {{-- <td>
                                 <a href="{{ route('document.show', ['user' => $user->id]) }}"
                                     class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
-                            </td>
+                            </td> --}}
                             <td>
                                 @if ($user->hasRole('akun_dibuat'))
-                                    <div class="d-inline-block">
+                                    <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-title="Aktifkan">
                                         <form onsubmit="return confirm('Apakah anda yakin untuk mengkatifkan akun ini ?');"
                                             action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
                                                     class="bi bi-check-circle"></i></button>
                                         </form>
                                     </div>
@@ -61,15 +69,25 @@
                                 <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
                                     href="{{ route('user.edit', $user->id) }}" class="btn btn-warning btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>
-                                <div class="d-inline-block">
-                                    <form onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
-                                        action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="btn btn-secondary btn-sm"><i
-                                                class="bi bi-arrow-clockwise"></i></button>
-                                    </form>
-                                </div>
+                                <form class="d-inline-block"
+                                    onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
+                                    action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-secondary btn-sm"><i
+                                            class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </form>
+                                <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-title="Delete"
+                                    onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                                    action="{{ route('user.destroy', $user->id) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </form>
 
                             </td>
                         </tr>
@@ -88,6 +106,9 @@
             $('#table').DataTable({
                 "pageLength": 50
             });
+        });
+        $(function() {
+            $('[data-bs-toggle="tooltip"]').tooltip();
         });
     </script>
 @endpush
