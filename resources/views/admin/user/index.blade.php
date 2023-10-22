@@ -13,15 +13,14 @@
             <table id="table" class="table table-bordered rounded">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Tgl_Daftar</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">No. HP</th>
-                        <th scope="col">Status</th>
-                        {{-- <th scope="col">Tgl_Up*</th> --}}
-                        <th scope="col">Bukti_Upload*</th>
-                        <th scope="col">Aktfkan_Wa</th>
-                        <th scope="col">Action_Button</th>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Tgl_Daftar</th>
+                        <th class="text-center" scope="col">Nama</th>
+                        <th class="text-center" scope="col">No. HP</th>
+                        <th class="text-center" scope="col">Status</th>
+                        <th class="text-center" scope="col">Bukti_Upload*</th>
+                        <th class="text-center" scope="col">Aktfkan_Wa</th>
+                        <th class="text-center" scope="col">Action_Button</th>
                     </tr>
                 </thead>
                 <tbody>

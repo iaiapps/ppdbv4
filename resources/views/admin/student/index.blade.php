@@ -14,12 +14,13 @@
             <table id="table" class="table table-bordered rounded align-middle">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Asal Sekolah</th>
-                        <th scope="col">No. Handphone</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Nama</th>
+                        <th class="text-center" scope="col">Asal Sekolah</th>
+                        <th class="text-center" scope="col">No. Handphone</th>
+                        <th class="text-center" scope="col">Status</th>
+                        <th class="text-center" scope="col">Detail</th>
+                        <th class="text-center" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +32,11 @@
                             <td>{{ $student->user->email_number }}</td>
                             <td>{{ $student->user->roles->first()->name }}</td>
                             <td>
-                                <a href="{{ route('student.show', $student->id) }}"
-                                    class="btn btn-outline-orange btn-sm">detail</a>
+                                <a href="{{ route('student.show', $student->id) }}" class="btn btn-outline-orange btn-sm">
+                                    <i class="bi bi-list-ul"></i> </a>
+                            </td>
+                            <td>
+
                                 <div class="d-inline-block">
                                     <form action="{{ route('student.accepted', ['id' => $student->user->id]) }}"
                                         method="POST">
