@@ -36,13 +36,13 @@
                     <a href="{{ route('setting.contact') }}" class="btn btn-orange">set Kontak</a>
                 </div>
             </div>
-            <div class="col-4">
+            {{-- <div class="col-4">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Setting web on/off</p>
                     <hr>
                     <a href="#" class="btn btn-orange">set Kontak</a>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-4">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Hapus Data User</p>
