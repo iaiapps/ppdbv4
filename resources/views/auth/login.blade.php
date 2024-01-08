@@ -50,10 +50,12 @@
                             LOGIN
                         </button>
 
-                        <div class="text-center text-muted">atau</div>
-                        <br />
-                        <a href="{{ route('register') }}" class="btn btn-outline-dark w-100">Buat
-                            akun</a>
+                        @if ($show == 'on')
+                            <div class="text-center text-muted">atau</div>
+                            <br />
+                            <a href="{{ route('register') }}" class="btn btn-outline-dark w-100">Buat
+                                akun</a>
+                        @endif
                     </form>
                 </div>
             </div>

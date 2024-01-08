@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Setting;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -33,6 +34,18 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+    // overrid auth.login
+    public function showLoginForm()
+    {
+        $onoff = Setting::where('name', 'onoff')->first();
+        if (isset($onoff) && $onoff->value == 0) {
+            $show = 'off';
+        } else {
+            $show = 'on';
+        }
+        return view('auth.login', compact('show'));
+    }
 
     //  override ganti email ke email_number
     public function username()

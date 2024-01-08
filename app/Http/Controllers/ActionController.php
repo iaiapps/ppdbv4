@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ActionController extends Controller
 {
-    // Function terima tolak
+    // Function aktifkan akun
     public function activated(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();
@@ -15,7 +15,7 @@ class ActionController extends Controller
         return redirect()->route('user.index');
     }
 
-    // Function terima tolak
+    // Function terima 
     public function accepted(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();
@@ -24,6 +24,7 @@ class ActionController extends Controller
         return redirect()->route('student.index');
     }
 
+    // Function tolak
     public function rejected(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();

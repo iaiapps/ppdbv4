@@ -64,58 +64,11 @@
                     PPDB.</li>
             </ol>
 
-            {{-- <div class="row">
-                <div class="col-12 col-md-6 p-2">
-                    <div class="box-card bg-orange-panduan p-3">
-                        <i class="bi bi-person-circle display-5"></i>
-                        <p>
-                            Membuat Akun PPDB, di <a href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 p-2">
-                    <div class="box-card bg-orange-panduan p-3">
-                        <i class="bi bi-coin display-5"></i>
-                        <p>
-                            Membayar biaya pendaftaran sebesar :
-                            <span class="bg-orange text-white p-1 rounded fw-bold">Rp 300.000</span>
-                            ke rekening sekolah BSI 4441234007 a.n.
-                            Sekolah Dasar Islam Terpadu Harapan Umat
-                            Jember.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 p-2">
-                    <div class="box-card bg-orange-panduan p-3">
-                        <i class="bi bi-phone-flip display-5"></i>
-                        <p>
-                            Upload bukti transfer ke web <a href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a>
-                            tunggu konfirmasi 1 x 24 jam.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 p-2">
-                    <div class="box-card bg-orange-panduan p-3">
-                        <i class="bi bi-input-cursor-text display-5"></i>
-                        <p>
-                            Setelah konfirmasi berhasil, mengisi formulir pendaftaran <a
-                                href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 p-2">
-                    <div class="box-card bg-orange-panduan p-3">
-                        <i class="bi bi-envelope-paper display-5"></i>
-                        <p>
-                            Menunggu pengumuman lanjutan dari sekolah.
-                            Yang akan ditampilkan di website PPDB.
-                        </p>
-                    </div>
-                </div>
-            </div> --}}
+
         </div>
     </div>
 
-    <div id="panduan" class="bg-orange">
+    <div id="syarat" class="bg-orange">
         <div class="container pb-md-5 pb-4">
             <h3 class="fs-2 text-center mb-4 text-white">Syarat Pendaftaran</h3>
 

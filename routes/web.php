@@ -11,7 +11,6 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TimelineController;
-use App\Models\Timeline;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +50,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
 
-            // setting
+            //setting
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
 
             //contact
@@ -59,9 +58,11 @@ Route::middleware('auth')->group(function () {
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
 
-
             Route::resource('costCategory', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
+
+            //delete user
+            Route::post('delete-all', [UserController::class, 'deleteAll'])->name('user.delete.all');
         });
     });
 

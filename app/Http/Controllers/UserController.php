@@ -98,4 +98,14 @@ class UserController extends Controller
         // dd($id);
         return redirect()->route('user.index');
     }
+
+    public function deleteAll(Request $request)
+    {
+        if (isset($request->key) == 'DELETE') {
+            User::where('name', '!=', 'admin')->delete();
+            return redirect()->route('setting.index')->with('msg', 'Berhasil menghapus data');
+        } else {
+            return redirect()->route('setting.index')->with('msg', 'Data tidak dihapus');
+        }
+    }
 }

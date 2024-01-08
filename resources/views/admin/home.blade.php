@@ -18,8 +18,8 @@
         <div class="row py-3">
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $total->count() }}
                         </span>
                     </div>
@@ -30,8 +30,8 @@
             </div>
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $akun_dibuat->count() }}
                         </span>
                     </div>
@@ -44,8 +44,8 @@
 
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $akun_aktif->count() }}
                         </span>
                     </div>
@@ -57,8 +57,8 @@
             <hr class="my-3">
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $akun_isi_formulir->count() }}
                         </span>
                     </div>
@@ -71,8 +71,8 @@
 
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $akun_diterima->count() }}
                         </span>
                     </div>
@@ -83,8 +83,8 @@
             </div>
             <div class="col-12 col-md-4 gy-2">
                 <div class="d-block border-0 bg-secondary card h-100">
-                    <div class="float-start bg-orange w-25 text-white p-2 h-100">
-                        <span class="display-5 ">
+                    <div class="float-start bg-orange text-white p-2 h-100">
+                        <span class="display-5 px-3 ">
                             {{ $akun_ditolak->count() }}
                         </span>
                     </div>
