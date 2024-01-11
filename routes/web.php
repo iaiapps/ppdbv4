@@ -58,6 +58,11 @@ Route::middleware('auth')->group(function () {
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
 
+            //onoff
+            Route::get('onoff', [SettingController::class, 'onoff'])->name('setting.onoff');
+            // Route::get('onoff-edit', [SettingController::class, 'onoffedit'])->name('setting.onoff.edit');
+            Route::put('onoff', [SettingController::class, 'onoffstore'])->name('setting.contact.store');
+
             Route::resource('costCategory', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
 

@@ -34,14 +34,19 @@ class SettingSeeder extends Seeder
             'value' => '08.00-11.30',
         ]);
         Setting::create([
-            'name' => 'pesan',
-            'desc' => 'sudah daftar',
-            'value' => 'Terimakasih',
+            'name' => 'onoff',
+            'desc' => 'setting buka tutup web ppdb',
+            'value' => 1,
         ]);
-        Setting::create([
-            'name' => 'pesan',
-            'desc' => 'sudah upload',
-            'value' => 'Terimakasih',
-        ]);
+        // Setting::create([
+        //     'name' => 'pesan',
+        //     'desc' => 'sudah daftar',
+        //     'value' => 'Terimakasih',
+        // ]);
+        // Setting::create([
+        //     'name' => 'pesan',
+        //     'desc' => 'sudah upload',
+        //     'value' => 'Terimakasih',
+        // ]);
     }
 }

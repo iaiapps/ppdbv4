@@ -35,4 +35,22 @@ class SettingController extends Controller
         Setting::where('id', $id)->update($data);
         return redirect()->route('setting.contact');
     }
+
+    public function onoff()
+    {
+        $onoff = Setting::where('name', 'onoff')->first();
+        return view('admin.setting.onoff.index', compact('onoff'));
+    }
+    public function onoffstore(Request $request, Setting $setting)
+    {
+        // dd($request->all());
+        $id = $request->id;
+        $data = [
+            // 'name' => $request->name,
+            // 'desc' => $request->desc,
+            'value' => $request->value,
+        ];
+        Setting::where('id', $id)->update($data);
+        return redirect()->route('setting.onoff');
+    }
 }

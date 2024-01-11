@@ -15,35 +15,35 @@
         <p class="fs-5 text-center">Setting Aplikasi</p>
         <hr>
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Setting timeline</p>
                     <hr>
                     <a href="{{ route('timeline.index') }}" class="btn btn-orange">set timeline</a>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Setting Biaya</p>
                     <hr>
                     <a href="{{ route('costCategory.index') }}" class="btn btn-orange">set kategori biaya</a>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Setting Contact</p>
                     <hr>
                     <a href="{{ route('setting.contact') }}" class="btn btn-orange">set Kontak</a>
                 </div>
             </div>
-            {{-- <div class="col-4">
+            <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Setting web on/off</p>
                     <hr>
-                    <a href="#" class="btn btn-orange">set Kontak</a>
+                    <a href="{{ route('setting.onoff') }}" class="btn btn-orange">set onoff</a>
                 </div>
-            </div> --}}
-            <div class="col-4">
+            </div>
+            <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded">
                     <p class="m-0">Hapus Data User</p>
                     <hr>
