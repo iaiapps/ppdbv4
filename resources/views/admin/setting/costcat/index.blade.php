@@ -15,7 +15,7 @@
             <table id="table" class="table table-bordered rounded align-middle">
                 <thead>
                     <tr>
-                        {{-- <th scope="col">#</th> --}}
+                        <th scope="col">#</th>
                         <th scope="col" class="fs-small">Name</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Gedung</th>
@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ($costcats as $costcat)
                         <tr>
-                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $costcat->name }}</td>
                             <td>{{ $costcat->gender }}</td>
                             <td>{{ $costcat->gedung }}</td>
