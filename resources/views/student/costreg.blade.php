@@ -73,7 +73,7 @@
             </div>
         @else
             <div class="text-center">
-                <p>Rincian Uang gedung belum ditentukan, silahkan hubungi Admin </p>
+                <p>Rincian Uang gedung belum ditentukan, tunggu pengumuman tanggal <span class="fw-bold"> 03 Maret 2024 </span> atau silahkan hubungi Admin </p>
                 <a href="https://wa.me/085232213939" target="_blank" class="btn btn-primary ">klik disini</a>
             </div>
         @endif
