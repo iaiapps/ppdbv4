@@ -62,7 +62,7 @@
                     <li class="list-group-item">Biaya daftar ulang di atas, sudah termasuk snack dan makan siang satu
                         bulan pertama. </li>
                     <li class="list-group-item">Pembayaran pertama minimal Rp 6.000.000, </li>
-                    <li class="list-group-item">Dibayarkan melalui transfer ke BSI No. Rek. 4441234007. a/n
+                    <li class="list-group-item">Dibayarkan melalui transfer ke BSI No. Rek. 2005720055. a/n
                         : SDIT HARAPAN UMAT </li>
                     <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer ke nomor
                         08113717716 dengan format: PPDB#nama pengirim#nama siswa</li>
