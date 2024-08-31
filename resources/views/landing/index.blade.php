@@ -13,10 +13,11 @@
                         </h2>
                     </div>
                     <div class="py-3">
-                        <p class="fs-3 m-0">
-                            Telah dibuka untuk tahun 2024/2025
-                        </p>
-                        <p class="fs-3">Segera daftar, kuota terbatas!</p>
+                        @foreach ($taglines as $tagline)
+                            <p class="fs-3 m-0">
+                                {{ $tagline->value }}
+                            </p>
+                        @endforeach
                     </div>
                     <div class=" d-grid gap-2 d-md-block">
                         <a class="btn btn-dark btn-lg" href="{{ route('register') }}">
@@ -41,13 +42,13 @@
     </div>
     <div class="text-center bg-dark p-4 p-md-5 text-white top">
         <p class="fs-2">Sudah punya akun ? <br> Login web disini</p>
-        <a class="btn btn-orange w-50 btn-lg text-white" href="{{ route('login') }}">LOGIN</a>
+        <a class="btn btn-orange w-50 text-white" href="{{ route('login') }}">LOGIN</a>
     </div>
     <div id="panduan" class="bg-orange">
         <div class="container py-md-5 py-4">
             <h3 class="fs-2 text-center mb-4 text-white">Panduan Pendaftaran</h3>
 
-            <ol class="list-group list-group-numbered fs-5">
+            <ol class="list-group list-group-numbered fs-med">
                 <li class="list-group-item">Membuat Akun PPDB, di web <a
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
                 <li class="list-group-item">Membayar biaya pendaftaran sebesar :
@@ -63,16 +64,14 @@
                 <li class="list-group-item"> Menunggu pengumuman lanjutan dari sekolah, yang akan ditampilkan di web
                     PPDB.</li>
             </ol>
-
-
         </div>
     </div>
 
+    {{-- syarat --}}
     <div id="syarat" class="bg-orange">
         <div class="container pb-md-5 pb-4">
             <h3 class="fs-2 text-center mb-4 text-white">Syarat Pendaftaran</h3>
-
-            <ul class="list-group fs-5 text-center">
+            <ul class="list-group fs-med text-center">
                 <li class="list-group-item">FC KK (Kartu Keluarga) dan Akte Lahir</li>
                 <li class="list-group-item">FC Ijazah TK atau Surat Keterangan Lulus </li>
                 <li class="list-group-item"> Pas Foto 3x4 3 lembar dengan background biru</li>
@@ -86,24 +85,64 @@
         <h3 class="text-center fs-2 pt-3 pt-md-5">
             Jadwal Pendaftaran (Timeline)
         </h3>
-        <div class="row mb-5 text-center">
-            @forelse ($times as $time)
-                <div class="col-6 col-md-4 py-3">
-                    <div class="p-3 box-card bg-orange">
-                        <img class="img-ket mb-1" src="{{ asset('img') . '/' . $time->icon }}" />
-                        <p class="py-1 px-2 fs-5 my-2 bg-white rounded"> {{ $time->name }}
-                        </p>
-                        <p class="fs-5 text-black m-0 ">
-                            {{ $time->date }}
-                        </p>
+
+        @if ($gelombang_1 != null)
+            <hr>
+            <h5 class="text-center">Pendaftaran Gelombang 1</h5>
+            <div class="row mb-5 text-center justify-content-center">
+                @foreach ($gelombang_1 as $gel_1)
+                    <div class="col-6 col-md-3 py-3">
+                        <div class="p-3 box-card bg-orange">
+                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $gel_1->icon }}" />
+                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $gel_1->name }}
+                            </p>
+                            <p class="fs-med text-black m-0 ">
+                                {{ $gel_1->date }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            @empty
-                <div class="p-3 bg-orange">
-                    <p>belum ada data</p>
-                </div>
-            @endforelse
-        </div>
+                @endforeach
+            </div>
+        @endif
+
+        @if ($gelombang_2 != null)
+            <hr>
+            <h5 class="text-center">Pendaftaran Gelombang 2</h5>
+            <div class="row mb-5 text-center justify-content-center">
+                @foreach ($gelombang_2 as $gel_2)
+                    <div class="col-6 col-md-3 py-3">
+                        <div class="p-3 box-card bg-orange">
+                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $gel_2->icon }}" />
+                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $gel_2->name }}
+                            </p>
+                            <p class="fs-med text-black m-0 ">
+                                {{ $gel_2->date }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+        @if ($other != null)
+            <hr>
+            <h5 class="text-center">Jadwal Lain</h5>
+            <div class="row mb-5 text-center justify-content-center">
+                @foreach ($other as $o)
+                    <div class="col-6 col-md-3 py-3">
+                        <div class="p-3 box-card bg-orange">
+                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $o->icon }}" />
+                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $o->name }}
+                            </p>
+                            <p class="fs-med text-black m-0 ">
+                                {{ $o->date }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
     </div>
 
     <div id="kontak" class="bg-orange py-5">
@@ -112,10 +151,10 @@
                 <div class="row text-center">
                     <div class="text-center col-12 col-md-5">
                         <img src="{{ asset('img/scdh.png') }}" alt="scdh" class="gbr-cp" />
-                        <h4>Jam Pelayanan</h4>
-                        <h4 class="bg-orange rounded px-3 py-1">Senin s/d Jum'at</h4>
+                        <h5>Jam Pelayanan</h5>
+                        <h5 class="bg-orange rounded px-3 py-1">Senin s/d Jum'at</h5>
                         <p class="fs-4">08.00-15.30</p>
-                        <h4 class="bg-orange rounded px-3 py-1">Sabtu (online)</h4>
+                        <h5 class="bg-orange rounded px-3 py-1">Sabtu (online)</h5>
                         <p class="fs-4">08.00-11.30</p>
                     </div>
                     <div class="col-2 d-none d-md-block">
@@ -123,9 +162,9 @@
                     </div>
                     <div class="text-center col-12 col-md-5">
                         <img src="{{ asset('img/wa.png') }}" alt="wa" class="gbr-cp" />
-                        <h4>Hubungi Kami</h4>
+                        <h5>Hubungi Kami</h5>
                         @forelse ($contacts as $contact)
-                            <h4 class="bg-orange rounded px-3 py-1">{{ $contact->desc }}</h4>
+                            <h5 class="bg-orange rounded px-3 py-1">{{ $contact->desc }}</h5>
                             <p class="fs-4">{{ $contact->value }}</p>
                         @empty
                             <div class="p-3 bg-orange">
@@ -140,3 +179,13 @@
 
     @include('landing.footer')
 @endsection
+
+@push('css')
+    <style>
+        @media (max-width: 600px) {
+            .btn-lg {
+                font-size: 1.05rem
+            }
+        }
+    </style>
+@endpush

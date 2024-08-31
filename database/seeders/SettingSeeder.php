@@ -14,8 +14,19 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         Setting::create([
+            'name' => 'tagline',
+            'desc' => 'pesan 1',
+            'value' => 'Telah dibuka untuk tahun 2025/2026',
+        ]);
+        Setting::create([
+            'name' => 'tagline',
+            'desc' => 'pesan 2',
+            'value' => 'Segera daftar, kuota terbatas!',
+        ]);
+
+        Setting::create([
             'name' => 'kontak',
-            'desc' => 'Ust. Ristiono',
+            'desc' => 'Pak Ristiono',
             'value' => '0633290284',
         ]);
         Setting::create([
@@ -38,15 +49,5 @@ class SettingSeeder extends Seeder
             'desc' => 'setting buka tutup web ppdb',
             'value' => 1,
         ]);
-        // Setting::create([
-        //     'name' => 'pesan',
-        //     'desc' => 'sudah daftar',
-        //     'value' => 'Terimakasih',
-        // ]);
-        // Setting::create([
-        //     'name' => 'pesan',
-        //     'desc' => 'sudah upload',
-        //     'value' => 'Terimakasih',
-        // ]);
     }
 }

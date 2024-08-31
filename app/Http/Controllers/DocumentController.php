@@ -21,7 +21,10 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        // ini upload foto ijazah
+        $user = Auth::user();
+        // dd($user);
+        return view('student.upload_foto', compact('user'));
     }
 
     /**
@@ -29,12 +32,14 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->type);
         //cek id
         $id = Auth::user()->id;
 
         //validate
         $imgDocument = $request->validate([
             'name' => 'required',
+            'type' => 'required',
             'document' => 'mimes:jpeg,jpg,png|file|max:1024',
         ]);
 
@@ -43,7 +48,7 @@ class DocumentController extends Controller
         $file_name = $id . '-user' . '-' . time() . '-' . $file->getClientOriginalName();
 
         // simpan di folder public
-        // $request->file('file')->move(public_path('img-document'), $file_name); 
+        // $request->file('file')->move(public_path('img-document'), $file_name);
 
         // simpan di folder storage
         $request->file('document')->storeAs('public/img-document', $file_name);
@@ -55,7 +60,11 @@ class DocumentController extends Controller
         //simpan ke database
         Document::create($imgDocument);
 
-        return redirect()->route('home')->with('success', 'Bukti pembayaran berhasil di upload');
+        if ($request->type == 'upload_foto') {
+            return redirect()->route('student.home')->with('success', 'Berhasil upload dokumen');
+        } elseif ($request->type == 'upload_pembayaran') {
+            return redirect()->route('home')->with('success', 'Berhasil upload dokumen');
+        }
     }
 
     /**

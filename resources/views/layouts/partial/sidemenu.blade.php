@@ -54,35 +54,35 @@
 
     <!-- ini menu untuk user -->
     @if (Auth::user()->hasRole('akun_isi_formulir') || Auth::user()->hasRole('akun_diterima'))
-        <ul class="nav flex-row flex-md-column justify-content-around">
-            <li class="nav-item my-0 my-md-1">
-                <a class="nav-link hover rounded text-center text-md-start 
+        <ul class="nav nav-fill flex-row flex-md-column justify-content-around">
+            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
                     href="{{ route('student.home') }}">
                     <i class="menu-icon bi bi-house-door me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Home</span>
                     <small class="d-block d-md-none m-0">Home</small></a>
             </li>
-            <li class="nav-item my-0 my-md-1">
-                <a class="nav-link hover rounded text-center text-md-start 
+            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.timeline' ? 'bg-menu' : '' }}"
                     href="{{ route('student.timeline') }}">
                     <i class="menu-icon bi bi-calendar-week me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Timeline</span>
                     <small class="d-block d-md-none ">Timeline</small></a>
             </li>
-            <li class="nav-item my-0 my-md-1">
-                <a class="nav-link hover rounded text-center text-md-start 
+            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.profile' ? 'bg-menu' : '' }}"
                     href="{{ route('student.profile') }}">
                     <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Data User</span>
-                    <small class="d-block d-md-none ">Data User</small></a>
+                    <span class="d-none d-md-inline-block">Data Siswa</span>
+                    <small class="d-block d-md-none ">Data Siswa</small></a>
             </li>
 
             @if (Auth::user()->hasRole('akun_diterima'))
-                <li class="nav-item my-0 my-md-1">
-                    <a class="nav-link hover rounded text-center text-md-start 
+                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                    <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
                         href="{{ route('student.cost') }}">
                         <i class="menu-icon bi bi-coin me-0 me-md-2"></i>

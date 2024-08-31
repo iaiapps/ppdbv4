@@ -4,9 +4,9 @@
             <div class="col-12 col-md-6">
                 <h3>SDIT HARAPAN UMAT JEMBER</h3>
                 <p class="fs-6 pt-3">
-                    Jl. Danau Toba Gg. Islamic Center, Tegalgede
+                    Jl. Danau Toba Gg. Islamic Center, Tegalgede, 68124
                     <br />Kec. Sumbersari, Kabupaten Jember
-                    <br />Jawa Timur 68124
+                    <br />Jawa Timur - Indonesia
                 </p>
                 <div class="py-3 ">
                     <a href="https://sditharum.id/" class="btn btn-outline-light me-3">

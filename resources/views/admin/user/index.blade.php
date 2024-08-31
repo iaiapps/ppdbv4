@@ -8,7 +8,7 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Data Pendaftar</p>
         <hr>
-        <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small>
+        {{-- <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small> --}}
         <div class="table-responsive">
             <table id="table" class="table table-bordered rounded">
                 <thead>

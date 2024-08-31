@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Exports\StudentExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Document;
 
 class StudentController extends Controller
 {
@@ -105,7 +106,11 @@ class StudentController extends Controller
     // handle dari user //
     public function home()
     {
-        return view('student.home');
+        $user = Auth::user();
+        $id = $user->id;
+        $data = Document::where('user_id', $id)->where('type', 'upload_foto')->first();
+        // dd($data);
+        return view('student.home', compact('data'));
     }
 
     public function studentprofil()

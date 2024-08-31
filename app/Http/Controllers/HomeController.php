@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Document;
+
 
 class HomeController extends Controller
 {
@@ -43,7 +45,7 @@ class HomeController extends Controller
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');
         } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak'])) {
-            return view('student.home');
+            return redirect()->route('student.home');
         }
     }
 }

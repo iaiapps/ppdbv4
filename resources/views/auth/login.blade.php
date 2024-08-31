@@ -25,8 +25,7 @@
                         @csrf
                         {{-- email atau nomor --}}
                         <div class="mb-3">
-                            <input
-                                class="form-control form-control-lg text-center @error('email_number') is-invalid @enderror"
+                            <input class="form-control text-center @error('email_number') is-invalid @enderror"
                                 type="text" name="email_number" placeholder="Nomor WhatssApp" />
                             {{-- @error('email_number')
                                 <span class="invalid-feedback" role="alert">
@@ -37,8 +36,8 @@
 
                         {{-- password --}}
                         <div class="mb-3">
-                            <input class="form-control form-control-lg text-center @error('password') is-invalid @enderror"
-                                type="password" name="password" placeholder="Password" />
+                            <input class="form-control text-center @error('password') is-invalid @enderror" type="password"
+                                name="password" placeholder="Password" />
                             {{-- @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -46,14 +45,13 @@
                             @enderror --}}
                         </div>
 
-                        <button type="submit" class="btn btn-lg btn-warning w-100 my-3">
+                        <button type="submit" class="btn btn-warning w-100 my-3">
                             LOGIN
                         </button>
 
                         @if ($show == 'on')
-                            <div class="text-center text-muted">atau</div>
-                            <br />
-                            <a href="{{ route('register') }}" class="btn btn-outline-dark w-100">Buat
+                            <span>atau</span>
+                            <a href="{{ route('register') }}" class="btn btn-sm btn-outline-dark w-100 mt-3">Buat
                                 akun</a>
                         @endif
                     </form>

@@ -5,15 +5,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-4 bg-orange p-3 p-md-5">
-                <div class="text-left">
+                <div class="text-md-end text-center">
                     <img src="{{ asset('/img/gbr.png') }}" class="img" alt="logoppdb" />
+                    <p class="fs-3 my-4 text-white">
+                        Formulir Pendaftaran Siswa Baru SDIT Harapan Umat Jember
+                    </p>
                 </div>
-                <p class="fs-2 my-4 text-white">
-                    Formulir Pendaftaran Siswa Baru SDIT Harapan Umat Jember
-                </p>
                 <hr class="hr" />
-                {{-- <span class="text-light">
-                {{ gelombang[1] }} - Gelombang {{ gelombang[0] }}</span> --}}
+
             </div>
             <div class="col-12 col-md-8 p-3 p-md-5">
                 <form action="{{ route('student.store') }}" method="POST">
@@ -22,6 +21,7 @@
                     <fieldset>
                         <div class="form-card">
                             <p class="fs-4">Identitas Calon Siswa</p>
+
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">
@@ -40,6 +40,22 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="nik">NIK
+                                        </label>
+                                        <input class="form-control" id="nik" name="nik" type="text"required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="kk">No KK</label>
+                                        <input class="form-control" id="kk" name="kk" type="text" required />
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="mb-3">
                                 <label class="form-label" for="school_origin">Asal TK</label>
                                 <input class="form-control" id="school_origin" name="school_origin" type="text"
@@ -47,9 +63,15 @@
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label" for="school_nisn">NISN TK</label>
+                                <input class="form-control" id="school_nisn" name="school_nisn" type="text"
+                                    placeholder="Diisi jika ada NISN dari TK" />
+                            </div>
+
+                            <div class="mb-3">
                                 <label class="form-label" for="gender">Jenis Kelamin</label>
                                 <select class="form-select" id="gender" name="gender">
-                                    <option selected disabled>Pilih</option>
+                                    <option selected disabled>--- pilih ---</option>
                                     <option value="laki-laki">Laki-Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
@@ -75,6 +97,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="special_needs">Berkebutuhan Khusus</label>
                                 <select class="form-select" id="special_needs" name="special_needs">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>Tidak</option>
                                     <option>Netra</option>
                                     <option>Rungu</option>
@@ -99,6 +122,7 @@
                                     Jumlah saudara kandung yang masih sekolah di SDIT Harum Jember
                                 </label>
                                 <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -111,6 +135,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="living">Tempat Tinggal</label>
                                 <select class="form-select" id="living" name="living">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>Bersama orangtua</option>
                                     <option>Kakek-Nenek</option>
                                     <option>Wali</option>
@@ -135,7 +160,7 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="desa" class="form-label">Desa</label>
+                                    <label for="desa" class="form-label">Desa/Kelurahan</label>
                                     <input type="text" required class="form-control" id="desa" name="desa" />
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -160,7 +185,6 @@
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <p class="fs-4">Identitas Ayah</p>
-
                             <div class="mb-3">
                                 <label class="form-label" for="dad">Nama Ayah</label>
                                 <input class="form-control" id="dad" name="dad" type="text" required />
@@ -169,6 +193,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="dad_edu">Pendidikan Ayah</label>
                                 <select class="form-select" id="dad_edu" name="dad_edu">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>SD/Sederajat</option>
                                     <option>SMP/Sederajat</option>
                                     <option>SMA/Sederajat</option>
@@ -184,6 +209,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="dad_occupation">Pekerjaan Ayah</label>
                                 <select class="form-select" id="dad_occupation" name="dad_occupation">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>Dosen</option>
                                     <option>Pegawai Bank</option>
                                     <option>Dokter</option>
@@ -217,6 +243,7 @@
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
                                 <select class="form-select" id="dad_income" name="dad_income">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>kurang dari Rp. 1.000.000</option>
                                     <option>
                                         Rp. 1.000.000 - Rp. 2.000.000
@@ -258,6 +285,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="mom_edu">Pendidikan Ibu</label>
                                 <select class="form-select" id="mom_edu" name="mom_edu">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>SD/Sederajat</option>
                                     <option>SMP/Sederajat</option>
                                     <option>SMA/Sederajat</option>
@@ -273,6 +301,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="mom_occupation">Pekerjaan Ibu</label>
                                 <select class="form-select" id="mom_occupation" name="mom_occupation">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>Dosen</option>
                                     <option>Pegawai Bank</option>
                                     <option>Dokter</option>
@@ -305,6 +334,7 @@
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
                                 <select class="form-select" id="mom_income" name="mom_income">
+                                    <option selected disabled>--- pilih ---</option>
                                     <option>kurang dari Rp. 1.000.000</option>
                                     <option>
                                         Rp. 1.000.000 - Rp. 2.000.000
@@ -337,7 +367,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-orange btn-lg w-100 mt-3"
+                    <input type="submit" class="btn btn-orange w-100 mt-3"
                         onclick="return confirm('Pastikan Data yang anda kirim sudah benar!')" value="Simpan Data">
                 </form>
             </div>
@@ -348,7 +378,13 @@
 @push('css')
     <style>
         .img {
-            width: 30vh;
+            width: 40vh;
+        }
+
+        @media (max-width: 600px) {
+            .img {
+                width: 20vh;
+            }
         }
     </style>
 @endpush

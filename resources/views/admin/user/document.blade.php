@@ -12,8 +12,13 @@
                 Kembali</a>
             <p class="fs-5 text-center">Bukti pembayaran {{ $d->name }}</p>
             <hr>
-            {{-- ini settingan untuk hosting --}}
-            <img src="{{ url('storage/public/img-document/' . $d->document) }}" alt="document" class="img-fluid">
+            @if ($d->type == 'upload_pembayaran')
+                {{-- ini settingan untuk hosting --}}
+                {{-- <img src="{{ url('storage/public/img-document/' . $d->document) }}" alt="document" class="img-fluid"> --}}
+
+                {{-- ini setting untuk lokal --}}
+                <img src="{{ asset('storage/img-document/' . $d->document) }}" alt="document" class="img-fluid">
+            @endif
         @empty
             <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
         @endforelse

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('icon');
             $table->string('name');
             $table->string('date');
+            $table->string('type');
             $table->timestamps();
         });
     }

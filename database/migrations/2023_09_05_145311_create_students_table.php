@@ -18,7 +18,10 @@ return new class extends Migration
             $table->bigInteger('cost_category_id')->nullable();
             $table->string('full_name');
             $table->string('nick_name')->nullable();
+            $table->string('nik')->nullable();
+            $table->string('kk')->nullable();
             $table->string('school_origin')->nullable();
+            $table->string('school_nisn')->nullable();
             $table->string('gender')->nullable();
             $table->string('place_birth')->nullable();
             $table->string('date_birth')->nullable();
@@ -32,6 +35,7 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
+            // ortu
             $table->string('dad')->nullable();
             $table->string('dad_edu')->nullable();
             $table->string('dad_occupation')->nullable();

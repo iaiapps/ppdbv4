@@ -38,7 +38,15 @@
                             <td>{{ $student->nick_name }}</td>
                         </tr>
                         <tr>
-                            <td>Asal</td>
+                            <td>NIK</td>
+                            <td>{{ $student->nik }}</td>
+                        </tr>
+                        <tr>
+                            <td>No. KK</td>
+                            <td>{{ $student->kk }}</td>
+                        </tr>
+                        <tr>
+                            <td>Asal TK</td>
                             <td>{{ $student->school_origin }}</td>
                         </tr>
                         <tr>

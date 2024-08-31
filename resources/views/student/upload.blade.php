@@ -10,6 +10,8 @@
                 <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="name" value="{{ $user->name }} " hidden>
+                    <input type="text" name="type" value="upload_pembayaran" hidden>
+
                     <input class="form-control @error('document') is-invalid @enderror" type="file" name="document"
                         class="pt-2">
                     {{-- @error('document')
