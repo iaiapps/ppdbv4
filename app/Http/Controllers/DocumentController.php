@@ -48,10 +48,11 @@ class DocumentController extends Controller
         $file_name = $id . '-user' . '-' . time() . '-' . $file->getClientOriginalName();
 
         // simpan di folder public
-        // $request->file('file')->move(public_path('img-document'), $file_name);
+        // dd($request->file());
+        $request->file('document')->move(public_path('img-document'), $file_name);
 
         // simpan di folder storage
-        $request->file('document')->storeAs('public/img-document', $file_name);
+        // $request->file('document')->storeAs('public/img-document', $file_name);
 
         //masukkan ke array validate
         $imgDocument['document'] = $file_name;

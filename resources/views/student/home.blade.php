@@ -31,17 +31,17 @@
         <div class="card p-3 mb-3">
             <div class="text-center">
                 {{-- ini settingan untuk hosting --}}
-                <img src="{{ url('storage/public/img-document/' . $data->document) }}" alt="document"
-                    class="p-2 bg-white border border-5 border-orange foto">
+                {{-- <img src="{{ url('storage/public/img-document/' . $data->document) }}" alt="document"
+                    class="p-2 bg-white border border-5 border-orange foto"> --}}
 
                 {{-- ini setting untuk lokal --}}
-                {{-- <img src="{{ asset('storage/img-document/' . $data->document) }}" alt="document"
-                    class="p-2 bg-white border border-5 border-orange foto"> --}}
+                <img src="{{ asset('img-document/' . $data->document) }}" alt="document"
+                    class="p-2 bg-white border border-5 border-orange foto">
             </div>
         </div>
     @else
         <div class="bg-white rounded p-3 mb-3 text-center">
-            <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange"
+            <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange mb-3"
                 src="{{ asset('img/user.png') }}" alt="user" />
             <br>
             <a href="{{ route('upload_foto') }}" class="btn btn-warning">upload foto TK</a>
