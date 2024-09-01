@@ -86,18 +86,18 @@
             Jadwal Pendaftaran (Timeline)
         </h3>
 
-        @if ($gelombang_1 != null)
+        @if ($tahap_1 != null)
             <hr>
-            <h5 class="text-center">Pendaftaran Gelombang 1</h5>
+            <h5 class="text-center">Pendaftaran Tahap 1 (Early Bird)</h5>
             <div class="row mb-5 text-center justify-content-center">
-                @foreach ($gelombang_1 as $gel_1)
+                @foreach ($tahap_1 as $t_1)
                     <div class="col-6 col-md-3 py-3">
                         <div class="p-3 box-card bg-orange">
-                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $gel_1->icon }}" />
-                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $gel_1->name }}
+                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $t_1->icon }}" />
+                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $t_1->name }}
                             </p>
                             <p class="fs-med text-black m-0 ">
-                                {{ $gel_1->date }}
+                                {{ $t_1->date }}
                             </p>
                         </div>
                     </div>
@@ -105,18 +105,18 @@
             </div>
         @endif
 
-        @if ($gelombang_2 != null)
+        @if ($tahap_2 != null)
             <hr>
-            <h5 class="text-center">Pendaftaran Gelombang 2</h5>
+            <h5 class="text-center">Pendaftaran Tahap 2</h5>
             <div class="row mb-5 text-center justify-content-center">
-                @foreach ($gelombang_2 as $gel_2)
+                @foreach ($tahap_2 as $t_2)
                     <div class="col-6 col-md-3 py-3">
                         <div class="p-3 box-card bg-orange">
-                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $gel_2->icon }}" />
-                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $gel_2->name }}
+                            <img class="img-ket mb-1" src="{{ asset('img') . '/' . $t_2->icon }}" />
+                            <p class="py-1 px-2 my-2 bg-white rounded"> {{ $t_2->name }}
                             </p>
                             <p class="fs-med text-black m-0 ">
-                                {{ $gel_2->date }}
+                                {{ $t_2->date }}
                             </p>
                         </div>
                     </div>

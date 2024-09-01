@@ -13,56 +13,56 @@ class TimelineSeeder extends Seeder
      */
     public function run(): void
     {
-        // gelombang 1
+        // Tahap 1
         Timeline::create([
             'icon' => '1.png',
-            'name' => 'Pendaftaran Gelombang 1 ',
+            'name' => 'Pendaftaran Tahap 1 ',
             'date' => '01 Sept 2024 s/d 31 Okt 2024',
-            'type' => 'gelombang_1'
+            'type' => 'tahap_1'
         ]);
         Timeline::create([
             'icon' => '2.png',
-            'name' => 'Observasi & Psikotest Gelombang 1',
+            'name' => 'Observasi & Psikotest Tahap 1',
             'date' => '03 Februari 2024',
-            'type' => 'gelombang_1'
+            'type' => 'tahap_1'
         ]);
         Timeline::create([
             'icon' => '3.png',
-            'name' => 'Pengumuman Hasil PPDB Gelombang 1',
+            'name' => 'Pengumuman Hasil PPDB Tahap 1',
             'date' => '01 Desember 2024',
-            'type' => 'gelombang_1'
+            'type' => 'tahap_1'
         ]);
         Timeline::create([
             'icon' => '4.png',
-            'name' => 'Pembayaran Daftar Ulang Gelombang 1',
+            'name' => 'Pembayaran Daftar Ulang Tahap 1',
             'date' => '02 - 08 Desember 2024',
-            'type' => 'gelombang_1'
+            'type' => 'tahap_1'
         ]);
 
-        // gelombang 2
+        // Tahap 2
         Timeline::create([
             'icon' => '1.png',
-            'name' => 'Pendaftaran Gelomabng 2 ',
+            'name' => 'Pendaftaran Tahap 2 ',
             'date' => '10 Des 2024 s/d 10 Feb 2025',
-            'type' => 'gelombang_2'
+            'type' => 'tahap_2'
         ]);
         Timeline::create([
             'icon' => '2.png',
-            'name' => 'Observasi & Psikotest Gelomabng 2',
+            'name' => 'Observasi & Psikotest Tahap 2',
             'date' => '15 Februari 2024',
-            'type' => 'gelombang_2'
+            'type' => 'tahap_2'
         ]);
         Timeline::create([
             'icon' => '3.png',
-            'name' => 'Pengumuman Hasil PPDB Gelomabng 2',
+            'name' => 'Pengumuman Hasil PPDB Tahap 2',
             'date' => '01 Maret 2025',
-            'type' => 'gelombang_2'
+            'type' => 'tahap_2'
         ]);
         Timeline::create([
             'icon' => '4.png',
-            'name' => 'Pembayaran Daftar Ulang Gelomabng 2',
+            'name' => 'Pembayaran Daftar Ulang Tahap 2',
             'date' => '02 - 08 Maret 2025',
-            'type' => 'gelombang_2'
+            'type' => 'tahap_2'
         ]);
 
         // other

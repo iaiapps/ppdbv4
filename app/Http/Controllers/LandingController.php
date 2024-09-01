@@ -11,8 +11,8 @@ class LandingController extends Controller
     public function index()
     {
         // timeline
-        $gelombang_1 = Timeline::where('type', 'gelombang_1')->get();
-        $gelombang_2 = Timeline::where('type', 'gelombang_2')->get();
+        $tahap_1 = Timeline::where('type', 'tahap_1')->get();
+        $tahap_2 = Timeline::where('type', 'tahap_2')->get();
         $other = Timeline::where('type', 'other')->get();
 
         // tagline
@@ -25,7 +25,7 @@ class LandingController extends Controller
         if (isset($onoff) && $onoff->value == 0) {
             return view('landing.indexoff');
         } else {
-            return view('landing.index', compact('contacts', 'gelombang_1', 'gelombang_2', 'other', 'taglines'));
+            return view('landing.index', compact('contacts', 'tahap_1', 'tahap_2', 'other', 'taglines'));
         }
     }
 }
