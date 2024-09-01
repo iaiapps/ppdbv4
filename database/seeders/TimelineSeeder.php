@@ -23,7 +23,7 @@ class TimelineSeeder extends Seeder
         Timeline::create([
             'icon' => '2.png',
             'name' => 'Observasi & Psikotest Tahap 1',
-            'date' => '03 Februari 2024',
+            'date' => '09 November 2024',
             'type' => 'tahap_1'
         ]);
         Timeline::create([
@@ -49,7 +49,7 @@ class TimelineSeeder extends Seeder
         Timeline::create([
             'icon' => '2.png',
             'name' => 'Observasi & Psikotest Tahap 2',
-            'date' => '15 Februari 2024',
+            'date' => '15 Februari 2025',
             'type' => 'tahap_2'
         ]);
         Timeline::create([

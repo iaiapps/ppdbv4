@@ -53,7 +53,7 @@
                         href="https://ppdb.sditharum.id/">https://ppdb.sditharum.id/</a></li>
                 <li class="list-group-item">Membayar biaya pendaftaran sebesar :
                     <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 300.000</span>
-                    ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 4441234007</span> a.n.
+                    ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 2005720055</span> a.n.
                     SDIT HARAPAN UMAT
                 </li>
                 <li class="list-group-item"> Upload bukti pembayaran ke web <a
