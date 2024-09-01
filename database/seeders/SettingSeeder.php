@@ -27,7 +27,7 @@ class SettingSeeder extends Seeder
         Setting::create([
             'name' => 'kontak',
             'desc' => 'Pak Ristiono',
-            'value' => '0633290284',
+            'value' => '088289378109',
         ]);
         Setting::create([
             'name' => 'kontak',

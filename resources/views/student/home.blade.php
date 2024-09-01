@@ -7,7 +7,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 mb-3 text-center">
-        <p class="m-0">status PPDB</p>
+        <p class="m-0">Status PPDB</p>
         @if (Auth::user()->hasRole('akun_isi_formulir'))
             <p class="my-1 text-white bg-secondary p-2 rounded fs-5 fw-bold">Menunggu Hasil Pengumuman PPDB</p>
         @elseif (Auth::user()->hasRole('akun_diterima'))
@@ -38,13 +38,11 @@
                     class="p-2 bg-white border border-5 border-orange foto">
             </div>
         </div>
-        <div class="bg-white rounded p-3 mb-3 text-center">
-            <button href="#" class="btn btn-warning" disabled>upload foto TK</button>
-        </div>
     @else
         <div class="bg-white rounded p-3 mb-3 text-center">
             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange"
                 src="{{ asset('img/user.png') }}" alt="user" />
+            <br>
             <a href="{{ route('upload_foto') }}" class="btn btn-warning">upload foto TK</a>
         </div>
     @endif
@@ -61,31 +59,33 @@
                     <a class="btn btn-primary w-100" href="{{ route('student.profile') }}">
                         Data Pendaftar</a>
                 </div>
+
                 <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="img-fluid">
             </div>
         </div>
     @elseif (Auth::user()->hasRole('akun_diterima'))
-        <div class="bg-white rounded p-3 min-vh-100 text-center">
-            <div class="bg-orange backheight position-relative rounded">
+        <div class="bg-white rounded p-3 text-center">
+            {{-- <div class="bg-orange backheight position-relative rounded">
                 <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                     src="{{ asset('img/user.png') }}" alt="user" />
-            </div>
-            <div>
-                <p class="fs-4 m-0 text-center">
-                    Tahap selanjutnya adalah daftar ulang. <br> Untuk melihat rincian biaya daftar ulang klik tombol dibawah
+            </div> --}}
+            <div class="text-center">
+                <p class="fs-5 m-0 "> Tahap selanjutnya adalah daftar ulang. </p>
+                <p> Untuk melihat rincian biaya daftar ulang klik tombol dibawah
                 </p>
-                <a class="btn btn-orange w-50 my-4" href="{{ route('student.cost') }}">
+                <a class="btn btn-orange w-75 my-4" href="{{ route('student.cost') }}">
                     Lihat rincian biaya daftar ulang</a>
             </div>
         </div>
     @elseif (Auth::user()->hasRole('akun_ditolak'))
-        <div class="bg-white rounded p-3 min-vh-100 text-center">
-            <div class="bg-orange backheight position-relative rounded">
+        <div class="bg-white rounded p-3 text-center">
+            {{-- <div class="bg-orange backheight position-relative rounded">
                 <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                     src="{{ asset('img/user.png') }}" alt="user" />
-            </div>
+            </div> --}}
             <div>
-                <p class="my-1  p-1 rounded fs-3 fw-bold">Jangan putus asa dan tetap semangat</p>
+                <p class="my-1 p-1 rounded fs-4 fw-bold">Jangan putus asa dan tetap semangat, semoga mendapat sekolah yang
+                    lebih baik</p>
             </div>
         </div>
     @endif
@@ -96,12 +96,12 @@
 @push('css')
     <style>
         .foto {
-            width: 50%;
+            height: 300px;
         }
 
         @media (max-width: 700px) {
             .foto {
-                width: 75%
+                height: 200px;
             }
         }
     </style>
