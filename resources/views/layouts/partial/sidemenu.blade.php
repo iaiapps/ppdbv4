@@ -92,7 +92,7 @@
             @endif
 
         </ul>
-    @else
+    @elseif(Auth::user()->hasRole('akun_isi_ditolak'))
         <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
             <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                 <a class="nav-link hover rounded text-center text-md-start
