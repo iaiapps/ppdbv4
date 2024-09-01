@@ -32,7 +32,7 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->type);
+        // dd($request->all());
         //cek id
         $id = Auth::user()->id;
 
@@ -40,7 +40,7 @@ class DocumentController extends Controller
         $imgDocument = $request->validate([
             'name' => 'required',
             'type' => 'required',
-            'document' => 'mimes:jpeg,jpg,png|file|max:1024',
+            'document' => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
         ]);
 
         //beri nama

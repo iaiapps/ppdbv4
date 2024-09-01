@@ -4,6 +4,13 @@
 
 @section('content')
     <div class="card p-3">
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show"> Gambar gagal diupload, ukuran melebihi batas atau
+                type gambar bukan .jpg atau .png <button type="button" class="btn-close" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="modal-body text-center">
             <p class="fs-5 mb-4">File foto TK berupa .png atau .jpg*</p>
             <form action="{{ route('upload_foto') }}" method="POST" enctype="multipart/form-data">

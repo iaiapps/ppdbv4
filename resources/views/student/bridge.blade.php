@@ -8,11 +8,21 @@
         <div class="container">
             <div class="d-flex flex-column pt-4 pt-md-0 justify-content-md-center vh-100">
                 <div class="bg-white p-3 p-md-5 rounded shadow">
+
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-dismissible fade show"> Bukti pembayaran berhasil di upload
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show"> Gambar gagal diupload, ukuran melebihi
+                            batas atau
+                            type gambar bukan .jpg atau .png <button type="button" class="btn-close"
+                                data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <div class="text-center">
                         <img class="logobridge rounded p-1 mb-2" src="{{ asset('img/user.png') }}" alt="user" />
                         <p class="fs-4 text-black"> Assalamualaikum, <strong>{{ $user->name }} </strong> </p>
