@@ -69,7 +69,7 @@ class TimelineSeeder extends Seeder
         Timeline::create([
             'icon' => '5.png',
             'name' => 'Test Penempatan BTAQ & Fitting seragam',
-            'date' => '26 April 2024',
+            'date' => '26 April 2025',
             'type' => 'other'
         ]);
         Timeline::create([
