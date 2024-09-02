@@ -14,8 +14,13 @@
         <hr>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Calon
+                <button class="nav-link active" id="foto-tab" data-bs-toggle="tab" data-bs-target="#foto-tab-pane"
+                    type="button" role="tab" aria-controls="foto-tab-pane" aria-selected="true">
+                    Foto Siswa</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+                    role="tab" aria-controls="home-tab-pane" aria-selected="true">Calon
                     Siswa</button>
             </li>
             <li class="nav-item" role="presentation">
@@ -24,9 +29,15 @@
                     Tua</button>
             </li>
         </ul>
+
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+            <div class="tab-pane fade show active" id="foto-tab-pane" role="tabpanel" aria-labelledby="foto-tab"
                 tabindex="0">
+                <div class="text-center">
+                    <img class="foto" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
+                </div>
+            </div>
+            <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 <table class="table">
                     <tbody>
                         <tr>
@@ -48,6 +59,10 @@
                         <tr>
                             <td>Asal TK</td>
                             <td>{{ $student->school_origin }}</td>
+                        </tr>
+                        <tr>
+                            <td>NISN TK</td>
+                            <td>{{ $student->school_nisn }}</td>
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
@@ -140,9 +155,17 @@
             width: 170px
         }
 
+        .foto {
+            height: 500px;
+        }
+
         @media (max-width: 700px) {
             .width {
                 width: 110px;
+            }
+
+            .foto {
+                height: 300px;
             }
         }
     </style>

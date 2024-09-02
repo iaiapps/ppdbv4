@@ -20,4 +20,8 @@ class Student extends Model
     {
         return $this->belongsTo(CostCategory::class);
     }
+    public function document()
+    {
+        return $this->hasMany(Document::class);
+    }
 }

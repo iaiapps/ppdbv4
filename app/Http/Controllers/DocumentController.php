@@ -74,7 +74,7 @@ class DocumentController extends Controller
     public function show(Request $request, Document $document)
     {
         $id = $request->user;
-        $data = Document::where('user_id', $id)->get();
+        $data = Document::where('user_id', $id)->where('type', 'upload_pembayaran')->get();
         return view('admin.user.document', compact('data'));
     }
 

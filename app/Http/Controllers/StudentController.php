@@ -53,7 +53,9 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('admin.student.show', compact('student'));
+        $foto = Document::where('user_id', $student->user->id)->where('type', 'upload_foto')->first();
+        // dd($foto);
+        return view('admin.student.show', compact('student', 'foto'));
     }
 
     /**
