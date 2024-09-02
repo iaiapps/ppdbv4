@@ -34,7 +34,11 @@
             <div class="tab-pane fade show active" id="foto-tab-pane" role="tabpanel" aria-labelledby="foto-tab"
                 tabindex="0">
                 <div class="text-center">
-                    <img class="foto" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
+                    @if ($d->document)
+                        <img class="foto" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
+                    @else
+                        <p>belum upload foto</p>
+                    @endif
                 </div>
             </div>
             <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
