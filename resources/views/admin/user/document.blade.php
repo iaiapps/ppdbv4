@@ -17,7 +17,11 @@
                 {{-- <img src="{{ url('storage/public/img-document/' . $d->document) }}" alt="document" class="img-fluid"> --}}
 
                 {{-- ini setting untuk lokal --}}
-                <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="img-fluid">
+                @if ($d->document)
+                    <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="img-fluid">
+                @else
+                    <p>belum upload foto</p>
+                @endif
             @endif
         @empty
             <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
