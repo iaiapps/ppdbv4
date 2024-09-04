@@ -65,7 +65,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="school_nisn">NISN TK</label>
                                 <input class="form-control" id="school_nisn" name="school_nisn" type="text"
-                                    placeholder="Diisi jika ada NISN dari TK" />
+                                    placeholder="Diisi jika memiliki NISN di TK" />
                             </div>
 
                             <div class="mb-3">
@@ -203,7 +203,6 @@
                                     <option>D4/S1</option>
                                     <option>S2</option>
                                     <option>S3</option>
-                                    <option>Tidak Sekolah</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -258,10 +257,10 @@
                                         Rp. 4.000.000 - Rp. 5.000.000
                                     </option>
                                     <option>
-                                        Rp. 5.000.000 - Rp. 7,5.000.000
+                                        Rp. 5.000.000 - Rp. 7.500.000
                                     </option>
                                     <option>
-                                        Rp. 7,5.000.000 - Rp. 10.000.000
+                                        Rp. 7.500.000 - Rp. 10.000.000
                                     </option>
                                     <option>
                                         Rp. 10.000.000 - Rp. 20.000.000
@@ -295,7 +294,6 @@
                                     <option>D4/S1</option>
                                     <option>S2</option>
                                     <option>S3</option>
-                                    <option>Tidak Sekolah</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -349,10 +347,10 @@
                                         Rp. 4.000.000 - Rp. 5.000.000
                                     </option>
                                     <option>
-                                        Rp. 5.000.000 - Rp. 7,5.000.000
+                                        Rp. 5.000.000 - Rp. 7.500.000
                                     </option>
                                     <option>
-                                        Rp. 7,5.000.000 - Rp. 10.000.000
+                                        Rp. 7.500.000 - Rp. 10.000.000
                                     </option>
                                     <option>
                                         Rp. 10.000.000 - Rp. 20.000.000
