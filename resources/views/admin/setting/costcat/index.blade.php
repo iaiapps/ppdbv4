@@ -5,12 +5,11 @@
 @section('content')
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 min-vh-100 ">
+    <div class="bg-white rounded p-3 min-vh-100">
         <p class="fs-5 text-center">Kategori Biaya Daftar Ulang SDIT Harum Jember</p>
         <hr>
         <a href="{{ route('costCategory.create') }}" class="btn btn-primary btn-sm mb-3"> <i class="bi bi-plus-circle"></i>
-            tambah
-            kategori</a>
+            tambah kategori</a>
         <div class="table-responsive">
             <table id="table" class="table table-bordered rounded align-middle">
                 <thead>
@@ -24,6 +23,8 @@
                         <th scope="col">Buku_Media</th>
                         <th scope="col">Seragam</th>
                         <th scope="col">Jilbab</th>
+                        <th scope="col">Ipp</th>
+                        <th scope="col">Ipp</th>
                         <th scope="col">Ipp</th>
                         <th scope="col">Total</th>
                         <th scope="col">Action</th>
@@ -41,6 +42,8 @@
                             <td>{{ $costcat->bukumedia }}</td>
                             <td>{{ $costcat->seragam }}</td>
                             <td>{{ $costcat->jilbab }} </td>
+                            <td>{{ $costcat->ipp }}</td>
+                            <td>{{ $costcat->ipp }}</td>
                             <td>{{ $costcat->ipp }}</td>
                             <td>Rp.
                                 {{ $costcat->gedung + $costcat->perpustakaan + $costcat->kegiatan + $costcat->bukumedia + $costcat->seragam + $costcat->jilbab + $costcat->ipp }}
@@ -65,13 +68,14 @@
             </table>
         </div>
     </div>
+
 @endsection
 @include('layouts.partial.scripts')
 
 @push('css')
     <style>
         #table {
-            font-size: 14px
+            font-size: 14px;
         }
     </style>
 @endpush
@@ -80,7 +84,11 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "pageLength": 50
+                "pageLength": 10,
+                "responsive": true,
+                // "rowReorder": {
+                //     selector: 'td:nth-child(2)'
+                // }
             });
         });
     </script>

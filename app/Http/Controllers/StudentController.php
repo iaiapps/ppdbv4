@@ -63,7 +63,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('admin.student.edit', compact('student'));
     }
 
     /**
@@ -73,8 +73,19 @@ class StudentController extends Controller
     {
         // dd($request->all());
         $student->update($request->all());
+        return redirect()->route('student.index');
+        // return redirect()->route('set.reg');
+    }
+
+    // update cost-reg
+    public function update_cost(Request $request, Student $student)
+    {
+        // dd($request->all());
+        $student->update($request->all());
+        // return redirect()->route('student.index');
         return redirect()->route('set.reg');
     }
+
 
     /**
      * Remove the specified resource from storage.

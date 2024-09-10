@@ -33,31 +33,35 @@ Route::middleware('auth')->group(function () {
     // admin
     Route::middleware('role:admin')->group(function () {
         Route::prefix('admin')->group(function () {
+            // user
             Route::resource('user', UserController::class);
             Route::put('reset-pass', [UserController::class, 'resetpass'])->name('reset.pass');
+            //delete user
+            Route::post('delete-all', [UserController::class, 'deleteAll'])->name('user.delete.all');
 
+            // student
             Route::resource('student', StudentController::class);
-
             Route::get('student-all', [StudentController::class, 'studentall'])->name('student.all');
             Route::get('student-export', [StudentController::class, 'exportstudent'])->name('student.export');
+            Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
+            Route::put('set-cost/{student}', [StudentController::class, 'update_cost'])->name('set.cost');
 
+            // document
             Route::get('document', [DocumentController::class, 'show'])->name('document.show');
+            // delete user photo
+            Route::delete('delete-photo/{document}', [DocumentController::class, 'destroy'])->name('photo.delete');
 
             //tombol helper action
             Route::post('activated', [ActionController::class, 'activated'])->name('user.activated');
             Route::post('accepted', [ActionController::class, 'accepted'])->name('student.accepted');
             Route::post('rejected', [ActionController::class, 'rejected'])->name('student.rejected');
 
-            Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
-
             //setting
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
-
             //contact
             Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
-
             //onoff
             Route::get('onoff', [SettingController::class, 'onoff'])->name('setting.onoff');
             // Route::get('onoff-edit', [SettingController::class, 'onoffedit'])->name('setting.onoff.edit');
@@ -65,13 +69,10 @@ Route::middleware('auth')->group(function () {
 
             Route::resource('costCategory', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
-
-            //delete user
-            Route::post('delete-all', [UserController::class, 'deleteAll'])->name('user.delete.all');
         });
     });
 
-    // student
+    // buat akun ppdb
     Route::middleware('role:akun_dibuat')->group(function () {
         Route::post('upload', [DocumentController::class, 'store'])->name('upload');
     });

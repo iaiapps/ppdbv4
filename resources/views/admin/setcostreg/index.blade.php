@@ -31,8 +31,7 @@
                                 <td>{{ $student->full_name }}</td>
                                 <td>{{ $student->cost_category->name ?? 'belum ditentukan' }}</td>
                                 <td>
-                                    <form action="{{ route('student.update', $student->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('set.cost', $student->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('PUT')
                                         <div class="input-group ">

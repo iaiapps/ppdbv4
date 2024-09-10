@@ -20,6 +20,7 @@
                         <th class="text-center" scope="col">No. Handphone</th>
                         <th class="text-center" scope="col">Status</th>
                         <th class="text-center" scope="col">Detail</th>
+                        <th class="text-center" scope="col">Edit</th>
                         <th class="text-center" scope="col">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,12 @@
                             <td>
                                 <a href="{{ route('student.show', $student->id) }}" class="btn btn-outline-orange btn-sm">
                                     <i class="bi bi-list-ul"></i> </a>
+
+                            </td>
+                            <td>
+                                <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
+                                    href="{{ route('student.edit', $student->id) }}" class="btn btn-warning btn-sm"><i
+                                        class="bi bi-pencil-square"></i></a>
                             </td>
                             <td>
 

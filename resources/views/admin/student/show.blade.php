@@ -36,6 +36,23 @@
                 <div class="text-center">
                     @if (isset($foto->document))
                         <img class="foto" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
+                        <br>
+                        <form onsubmit="return confirm('apakah anda yakin akan menghapus foto ini?')"
+                            action="{{ route('photo.delete', $foto->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">hapus foto</button>
+                        </form>
+
+                        {{-- <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"
+                            onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                            action="{{ route('photo.delete', $foto->id) }}" method="post" class="d-inline">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </form> --}}
                     @else
                         <p>belum upload foto</p>
                     @endif
