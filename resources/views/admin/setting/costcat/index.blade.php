@@ -24,8 +24,6 @@
                         <th scope="col">Seragam</th>
                         <th scope="col">Jilbab</th>
                         <th scope="col">Ipp</th>
-                        <th scope="col">Ipp</th>
-                        <th scope="col">Ipp</th>
                         <th scope="col">Total</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -42,8 +40,6 @@
                             <td>{{ $costcat->bukumedia }}</td>
                             <td>{{ $costcat->seragam }}</td>
                             <td>{{ $costcat->jilbab }} </td>
-                            <td>{{ $costcat->ipp }}</td>
-                            <td>{{ $costcat->ipp }}</td>
                             <td>{{ $costcat->ipp }}</td>
                             <td>Rp.
                                 {{ $costcat->gedung + $costcat->perpustakaan + $costcat->kegiatan + $costcat->bukumedia + $costcat->seragam + $costcat->jilbab + $costcat->ipp }}
