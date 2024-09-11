@@ -41,18 +41,8 @@
                             action="{{ route('photo.delete', $foto->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit">hapus foto</button>
+                            <button type="submit" class="btn btn-warning mt-3">hapus foto</button>
                         </form>
-
-                        {{-- <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"
-                            onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
-                            action="{{ route('photo.delete', $foto->id) }}" method="post" class="d-inline">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash3"></i>
-                            </button>
-                        </form> --}}
                     @else
                         <p>belum upload foto</p>
                     @endif
