@@ -48,8 +48,9 @@
                             </tr>
 
                             <tr>
-                                <td>Asal Sekolah <br>
-                                    {{ $card->school_origin }}</td>
+                                <td><small>Asal Sekolah</small> <br>
+                                    <small> {{ $card->school_origin }}</small>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
