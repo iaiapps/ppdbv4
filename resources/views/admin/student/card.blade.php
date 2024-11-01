@@ -25,9 +25,9 @@
 
                     <table class="table table-bordered mt-1 border-black mb-1">
                         <tr class="text-center">
-                            <td style="width: 50%; height:68px" class="tbl"><small>RUANG</small></td>
+                            <td style="width: 50%; height:60px" class="tbl"><small>RUANG</small></td>
 
-                            <td style="width: 50%; height:68px" class="tbl"><small>NO</small></td>
+                            <td style="width: 50%; height:60px" class="tbl"><small>NO</small></td>
                         </tr>
 
                     </table>
@@ -43,12 +43,12 @@
                                         <img src="{{ asset('img-document/' . $card->user->document->where('type', 'upload_foto')->first()->document) }}"
                                             class="profil" alt="foto">
                                     @endif
-                                <td><small>Nama Panggilan</small><br>{{ $card->nick_name }} </td>
+                                <td class="pdl"><small>Nama Panggilan</small><br>{{ $card->nick_name }} </td>
 
                             </tr>
 
                             <tr>
-                                <td><small>Asal Sekolah</small> <br>
+                                <td class="pdl"><small>Asal Sekolah</small><br>
                                     <small> {{ $card->school_origin }}</small>
                                 </td>
                             </tr>
@@ -83,6 +83,10 @@
 
         .tbl {
             padding: 0px !important;
+        }
+
+        .pdl {
+            padding: 4px !important;
         }
 
         /* allpage */
