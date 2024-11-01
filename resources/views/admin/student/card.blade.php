@@ -27,7 +27,7 @@
                         <tr class="text-center">
                             <td style="width: 50%; height:68px" class="tbl"><small>RUANG</small></td>
 
-                            <td style="width: 50%" class="tbl"><small>NO</small></td>
+                            <td style="width: 50%; height:68px" class="tbl"><small>NO</small></td>
                         </tr>
 
                     </table>
@@ -36,7 +36,7 @@
                         <tbody>
                             <tr>
                                 <td rowspan="2" class="text-center">
-                                    @if ($card->user->document->isEmpty())
+                                    @if ($card->user->document->where('type', 'upload_foto')->isEmpty())
                                         <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange mb-3"
                                             src="{{ asset('img/user.png') }}" alt="user" />
                                     @else

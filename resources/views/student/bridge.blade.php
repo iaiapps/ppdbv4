@@ -41,7 +41,7 @@
                         <li class="list-group-item">
                             Upload bukti pembayaran disini
 
-                            @if (Auth::user()->document)
+                            @if (!Auth::user()->document->isEmpty())
                                 <button type="button" class="btn btn-primary rounded text-white" disabled><i
                                         class="bi bi-check-circle"></i> sudah
                                     upload</button>

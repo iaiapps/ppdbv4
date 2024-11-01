@@ -32,11 +32,11 @@
                             <td>{{ $user->email_number }}</td>
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
-                                {!! $user->document
-                                    ? $user->document->created_at->isoFormat('DD/MM/YY')
+                                {!! $user->document->where('type', 'upload_pembayaran')->first()
+                                    ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY')
                                     : 'belum upload <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i></button>' !!}
 
-                                @if ($user->document)
+                                @if ($user->document->where('type', 'upload_pembayaran')->first())
                                     <a href="{{ route('document.show', ['user' => $user->id]) }}"
                                         class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
                                 @endif
