@@ -110,7 +110,7 @@
             #printarea {
                 visibility: visible !important;
                 position: absolute !important;
-                left: 0;
+                left: 20px;
                 right: 0;
                 top: 0;
                 border: 2px solid rgb(255, 255, 255);
