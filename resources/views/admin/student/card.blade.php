@@ -113,7 +113,7 @@
                 left: 0;
                 right: 0;
                 top: 0;
-                /* border: 2px solid rgb(95, 222, 148); */
+                border: 2px solid rgb(255, 255, 255);
             }
         }
     </style>
