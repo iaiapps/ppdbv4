@@ -116,6 +116,14 @@ class StudentController extends Controller
         return view('admin.setcostreg.index', compact('students', 'costs'));
     }
 
+    // handle card
+    public function card()
+    {
+        $cards = Student::all();
+        // dd($cards);
+        return view('admin.student.card', compact('cards'));
+    }
+
     // handle dari user //
     public function home()
     {

@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
             Route::get('student-export', [StudentController::class, 'exportstudent'])->name('student.export');
             Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
             Route::put('set-cost/{student}', [StudentController::class, 'update_cost'])->name('set.cost');
+            Route::get('card', [StudentController::class, 'card'])->name('student.card');
 
             // document
             Route::get('document', [DocumentController::class, 'show'])->name('document.show');
