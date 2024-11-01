@@ -20,7 +20,7 @@
                         <img src="{{ asset('img/kop.svg') }}" class="img-header" alt="ppdb">
                     </div>
                     <p class="text-center fw-bold mb-2">Kartu Peserta Ujian Psikotest 2025 </p>
-                    <p class="text-center fs-5 mb-0">{{ $card->full_name }}</p>
+                    <p class="text-center mb-0">{{ $card->full_name }}</p>
                     <small class="text-center d-block">{{ $card->place_birth }}, {{ $card->date_birth }}</small>
 
                     <table class="table table-bordered mt-1 border-black mb-1">
