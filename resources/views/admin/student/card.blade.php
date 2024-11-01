@@ -92,6 +92,7 @@
         /* allpage */
         @page {
             margin: 8px !important;
+            padding: 8px !important;
             font-size: 0.6em
         }
 
@@ -112,9 +113,7 @@
                 left: 0;
                 right: 0;
                 top: 0;
-                /* transform: translate(-50%, -50%); */
-
-                /* border: 2px solid rgb(95, 222, 148); */
+                border: 2px solid rgb(95, 222, 148);
             }
         }
     </style>
