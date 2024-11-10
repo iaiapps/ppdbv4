@@ -12,7 +12,7 @@
         @endif
 
         <div class="modal-body text-center">
-            <p class="fs-5 mb-4">File foto TK berupa .png atau .jpg*</p>
+            <p class="fs-5 mb-4">File foto TK berukuran 4x6 berupa .png atau .jpg*</p>
             <form action="{{ route('upload_foto') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="text" name="name" value="{{ $user->name }} " hidden>

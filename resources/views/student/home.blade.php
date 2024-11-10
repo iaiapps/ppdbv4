@@ -41,10 +41,11 @@
         </div>
     @else
         <div class="bg-white rounded p-3 mb-3 text-center">
+            <p>Silahkan upload Foto TK Ananda</p>
             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange mb-3"
                 src="{{ asset('img/user.png') }}" alt="user" />
             <br>
-            <a href="{{ route('upload_foto') }}" class="btn btn-warning">upload foto TK</a>
+            <a href="{{ route('upload_foto') }}" class="btn btn-warning">upload foto</a>
         </div>
     @endif
 

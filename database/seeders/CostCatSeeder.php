@@ -24,6 +24,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 0,
             'ipp' => 674000,
+            'total' => 9424000,
         ]);
         CostCategory::create([
             'name' => 'kakak 1',
@@ -35,6 +36,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 0,
             'ipp' => 649000,
+            'total' => 9149000,
         ]);
         CostCategory::create([
             'name' => 'kakak 2',
@@ -46,6 +48,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 0,
             'ipp' => 624000,
+            'total' => 8874000,
         ]);
         CostCategory::create([
             'name' => 'Anak Guru',
@@ -57,6 +60,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 0,
             'ipp' => 135000,
+            'total' => 2385000,
         ]);
 
         // perempuan
@@ -70,6 +74,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 160000,
             'ipp' => 674000,
+            'total' => 9584000,
         ]);
         CostCategory::create([
             'name' => 'kakak 1',
@@ -81,6 +86,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 160000,
             'ipp' => 649000,
+            'total' => 9309000,
         ]);
         CostCategory::create([
             'name' => 'kakak 2',
@@ -92,6 +98,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 160000,
             'ipp' => 624000,
+            'total' => 9034000,
         ]);
         CostCategory::create([
             'name' => 'Anak Guru',
@@ -103,6 +110,7 @@ class CostCatSeeder extends Seeder
             'seragam' => 800000,
             'jilbab' => 160000,
             'ipp' => 135000,
+            'total' => 2545000,
         ]);
     }
 }

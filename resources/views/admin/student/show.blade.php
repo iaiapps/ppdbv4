@@ -35,7 +35,7 @@
                 tabindex="0">
                 <div class="text-center">
                     @if (isset($foto->document))
-                        <img class="foto" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
+                        <img class="foto my-3" src="{{ asset('img-document/' . $foto->document) }}" alt="foto profil">
                         <br>
                         <form onsubmit="return confirm('apakah anda yakin akan menghapus foto ini?')"
                             action="{{ route('photo.delete', $foto->id) }}" method="post">
@@ -167,7 +167,7 @@
         }
 
         .foto {
-            height: 500px;
+            height: 450px;
         }
 
         @media (max-width: 700px) {

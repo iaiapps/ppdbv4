@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ActionController;
-use App\Http\Controllers\CostCategoryController;
-use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ActionController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TimelineController;
+use App\Http\Controllers\CostCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +50,11 @@ Route::middleware('auth')->group(function () {
 
             // document
             Route::get('document', [DocumentController::class, 'show'])->name('document.show');
+            // delete user bukti pembayaran
+            Route::delete('delete-document/{document}', [DocumentController::class, 'destroyDoc'])->name('document.delete');
+
             // delete user photo
-            Route::delete('delete-photo/{document}', [DocumentController::class, 'destroy'])->name('photo.delete');
+            Route::delete('delete-photo/{document}', [DocumentController::class, 'destroyPhoto'])->name('photo.delete');
 
             //tombol helper action
             Route::post('activated', [ActionController::class, 'activated'])->name('user.activated');
@@ -70,6 +74,13 @@ Route::middleware('auth')->group(function () {
 
             Route::resource('costCategory', CostCategoryController::class);
             Route::resource('timeline', TimelineController::class);
+
+            // payment
+            Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
+            Route::get('payment/{id}', [PaymentController::class, 'create'])->name('payment.create');
+            Route::get('payment-print/{payment}', [PaymentController::class, 'show'])->name('payment.show');
+            Route::post('payment', [PaymentController::class, 'store'])->name('payment.store');
+            Route::get('payment-show/{id}', [PaymentController::class, 'paymentshow'])->name('payment.showall');
         });
     });
 

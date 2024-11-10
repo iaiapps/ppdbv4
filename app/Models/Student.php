@@ -15,7 +15,6 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
-
     public function cost_category()
     {
         return $this->belongsTo(CostCategory::class);
@@ -23,5 +22,9 @@ class Student extends Model
     public function document()
     {
         return $this->hasMany(Document::class);
+    }
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
     }
 }

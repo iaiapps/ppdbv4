@@ -5,9 +5,11 @@
 @section('content')
     @include('layouts.partial.name')
     <div class="bg-white rounded p-3 min-vh-100">
-        <p class="text-center fs-5 mb-1">Jadwal PPDB SDIT Harum Jember</p>
+        <a href="{{ url()->previous() }}" class="btn btn-sm btn-orange mb-3"> <i class="bi bi-arrow-left-circle"></i>
+            kembali</a>
+        <p class="text-center fs-5 mb-2">Jadwal PPDB SDIT Harum Jember</p>
         <div class="bg-orange p-1 text-white text-center rounded">
-            <p class="m-0">Sekarang :
+            <p class="m-0 p-1">Sekarang :
                 <span id="time"> 'time' </span>
             </p>
         </div>

@@ -35,7 +35,7 @@
                         <li class="list-group-item">
                             Biaya pendaftaran sebesar:
                             <span class="badge bg-orange">Rp 300.000</span>, pembayaran melalui
-                            rekening sekolah <span class="badge bg-orange">BSI 4441234007</span><br />
+                            rekening sekolah <span class="badge bg-orange">BSI 2005720055</span><br />
                             a.n SDIT HARAPAN UMAT
                         </li>
                         <li class="list-group-item">

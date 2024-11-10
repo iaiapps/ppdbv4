@@ -8,7 +8,8 @@
 
     <div class="bg-white rounded p-3 min-vh-100 ">
         {{-- <a href="" class="btn btn-orange btn-sm mb-3">edit data</a> --}}
-
+        <a href="{{ url()->previous() }}" class="btn btn-sm btn-orange mb-3"> <i class="bi bi-arrow-left-circle"></i>
+            kembali</a>
         <p class="fs-5 text-center mb-0">Detail Data Pendaftar</p>
         <hr>
 

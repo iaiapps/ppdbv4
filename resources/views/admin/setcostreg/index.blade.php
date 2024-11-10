@@ -10,7 +10,6 @@
             data-bs-target="#exampleModal">
             Lihat Biaya Daftar ulang
         </button>
-
         <p class="fs-5 text-center">Tentukan Data Biaya Daftar Ulang </p>
         <hr>
         <div class="table-responsive">

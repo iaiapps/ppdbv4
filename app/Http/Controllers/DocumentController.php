@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class DocumentController extends Controller
 {
@@ -97,7 +98,15 @@ class DocumentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Document $document)
+    public function destroyDoc(Document $document)
+    {
+        // ini delete file di public folder
+        File::delete('img-document/' . $document->document);
+        $document->delete();
+        return redirect()->route('user.index');
+    }
+
+    public function destroyPhoto(Document $document)
     {
         $document->delete();
         return redirect()->route('student.index');

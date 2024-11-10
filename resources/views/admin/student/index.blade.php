@@ -17,8 +17,8 @@
                     <tr>
                         <th class="text-center" scope="col">#</th>
                         <th class="text-center" scope="col">Nama</th>
+                        <th class="text-center" scope="col">Jenis Kelamin</th>
                         <th class="text-center" scope="col">Asal Sekolah</th>
-                        <th class="text-center" scope="col">No. Handphone</th>
                         <th class="text-center" scope="col">Status</th>
                         <th class="text-center" scope="col">Detail</th>
                         <th class="text-center" scope="col">Edit</th>
@@ -30,8 +30,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}</td>
+                            <td>{{ $student->gender }}</td>
                             <td>{{ $student->school_origin }}</td>
-                            <td>{{ $student->user->email_number }}</td>
                             <td>{{ $student->user->roles->first()->name }}</td>
                             <td>
                                 <a href="{{ route('student.show', $student->id) }}" class="btn btn-outline-orange btn-sm">

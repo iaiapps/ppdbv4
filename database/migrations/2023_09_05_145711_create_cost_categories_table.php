@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('seragam');
             $table->integer('jilbab');
             $table->integer('ipp');
+            $table->integer('total');
             $table->timestamps();
         });
     }

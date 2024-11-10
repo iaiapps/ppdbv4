@@ -41,9 +41,10 @@
                             <td>{{ $costcat->seragam }}</td>
                             <td>{{ $costcat->jilbab }} </td>
                             <td>{{ $costcat->ipp }}</td>
-                            <td>Rp.
+                            {{-- <td>Rp.
                                 {{ $costcat->gedung + $costcat->perpustakaan + $costcat->kegiatan + $costcat->bukumedia + $costcat->seragam + $costcat->jilbab + $costcat->ipp }}
-                            </td>
+                            </td> --}}
+                            <td>{{ $costcat->total }}</td>
                             <td>
                                 <a href="{{ route('costCategory.edit', $costcat->id) }}" class="btn btn-orange btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>

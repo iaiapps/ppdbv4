@@ -5,7 +5,7 @@
    viewBox="0 0 238.98541 49.320254"
    version="1.1"
    id="svg8"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="kop.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -157,23 +157,25 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.6687484"
-     inkscape:cx="68.037546"
-     inkscape:cy="319.2531"
+     inkscape:zoom="0.47287653"
+     inkscape:cx="429.28754"
+     inkscape:cy="370.07546"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1388"
-     inkscape:window-height="836"
-     inkscape:window-x="52"
-     inkscape:window-y="27"
+     inkscape:window-width="1366"
+     inkscape:window-height="743"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:pagecheckerboard="0" />
+     inkscape:pagecheckerboard="0"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -190,8 +192,18 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(28.724471,-7.6871286)">
+    <rect
+       style="fill:#ffffff;stroke-width:0.259267"
+       id="rect1"
+       width="315.75061"
+       height="49.320259"
+       x="-67.107063"
+       y="70.023636"
+       inkscape:export-filename="rect1.png"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
     <g
-       transform="translate(5.5178104)"
+       transform="translate(-11.448247)"
        id="g959"
        inkscape:export-xdpi="299"
        inkscape:export-ydpi="299">

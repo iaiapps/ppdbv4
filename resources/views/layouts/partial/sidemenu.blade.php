@@ -36,8 +36,15 @@
             <li class="nav-item my-1">
                 <a class="nav-link hover rounded {{ Route::currentRouteName() == 'set.reg' ? 'bg-menu' : '' }}"
                     href="{{ route('set.reg') }}">
-                    <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
+                    <i class="menu-icon bi bi-arrow-repeat me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Re-Registrasi</span>
+                </a>
+            </li>
+            <li class="nav-item my-1">
+                <a class="nav-link hover rounded {{ Route::currentRouteName() == 'payment.index' ? 'bg-menu' : '' }}"
+                    href="{{ route('payment.index') }}">
+                    <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Pembayaran</span>
                 </a>
             </li>
 
