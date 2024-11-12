@@ -27,7 +27,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}</td>
                             <td>{{ $student->gender }}</td>
-                            <td>@currency($student->cost_category->total)</td>
+                            <td>@currency($student->cost_category->total ? 'belum ditentukan')</td>
 
                             <td>
                                 <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i
