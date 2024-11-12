@@ -19,9 +19,15 @@
         <div class="clearfix">
 
             <div class="float-start">
-                <p class="d-inline-block px-3 py-2 fs-5 rounded border border-primary ">Biaya Daftar Ulang <span
-                        class="fw-bold">@currency($student->cost_category->total)</span>
-                </p>
+                @if (isset($student->cost_category->total))
+                    <p class="d-inline-block px-3 py-2 fs-5 rounded border border-primary ">Biaya Daftar Ulang <span
+                            class="fw-bold">@currency($student->cost_category->total)</span>
+                    </p>
+                @else
+                    <p class="d-inline-block px-3 py-2 fs-5 rounded border border-primary "> belum ditentukan </p>
+                @endif
+
+
             </div>
             <div class="float-end">
                 <p class="d-inline-block px-3 py-2 fs-5 bg-orange rounded ">Total pembayaran <span
