@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
+            $table->string('payment_from');
             $table->string('date');
             $table->integer('value');
+            $table->string('payment_says');
             $table->timestamps();
         });
     }

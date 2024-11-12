@@ -15,7 +15,14 @@
                 <tbody>
                     <tr>
                         <td>Nama Pembayaran</td>
-                        <td> <input type="text" class="form-control" name="name" placeholder="Misal pembayaran ke-1">
+                        <td> <input type="text" class="form-control" name="name"
+                                placeholder="contoh : pembayaran daftar ulang ke-1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Telah Terima dari</td>
+                        <td> <input type="text" class="form-control" name="payment_from"
+                                placeholder="nama yang membayar">
                         </td>
                     </tr>
                     <tr>
@@ -25,6 +32,10 @@
                     <tr>
                         <td>Nominal pembayaran</td>
                         <td> <input type="number" class="form-control" name="value"> </td>
+                    </tr>
+                    <tr>
+                        <td>Terbilang</td>
+                        <td> <input type="jumlah" class="form-control" name="payment_says"> </td>
                     </tr>
                 </tbody>
             </table>

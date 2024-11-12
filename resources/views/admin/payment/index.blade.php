@@ -17,6 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col" class="fs-small">Nama Siswa</th>
                         <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Biaya Daftar Ulang</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}</td>
                             <td>{{ $student->gender }}</td>
+                            <td>@currency($student->cost_category->total)</td>
 
                             <td>
                                 <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i

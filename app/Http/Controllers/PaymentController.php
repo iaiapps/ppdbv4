@@ -71,7 +71,8 @@ class PaymentController extends Controller
     // untuk melihat pembayaran
     public function paymentshow($id)
     {
+        $student = Student::where('id', '=', $id)->first();
         $payments = Payment::where('student_id', '=', $id)->get();
-        return view('admin.payment.show', compact('payments', 'id'));
+        return view('admin.payment.show', compact('payments', 'id', 'student'));
     }
 }
