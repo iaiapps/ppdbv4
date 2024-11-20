@@ -95,7 +95,6 @@
                         class="btn btn-success ">Admin</a> </p>
             </div>
         @endif
-        <hr>
     </div>
 @endsection
 
