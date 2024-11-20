@@ -10,9 +10,16 @@
         <p class="fs-5 fw-bold text-center">{{ $student->full_name }}</p>
         <hr>
         @if ($student->cost_category_id)
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-12">
-                    <div class="table-responsive">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-6 col-12">
+                    <p class="fs-4 text-center my-3">Biaya Awal</p>
+                    <div class="text-center imgbox border rounded border-2 border-orange">
+                        <img src="{{ asset('img/rincian.svg') }}" alt="imgrincian" class="imgsize">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <p class="my-3 fs-4 text-center">Biaya Daftar Ulang</p>
+                    <div class="table-responsive border rounded border-2 border-orange boxtable p-2">
                         <table id="table" class="table table-bordered rounded">
                             <thead>
                                 <tr class="text-center">
@@ -23,35 +30,35 @@
                             <tbody>
                                 <tr>
                                     <td>Infaq Gedung</td>
-                                    <td> @currency($student->cost_category->gedung) </td>
+                                    <td class="text-end"> @currency($student->cost_category->gedung) </td>
                                 </tr>
                                 <tr>
                                     <td>Infaq Perpustakaan</td>
-                                    <td>@currency($student->cost_category->perpustakaan)</td>
+                                    <td class="text-end">@currency($student->cost_category->perpustakaan)</td>
                                 </tr>
                                 <tr>
                                     <td>Infaq Kegiatan</td>
-                                    <td>@currency($student->cost_category->kegiatan)</td>
+                                    <td class="text-end">@currency($student->cost_category->kegiatan)</td>
                                 </tr>
                                 <tr>
                                     <td>Buku dan Media</td>
-                                    <td>@currency($student->cost_category->bukumedia)</td>
+                                    <td class="text-end">@currency($student->cost_category->bukumedia)</td>
                                 </tr>
                                 <tr>
                                     <td>Seragam</td>
-                                    <td>@currency($student->cost_category->seragam)</td>
+                                    <td class="text-end">@currency($student->cost_category->seragam)</td>
                                 </tr>
                                 <tr>
-                                    <td>Jilbab</td>
-                                    <td>@currency($student->cost_category->jilbab)</td>
+                                    <td>Jilbas</td>
+                                    <td class="text-end">@currency($student->cost_category->jilbab)</td>
                                 </tr>
                                 <tr>
                                     <td>IPP</td>
-                                    <td>@currency($student->cost_category->ipp)</td>
+                                    <td class="text-end">@currency($student->cost_category->ipp)</td>
                                 </tr>
                                 <tr>
                                     <td>Jumlah</td>
-                                    <td class="fw-bold fs-5 bg-light w-50">@currency($student->cost_category->gedung + $student->cost_category->perpustakaan + $student->cost_category->kegiatan + $student->cost_category->bukumedia + $student->cost_category->seragam + $student->cost_category->jilbab + $student->cost_category->ipp)
+                                    <td class="fw-bold fs-5 bg-light w-50 text-end">@currency($student->cost_category->total)
                                     </td>
                                 </tr>
                             </tbody>
@@ -60,17 +67,19 @@
                 </div>
             </div>
 
-            <p>*Kontak Daftar Ulang ke <b>Admin keuangan</b> <a href="https://wa.me/08113717716" target="_blank"
-                    class="btn btn-primary btn-sm">klik disini</a></p>
-            <div>
+            {{-- <p>*Kontak Daftar Ulang ke <b>Admin keuangan</b> <a href="https://wa.me/08113717716" target="_blank"
+                    class="btn btn-primary btn-sm">klik disini</a></p> --}}
+            <div class="mt-4">
                 <ul class="list-group">
                     <li class="list-group-item">Biaya daftar ulang di atas, sudah termasuk snack dan makan siang satu
                         bulan pertama. </li>
                     <li class="list-group-item">Pembayaran pertama minimal Rp 6.000.000, </li>
-                    <li class="list-group-item">Dibayarkan melalui transfer ke BSI No. Rek. 2005720055. a/n
+                    <li class="list-group-item">Dibayarkan melalui transfer ke No. Rek. BSI 2005720055. a/n
                         : SDIT HARAPAN UMAT </li>
-                    <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer ke nomor
-                        08113717716 dengan format: PPDB#nama pengirim#nama siswa</li>
+                    <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer
+                        dengan format: PPDB#nama pengirim#nama siswa ke <span><a class="btn btn-primary btn-sm"
+                                href="https://wa.me/628113717716">nomor admin keuangan</a></span>
+                    </li>
                     <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga waktu yang
                         telah di tentukan, maka kami nyatakan
                         mengundurkan diri.</li>
@@ -89,3 +98,28 @@
         <hr>
     </div>
 @endsection
+
+@push('css')
+    <style>
+        .imgbox {
+            overflow: scroll;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .imgsize {
+            width: 600px;
+        }
+
+        .boxtable {
+            height: 600px;
+        }
+
+        @media (max-width: 600px) {
+            .boxtable {
+                height: 350px;
+            }
+        }
+    </style>
+@endpush
