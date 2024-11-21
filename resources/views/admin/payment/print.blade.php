@@ -6,23 +6,23 @@
 
     @include('layouts.partial.name')
 
-    <div class="bg-white rounded p-3 min-vh-100">
+    <div class="bg-white rounded p-3">
         <a href="{{ url()->previous() }}" class="btn btn-outline-primary btn-sm mb-3"> <i class="bi bi-arrow-left-circle"></i>
             kembali</a>
         <br>
-        <button onclick="print()" class="btn btn-primary mb-3"> <i class="bi bi-printer"></i>
+        <button id="print" class="btn btn-primary mb-3"> <i class="bi bi-printer"></i>
             cetak kuitansi</button>
 
-        <button onclick="createpdf()" class="btn btn-primary mb-3"> <i class="bi bi-arrow-down-circle"></i>
+        <button id="download" class="btn btn-primary mb-3"> <i class="bi bi-arrow-down-circle"></i>
             download kuitansi</button>
         <br>
         <hr>
-        <div id="cetak" class="px-4">
-            <div class="row">
-                <div class="col">
+        <div id="cetak" class="px-md-4 px-1">
+            <div class="row center">
+                <div class="col my-1 ">
                     <img class="kop" src="{{ asset('img/kopkuitansi.svg') }}" alt="kop" />
                 </div>
-                <div class="col">
+                <div class="col my-1">
                     <p class="fs-4 border border-success d-inline-block p-2 rounded mb-2">KUITANSI </p>
                     <p>nomor : {{ '0' . $payment->id . $carbon::parse($payment->created_at)->isoFormat('YYMMDDHH') }}
                     </p>
@@ -32,7 +32,7 @@
             <p class="fs-5 text-center">Pembayaran Daftar Ulang </p>
             <div class="border rounded border-success p-2 mb-4">
                 <p class="mb-2">Telah terima dari :</p>
-                <table class="table mb-0">
+                <table class="table mb-0 align-middle">
                     <tbody>
                         <tr>
                             <td class="lebartd1">Bapak/Ibu/Wali</td>
@@ -46,7 +46,7 @@
                 </table>
             </div>
             <div class="border border-success rounded p-2 mb-4">
-                <table class="table mb-0">
+                <table class="table mb-0 align-middle">
                     <tbody>
                         <tr>
                             <td class="lebartd1 ">Pembayaran</td>
@@ -61,7 +61,8 @@
                         <tr>
                             <td class="py-3">Nominal</td>
                             <td class="fs-5 py-3"><span class="me-3">:</span> <span
-                                    class="inline-block border border-black rounded p-2 "> <b>@currency($payment->value) </b></span>
+                                    class="inline-block border border-black rounded p-md-2 p-1 "> <b>@currency($payment->value)
+                                    </b></span>
                             </td>
                         </tr>
                     </tbody>
@@ -90,7 +91,7 @@
 @push('css')
     <style>
         .kop {
-            width: 350px !important;
+            width: 350px;
         }
 
         .lebartd1 {
@@ -117,6 +118,21 @@
             opacity: 0.9;
         }
 
+        @media (max-width: 600px) {
+            .kop {
+                width: 100%;
+                min-width: 300px;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            .lebartd1 {
+                width: 100px !important;
+            }
+        }
+
         @media print {
             body {
                 visibility: hidden;
@@ -141,6 +157,8 @@
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const download = document.getElementById('download');
+
         function createpdf() {
             const element = document.getElementById("cetak");
 
@@ -164,9 +182,14 @@
             };
             html2pdf().set(options).from(element).save();
         };
+        download.addEventListener('click', () => {
+            createpdf();
+        });
 
-        function print() {
+        const print = document.getElementById("print")
+        print.addEventListener("click", () => {
             window.print();
-        };
+
+        });
     </script>
 @endpush

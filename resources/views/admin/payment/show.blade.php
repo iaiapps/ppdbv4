@@ -65,7 +65,7 @@
                                 <a href="{{ route('payment.photo', $photo->id) }}" class="btn btn-sm btn-primary">lihat</a>
                             </td>
                             <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
-                                        class="bi bi-card-list"></i> lihat</a>
+                                        class="bi bi-card-list"></i> lihat kuitansi</a>
                             </td>
                         </tr>
                     @endforeach
