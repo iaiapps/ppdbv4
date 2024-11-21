@@ -12,7 +12,7 @@
             kembali</a>
         <br>
 
-        <a href="{{ route('payment.create', $id) }}" class="btn btn-primary btn-sm mb-3"> <i class="bi bi-plus-circle"></i>
+        <a href="{{ route('payment.create', $id) }}" class="btn btn-primary mb-3"> <i class="bi bi-plus-circle"></i>
             tambah pembayaran</a>
         <p class="fs-5 text-center mb-0">Detail Pembayaran {{ $student->full_name }}</p>
         <hr>
@@ -44,7 +44,7 @@
                     <td>Telah Terima Dari</td>
                     <td>Tanggal</td>
                     <td>Nominal</td>
-                    <td>Terbilang</td>
+                    <td>Bukti Pembayaran</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -56,15 +56,27 @@
                         <td>{{ $payment->payment_from }}</td>
                         <td>{{ $payment->date }}</td>
                         <td>{{ $payment->value }}</td>
-                        <td>{{ $payment->payment_says }}</td>
-                        <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary"><i
+                        <td>
+                            <img src="{{ asset('img-document/' . $bukti->where('created_at', $payment->created_at)->first()->document) }}"
+                                alt="document" class="p-2 bg-white border border-5 border-orange foto">
+                            {{-- bukti
+                            {{ $bukti->where('created_at', $payment->created_at)->first()->document }} --}}
+                            <a href="#" class="btn btn-sm btn-primary">lihat</a>
+                        </td>
+                        <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
                                     class="bi bi-card-list"></i> lihat</a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-
     </div>
 @endsection
+
+@push('css')
+    <style>
+        .foto {
+            width: 100px;
+        }
+    </style>
+@endpush

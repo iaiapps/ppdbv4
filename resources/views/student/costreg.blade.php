@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
-                    <p class="my-3 fs-4 text-center">Biaya Daftar Ulang</p>
+                    <p class="my-3 fs-4 text-center">Biaya Daftar Ulang Yang Harus Dibayar</p>
                     <div class="table-responsive border rounded border-2 border-orange boxtable p-2">
                         <table id="table" class="table table-bordered rounded">
                             <thead>
@@ -49,7 +49,7 @@
                                     <td class="text-end">@currency($student->cost_category->seragam)</td>
                                 </tr>
                                 <tr>
-                                    <td>Jilbas</td>
+                                    <td>Jilbab</td>
                                     <td class="text-end">@currency($student->cost_category->jilbab)</td>
                                 </tr>
                                 <tr>
@@ -70,20 +70,20 @@
             {{-- <p>*Kontak Daftar Ulang ke <b>Admin keuangan</b> <a href="https://wa.me/08113717716" target="_blank"
                     class="btn btn-primary btn-sm">klik disini</a></p> --}}
             <div class="mt-4">
-                <ul class="list-group">
+                <ol class="list-group list-group-numbered">
                     <li class="list-group-item">Biaya daftar ulang di atas, sudah termasuk snack dan makan siang satu
                         bulan pertama. </li>
                     <li class="list-group-item">Pembayaran pertama minimal Rp 6.000.000, </li>
                     <li class="list-group-item">Dibayarkan melalui transfer ke No. Rek. BSI 2005720055. a/n
                         : SDIT HARAPAN UMAT </li>
                     <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer
-                        dengan format: PPDB#nama pengirim#nama siswa ke <span><a class="btn btn-primary btn-sm"
-                                href="https://wa.me/628113717716">nomor admin keuangan</a></span>
+                        dengan format: PPDB#nama pengirim#nama siswa. Dikirim ke <span><a class="btn btn-primary btn-sm"
+                                href="https://wa.me/628113717716">admin keuangan</a></span>
                     </li>
                     <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga waktu yang
                         telah di tentukan, maka kami nyatakan
                         mengundurkan diri.</li>
-                </ul>
+                </ol>
             </div>
         @else
             <div class="text-center">

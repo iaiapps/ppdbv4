@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\Student;
+use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -22,7 +24,8 @@ class PaymentController extends Controller
      */
     public function create($id)
     {
-        return view('admin.payment.create', compact('id'));
+        $name = Student::where('id', '=', $id)->first();
+        return view('admin.payment.create', compact('id', 'name'));
     }
 
     /**
@@ -30,9 +33,37 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        // pembayaran
         $id = $request->student_id;
         $data = $request->all();
         Payment::create($data);
+        // return redirect()->route('payment.showall', $id);
+
+        // upload bukti pembayaran
+        //validate
+        $imgDocument = $request->validate([
+            'type' => 'required',
+            'document' => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
+        ]);
+
+        //beri nama
+        $file = $request->file('document');
+        $file_name = $id . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
+
+        // simpan di folder public
+        // dd($request->file());
+        $request->file('document')->move(public_path('img-document'), $file_name);
+
+        //masukkan ke array validate
+        $imgDocument['name'] = $request->name_pembayaran;
+        $imgDocument['document'] = $file_name;
+        $imgDocument['user_id'] = $id;
+
+        //simpan ke database
+        Document::create($imgDocument);
+
+        // kembali ke payment
         return redirect()->route('payment.showall', $id);
     }
 
@@ -73,6 +104,9 @@ class PaymentController extends Controller
     {
         $student = Student::where('id', '=', $id)->first();
         $payments = Payment::where('student_id', '=', $id)->get();
-        return view('admin.payment.show', compact('payments', 'id', 'student'));
+
+        $bukti = Document::where('name', $student->full_name)->where('type', 'upload_bukti_daftar_ulang')->get();
+        // dd($bukti);
+        return view('admin.payment.show', compact('payments', 'id', 'student', 'bukti'));
     }
 }
