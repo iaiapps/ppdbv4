@@ -35,41 +35,43 @@
                 </p>
             </div>
         </div>
-
-        <table class="table align-middle mt-3">
-            <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Nama Pembayaran</td>
-                    <td>Telah Terima Dari</td>
-                    <td>Tanggal</td>
-                    <td>Nominal</td>
-                    <td>Bukti Pembayaran</td>
-                    <td>Action</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($payments as $payment)
+        <div class="table-responsive">
+            <table class="table align-middle mt-3">
+                <thead>
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $payment->name }}</td>
-                        <td>{{ $payment->payment_from }}</td>
-                        <td>{{ $payment->date }}</td>
-                        <td>{{ $payment->value }}</td>
-                        <td>
-                            <img src="{{ asset('img-document/' . $bukti->where('created_at', $payment->created_at)->first()->document) }}"
-                                alt="document" class="p-2 bg-white border border-5 border-orange foto">
-                            {{-- bukti
-                            {{ $bukti->where('created_at', $payment->created_at)->first()->document }} --}}
-                            <a href="#" class="btn btn-sm btn-primary">lihat</a>
-                        </td>
-                        <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
-                                    class="bi bi-card-list"></i> lihat</a>
-                        </td>
+                        <td>#</td>
+                        <td>Nama Pembayaran</td>
+                        <td>Telah Terima Dari</td>
+                        <td>Tanggal</td>
+                        <td>Nominal</td>
+                        <td>Bukti Pembayaran</td>
+                        <td>Action</td>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($payments as $payment)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $payment->name }}</td>
+                            <td>{{ $payment->payment_from }}</td>
+                            <td>{{ $payment->date }}</td>
+                            <td>{{ $payment->value }}</td>
+                            @php
+                                $photo = $bukti->where('created_at', $payment->created_at)->first();
+                            @endphp
+                            <td>
+                                <img src="{{ asset('img-document/' . $photo->document) }}" alt="document"
+                                    class="p-2 bg-white border border-2 border-orange foto">
+                                <a href="{{ route('payment.photo', $photo->id) }}" class="btn btn-sm btn-primary">lihat</a>
+                            </td>
+                            <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
+                                        class="bi bi-card-list"></i> lihat</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
 

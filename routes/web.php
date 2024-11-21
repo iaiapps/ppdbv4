@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
             Route::get('payment-print/{payment}', [PaymentController::class, 'show'])->name('payment.show');
             Route::post('payment', [PaymentController::class, 'store'])->name('payment.store');
             Route::get('payment-show/{id}', [PaymentController::class, 'paymentshow'])->name('payment.showall');
+            Route::get('payment-photo/{id}', [PaymentController::class, 'paymentphoto'])->name('payment.photo');
         });
     });
 

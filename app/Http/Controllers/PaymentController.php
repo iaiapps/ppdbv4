@@ -109,4 +109,11 @@ class PaymentController extends Controller
         // dd($bukti);
         return view('admin.payment.show', compact('payments', 'id', 'student', 'bukti'));
     }
+
+    // untuk melihat bukti pembayaran
+    public function paymentphoto($id)
+    {
+        $document = Document::where('id', $id)->first();
+        return view('admin.payment.paymentphoto', compact('document'));
+    }
 }
