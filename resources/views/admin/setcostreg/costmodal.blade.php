@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered rounded">
+                    <table id="tablee" class="table table-bordered rounded">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -39,12 +39,18 @@
                                     <td> @currency($cost->total) </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@push('css')
+    <style>
+        #tablee {
+            font-size: 15px;
+        }
+    </style>
+@endpush
