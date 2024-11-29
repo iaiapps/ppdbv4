@@ -110,7 +110,7 @@
 @push('css')
     <style>
         .icon {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
         }
 
         @media (max-width: 800px) {
