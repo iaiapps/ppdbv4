@@ -18,6 +18,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Pilih Kategori Biaya</th>
                     </tr>
@@ -28,17 +29,36 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $student->full_name }}</td>
-                                <td>{{ $student->cost_category->name ?? 'belum ditentukan' }}</td>
+                                <td>{{ $student->gender }}</td>
+                                <td>{{ $student->cost_category->name . ' - ' . $student->cost_category->gender ?? 'belum ditentukan' }}
+                                </td>
                                 <td>
                                     <form action="{{ route('set.cost', $student->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('PUT')
+                                        @php
+                                            $male = $costs->where('gender', 'laki-laki');
+                                            $female = $costs->where('gender', 'perempuan');
+                                        @endphp
                                         <div class="input-group ">
                                             <select class="form-select" name="cost_category_id">
                                                 <option selected disabled>pilih kategori</option>
-                                                @foreach ($costs as $cost)
-                                                    <option value="{{ $cost->id }}">{{ $cost->name }}</option>
-                                                @endforeach
+                                                @if ($student->gender == 'laki-laki')
+                                                    {
+                                                    @foreach ($male as $m)
+                                                        <option value="{{ $m->id }}">
+                                                            {{ $m->name . ' - ' . $m->gender }} </option>
+                                                    @endforeach
+                                                    }
+                                                @endif
+                                                @if ($student->gender == 'perempuan')
+                                                    {
+                                                    @foreach ($female as $f)
+                                                        <option value="{{ $f->id }}">
+                                                            {{ $f->name . ' - ' . $f->gender }} </option>
+                                                    @endforeach
+                                                    }
+                                                @endif
                                             </select>
                                             <button type="submit" class="btn btn-success btn-sm">pilih</button>
                                         </div>
