@@ -34,17 +34,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $costcat->name }}</td>
                             <td>{{ $costcat->gender }}</td>
-                            <td>{{ $costcat->gedung }}</td>
-                            <td>{{ $costcat->perpustakaan }}</td>
-                            <td>{{ $costcat->kegiatan }}</td>
-                            <td>{{ $costcat->bukumedia }}</td>
-                            <td>{{ $costcat->seragam }}</td>
-                            <td>{{ $costcat->jilbab }} </td>
-                            <td>{{ $costcat->ipp }}</td>
-                            {{-- <td>Rp.
-                                {{ $costcat->gedung + $costcat->perpustakaan + $costcat->kegiatan + $costcat->bukumedia + $costcat->seragam + $costcat->jilbab + $costcat->ipp }}
-                            </td> --}}
-                            <td>{{ $costcat->total }}</td>
+
+                            <td>@currency($costcat->gedung) </td>
+                            <td>@currency($costcat->perpustakaan) </td>
+                            <td>@currency($costcat->kegiatan) </td>
+                            <td>@currency($costcat->bukumedia) </td>
+                            <td>@currency($costcat->seragam) </td>
+                            <td>@currency($costcat->jilbab) </td>
+                            <td>@currency($costcat->ipp) </td>
+                            <td> @currency($costcat->total) </td>
+
                             <td>
                                 <a href="{{ route('costCategory.edit', $costcat->id) }}" class="btn btn-orange btn-sm"><i
                                         class="bi bi-pencil-square"></i></a>
@@ -76,7 +75,7 @@
         }
     </style>
 @endpush
-
+{{-- 
 @push('scripts')
     <script>
         $(document).ready(function() {
@@ -89,4 +88,4 @@
             });
         });
     </script>
-@endpush
+@endpush --}}

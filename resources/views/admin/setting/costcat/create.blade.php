@@ -55,6 +55,10 @@
                         <td>Ipp</td>
                         <td> <input type="number" class="form-control" name="ipp"> </td>
                     </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td> <input type="number" class="form-control" name="total"> </td>
+                    </tr>
                 </tbody>
             </table>
             <button type="submit" class="btn btn-danger mb-3 w-100">simpan</button>

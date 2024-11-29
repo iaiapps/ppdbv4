@@ -27,18 +27,16 @@
                             @foreach ($costs as $cost)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $cost->name }}</td>
-                                    <td>{{ $cost->gender }}</td>
-                                    <td>{{ $cost->gedung }}</td>
-                                    <td>{{ $cost->perpustakaan }}</td>
-                                    <td>{{ $cost->kegiatan }}</td>
-                                    <td>{{ $cost->bukumedia }}</td>
-                                    <td>{{ $cost->seragam }}</td>
-                                    <td>{{ $cost->jilbab }}</td>
-                                    <td>{{ $cost->ipp }}</td>
-                                    <td>Rp.
-                                        {{ $cost->gedung + $cost->perpustakaan + $cost->kegiatan + $cost->bukumedia + $cost->seragam + $cost->jilbab + $cost->ipp }}
-                                    </td>
+                                    <td>{{ $cost->name }} </td>
+                                    <td>{{ $cost->gender }} </td>
+                                    <td>@currency($cost->gedung) </td>
+                                    <td>@currency($cost->perpustakaan) </td>
+                                    <td>@currency($cost->kegiatan) </td>
+                                    <td>@currency($cost->bukumedia) </td>
+                                    <td>@currency($cost->seragam) </td>
+                                    <td>@currency($cost->jilbab) </td>
+                                    <td>@currency($cost->ipp) </td>
+                                    <td> @currency($cost->total) </td>
                                 </tr>
                             @endforeach
 
