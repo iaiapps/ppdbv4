@@ -23,34 +23,26 @@
                 </thead>
                 <tbody>
                     @foreach ($students as $student)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $student->full_name }}</td>
-                            <td>{{ $student->gender }}</td>
-                            <td>
-                                @if (isset($student->cost_category->total))
-                                    @currency($student->cost_category->total)
-                                @else
-                                    belum ditentukan
-                                @endif
-                            </td>
+                        @if ($student->user->hasRole('akun_diterima'))
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $student->full_name }}</td>
+                                <td>{{ $student->gender }}</td>
+                                <td>
+                                    @if (isset($student->cost_category->total))
+                                        @currency($student->cost_category->total)
+                                    @else
+                                        belum ditentukan
+                                    @endif
+                                </td>
 
-                            <td>
-                                <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i
-                                        class="bi bi-eye"></i> lihat pembayaran</a>
-                                {{-- <form onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
-                                    action="{{ route('studentegory.destroy', $student->id) }}" method="post"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
-                                </form> --}}
-                            </td>
-                        </tr>
+                                <td>
+                                    <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i
+                                            class="bi bi-eye"></i> lihat pembayaran</a>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
-
                 </tbody>
             </table>
         </div>

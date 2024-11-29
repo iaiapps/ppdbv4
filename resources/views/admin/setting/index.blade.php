@@ -16,41 +16,66 @@
         <hr>
         <div class="row">
             <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded">
-                    <p class="m-0">Setting timeline</p>
-                    <hr>
-                    <a href="{{ route('timeline.index') }}" class="btn btn-orange">set timeline</a>
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
+                        <i class="bi bi-calendar-week icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0 mt-2">Setting timeline</p>
+                        <hr>
+                        <a href="{{ route('timeline.index') }}" class="btn btn-orange">set timeline</a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded">
-                    <p class="m-0">Setting Biaya</p>
-                    <hr>
-                    <a href="{{ route('costCategory.index') }}" class="btn btn-orange">set kategori biaya</a>
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
+                        <i class="bi bi-cash-coin icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">Setting Biaya</p>
+                        <hr>
+                        <a href="{{ route('costCategory.index') }}" class="btn btn-orange">set kategori biaya</a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded">
-                    <p class="m-0">Setting Contact</p>
-                    <hr>
-                    <a href="{{ route('setting.contact') }}" class="btn btn-orange">set Kontak</a>
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
+                        <i class="bi bi-envelope icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">Setting Contact</p>
+                        <hr>
+                        <a href="{{ route('setting.contact') }}" class="btn btn-orange">set Kontak</a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded">
-                    <p class="m-0">Setting web on/off</p>
-                    <hr>
-                    <a href="{{ route('setting.onoff') }}" class="btn btn-orange">set onoff</a>
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
+                        <i class="bi bi-toggle-off icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">Setting web on/off</p>
+                        <hr>
+                        <a href="{{ route('setting.onoff') }}" class="btn btn-orange">set onoff</a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded">
-                    <p class="m-0">Hapus Data User</p>
-                    <hr>
-                    {{-- <a href="{{ route('user.delete.all') }}" class="btn btn-orange">hapus data</a> --}}
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser">
-                        hapus data user
-                    </button>
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
+                        <i class="bi bi-trash icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">Hapus Data User</p>
+                        <hr>
+                        {{-- <a href="{{ route('user.delete.all') }}" class="btn btn-orange">hapus data</a> --}}
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser">
+                            hapus data user
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,13 +98,25 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             {{-- <a href="{{ route('user.delete.all', ['key']) }}" class="btn btn-primary ">delete</a> --}}
-                            <button type="submit">delete</button>
+                            <button type="submit" class="btn btn-danger">delete</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-
     </div>
 @endsection
+
+@push('css')
+    <style>
+        .icon {
+            font-size: 3.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .icon {
+                font-size: 2.7rem;
+            }
+        }
+    </style>
+@endpush
