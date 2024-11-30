@@ -14,7 +14,7 @@
             <p class="my-1 text-white bg-primary p-2 rounded fs-5 fw-bold">Selamat, ananda "DITERIMA" di SDIT Harum
                 Jember
             </p>
-            <a href="#lanjut" class="btn btn-primary mt-2 fs-5 btn-sm"><i class="bi bi-arrow-down-circle"></i></a>
+            <a href="#lanjut" class="btn btn-primary mt-2 fs-5 btn-sm">selanjutnya</a>
         @elseif (Auth::user()->hasRole('akun_ditolak'))
             <p class="my-1 text-white bg-danger p-2 rounded fs-5 fw-bold">Mohon Maaf ananda Belum Diterima di SDIT Harum
                 Jember</p>
