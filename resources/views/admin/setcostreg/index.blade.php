@@ -30,7 +30,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $student->full_name }}</td>
                                 <td>{{ $student->gender }}</td>
-                                <td>{{ $student->cost_category->name . ' - ' . $student->cost_category->gender ?? 'belum ditentukan' }}
+                                <td>{{ $student->cost_category->name ?? 'belum ditentukan' }}
                                 </td>
                                 <td>
                                     <form action="{{ route('set.cost', $student->id) }}" method="POST" class="d-inline">
