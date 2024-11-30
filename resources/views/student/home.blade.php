@@ -14,6 +14,7 @@
             <p class="my-1 text-white bg-primary p-2 rounded fs-5 fw-bold">Selamat, ananda "DITERIMA" di SDIT Harum
                 Jember
             </p>
+            <a href="#lanjut" class="btn btn-primary mt-2 fs-5 btn-sm"><i class="bi bi-arrow-down-circle"></i></a>
         @elseif (Auth::user()->hasRole('akun_ditolak'))
             <p class="my-1 text-white bg-danger p-2 rounded fs-5 fw-bold">Mohon Maaf ananda Belum Diterima di SDIT Harum
                 Jember</p>
@@ -21,7 +22,6 @@
     </div>
 
     {{-- foto --}}
-
     @if (isset($data->document))
         @if (Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show mb-3"> Foto berhasil di upload
@@ -66,13 +66,13 @@
             </div>
         </div>
     @elseif (Auth::user()->hasRole('akun_diterima'))
-        <div class="bg-white rounded p-3 text-center">
+        <div id="lanjut" class="bg-white rounded p-3 text-center">
             {{-- <div class="bg-orange backheight position-relative rounded">
                 <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                     src="{{ asset('img/user.png') }}" alt="user" />
             </div> --}}
             <div class="text-center">
-                <p class="fs-5 m-0 "> Tahap selanjutnya adalah daftar ulang. </p>
+                <p class="fs-5 mb-2 "> Tahap selanjutnya adalah daftar ulang. </p>
                 <p> Untuk melihat rincian biaya daftar ulang klik tombol dibawah
                 </p>
                 <a class="btn btn-orange w-75 my-4" href="{{ route('student.cost') }}">
