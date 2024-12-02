@@ -108,7 +108,7 @@ class PaymentController extends Controller
         $payments = Payment::where('student_id', '=', $id)->get();
 
         $bukti = Document::where('name', $student->full_name)->where('type', 'upload_bukti_daftar_ulang')->get();
-        // dd($bukti);
+        dd($bukti);
         return view('admin.payment.show', compact('payments', 'id', 'student', 'bukti'));
     }
 
