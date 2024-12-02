@@ -7,6 +7,7 @@ use App\Models\Student;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PaymentController extends Controller
 {
@@ -36,6 +37,7 @@ class PaymentController extends Controller
         // dd($request->all());
         // pembayaran
         $id = $request->student_id;
+        $id_admin = 1;
         $data = $request->all();
         Payment::create($data);
         // return redirect()->route('payment.showall', $id);
@@ -49,7 +51,7 @@ class PaymentController extends Controller
 
         //beri nama
         $file = $request->file('document');
-        $file_name = $id . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
+        $file_name = $id_admin . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
 
         // simpan di folder public
         // dd($request->file());
@@ -58,7 +60,7 @@ class PaymentController extends Controller
         //masukkan ke array validate
         $imgDocument['name'] = $request->name_pembayaran;
         $imgDocument['document'] = $file_name;
-        $imgDocument['user_id'] = $id;
+        $imgDocument['user_id'] = $id_admin;
 
         //simpan ke database
         Document::create($imgDocument);
@@ -94,9 +96,10 @@ class PaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Payment $payment)
+    public function destroy(Payment $payment, Request $request)
     {
-        // dd($payment);
+
+        File::delete('img-document/' . $request->photo);
         $payment->delete();
         return redirect()->back();
     }
@@ -108,7 +111,7 @@ class PaymentController extends Controller
         $payments = Payment::where('student_id', '=', $id)->get();
 
         $bukti = Document::where('name', $student->full_name)->where('type', 'upload_bukti_daftar_ulang')->get();
-        dd($bukti);
+        // dd($bukti);
         return view('admin.payment.show', compact('payments', 'id', 'student', 'bukti'));
     }
 

@@ -58,22 +58,26 @@
                             <td>{{ $payment->value }}</td>
                             @php
                                 $photo = $bukti->where('created_at', $payment->created_at)->first();
+                                // dd($photo->document);
                             @endphp
                             <td>
-                                {{-- <img src="{{ asset('img-document/' . $photo->document) }}" alt="document"
-                                    class="p-2 bg-white border border-2 border-orange foto"> --}}
-                                {{-- <a href="{{ route('payment.photo', $photo->id) }}" class="btn btn-sm btn-primary">lihat</a> --}}
+                                <img src="{{ asset('img-document/' . $photo->document) }}" alt="document"
+                                    class="p-2 bg-white border border-2 border-orange foto">
+                                <a href="{{ route('payment.photo', $photo->id) }}" class="btn btn-sm btn-primary">lihat</a>
                             </td>
                             <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
                                         class="bi bi-card-list"></i> lihat kuitansi</a>
+
                                 <form class="d-inline-block"
                                     onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
                                     action="{{ route('payment.destroy', $payment->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('delete')
+                                    <input type="text" name="photo" value="{{ $photo->document }}" hidden>
                                     <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash3"></i>
+                                        <i class="bi bi-trash3"></i>{{ $payment->id }}
                                     </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -82,7 +82,7 @@ Route::middleware('auth')->group(function () {
             Route::post('payment', [PaymentController::class, 'store'])->name('payment.store');
             Route::get('payment-show/{id}', [PaymentController::class, 'paymentshow'])->name('payment.showall');
             Route::get('payment-photo/{id}', [PaymentController::class, 'paymentphoto'])->name('payment.photo');
-            Route::delete('payment/{payment}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+            Route::delete('payment-delete/{payment}', [PaymentController::class, 'destroy'])->name('payment.destroy');
         });
     });
 
