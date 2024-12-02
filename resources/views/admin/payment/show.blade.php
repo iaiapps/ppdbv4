@@ -66,6 +66,14 @@
                             </td>
                             <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
                                         class="bi bi-card-list"></i> lihat kuitansi</a>
+                                <form class="d-inline-block"
+                                    onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                                    action="{{ route('payment.destroy', $payment->id) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
                             </td>
                         </tr>
                     @endforeach

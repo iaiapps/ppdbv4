@@ -96,7 +96,9 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        // dd($payment);
+        $payment->delete();
+        return redirect()->back();
     }
 
     // untuk melihat pembayaran
