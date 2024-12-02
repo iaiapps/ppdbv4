@@ -98,8 +98,9 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment, Request $request)
     {
-
+        $doc = Document::where('document', $request->photo)->first();
         File::delete('img-document/' . $request->photo);
+        $doc->delete();
         $payment->delete();
         return redirect()->back();
     }
