@@ -58,7 +58,7 @@
                             <td>@currency($payment->value)</td>
                             @php
                                 $photo = $bukti->where('created_at', $payment->created_at)->first();
-                                dd($photo->document);
+                                // dd($photo->document);
                             @endphp
                             <td>
                                 <img src="{{ asset('img-document/' . $photo->document) }}" alt="document"
