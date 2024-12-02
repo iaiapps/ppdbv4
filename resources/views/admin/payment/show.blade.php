@@ -55,7 +55,7 @@
                             <td>{{ $payment->name }}</td>
                             <td>{{ $payment->payment_from }}</td>
                             <td>{{ $payment->date }}</td>
-                            <td>{{ $payment->value }}</td>
+                            <td>@currency($payment->value)</td>
                             @php
                                 $photo = $bukti->where('created_at', $payment->created_at)->first();
                                 // dd($photo->document);
