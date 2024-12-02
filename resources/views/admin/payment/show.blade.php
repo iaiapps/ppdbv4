@@ -75,7 +75,7 @@
                                     @method('delete')
                                     <input type="text" name="photo" value="{{ $photo->document }}" hidden>
                                     <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash3"></i>{{ $payment->id }}
+                                        <i class="bi bi-trash3"></i>
                                     </button>
                                 </form>
                             </td>
