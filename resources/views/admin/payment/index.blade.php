@@ -8,8 +8,7 @@
     <div class="bg-white rounded p-3 min-vh-100">
         <p class="fs-5 text-center">Pembayaran Daftar Ulang Siswa Baru</p>
         <hr>
-        {{-- <a href="{{ route('studentegory.create') }}" class="btn btn-primary btn-sm mb-3"> <i class="bi bi-plus-circle"></i>
-            tambah kategori</a> --}}
+
         <div class="table-responsive">
             <table id="table" class="table table-bordered rounded align-middle">
                 <thead>
