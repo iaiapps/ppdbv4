@@ -38,11 +38,11 @@
                                 <td>
                                     @if ($student->payment->sum('value') == $student->cost_category->total)
                                         sudah lunas
-                                    @elseif ($student->payment->sum('value') >= $student->cost_category->total)
+                                    @elseif ($student->payment->sum('value') > $student->cost_category->total)
                                         lebih dari jumlah
-                                    @elseif ($student->payment->sum('value') <= $student->cost_category->total)
+                                    @elseif ($student->payment->sum('value') < $student->cost_category->total)
                                         belum lunas
-                                    @else
+                                    @elseif ($student->payment->sum('value') == 0)
                                         belum membayar
                                     @endif
                                 </td>
