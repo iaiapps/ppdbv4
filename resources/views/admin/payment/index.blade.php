@@ -18,6 +18,7 @@
                         <th scope="col" class="fs-small">Nama Siswa</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Biaya Daftar Ulang</th>
+                        <th scope="col">Keterangan</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -35,7 +36,17 @@
                                         belum ditentukan
                                     @endif
                                 </td>
-
+                                <td>
+                                    @if ($student->payment->sum('value') == $student->cost_category->total)
+                                        sudah lunas
+                                    @elseif ($student->payment->sum('value') >= $student->cost_category->total)
+                                        lebih dari jumlah
+                                    @elseif ($student->payment->sum('value') <= $student->cost_category->total)
+                                        belum lunas
+                                    @else
+                                        belum membayar
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i
                                             class="bi bi-eye"></i> lihat pembayaran</a>
