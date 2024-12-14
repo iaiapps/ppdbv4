@@ -73,7 +73,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "pageLength": 10,
+                "pageLength": 50,
                 "responsive": true,
                 // "rowReorder": {
                 //     selector: 'td:nth-child(5)'
