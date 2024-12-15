@@ -6,6 +6,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100">
+        {{-- <a href="{{ route('payment.all') }}" class="btn btn-primary">lihat rekap pembayaran</a> --}}
         <p class="fs-5 text-center">Pembayaran Daftar Ulang Siswa Baru</p>
         <hr>
 

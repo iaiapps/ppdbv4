@@ -83,6 +83,7 @@ Route::middleware('auth')->group(function () {
             Route::get('payment-show/{id}', [PaymentController::class, 'paymentshow'])->name('payment.showall');
             Route::get('payment-photo/{id}', [PaymentController::class, 'paymentphoto'])->name('payment.photo');
             Route::delete('payment-delete/{payment}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+            Route::get('paymentall', [PaymentController::class, 'paymentall'])->name('payment.all');
         });
     });
 

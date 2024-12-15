@@ -122,4 +122,12 @@ class PaymentController extends Controller
         $document = Document::where('id', $id)->first();
         return view('admin.payment.paymentphoto', compact('document'));
     }
+
+    // melihat semua pembayaran
+    public function paymentall()
+    {
+        $students = Student::all();
+        $payments = Payment::all();
+        return view('admin.payment.all', compact('payments', 'students'));
+    }
 }
