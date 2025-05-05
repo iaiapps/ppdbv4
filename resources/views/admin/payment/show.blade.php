@@ -61,7 +61,7 @@
                                 // dd($photo);
                             @endphp
                             <td>
-                                <img src="{{ isset($photo->document) ? asset('img-document/' . $photo->document) : 'belum ada foto' }}"
+                                <img src="{{ isset($photo->document) ? asset('img-document/' . $photo->document) : 'belum ada dokumen' }}"
                                     alt="document" class="p-2 bg-white border border-2 border-orange foto">
                                 <a href="{{ isset($photo->document) ? route('payment.photo', $photo->id) : '#belum ada id' }}"
                                     class="btn btn-sm btn-primary">lihat</a>
@@ -74,7 +74,9 @@
                                     action="{{ route('payment.destroy', $payment->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <input type="text" name="photo" value="{{ $photo->document }}" hidden>
+                                    <input type="text" name="photo"
+                                        value="{{ isset($photo->document) ? $photo->document : 'tidak ada dokumen' }}"
+                                        hidden>
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <i class="bi bi-trash3"></i>
                                     </button>
