@@ -61,8 +61,8 @@
                                 // dd($photo);
                             @endphp
                             <td>
-                                <img src="{{ asset('img-document/' . $photo->document) }}" alt="document"
-                                    class="p-2 bg-white border border-2 border-orange foto">
+                                <img src="{{ asset('img-document/' . $photo->document) ?? 'belum ada foto' }}"
+                                    alt="document" class="p-2 bg-white border border-2 border-orange foto">
                                 <a href="{{ route('payment.photo', $photo->id) }}" class="btn btn-sm btn-primary">lihat</a>
                             </td>
                             <td><a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-sm"><i
