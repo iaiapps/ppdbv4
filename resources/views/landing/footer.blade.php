@@ -1,9 +1,15 @@
 <div class="bg-dark">
+    <div class="text-white text-center pt-5">
+        <h2>Lokasi <span class="highlight">Kami</span></h2>
+        <p>Jangan tunggu lagi! Berikan pendidikan terbaik untuk buah hati Anda bersama kami</p>
+    </div>
     <div class="container ">
+        <hr class="text-white hr" />
         <div class="row text-white pt-md-5 pt-4 text-center text-md-start">
             <div class="col-12 col-md-6">
-                <h3>SDIT HARAPAN UMAT JEMBER</h3>
-                <p class="fs-6 pt-3">
+                <h4>SDIT HARAPAN UMAT JEMBER</h4>
+                <p class="fs-5">Sekolah Kaya Warna Mencetak Generasi Qurani</p>
+                <p class="fs-5 pt-3">
                     Jl. Danau Toba Gg. Islamic Center, Tegalgede, 68124
                     <br />Kec. Sumbersari, Kabupaten Jember
                     <br />Jawa Timur - Indonesia
@@ -25,7 +31,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 pt-md-0 pt-4">
-                <h3>LOKASI</h3>
+                <h4>MAPS</h4>
                 <div>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15797.908907834912!2d113.7174303!3d-8.1545784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x97c9df8f080eb4b5!2sSDIT%20Harum%20(Harapan%20Umat)%20Jember!5e0!3m2!1sid!2sid!4v1659948289547!5m2!1sid!2sid"
@@ -36,7 +42,7 @@
         </div>
         <hr class="text-white hr" />
         <div class>
-            <p class="text-center text-white m-0 pb-3 small">Copyright @ Tim IT SDIT Harum Jember - 2022</p>
+            <p class="text-center text-white m-0 pb-3">Copyright @ Tim IT SDIT Harum Jember - 2025</p>
         </div>
     </div>
 </div>
