@@ -8,7 +8,7 @@
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="text-center mb-5">
+                <div class="text-center">
                     <img src="{{ asset('img/logosdit.png') }}" class="logosdit" alt="logo">
                 </div>
                 <div class="item animate__animated animate__fadeInUp">
@@ -18,20 +18,26 @@
 
                 <h1 class="animate__animated animate__fadeInDown mb-4">
                     Mengantarkan Ananda menjadi Generasi Shalih, Cerdas, Mandiri, Kreatif dan Tangguh, dalam
-                    menghadapi Tantangan Global<br>
-
+                    menghadapi Tantangan Global
                 </h1>
 
                 <div class="cta-buttons animate__animated animate__zoomIn animate__fadeInDown pb-5">
-                    <a href="{{ url('register') }}" class="btn btn-orange btn-lg">
+                    <a href="{{ url('register') }}" class="btn btn-orange btn-lg text-white">
                         Daftar Sekarang
                     </a>
-                    <a href="#features" class="btn btn-success btn-lg">
+                    <a href="https://wa.me/6285232213939" class="btn btn-success btn-lg" target="_blank">
                         Tanya Admin
                     </a>
                 </div>
-
             </div>
+        </div>
+    </section>
+
+    <!-- Login -->
+    <section>
+        <div class="text-center bg-dark p-4 p-md-5 text-white top">
+            <p class="fs-2">Sudah punya akun ? <br> Login web <a class="btn btn-lg btn-orange text-white"
+                    href="{{ route('login') }}">DISINI</a></p>
         </div>
     </section>
 
@@ -58,7 +64,7 @@
 
                 <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-heart "></i>
                     </div>
                     <h3>Program Unggulan</h3>
                     <p>Terdapat Kelas Minat dan Bakat, Kelas Qur'an, Kelas Sains. Program Literasi dan Bilingual. BTAQ
@@ -77,7 +83,7 @@
 
                 <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                     <h3>Guru Proporsional </h3>
                     <p>Rasio guru dan siswa yang ideal memungkinkan pendekatan pembelajaran yang lebih personal dan efektif.
@@ -160,81 +166,85 @@
             </div>
 
             <!-- Jadwal Pendaftaran -->
-            <div class="section-title" style="margin-top: 4rem;">
-                <h2>Jadwal <span class="highlight">Pendaftaran</span></h2>
-            </div>
+            <div id="schedule">
+                <div class="section-title">
+                    <h2>Jadwal <span class="highlight">Pendaftaran</span></h2>
+                    <p>Jangan sampai terlewat, berikut ini rangkaian jadwal SPMB SDIT Harapan Umat Jember</p>
 
-            <div class="schedule-grid">
-                <div class="schedule-card">
-                    <div class="schedule-header green">
-                        <h3 class="mb-0">Pendaftaran SPMB SDIT Harapan Umat Jember</h3>
-                        <div class="px-3 py-2 fw-bold fs-5 rounded-pill d-inline-block mt-3 mb-0"
-                            style="background: rgba(255, 255, 255, 0.331);">
-                            Tahun Ajaran 2026/2027
+                </div>
+
+                <div class="schedule-grid">
+                    <div class="schedule-card">
+                        <div class="schedule-header green">
+                            <h3 class="mb-0">Pendaftaran SPMB SDIT Harapan Umat Jember</h3>
+                            <div class="px-3 py-2 fw-bold fs-5 rounded-pill d-inline-block mt-3 mb-0"
+                                style="background: rgba(255, 255, 255, 0.331);">
+                                Tahun Ajaran 2026/2027
+                            </div>
                         </div>
-                    </div>
-                    <div class="schedule-content">
-                        <div class="row">
-                            <div class="col-md-6 col-12">
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h3 style="font-weight: bold; margin-bottom: 4px;">Pendaftaran</h3>
-                                        <p class="fs-5" style="color: #6b7280;">15 September 2025 - 31 Oktober
-                                            2025</p>
+                        <div class="schedule-content">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Pendaftaran
+                                            </h4>
+                                            <p class="fs-5 text-muted">15 September 2025 - 31 Oktober
+                                                2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Observasi dan Psikotes</h4>
+                                            <p class="fs-5 text-muted">8 November 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Pengumuman</h4>
+                                            <p class="fs-5 text-muted">1 Desember 2025</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h3 style="font-weight: bold; margin-bottom: 4px;">Observasi dan Psikotes</h3>
-                                        <p class="fs-5" style="color: #6b7280;">8 November 2025</p>
+                                <div class="col-md-6 col-12">
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Daftar Ulang</h4>
+                                            <p class="fs-5 text-muted">1 - 10 Desember 2025</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h3 style="font-weight: bold; margin-bottom: 4px;">Pengumuman</h3>
-                                        <p class="fs-5" style="color: #6b7280;">1 Desember 2025</p>
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Test BTAQ dan Fitting Seragam
+                                            </h4>
+                                            <p class="fs-5 text-muted">9 Mei 2026</p>
+                                        </div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <i class="fas fa-clock fs-4"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Pengambilan seragam</h4>
+                                            <p class="fs-5 text-muted">6 Juli 2026</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12">
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h3 style="font-weight: bold; margin-bottom: 4px;">Daftar Ulang</h3>
-                                        <p class="fs-5" style="color: #6b7280;">1 - 10 Desember 2025</p>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h4 style="font-weight: bold; margin-bottom: 4px;">Test BTAQ dan Fitting Seragam
-                                        </h4>
-                                        <p class="fs-5" style="color: #6b7280;">9 Mei 2026</p>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <i class="fas fa-clock fs-4"></i>
-                                    <div>
-                                        <h4 style="font-weight: bold; margin-bottom: 4px;">Pengambilan seragam</h4>
-                                        <p class="fs-5" style="color: #6b7280;">6 Juli 2026</p>
-                                    </div>
-                                </div>
+
+                            <div class="p-3 rounded text-center mt-2"
+                                style="background: #dcfce7; border: 2px solid #16a34a; ">
+                                <p class="mb-0" style="color: #15803d; font-size:1.1rem">Eearly bird, Diskon uang gedung
+                                    10% (15-25
+                                    september 2025)
+                                </p>
                             </div>
-                        </div>
-
-
-                        <div class="p-3 rounded text-center mt-3"
-                            style="background: #dcfce7; border: 2px solid #16a34a; ">
-                            <p class="mb-0" style="color: #15803d; ">🎉 Eearly bird, Diskon uang gedung 10% (15-25
-                                september 2025)
-                            </p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -248,140 +258,122 @@
             </div>
 
             <div style="margin-bottom: 3rem;">
-                <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: #1f2937;">
-                    <i class="fas fa-user" style="color: #f97316; margin-right: 8px;"></i>
+                <h3 class="text-center fs-4 mb-4">
+                    <i class="fas fa-user text-orange me-3"></i>
                     Kontak Person
                 </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
-                    <div
-                        style="background: linear-gradient(135deg, #fef3c7, #fce7f3); padding: 2rem; border-radius: 20px; border: 1px solid #fed7aa;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                            <div class="p-3 rounded me-3" style="background: linear-gradient(135deg, #f97316, #ec4899); ">
-                                <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-3">
+                        <div class="bg-radiant">
+                            <div class="d-flex mb-3">
+                                <span class="rounded me-3 bg-radiant2 text-white fs-4">
+                                    <i class="fa-regular fa-circle-user"></i>
+                                </span>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Pak Ristiono</h5>
+                                    <p class="fw-bold mb-0 text-muted fs-5">Koordinator SPMB</p>
+                                </div>
                             </div>
-                            <div>
-                                <h5 style="font-weight: bold; margin-bottom: 4px;">Pak Ristiono (Koordinator SPMB)</h5>
+                            <div class="d-flex">
+                                <div class="rounded me-3 bg-radiant2 text-white fs-4">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">
+                                        <a href="https://wa.me/6285232213939" target="_blank">WhatsApp: <br>
+                                            088289378109</a>
+                                    </h5>
+                                </div>
                             </div>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                            <div class="p-3 rounded me-3" style="background: linear-gradient(135deg, #f97316, #ec4899); ">
-                                <i class="fab
-                            fa-whatsapp"
-                                    style="color: white; font-size: 1.2rem;"></i>
-                            </div>
-                            <h5 style="font-weight: bold; margin-bottom: 4px;">WhatsApp: 088289378109</h5>
                         </div>
                     </div>
-
-                    <div
-                        style="background: linear-gradient(135deg, #fef3c7, #fce7f3); padding: 2rem; border-radius: 20px; border: 1px solid #fed7aa;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                            <div class="p-3 rounded me-3" style="background: linear-gradient(135deg, #f97316, #ec4899); ">
-                                <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                    <div class="col-md-6 col-12 mb-3">
+                        <div class="bg-radiant">
+                            <div class="d-flex mb-3">
+                                <div class="mb-2 rounded me-3 bg-radiant2 text-white fs-4">
+                                    <i class="fa-regular fa-circle-user"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1 ">Pak Ikrom</h5>
+                                    <p class="fw-bold mb-0 text-muted fs-5">Admin Web SPMB</p>
+                                </div>
                             </div>
-                            <div>
-                                <h5 style="font-weight: bold; margin-bottom: 4px;">Pak Ikrom (Admin Web SPMB)</h5>
-
+                            <div class="d-flex">
+                                <div class="mb-2 rounded me-3 bg-radiant2 text-white fs-4">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h5 class="fw-bold mb-2">
+                                    <a href="https://wa.me/6285232213939" target="_blank">WhatsApp: <br>
+                                        085232213939</a>
+                                </h5>
                             </div>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                            <div class="p-3 rounded me-3" style="background: linear-gradient(135deg, #f97316, #ec4899); ">
-                                <i class="fab
-                            fa-whatsapp"
-                                    style="color: white; font-size: 1.2rem;"></i>
-                            </div>
-                            <h5 style="font-weight: bold; margin-bottom: 4px;">WhatsApp: 085232213939</h5>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Service Hours -->
-            <div style="background: linear-gradient(135deg, #fef3c7, #fce7f3); padding: 2rem; border-radius: 20px;">
-                <h3
-                    style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: #1f2937; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-clock fs-4" style="color: #f97316; margin-right: 8px;"></i>
+            <div class="bg-radiant">
+                <h3 class="text-center fs-4 mb-4">
+                    <i class="fas fa-clock fs-4 text-orange me-3"></i>
                     Jam Pelayanan
                 </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        <h4 style="font-weight: bold; margin-bottom: 8px;">Senin - Jumat</h4>
-                        <p style="font-size: 1.1rem; font-weight: bold; color: #f97316; margin-bottom: 4px;">07:00 - 15:00
+                <div class="service">
+                    <div class="service-card">
+                        <h4 class="fs-4 fw-bold">Senin - Jumat</h4>
+                        <p class="fw-bold fs-5 text-orange mb-2">07:15 - 15:15
                             WIB</p>
-                        <p style="color: #6b7280; font-size: 14px;">Jam Sekolah</p>
+                        <p class="text-muted">Jam Sekolah</p>
                     </div>
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        <h4 style="font-weight: bold; margin-bottom: 8px;">Sabtu</h4>
-                        <p style="font-size: 1.1rem; font-weight: bold; color: #f97316; margin-bottom: 4px;">08:00 - 12:00
+                    <div class="service-card">
+                        <h4 class="fs-4 fw-bold">Sabtu</h4>
+                        <p class="fw-bold fs-5 text-orange mb-2">08:00 - 12:00
                             WIB</p>
-                        <p style="color: #6b7280; font-size: 14px;">Konsultasi & Pendaftaran</p>
+                        <p class="text-muted">Konsultasi (Online)</p>
                     </div>
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        <h4 style="font-weight: bold; margin-bottom: 8px;">Minggu</h4>
-                        <p style="font-size: 1.1rem; font-weight: bold; color: #ef4444; margin-bottom: 4px;">Tutup</p>
-                        <p style="color: #6b7280; font-size: 14px;">Libur</p>
+                    <div class="service-card">
+                        <h4 class="fs-4 fw-bold">Minggu</h4>
+                        <p class="fw-bold fs-5 text-danger mb-2">Tutup</p>
+                        <p class="text-muted">Libur</p>
                     </div>
                 </div>
-                <div style="margin-top: 1.5rem; text-align: center;">
-                    <p style="color: #6b7280; font-size: 14px;">
-                        💡 <strong>Tip:</strong> Untuk konsultasi di luar jam kerja, silakan hubungi WhatsApp kontak person
-                        kami
-                    </p>
-                </div>
+
             </div>
         </div>
     </section>
     @include('landing.footer')
-
-
 @endsection
 
-@push('css')
-    <style>
-        .btn-lg {
-            font-size: 1.5rem
-        }
-
-        @media (max-width: 600px) {
-            .btn-lg {
-                font-size: 1.15rem
-            }
-        }
-    </style>
-@endpush
-
 @push('scripts')
-    <script>
-        // Smooth scrolling for navigation links
+    <script script>
+        // Smooth scrolling hanya untuk link dengan target yang valid
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                if (href && href.length > 1) { // bukan hanya "#"
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
 
-        // Add scroll effect to header
+        // Ambil navbar berdasarkan ID
+        var myNav = document.getElementById("nav");
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(31, 41, 55, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+            if (document.body.scrollTop >= 55 || document.documentElement.scrollTop >= 55) {
+                myNav.classList.add("change_nav");
             } else {
-                header.style.background = 'linear-gradient(135deg, #f97316, #ec4899)';
-                header.style.backdropFilter = 'none';
+                myNav.classList.remove("change_nav");
             }
         });
 
-        // Animate cards on scroll
+        // Intersection Observer untuk animasi card
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -396,7 +388,7 @@
             });
         }, observerOptions);
 
-        // Observe all cards
+        // Observe semua card yang ada
         document.querySelectorAll('.feature-card, .program-card, .step-card, .schedule-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';

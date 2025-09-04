@@ -5,11 +5,10 @@
 }
 
 /* Hero Section */
-
 .hero {
     background: linear-gradient(
-            rgba(255, 255, 255, 0.3) 40%,
-            rgba(255, 130, 28, 0.6) 100%
+            rgba(230, 230, 230, 0.4) 30%,
+            rgba(255, 127, 22, 0.6) 100%
         ),
         url("../img/back2.png");
     background-size: cover;
@@ -24,8 +23,8 @@
 }
 .logosdit {
     width: 120px;
+    margin-bottom: 50px;
 }
-
 .item {
     align-items: center;
     background: rgba(255, 255, 255, 0.487);
@@ -39,10 +38,7 @@
     display: block;
     color: #ff6a00;
 }
-.text2 {
-    display: block;
-    color: #674017;
-}
+
 .hero-content h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -55,28 +51,6 @@
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
-}
-
-.btn-primary {
-    background: white;
-    color: #f97316;
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn-outline {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-outline:hover {
-    background: white;
-    color: #f97316;
 }
 
 /* Sections */
@@ -87,12 +61,12 @@
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 
 .section-title h2 {
     font-size: 2.3rem;
     font-weight: bold;
-    margin-bottom: 1rem;
     color: #1f2937;
 }
 
@@ -130,7 +104,7 @@
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #f97316, #ec4899);
+    background: linear-gradient(135deg, #f97316, #ec4866);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -176,7 +150,7 @@
 .step-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #f97316, #ec4899);
+    background: linear-gradient(135deg, #f97316, #ec4866);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -226,48 +200,79 @@
     margin-top: 2px;
 }
 
+.bg-radiant {
+    background: linear-gradient(135deg, #fef3c7, #fce7f3);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #fed7aa;
+}
+.bg-radiant2 {
+    background: linear-gradient(135deg, #f97316, #ec4866);
+    width: 50px !important;
+    height: 50px !important;
+    text-align: center;
+}
+.bg-radiant2 i {
+    margin-top: 12px;
+}
+.btn-lg {
+    font-size: 1.5rem;
+}
+
+/* service */
+.service {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        min-height: 50vh;
+        min-height: 75vh;
         background-attachment: scroll; /* matikan fixed agar tidak ngezoom */
         background-size: cover; /* gambar mengecil, full terlihat */
         background-repeat: no-repeat; /* biar tidak tile */
     }
 
     .logosdit {
+        margin-top: 40px !important;
+        margin-bottom: 40px !important;
         width: 100px;
     }
 
     .text {
-        font-size: 1.3rem !important;
+        font-size: 1.35rem !important;
     }
     .text2 {
-        font-size: 1.15rem !important;
+        font-size: 1.25rem !important;
+    }
+
+    .text3 {
+        font-size: 1.1rem !important;
     }
 
     .hero-content h1 {
         font-size: 1.8rem !important;
-    }
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu {
-        display: flex;
     }
 
     .hero-content h1 {
         font-size: 2.5rem;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+    }
+    .btn-lg {
+        font-size: 1.15rem;
     }
 }
 

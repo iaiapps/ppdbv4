@@ -1,5 +1,6 @@
 <div class="bg-orange">
-    <p class="text-center mb-0 text-white p-2">Sistem penerimaan Murid Baru SDIT Harapan Umat Jember Tahun 2026/2027</p>
+    <p class="text-center mb-0 text-white p-2 fw-bold">Sistem penerimaan Murid Baru SDIT Harapan Umat Jember Tahun
+        2026/2027</p>
 </div>
 <nav id="nav" class="navbar navbar-expand-lg navbar-white bg-white py-2 fs-5 sticky-top">
     <div class="container">
@@ -16,20 +17,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-md-2">
                 <li class="nav-item mx-md-2 mx-0">
-                    <a class="nav-link hover px-3" href="#beranda">Beranda</a>
+                    <a class="nav-link hover px-3" href="#hero">Beranda</a>
                 </li>
                 <li class="nav-item mx-md-2 mx-0">
-                    <a class="nav-link hover px-3" href="#panduan">Panduan</a>
+                    <a class="nav-link hover px-3" href="#registration">Panduan</a>
                 </li>
                 <li class="nav-item mx-md-2 mx-0">
-                    <a class="nav-link hover px-3" href="#jadwal">Jadwal</a>
+                    <a class="nav-link hover px-3" href="#schedule">Jadwal</a>
                 </li>
                 <li class="nav-item mx-md-2 mx-0">
-                    <a class="nav-link hover px-3" href="#kontak">Kontak</a>
+                    <a class="nav-link hover px-3" href="#contact">Kontak</a>
                 </li>
             </ul>
             <a class="btn btn-orange btnlg text-white hover" href="{{ route('login') }}">LOGIN</a>
         </div>
+
     </div>
 </nav>
 
@@ -120,7 +122,7 @@
         }
 
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 768px) {
             .bg-nav {
                 background-color: #f97f2a;
             }
@@ -132,8 +134,8 @@
             .nav-link {
                 padding-top: 10px;
                 padding-bottom: 10px;
-                margin-top: 5px;
-                margin-bottom: 2px;
+                margin-top: 10px;
+                margin-bottom: 5px;
             }
         }
     </style>

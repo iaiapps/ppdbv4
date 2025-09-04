@@ -1,15 +1,14 @@
 <div class="bg-dark">
     <div class="text-white text-center pt-5">
         <h2>Lokasi <span class="highlight">Kami</span></h2>
-        <p>Jangan tunggu lagi! Berikan pendidikan terbaik untuk buah hati Anda bersama kami</p>
     </div>
     <div class="container ">
         <hr class="text-white hr" />
         <div class="row text-white pt-md-5 pt-4 text-center text-md-start">
             <div class="col-12 col-md-6">
                 <h4>SDIT HARAPAN UMAT JEMBER</h4>
-                <p class="fs-5">Sekolah Kaya Warna Mencetak Generasi Qurani</p>
-                <p class="fs-5 pt-3">
+                <p class="fs-5 text3">Sekolah Kaya Warna Mencetak Generasi Qurani</p>
+                <p class="fs-5 pt-3 text3">
                     Jl. Danau Toba Gg. Islamic Center, Tegalgede, 68124
                     <br />Kec. Sumbersari, Kabupaten Jember
                     <br />Jawa Timur - Indonesia
