@@ -6,7 +6,7 @@ body {
 
 /* navbar */
 .logonav {
-    height: 40px;
+    width: 140px;
 }
 
 /* background page*/
@@ -28,13 +28,13 @@ body {
 }
 
 .hover:hover {
-    background-color: #f79500;
+    background-color: #f97f2a;
     color: white;
     border-radius: 10px;
 }
 
 .bg-menu {
-    background-color: #f79500;
+    background-color: #f97f2a;
     color: white;
 }
 
@@ -47,6 +47,10 @@ body {
     width: 210px !important;
     min-height: 100vh;
     height: 100%;
+}
+.bg-radiant2 {
+    background: linear-gradient(135deg, #f97316, #ec4866);
+    text-align: center;
 }
 
 /* pages */

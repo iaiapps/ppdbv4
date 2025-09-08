@@ -3,7 +3,6 @@
 
 @section('content')
     @include('landing.header')
-
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="container">
@@ -36,7 +35,7 @@
     <!-- Login -->
     <section>
         <div class="text-center bg-dark p-4 p-md-5 text-white top">
-            <p class="fs-2">Sudah punya akun ? <br> Login web <a class="btn btn-lg btn-orange text-white"
+            <p class="fs-2 mt-3">Sudah punya akun ? <br> Login web <a class="btn btn-lg btn-orange text-white"
                     href="{{ route('login') }}">DISINI</a></p>
         </div>
     </section>
@@ -341,6 +340,7 @@
             </div>
         </div>
     </section>
+    @include('landing.floating')
     @include('landing.footer')
 @endsection
 

@@ -2,6 +2,7 @@
 
 @section('title', 'Register Page')
 @section('content')
+    @include('landing.up')
     <div class="d-flex p-3 pattern justify-content-center min-vh-100">
         <div class="col-12 col-md-6">
             <div class="text-center bg-white p-3 py-5 rounded">
@@ -54,7 +55,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-warning my-3 w-100">Buat Akun</button>
+                        <button type="submit" class="btn btn-orange text-white my-3 w-100">Buat Akun</button>
                     </form>
 
                     <div class="text-center text-muted">atau</div>
@@ -74,7 +75,7 @@
         }
 
         .pattern {
-            background-color: #f79500;
+            background-color: #f97f2a;
             background-image: url({{ asset('img/pattern.svg') }});
         }
     </style>

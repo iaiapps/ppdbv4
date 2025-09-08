@@ -55,7 +55,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            Bukti pemabayaran akan divalidasi, dan Akun akan aktif dalam 1 x 24 jam, jika akun belum aktif
+                            Bukti pembayaran akan divalidasi, dan Akun akan aktif dalam 1 x 24 jam, jika akun belum aktif
                             silahkan hubungi ke
                             @desktop
                                 <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"

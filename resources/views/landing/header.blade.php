@@ -1,8 +1,5 @@
-<div class="bg-orange">
-    <p class="text-center mb-0 text-white p-2 fw-bold">Sistem penerimaan Murid Baru SDIT Harapan Umat Jember Tahun
-        2026/2027</p>
-</div>
-<nav id="nav" class="navbar navbar-expand-lg navbar-white bg-white py-2 fs-5 sticky-top">
+@include('landing.up')
+<nav id="nav" class="navbar navbar-expand-lg navbar-white bg-white py-1 fs-5 sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('landing') }}">
             <img src="{{ asset('img/logoppdbb.png') }}" alt="logoppdb" class="imglogo" />
@@ -38,7 +35,7 @@
 @push('css')
     <style>
         .imglogo {
-            width: 150px;
+            width: 140px;
         }
 
         .nav {
@@ -128,7 +125,12 @@
             }
 
             .imglogo {
-                width: 130px;
+                width: 125px;
+            }
+
+            .toggler-icon {
+                display: block;
+                width: 20px;
             }
 
             .nav-link {

@@ -8,7 +8,7 @@
             <div class="col-12 col-md-6">
                 <h4>SDIT HARAPAN UMAT JEMBER</h4>
                 <p class="fs-5 text3">Sekolah Kaya Warna Mencetak Generasi Qurani</p>
-                <p class="fs-5 pt-3 text3">
+                <p class="pt-3 text3">
                     Jl. Danau Toba Gg. Islamic Center, Tegalgede, 68124
                     <br />Kec. Sumbersari, Kabupaten Jember
                     <br />Jawa Timur - Indonesia

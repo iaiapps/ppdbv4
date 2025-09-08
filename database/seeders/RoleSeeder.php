@@ -42,5 +42,10 @@ class RoleSeeder extends Seeder
             'name' => 'akun_ditolak',
             'guard_name' => 'web'
         ]);
+
+        Role::create([
+            'name' => 'akun_mengundurkan_diri',
+            'guard_name' => 'web'
+        ]);
     }
 }

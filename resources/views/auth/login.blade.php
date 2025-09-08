@@ -2,8 +2,8 @@
 
 @section('title', 'Login Page')
 @section('content')
+    @include('landing.up')
     <div class="container-fluid">
-
         <div class="row vh-100">
             <div class="col-12 col-md-6 p-5 bg-grey rounded">
                 @if ($errors->any())
@@ -16,9 +16,9 @@
                     {{-- @endforeach --}}
                 @endif
                 <div class="p-0 p-md-3 text-center ">
-                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset('img/logosdit.png') }}"
+                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset('img/logosdit.png') }}"
                         alt="logosdit" />
-                    <p class="fs-3 mb-0">Login Website PPDB </p>
+                    <p class="fs-3 mb-0">Login Website SPMB SDIT Harapan Umat Jember </p>
                     <hr class="mb-2">
                     <!-- <h1>ADMIN PPDB</h1> -->
                     <form class="mt-4" action="{{ route('login') }}" method="POST">
@@ -45,7 +45,7 @@
                             @enderror --}}
                         </div>
 
-                        <button type="submit" class="btn btn-warning w-100 my-3">
+                        <button type="submit" class="btn btn-orange text-white w-100 my-3">
                             LOGIN
                         </button>
 
@@ -68,11 +68,6 @@
     <style>
         .logo {
             width: 85px;
-        }
-
-        .bg-orange {
-            background-color: #f79500;
-            color: white;
         }
     </style>
 @endpush

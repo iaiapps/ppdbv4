@@ -22,7 +22,7 @@
                 <a class="nav-link hover rounded {{ Route::currentRouteName() == 'user.index' ? 'bg-menu' : '' }}"
                     href="{{ route('user.index') }}">
                     <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Users</span>
+                    <span class="d-none d-md-inline-block">Pendaftar</span>
                 </a>
             </li>
             <li class="nav-item my-1">

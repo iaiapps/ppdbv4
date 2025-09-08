@@ -21,19 +21,6 @@
 </head>
 
 <body>
-    {{-- <div id="app">
-        @include('layouts.partial.navbar')
-        <div class="container-fluid back">
-            <div class="row p-3 px-md-3">
-                <div class="col-12 col-md-2 px-0 px-md-2 mb-3 mb-md-0">
-                    @include('layouts.partial.sidemenu')
-                </div>
-                <div class="col-12 col-md-10 px-0 px-md-2">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div id="app">
         @include('layouts.partial.navbar')
         <div class="container-fluid back">
@@ -46,6 +33,7 @@
                 </div>
             </div>
         </div>
+        @include('layouts.partial.footer')
     </div>
     <script src="{{ asset('assets/jquery/jquery-3.6.4.min.js') }}"></script>
     @stack('scripts')
