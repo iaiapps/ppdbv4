@@ -18,6 +18,18 @@
             <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded d-flex align-items-center">
                     <div class=" me-3">
+                        <i class="bi bi-toggle-off icon"></i>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">Setting Website</p>
+                        <hr>
+                        <a href="{{ route('landset.setting') }}" class="btn btn-orange">set land</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 ">
+                <div class="p-3 mb-3 border rounded d-flex align-items-center">
+                    <div class=" me-3">
                         <i class="bi bi-calendar-week icon"></i>
                     </div>
                     <div class="w-100">
@@ -51,18 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 ">
-                <div class="p-3 mb-3 border rounded d-flex align-items-center">
-                    <div class=" me-3">
-                        <i class="bi bi-toggle-off icon"></i>
-                    </div>
-                    <div class="w-100">
-                        <p class="m-0">Setting web on/off</p>
-                        <hr>
-                        <a href="{{ route('setting.onoff') }}" class="btn btn-orange">set onoff</a>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-12 col-md-4 ">
                 <div class="p-3 mb-3 border rounded d-flex align-items-center">
                     <div class=" me-3">

@@ -15,7 +15,7 @@ class SettingController extends Controller
     //setting contact
     public function contact()
     {
-        $contacts = Setting::where('name', 'kontak')->get();
+        $contacts = Setting::where('type', 'kontak')->get();
         return view('admin.setting.contact.index', compact('contacts'));
     }
     public function contactedit(Request $request)
@@ -36,21 +36,26 @@ class SettingController extends Controller
         return redirect()->route('setting.contact');
     }
 
-    public function onoff()
+    // setting landing page
+    public function landset()
     {
-        $onoff = Setting::where('name', 'onoff')->first();
-        return view('admin.setting.onoff.index', compact('onoff'));
+        $settings = Setting::whereIn('type', ['tagline', 'jadwal', 'early', 'onoff', 'countdown'])
+            ->get();
+        return view('admin.setting.landing.index', compact('settings'));
     }
-    public function onoffstore(Request $request, Setting $setting)
+    public function landsetedit($id)
     {
-        // dd($request->all());
-        $id = $request->id;
-        $data = [
-            // 'name' => $request->name,
-            // 'desc' => $request->desc,
+        $setting = Setting::findOrFail($id);
+        return view('admin.setting.landing.edit', compact('setting'));
+    }
+    public function landsetupdate(Request $request, $id)
+    {
+        $setting = Setting::findOrFail($id);
+        $setting->update([
+            'desc' => $request->desc,
             'value' => $request->value,
-        ];
-        Setting::where('id', $id)->update($data);
-        return redirect()->route('setting.onoff');
+        ]);
+
+        return redirect()->route('landset.setting')->with('success', 'Setting berhasil diperbarui!');
     }
 }

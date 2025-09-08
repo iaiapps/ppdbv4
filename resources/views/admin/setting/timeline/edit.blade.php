@@ -9,13 +9,7 @@
         <p class="fs-5 text-center">Edit Data Timeline</p>
         <hr>
         <div class=" mb-3">
-            <p class="mb-2">Keterangan: tipe timeline</p>
-            <ul class="list-group">
-                <li class="list-group-item">tahap_1 = pendaftaran tahap 1</li>
-                <li class="list-group-item">tahap_2 = pendaftaran tahap 2</li>
-                <li class="list-group-item">other = jadwal lain</li>
-                <li class="list-group-item">null = tidak ditampilkan</li>
-            </ul>
+            <p class="mb-2">Icon menggunakan font awesome</p>
         </div>
         <form action="{{ route('timeline.update', $timeline->id) }}" method="POST">
             @csrf
@@ -36,17 +30,7 @@
                         <td>Tanggal</td>
                         <td> <input type="text" value="{{ $timeline->date }}" class="form-control" name="date"> </td>
                     </tr>
-                    <tr>
-                        <td>Tipe</td>
-                        <td>
-                            <select name="type" class="form-select">
-                                <option value="tahap_1">tahap_1</option>
-                                <option value="tahap_2">tahap_2</option>
-                                <option value="other">other</option>
-                                <option value="null">null</option>
-                            </select>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
             <button type="submit" class="btn btn-danger mb-3 w-100">simpan</button>

@@ -67,12 +67,13 @@ Route::middleware('auth')->group(function () {
             Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
-            //onoff
-            Route::get('onoff', [SettingController::class, 'onoff'])->name('setting.onoff');
-            // Route::get('onoff-edit', [SettingController::class, 'onoffedit'])->name('setting.onoff.edit');
-            Route::put('onoff', [SettingController::class, 'onoffstore'])->name('setting.contact.store');
-
+            // set landing
+            Route::get('landset', [SettingController::class, 'landset'])->name('landset.setting');
+            Route::get('landset/{id}/edit', [SettingController::class, 'landsetedit'])->name('landset.edit');
+            Route::post('landset/{id}/update', [SettingController::class, 'landsetupdate'])->name('landset.update');
+            // cost category
             Route::resource('costCategory', CostCategoryController::class);
+            // timeline
             Route::resource('timeline', TimelineController::class);
 
             // payment

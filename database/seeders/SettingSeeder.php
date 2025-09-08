@@ -15,22 +15,22 @@ class SettingSeeder extends Seeder
     {
         // tagline
         Setting::create([
-            'name' => 'tagline',
-            'desc' => 'pesan atas',
+            'name' => 'Tagline',
+            'desc' => 'Pesan Header SPMB',
             'value' => 'Sistem Penerimaan Murid Baru SDIT Harapan Umat Jember Tahun 2026/2027',
             'type' => "tagline"
         ]);
 
         // schedule
         Setting::create([
-            'name' => 'schedule',
+            'name' => 'Jadwal',
             'desc' => 'Pendaftaran SPMB SDIT Harapan Umat Jember',
             'value' => 'Tahun Ajaran 2026/2027',
             'type' => "jadwal"
         ]);
         // early bird
         Setting::create([
-            'name' => 'early',
+            'name' => 'Early Bird',
             'desc' => 'Eearly bird, Diskon uang gedung 10%',
             'value' => '(15-25 september 2025)',
             'type' => "early"
@@ -72,15 +72,15 @@ class SettingSeeder extends Seeder
 
         // onoff
         Setting::create([
-            'name' => 'onoff',
-            'desc' => 'setting buka tutup web ppdb',
+            'name' => 'OnOff',
+            'desc' => 'Setting buka tutup web ppdb',
             'value' => 1,
             'type' => "onoff"
         ]);
 
         // countdown
         Setting::create([
-            'name' => 'countdown',
+            'name' => 'Countdown',
             'desc' => 'Tanggal pembukaan SPMB',
             'value' => "2025-09-15 00:00:00",
             'type' => "countdown"
