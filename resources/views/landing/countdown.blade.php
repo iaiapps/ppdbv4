@@ -3,9 +3,9 @@
 @section('content')
     @include('landing.up')
     <!-- Countdown Section -->
-    <section class="vh-100 d-flex align-items-center justify-content-center text-white text-center bg-gradient">
+    <section class="d-flex align-items-center justify-content-center text-white text-center bg-gradient">
         <div class="top">
-            <div class="text-center mt-5 mb-5">
+            <div class="text-center mt-5 mb-4">
                 <img class="logo" src="{{ asset('img/logosdit.png') }}" alt="logo">
             </div>
             <h2 class="mb-3 fw-bold fs-1">SEGERA DIBUKA</h2>

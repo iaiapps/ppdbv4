@@ -13,70 +13,36 @@ class TimelineSeeder extends Seeder
      */
     public function run(): void
     {
-        // Tahap 1
         Timeline::create([
-            'icon' => '1.png',
-            'name' => 'Pendaftaran Tahap 1 ',
-            'date' => '01 Sept 2024 s/d 31 Okt 2024',
-            'type' => 'tahap_1'
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
+            'name' => 'Pendaftaran',
+            'date' => '15 September 2025 - 31 Oktober 2025',
         ]);
         Timeline::create([
-            'icon' => '2.png',
-            'name' => 'Observasi & Psikotest Tahap 1',
-            'date' => '09 November 2024',
-            'type' => 'tahap_1'
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
+            'name' => 'Observasi & Psikotest',
+            'date' => '08 November 2025',
         ]);
         Timeline::create([
-            'icon' => '3.png',
-            'name' => 'Pengumuman Hasil PPDB Tahap 1',
-            'date' => '01 Desember 2024',
-            'type' => 'tahap_1'
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
+            'name' => 'Pengumuman Hasil PPDB',
+            'date' => '01 Desember 2025',
         ]);
         Timeline::create([
-            'icon' => '4.png',
-            'name' => 'Pembayaran Daftar Ulang Tahap 1',
-            'date' => '02 - 08 Desember 2024',
-            'type' => 'tahap_1'
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
+            'name' => 'Pembayaran Daftar Ulang',
+            'date' => '01 - 10 Desember 2025',
         ]);
 
-        // Tahap 2
         Timeline::create([
-            'icon' => '1.png',
-            'name' => 'Pendaftaran Tahap 2 ',
-            'date' => '10 Des 2024 s/d 10 Feb 2025',
-            'type' => 'tahap_2'
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
+            'name' => 'Test BTAQ dan Fitting Seragam',
+            'date' => '09 Mei 2026',
         ]);
         Timeline::create([
-            'icon' => '2.png',
-            'name' => 'Observasi & Psikotest Tahap 2',
-            'date' => '15 Februari 2025',
-            'type' => 'tahap_2'
-        ]);
-        Timeline::create([
-            'icon' => '3.png',
-            'name' => 'Pengumuman Hasil PPDB Tahap 2',
-            'date' => '01 Maret 2025',
-            'type' => 'tahap_2'
-        ]);
-        Timeline::create([
-            'icon' => '4.png',
-            'name' => 'Pembayaran Daftar Ulang Tahap 2',
-            'date' => '02 - 08 Maret 2025',
-            'type' => 'tahap_2'
-        ]);
-
-        // other
-        Timeline::create([
-            'icon' => '5.png',
-            'name' => 'Test Penempatan BTAQ & Fitting seragam',
-            'date' => '26 April 2025',
-            'type' => 'other'
-        ]);
-        Timeline::create([
-            'icon' => '6.png',
+            'icon' => '<i class="fas fa-clock fs-4"></i>',
             'name' => 'Pembagian seragam & kelas',
-            'date' => '22 Juni 2025',
-            'type' => 'other'
+            'date' => '06 Juli 2026',
         ]);
     }
 }

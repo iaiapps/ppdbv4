@@ -11,21 +11,23 @@ class LandingController extends Controller
 {
     public function index()
     {
-
-        // tagline
-        $tagline = Setting::where('name', 'tagline')->get();
-
         // timeline
-        $tahap_1 = Timeline::where('type', 'tahap_1')->get();
-        $tahap_2 = Timeline::where('type', 'tahap_2')->get();
-        $other = Timeline::where('type', 'other')->get();
+        $timelines = Timeline::all();
 
+        // schedule
+        $schedule = Setting::where('type', 'jadwal')->first();
+        $early = Setting::where('type', 'early')->first();
 
         // contact
-        $contacts = Setting::where('name', 'kontak')->get();
+        $contacts = Setting::where('type', 'kontak')->get();
+
+        // pelayanan
+        $pelayanans = Setting::where('type', 'pelayanan')->get();
+
         // onoff
         $onoff = Setting::where('name', 'onoff')->first();
         $status = $onoff ? (int)$onoff->value : 1; // default ON
+
         // countdown
         $countdown = Setting::where('name', 'countdown')->first();
         $countdownDate = $countdown ? Carbon::parse($countdown->value) : null;
@@ -41,6 +43,6 @@ class LandingController extends Controller
         }
 
         // Default tampil landing normal
-        return view('landing.index', compact('contacts', 'tahap_1', 'tahap_2', 'other', 'tagline'));
+        return view('landing.index', compact('contacts', 'timelines', 'pelayanans', 'schedule', 'early'));
     }
 }

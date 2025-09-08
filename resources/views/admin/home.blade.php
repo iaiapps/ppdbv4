@@ -30,18 +30,6 @@
                 </div>
             </div>
 
-            {{-- <div class="col-12 col-md-6 gy-2">
-            <div class="d-block border-0 bg-secondary card h-100">
-                <div class="float-start bg-radiant2 text-white p-2">
-                    <span class="display-5 px-3 ">
-                        {{ $akun_dibuat->count() }}
-                    </span>
-                </div>
-                <div class="float-end text-white py-2 px-3">
-                    <p class="fs-4 mb-0">Akun Dibuat</p>
-                </div>
-            </div> --}}
-
             <div class="col-12 col-md-6 gy-2">
                 <div class="d-flex justify-content-between border-0 bg-secondary h-100">
                     <div class="bg-radiant2 text-white p-3 d-flex align-items-center justify-content-center">

@@ -123,7 +123,7 @@
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <h3 class="mb-3">Membuat Akun</h3>
-                    <p class="fs-5"> membuat akun SPMB di <a
+                    <p class="fs-5"> Membuat akun SPMB di <a
                             href="https://spmb.sditharum.id/">https://spmb.sditharum.id/</a></p>
                 </div>
 
@@ -132,7 +132,7 @@
                     <h3 class="mb-3">Biaya Pendaftaran</h3>
                     <p class="fs-5">
                         Membayar biaya pendaftaran sebesar :
-                        <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 300.000</span>
+                        <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 350.000</span>
                         ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 2005720055</span> a.n.
                         SDIT HARAPAN UMAT
                     </p>
@@ -175,71 +175,33 @@
                 <div class="schedule-grid">
                     <div class="schedule-card">
                         <div class="schedule-header green">
-                            <h3 class="mb-0">Pendaftaran SPMB SDIT Harapan Umat Jember</h3>
+                            <h3 class="mb-0">{{ $schedule->desc }}</h3>
                             <div class="px-3 py-2 fw-bold fs-5 rounded-pill d-inline-block mt-3 mb-0"
                                 style="background: rgba(255, 255, 255, 0.331);">
-                                Tahun Ajaran 2026/2027
+                                {{ $schedule->value }}
                             </div>
                         </div>
                         <div class="schedule-content">
                             <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Pendaftaran
-                                            </h4>
-                                            <p class="fs-5 text-muted">15 September 2025 - 31 Oktober
-                                                2025</p>
-                                        </div>
+                                @foreach ($timelines->chunk(ceil($timelines->count() / 2)) as $col)
+                                    <div class="col-md-6 col-12">
+                                        @foreach ($col as $timeline)
+                                            <div class="schedule-item">
+                                                {!! $timeline->icon !!}
+                                                <div>
+                                                    <h4 class="fw-bold mb-1">{{ $timeline->name }}</h4>
+                                                    <p class="fs-5 text-muted">{{ $timeline->date }}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Observasi dan Psikotes</h4>
-                                            <p class="fs-5 text-muted">8 November 2025</p>
-                                        </div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Pengumuman</h4>
-                                            <p class="fs-5 text-muted">1 Desember 2025</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Daftar Ulang</h4>
-                                            <p class="fs-5 text-muted">1 - 10 Desember 2025</p>
-                                        </div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Test BTAQ dan Fitting Seragam
-                                            </h4>
-                                            <p class="fs-5 text-muted">9 Mei 2026</p>
-                                        </div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <i class="fas fa-clock fs-4"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Pengambilan seragam</h4>
-                                            <p class="fs-5 text-muted">6 Juli 2026</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="p-3 rounded text-center mt-2"
                                 style="background: #dcfce7; border: 2px solid #16a34a; ">
-                                <p class="mb-0" style="color: #15803d; font-size:1.1rem">Eearly bird, Diskon uang gedung
-                                    10% (15-25
-                                    september 2025)
-                                </p>
+                                <p class="mb-0" style="color: #15803d; font-size:1.1rem">{{ $early->desc }}
+                                    {{ $early->value }} </p>
                             </div>
                         </div>
                     </div>
@@ -262,52 +224,35 @@
                     Kontak Person
                 </h3>
                 <div class="row">
-                    <div class="col-md-6 col-12 mb-3">
-                        <div class="bg-radiant">
-                            <div class="d-flex mb-3">
-                                <span class="rounded me-3 bg-radiant2 text-white fs-4">
-                                    <i class="fa-regular fa-circle-user"></i>
-                                </span>
-                                <div>
-                                    <h5 class="fw-bold mb-1">Pak Ristiono</h5>
-                                    <p class="fw-bold mb-0 text-muted fs-5">Koordinator SPMB</p>
+                    @foreach ($contacts as $contact)
+                        <div class="col-md-6 col-12 mb-3">
+                            <div class="bg-radiant">
+                                <div class="d-flex mb-3">
+                                    <span class="rounded me-3 bg-radiant2 text-white fs-4">
+                                        <i class="fa-regular fa-circle-user"></i>
+                                    </span>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">{{ $contact->name }}</h5>
+                                        <p class="fw-bold mb-0 text-muted fs-5">{{ $contact->desc }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="rounded me-3 bg-radiant2 text-white fs-4">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold">
-                                        <a href="https://wa.me/6285232213939" target="_blank">WhatsApp: <br>
-                                            088289378109</a>
-                                    </h5>
+                                <div class="d-flex">
+                                    <div class="rounded me-3 bg-radiant2 text-white fs-4">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        @php
+                                            $phone = ltrim($contact->value, '0'); // buang 0 di depan
+                                        @endphp
+                                        <h5 class="fw-bold">
+                                            <a href="https://wa.me/62{{ $phone }}" target="_blank">WhatsApp: <br>
+                                                {{ $contact->value }}</a>
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-12 mb-3">
-                        <div class="bg-radiant">
-                            <div class="d-flex mb-3">
-                                <div class="mb-2 rounded me-3 bg-radiant2 text-white fs-4">
-                                    <i class="fa-regular fa-circle-user"></i>
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold mb-1 ">Pak Ikrom</h5>
-                                    <p class="fw-bold mb-0 text-muted fs-5">Admin Web SPMB</p>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="mb-2 rounded me-3 bg-radiant2 text-white fs-4">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <h5 class="fw-bold mb-2">
-                                    <a href="https://wa.me/6285232213939" target="_blank">WhatsApp: <br>
-                                        085232213939</a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -318,25 +263,16 @@
                     Jam Pelayanan
                 </h3>
                 <div class="service">
-                    <div class="service-card">
-                        <h4 class="fs-4 fw-bold">Senin - Jumat</h4>
-                        <p class="fw-bold fs-5 text-orange mb-2">07:15 - 15:15
-                            WIB</p>
-                        <p class="text-muted">Jam Sekolah</p>
-                    </div>
-                    <div class="service-card">
-                        <h4 class="fs-4 fw-bold">Sabtu</h4>
-                        <p class="fw-bold fs-5 text-orange mb-2">08:00 - 12:00
-                            WIB</p>
-                        <p class="text-muted">Konsultasi (Online)</p>
-                    </div>
-                    <div class="service-card">
-                        <h4 class="fs-4 fw-bold">Minggu</h4>
-                        <p class="fw-bold fs-5 text-danger mb-2">Tutup</p>
-                        <p class="text-muted">Libur</p>
-                    </div>
+                    @foreach ($pelayanans as $pelayanan)
+                        <div class="service-card">
+                            <h4 class="fs-4 fw-bold">{{ $pelayanan->desc }}</h4>
+                            <p
+                                class="fw-bold fs-5 mb-2 {{ $pelayanan->value === 'Tutup' ? 'text-danger' : 'text-orange' }}">
+                                {{ $pelayanan->value }}</p>
+                            <p class="text-muted">{{ $pelayanan->name }}</p>
+                        </div>
+                    @endforeach
                 </div>
-
             </div>
         </div>
     </section>
