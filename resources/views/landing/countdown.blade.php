@@ -44,7 +44,7 @@
         }
 
         .top {
-            margin-bottom: 200px;
+            margin-bottom: 150px;
         }
 
         .countdown-grid {
@@ -61,7 +61,7 @@
         #timer .countdown-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             min-width: 120px;
             text-align: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
@@ -83,9 +83,17 @@
         }
 
         @media (max-width: 768px) {
+            .logo {
+                width: 95px;
+            }
+
             .countdown-grid {
                 grid-template-columns: repeat(2, auto);
                 row-gap: 1.5rem;
+            }
+
+            #timer .countdown-card {
+                padding: 23px 18px;
             }
         }
     </style>
