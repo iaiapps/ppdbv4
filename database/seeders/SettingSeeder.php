@@ -13,41 +13,50 @@ class SettingSeeder extends Seeder
      */
     public function run(): void
     {
+        // tagline
         Setting::create([
             'name' => 'tagline',
-            'desc' => 'pesan 1',
-            'value' => 'Telah dibuka untuk tahun 2025/2026',
-        ]);
-        Setting::create([
-            'name' => 'tagline',
-            'desc' => 'pesan 2',
-            'value' => 'Segera daftar, kuota terbatas!',
+            'desc' => 'pesan atas',
+            'value' => 'Sistem Penerimaan Murid Baru SDIT Harapan Umat Jember Tahun 2026/2027',
         ]);
 
+        // kontak
         Setting::create([
-            'name' => 'kontak',
-            'desc' => 'Pak Ristiono',
+            'name' => 'Pak Ristiono',
+            'desc' => 'Koordinator SPMB',
             'value' => '088289378109',
         ]);
         Setting::create([
-            'name' => 'kontak',
-            'desc' => 'Pak Ikrom (Konfirmasi)',
+            'name' => 'Pak Ikrom',
+            'desc' => 'Admin WEb SPMB',
             'value' => '085232213939',
         ]);
+
+        // pelayanan
         Setting::create([
-            'name' => 'pelayanan',
+            'name' => 'Jam Sekolah',
             'desc' => "Senin s/d Jum'at",
             'value' => '08.00-15.30',
         ]);
         Setting::create([
-            'name' => 'pelayanan',
-            'desc' => 'Sabtu (online)',
+            'name' => 'Konsultasi (Online)',
+            'desc' => 'Sabtu',
+            'value' => '08.00-11.30',
+        ]);
+        Setting::create([
+            'name' => 'Libur',
+            'desc' => 'Minggu',
             'value' => '08.00-11.30',
         ]);
         Setting::create([
             'name' => 'onoff',
             'desc' => 'setting buka tutup web ppdb',
             'value' => 1,
+        ]);
+        Setting::create([
+            'name' => 'countdown',
+            'desc' => 'Tanggal pembukaan SPMB',
+            'value' => "2025-09-15 00:00:00",
         ]);
     }
 }

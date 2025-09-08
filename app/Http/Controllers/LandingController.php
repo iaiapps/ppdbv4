@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Setting;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
@@ -10,22 +11,36 @@ class LandingController extends Controller
 {
     public function index()
     {
+
+        // tagline
+        $tagline = Setting::where('name', 'tagline')->get();
+
         // timeline
         $tahap_1 = Timeline::where('type', 'tahap_1')->get();
         $tahap_2 = Timeline::where('type', 'tahap_2')->get();
         $other = Timeline::where('type', 'other')->get();
 
-        // tagline
-        $taglines = Setting::where('name', 'tagline')->get();
+
         // contact
         $contacts = Setting::where('name', 'kontak')->get();
         // onoff
         $onoff = Setting::where('name', 'onoff')->first();
+        $status = $onoff ? (int)$onoff->value : 1; // default ON
+        // countdown
+        $countdown = Setting::where('name', 'countdown')->first();
+        $countdownDate = $countdown ? Carbon::parse($countdown->value) : null;
 
-        if (isset($onoff) && $onoff->value == 0) {
+        // Kalau off
+        if ($status === 0) {
             return view('landing.indexoff');
-        } else {
-            return view('landing.index', compact('contacts', 'tahap_1', 'tahap_2', 'other', 'taglines'));
         }
+
+        // Kalau countdown ada dan belum lewat, tampilkan halaman countdown
+        if ($countdownDate && now()->lt($countdownDate)) {
+            return view('landing.countdown', compact('countdownDate'));
+        }
+
+        // Default tampil landing normal
+        return view('landing.index', compact('contacts', 'tahap_1', 'tahap_2', 'other', 'tagline'));
     }
 }

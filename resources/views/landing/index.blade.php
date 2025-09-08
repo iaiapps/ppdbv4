@@ -149,7 +149,7 @@
                 <div class="step-card">
                     <div class="step-number">4</div>
                     <h3 class="mb-3">Isi Formulir Online</h3>
-                    <p class="fs-5">Lengkapi formulir pendaftaran online di website kami dengan data yang akurat</p>
+                    <p class="fs-5">Lengkapi formulir pendaftaran online di web dan upload foto terbaru</p>
                 </div>
 
                 <div class="step-card">
