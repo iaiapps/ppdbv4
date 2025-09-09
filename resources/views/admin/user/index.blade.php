@@ -6,7 +6,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100 ">
-        <p class="fs-5 text-center">Data Pendaftar</p>
+        <p class="fs-5 text-center">Data Seluruh Pendaftar</p>
         <hr>
         {{-- <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small> --}}
         <div class="table-responsive">
@@ -16,10 +16,9 @@
                         <th class="text-center" scope="col">#</th>
                         <th class="text-center" scope="col">Tgl_Daftar</th>
                         <th class="text-center" scope="col">Nama</th>
-                        <th class="text-center" scope="col">No. HP</th>
                         <th class="text-center" scope="col">Status</th>
                         <th class="text-center" scope="col">Bukti_Upload*</th>
-                        <th class="text-center" scope="col">Aktfkan_Wa</th>
+                        <th class="text-center" scope="col">Aktfkan</th>
                         <th class="text-center" scope="col">Action_Button</th>
                     </tr>
                 </thead>
@@ -28,8 +27,23 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email_number }}</td>
+                            @php
+                                $message = urlencode("Assalamualaikum wr wb
+
+❇️ Terimakasih telah memilih SDIT Harapan Umat Jember sebagai partner dalam membersamai setiap tahapan pendidikan ananda.
+
+✅ Akun ananda sudah *\"Aktif\"* silahkan melanjutkan Proses *Pengisian Formulir* di web http://spmb.sditharum.id
+
+❇️ Semoga ananda menjadi anak shalih shalihah. Aamiin.");
+                                $phone = '628' . substr($user->email_number, 2);
+                            @endphp
+                            <td>{{ $user->name }} <span
+                                    class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
+                                <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
+                                    class="btn btn-success btn-sm mt-1">
+                                    <i class="bi bi-whatsapp"></i> kirim notif
+                                </a>
+                            </td>
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
                                 {!! $user->document->where('type', 'upload_pembayaran')->first()
@@ -49,12 +63,15 @@
                                             action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm"><i
-                                                    class="bi bi-check-circle"></i></button>
+                                                    class="bi bi-check-circle"></i> aktifkan?</button>
                                         </form>
                                     </div>
+                                @else
+                                    <button type="submit" class="btn btn-danger btn-sm" disabled><i
+                                            class="bi bi-check-circle"></i>
+                                        aktifkan?</button>
                                 @endif
-                                <a href="https://wa.me/628{{ substr($user->email_number, 2) }}" target="_blank"
-                                    class="btn btn-success btn-sm"><i class="bi bi-whatsapp"></i></a>
+
                             </td>
                             <td>
                                 <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"

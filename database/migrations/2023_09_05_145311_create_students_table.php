@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nik')->nullable();
             $table->string('kk')->nullable();
             $table->string('school_origin')->nullable();
+            $table->string('school_address')->nullable();
             $table->string('school_nisn')->nullable();
             $table->string('gender')->nullable();
             $table->string('place_birth')->nullable();

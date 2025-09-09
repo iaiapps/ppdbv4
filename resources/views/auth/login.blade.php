@@ -37,7 +37,7 @@
                         {{-- password --}}
                         <div class="mb-3">
                             <input class="form-control fs-med text-center @error('password') is-invalid @enderror"
-                                type="password" name="password" placeholder="Password" />
+                                type="password" name="password" placeholder="Kata Sandi" />
                             {{-- @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

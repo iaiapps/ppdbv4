@@ -51,6 +51,10 @@
                             <td>{{ $student->school_origin }}</td>
                         </tr>
                         <tr>
+                            <td>Alamat TK</td>
+                            <td>{{ $student->school_address }}</td>
+                        </tr>
+                        <tr>
                             <td>NISN TK</td>
                             <td>{{ $student->school_nisn }}</td>
                         </tr>
