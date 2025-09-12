@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 
+use App\Models\Document;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use function PHPUnit\Framework\isNull;
 
@@ -88,7 +90,23 @@ class UserController extends Controller
     public function deleteAll(Request $request)
     {
         if (isset($request->key) == 'DELETE') {
-            User::where('name', '!=', 'admin')->delete();
+            DB::transaction(function () {
+                $users = User::where('name', '!=', 'admin')->get();
+                foreach ($users as $user) {
+                    // Hapus student (jika ada)
+                    $user->student()->delete();
+
+                    // Hapus documents
+                    $user->document()->delete();
+
+                    // Hapus role spatie
+                    $user->roles()->detach();
+
+                    // Terakhir hapus user
+                    $user->delete();
+                }
+                DB::table('documents')->delete();
+            });
             return redirect()->route('setting.index')->with('msg', 'Berhasil menghapus data');
         } else {
             return redirect()->route('setting.index')->with('msg', 'Data tidak dihapus');

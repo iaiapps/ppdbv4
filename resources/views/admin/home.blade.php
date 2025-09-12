@@ -34,7 +34,11 @@
                 <div class="d-flex justify-content-between border-0 bg-secondary h-100">
                     <div class="bg-radiant2 text-white p-3 d-flex align-items-center justify-content-center">
                         <span class="display-5 px-2">
-                            {{ $akun_aktif->count() }}
+                            @php
+                                $aktif = $akun_aktif->count();
+                                $form = $akun_isi_formulir->count();
+                            @endphp
+                            {{ $aktif + $form }}
                         </span>
                     </div>
                     <div class=" text-white p-3 text-end">
