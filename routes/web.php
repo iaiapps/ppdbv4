@@ -93,7 +93,7 @@ Route::middleware('auth')->group(function () {
         Route::post('upload', [DocumentController::class, 'store'])->name('upload');
     });
 
-    Route::middleware('role:akun_aktif|akun_isi_formulir|akun_diterima|akun_ditolak')->group(function () {
+    Route::middleware('role:akun_aktif|akun_isi_formulir|akun_diterima|akun_ditolak|akun_mengundurkan_diri')->group(function () {
         // Route::prefix('student')->group(function () {
         // Route::get('upload_foto', [DocumentController::class, 'create'])->name('upload_foto');
         // Route::post('upload_foto', [DocumentController::class, 'store'])->name('upload_foto');

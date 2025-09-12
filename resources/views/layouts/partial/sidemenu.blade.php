@@ -1,3 +1,43 @@
+@php
+    use Carbon\Carbon;
+    use Illuminate\Support\Facades\Auth;
+    use App\Models\Timeline;
+
+    $user = Auth::user();
+    $today = Carbon::now();
+    $timeline = Timeline::where('name', 'Pengumuman Hasil SPMB')->first();
+
+    $status = 'isi_formulir'; // default
+    if ($timeline) {
+        $mapBulan = [
+            'Januari' => 'January',
+            'Februari' => 'February',
+            'Maret' => 'March',
+            'April' => 'April',
+            'Mei' => 'May',
+            'Juni' => 'June',
+            'Juli' => 'July',
+            'Agustus' => 'August',
+            'September' => 'September',
+            'Oktober' => 'October',
+            'November' => 'November',
+            'Desember' => 'December',
+        ];
+        $tanggalInggris = strtr($timeline->date, $mapBulan);
+        $pengumuman = Carbon::parse($tanggalInggris);
+
+        if ($today->lt($pengumuman)) {
+            $status = 'menunggu';
+        } elseif ($user->hasRole('akun_diterima')) {
+            $status = 'diterima';
+        } elseif ($user->hasRole('akun_ditolak')) {
+            $status = 'ditolak';
+        } elseif ($user->hasRole('akun_mengundurkan_diri')) {
+            $status = 'mengundurkan';
+        }
+    }
+@endphp
+
 <div class="bg-white p-2 rounded menu">
     <div class="text-center">
         <img class="logosdit" src="{{ asset('img/logosdit.png') }}" alt="logo" />
@@ -56,51 +96,10 @@
                 </a>
             </li>
         </ul>
-    @endif
-
-
-
-
-    <!-- ini menu untuk user -->
-    @if ($today->lt($pengumuman) && Auth::user()->hasRole('akun_isi_formulir'))
-        <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
-            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
-                    href="{{ route('student.home') }}">
-                    <i class="menu-icon bi bi-house-door me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Beranda Awal</span>
-                    <small class="d-block d-md-none m-0">Beranda Awal</small></a>
-            </li>
-            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.profile' ? 'bg-menu' : '' }}"
-                    href="{{ route('student.profile') }}">
-                    <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Data Pendaftar</span>
-                    <small class="d-block d-md-none ">Data Pendaftar</small></a>
-            </li>
-            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.timeline' ? 'bg-menu' : '' }}"
-                    href="{{ route('student.timeline') }}">
-                    <i class="menu-icon bi bi-calendar-week me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Jadwal PPDB</span>
-                    <small class="d-block d-md-none ">Jadwal PPDB</small></a>
-            </li>
-        </ul>
     @else
-        @if (Auth::user()->hasRole('akun_diterima'))
-            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
-                    href="{{ route('student.cost') }}">
-                    <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Daftar Ulang</span>
-                    <small class="d-block d-md-none">Daftar Ulang</small></a>
-            </li>
-        @elseif(Auth::user()->hasRole('akun_isi_ditolak'))
-            <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
+        <!-- ini menu untuk user -->
+        <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
+            @if ($status === 'menunggu' || $status === 'isi_formulir' || $status === 'diterima')
                 <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                     <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
@@ -109,7 +108,42 @@
                         <span class="d-none d-md-inline-block">Beranda Awal</span>
                         <small class="d-block d-md-none m-0">Beranda Awal</small></a>
                 </li>
-            </ul>
-        @endif
+                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                    <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.profile' ? 'bg-menu' : '' }}"
+                        href="{{ route('student.profile') }}">
+                        <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
+                        <span class="d-none d-md-inline-block">Data Pendaftar</span>
+                        <small class="d-block d-md-none ">Data Pendaftar</small></a>
+                </li>
+                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                    <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.timeline' ? 'bg-menu' : '' }}"
+                        href="{{ route('student.timeline') }}">
+                        <i class="menu-icon bi bi-calendar-week me-0 me-md-2"></i>
+                        <span class="d-none d-md-inline-block">Jadwal PPDB</span>
+                        <small class="d-block d-md-none ">Jadwal PPDB</small></a>
+                </li>
+                @if ($status === 'diterima')
+                    <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                        <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
+                            href="{{ route('student.cost') }}">
+                            <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
+                            <span class="d-none d-md-inline-block">Daftar Ulang</span>
+                            <small class="d-block d-md-none">Daftar Ulang</small></a>
+                    </li>
+                @endif
+            @elseif($status === 'ditolak' || $status === 'mengundurkan')
+                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                    <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
+                        href="{{ route('student.home') }}">
+                        <i class="menu-icon bi bi-house-door me-0 me-md-2"></i>
+                        <span class="d-none d-md-inline-block">Beranda Awal</span>
+                        <small class="d-block d-md-none m-0">Beranda Awal</small></a>
+                </li>
+            @endif
+        </ul>
     @endif
 </div>

@@ -62,12 +62,26 @@
             </div>
         @elseif (Auth::user()->hasRole('akun_ditolak'))
             <div class="bg-white rounded p-3 mb-3 text-center">
-                <p class="my-1 text-white bg-danger p-2 rounded fs-5 fw-bold">Mohon Maaf ananda Belum Diterima di SDIT Harum
+                <p class="my-1 text-white bg-danger p-2 rounded fs-5 ">Mohon Maaf ananda Belum Diterima di SDIT Harum
                     Jember</p>
             </div>
             <div class="bg-white rounded p-3 text-center">
                 <div>
-                    <p class="my-1 p-1 rounded fs-4 fw-bold">Jangan putus asa dan tetap semangat, semoga mendapat sekolah
+                    <p class="my-1 p-1 rounded fs-5 ">Jangan putus asa dan tetap semangat, semoga mendapat sekolah
+                        yang
+                        lebih baik</p>
+                </div>
+            </div>
+        @elseif (Auth::user()->hasRole('akun_mengundurkan_diri'))
+            <div class="bg-white rounded p-3 mb-3 text-center">
+                <p class="my-1 text-white bg-secondary p-2 rounded fs-5 ">Mohon Maaf, Anda telah mengundurkan diri
+                    dari
+                    SPMB SDIT Harum
+                    Jember</p>
+            </div>
+            <div class="bg-white rounded p-3 text-center">
+                <div>
+                    <p class="my-1 p-1 rounded fs-5 ">Semoga mendapat sekolah
                         yang
                         lebih baik</p>
                 </div>
