@@ -15,11 +15,10 @@ class ActionController extends Controller
         return redirect()->route('user.index');
     }
 
-    // Function terima 
+    // Function terima
     public function accepted(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();
-        // dd($user);
         $user->syncRoles('akun_diterima');
         return redirect()->route('student.index');
     }
@@ -28,8 +27,15 @@ class ActionController extends Controller
     public function rejected(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();
-        // dd($user);
         $user->syncRoles('akun_ditolak');
+        return redirect()->route('student.index');
+    }
+
+    // Function tolak
+    public function retire(Request $request)
+    {
+        $user = User::where('id', $request->id)->get()->first();
+        $user->syncRoles('akun_mengundurkan_diri');
         return redirect()->route('student.index');
     }
 }

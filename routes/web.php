@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function () {
             Route::post('activated', [ActionController::class, 'activated'])->name('user.activated');
             Route::post('accepted', [ActionController::class, 'accepted'])->name('student.accepted');
             Route::post('rejected', [ActionController::class, 'rejected'])->name('student.rejected');
+            Route::post('retire', [ActionController::class, 'retire'])->name('student.retire');
 
             //setting
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
