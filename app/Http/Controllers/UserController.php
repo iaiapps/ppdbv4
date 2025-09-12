@@ -59,20 +59,6 @@ class UserController extends Controller
     {
         $name = $request->name;
         $email_number = $request->email_number;
-        // $password = $request->password;
-
-        // if (isset($password)) {
-        //     $user->update([
-        //         'name' => $name,
-        //         'email_number' => $email_number,
-        //         'password' => Hash::make($password),
-        //     ]);
-        // } elseif (!isset($password)) {
-        //     $user->update([
-        //         'name' => $name,
-        //         'email_number' => $email_number,
-        //     ]);
-        // }
 
         $user->update([
             'name' => $name,

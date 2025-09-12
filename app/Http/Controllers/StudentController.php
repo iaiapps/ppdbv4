@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Document;
+use App\Models\Timeline;
 use App\Models\CostCategory;
 use Illuminate\Http\Request;
 use App\Exports\StudentExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Models\Document;
 
 class StudentController extends Controller
 {
@@ -167,14 +169,36 @@ class StudentController extends Controller
         return view('admin.student.card', compact('cards'));
     }
 
+    function parseIndonesianDate($tanggal)
+    {
+        $mapBulan = [
+            'Januari' => 'January',
+            'Februari' => 'February',
+            'Maret' => 'March',
+            'April' => 'April',
+            'Mei' => 'May',
+            'Juni' => 'June',
+            'Juli' => 'July',
+            'Agustus' => 'August',
+            'September' => 'September',
+            'Oktober' => 'October',
+            'November' => 'November',
+            'Desember' => 'December',
+        ];
+
+        $tanggalInggris = strtr($tanggal, $mapBulan);
+        return Carbon::parse($tanggalInggris);
+    }
+
     // handle dari user //
     public function home()
     {
         $user = Auth::user();
         $id = $user->id;
-        $data = Document::where('user_id', $id)->where('type', 'upload_foto')->first();
-        // dd($data);
-        return view('student.home', compact('data'));
+        $tanggal = Timeline::where('name', 'Pengumuman Hasil SPMB')->first()->date;
+        $pengumuman = $this->parseIndonesianDate($tanggal);
+        $today = Carbon::now();
+        return view('student.home', compact('pengumuman', 'today'));
     }
 
     public function studentprofil()

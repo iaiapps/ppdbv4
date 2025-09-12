@@ -25,7 +25,7 @@ class TimelineSeeder extends Seeder
         ]);
         Timeline::create([
             'icon' => '<i class="fas fa-clock fs-4"></i>',
-            'name' => 'Pengumuman Hasil PPDB',
+            'name' => 'Pengumuman Hasil SPMB',
             'date' => '01 Desember 2025',
         ]);
         Timeline::create([

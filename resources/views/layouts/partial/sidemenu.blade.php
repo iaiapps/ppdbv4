@@ -59,8 +59,10 @@
     @endif
 
 
+
+
     <!-- ini menu untuk user -->
-    @if (Auth::user()->hasRole('akun_isi_formulir') || Auth::user()->hasRole('akun_diterima'))
+    @if ($today->lt($pengumuman) && Auth::user()->hasRole('akun_isi_formulir'))
         <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
             <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                 <a class="nav-link hover rounded text-center text-md-start
@@ -86,28 +88,28 @@
                     <span class="d-none d-md-inline-block">Jadwal PPDB</span>
                     <small class="d-block d-md-none ">Jadwal PPDB</small></a>
             </li>
-            @if (Auth::user()->hasRole('akun_diterima'))
-                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                    <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
-                        href="{{ route('student.cost') }}">
-                        <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
-                        <span class="d-none d-md-inline-block">Daftar Ulang</span>
-                        <small class="d-block d-md-none">Daftar Ulang</small></a>
-                </li>
-            @endif
-
         </ul>
-    @elseif(Auth::user()->hasRole('akun_isi_ditolak'))
-        <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
+    @else
+        @if (Auth::user()->hasRole('akun_diterima'))
             <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                 <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
-                    href="{{ route('student.home') }}">
-                    <i class="menu-icon bi bi-house-door me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Beranda Awal</span>
-                    <small class="d-block d-md-none m-0">Beranda Awal</small></a>
+                {{ Route::currentRouteName() == 'student.cost' ? 'bg-menu' : '' }}"
+                    href="{{ route('student.cost') }}">
+                    <i class="menu-icon bi bi-coin me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Daftar Ulang</span>
+                    <small class="d-block d-md-none">Daftar Ulang</small></a>
             </li>
-        </ul>
+        @elseif(Auth::user()->hasRole('akun_isi_ditolak'))
+            <ul class="nav nav-pills nav-justified flex-row flex-md-column ">
+                <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                    <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.home' ? 'bg-menu' : '' }} "
+                        href="{{ route('student.home') }}">
+                        <i class="menu-icon bi bi-house-door me-0 me-md-2"></i>
+                        <span class="d-none d-md-inline-block">Beranda Awal</span>
+                        <small class="d-block d-md-none m-0">Beranda Awal</small></a>
+                </li>
+            </ul>
+        @endif
     @endif
 </div>

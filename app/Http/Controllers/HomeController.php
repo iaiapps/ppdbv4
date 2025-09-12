@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Setting;
 use App\Models\Document;
+use App\Models\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,14 +41,39 @@ class HomeController extends Controller
         $akun_diterima = User::role('akun_diterima')->get();
         $akun_ditolak = User::role('akun_ditolak')->get();
 
+        // Ambil timeline pengumuman
+        $tanggal = Timeline::where('name', 'Pengumuman Hasil SPMB')->first()->date;
+        $pengumuman = $this->parseIndonesianDate($tanggal);
+        $today = Carbon::now();
+
         if ($user->hasRole('admin')) {
-            return view('admin.home', compact('total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak'));
+            return view('admin.home', compact('pengumuman', 'today', 'total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak'));
         } elseif ($user->hasRole('akun_dibuat')) {
             return view('student.bridge', compact('user'));
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');
         } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak'])) {
-            return redirect()->route('student.home');
+            return redirect()->route('student.home', compact('user', 'pengumuman', 'today'));
         }
+    }
+    function parseIndonesianDate($tanggal)
+    {
+        $mapBulan = [
+            'Januari' => 'January',
+            'Februari' => 'February',
+            'Maret' => 'March',
+            'April' => 'April',
+            'Mei' => 'May',
+            'Juni' => 'June',
+            'Juli' => 'July',
+            'Agustus' => 'August',
+            'September' => 'September',
+            'Oktober' => 'October',
+            'November' => 'November',
+            'Desember' => 'December',
+        ];
+
+        $tanggalInggris = strtr($tanggal, $mapBulan);
+        return Carbon::parse($tanggalInggris);
     }
 }
