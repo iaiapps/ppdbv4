@@ -14,7 +14,7 @@
                 <div class="col-md-6 col-12">
                     <p class="fs-4 text-center my-3">Biaya Awal</p>
                     <div class="text-center imgbox border rounded border-2 border-orange">
-                        <div id="pdf-viewer" style="height:600px; border:1px solid #ddd;"></div>
+                        <img id="zoomable-img" src="{{ asset('img/rincian.svg') }}" alt="imgrincian">
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
@@ -121,34 +121,4 @@
             }
         }
     </style>
-@endpush
-
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
-    <script>
-        const url = "{{ asset('img/rincian.pdf') }}";
-
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js";
-
-        pdfjsLib.getDocument(url).promise.then(function(pdf) {
-            pdf.getPage(1).then(function(page) {
-                var scale = 1;
-                var viewport = page.getViewport({
-                    scale: scale
-                });
-                var canvas = document.createElement("canvas");
-                var context = canvas.getContext("2d");
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                document.getElementById("pdf-viewer").appendChild(canvas);
-
-                page.render({
-                    canvasContext: context,
-                    viewport: viewport
-                });
-            });
-        });
-    </script>
 @endpush

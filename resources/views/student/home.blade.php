@@ -6,7 +6,7 @@
 
     @include('layouts.partial.name')
 
-    @if ($today->lt($pengumuman))
+    @if ($today->lt($pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
         <div class="bg-white rounded p-3 mb-3 text-center">
             <p class="m-0">Status PPDB</p>
             <p class="my-1 text-white bg-secondary p-2 rounded fs-5 fw-bold">Menunggu Hasil Pengumuman PPDB</p>
@@ -26,7 +26,7 @@
                     Data Pendaftar</a>
             </div>
             <hr>
-            <!-- Toolbar Zoom -->
+
             <div class="d-flex justify-content-center align-items-center mb-2 gap-2">
                 <button id="zoom_in" class="btn btn-sm btn-success">
                     <i class="bi bi-zoom-in"></i> Zoom In
@@ -38,9 +38,10 @@
                     <i class="bi bi-arrow-counterclockwise"></i> Reset
                 </button>
             </div>
-            <!-- PDF Viewer -->
-            <div id="pdf-viewer" class="border border-2 rounded p-2 text-center w-100" style="overflow: auto;">
-                <canvas id="the-canvas"></canvas>
+
+            <div id="img-container" class="border border-2 rounded p-2 text-center w-100 hh" style="overflow: auto;">
+                <img id="zoomable-img" src="{{ asset('img/rincian.svg') }}" alt="imgrincian"
+                    style="max-width: 100%; transform: scale(1); transform-origin: top left;">
             </div>
         </div>
     @else
@@ -93,11 +94,6 @@
 
 @push('css')
     <style>
-        #the-canvas {
-            display: block;
-            margin: 0 auto;
-        }
-
         .text-rata {
             text-align: justify;
         }
@@ -107,6 +103,10 @@
         }
 
         @media (max-width: 700px) {
+            .hh {
+                height: 60vh;
+            }
+
             .foto {
                 height: 200px;
             }
@@ -114,83 +114,34 @@
     </style>
 @endpush
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
     <script>
-        const url = "{{ asset('img/rincian.pdf') }}";
+        let scale = 1;
+        const img = document.getElementById('zoomable-img');
 
-        let pdfDoc = null,
-            scale = 1.0,
-            defaultScale = 1.0,
-            canvas = document.getElementById('the-canvas'),
-            ctx = canvas.getContext('2d'),
-            renderTask = null;
-
-        function renderPage() {
-            if (!pdfDoc) return;
-
-            pdfDoc.getPage(1).then(function(page) {
-                const containerWidth = document.getElementById('pdf-viewer').offsetWidth;
-
-                // hitung baseScale sekali untuk fit ke lebar container
-                const unscaledViewport = page.getViewport({
-                    scale: 1
-                });
-                const baseScale = containerWidth / unscaledViewport.width;
-
-                // kalikan dengan zoom manual (scale)
-                const finalViewport = page.getViewport({
-                    scale: baseScale * scale
-                });
-
-                canvas.height = finalViewport.height;
-                canvas.width = finalViewport.width;
-
-                if (renderTask) {
-                    renderTask.cancel();
-                }
-
-                renderTask = page.render({
-                    canvasContext: ctx,
-                    viewport: finalViewport
-                });
-
-                renderTask.promise.then(() => {
-                    renderTask = null;
-                }).catch(function(error) {
-                    if (error && error.name !== 'RenderingCancelledException') {
-                        console.error(error);
-                    }
-                });
-            });
+        function updateTransform() {
+            img.style.transform = `scale(${scale})`;
         }
 
-
-        // Load PDF
-        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            renderPage();
-        });
-
         // Zoom In
-        document.getElementById('zoom_in').addEventListener('click', function() {
-            scale += 0.1;
-            renderPage();
+        document.getElementById('zoom_in').addEventListener('click', () => {
+            scale += 0.5;
+            updateTransform();
         });
 
         // Zoom Out
-        document.getElementById('zoom_out').addEventListener('click', function() {
-            if (scale <= 0.2) return;
-            scale -= 0.1;
-            renderPage();
+        document.getElementById('zoom_out').addEventListener('click', () => {
+            if (scale > 0.2) {
+                scale -= 0.5;
+                updateTransform();
+            }
         });
 
-        // Reset Zoom
-        document.getElementById('zoom_reset').addEventListener('click', function() {
-            scale = defaultScale;
-            renderPage();
+        // Reset
+        document.getElementById('zoom_reset').addEventListener('click', () => {
+            scale = 1;
+            updateTransform();
+            document.getElementById('img-container').scrollTop = 0;
+            document.getElementById('img-container').scrollLeft = 0;
         });
-
-        // Render ulang saat resize
-        window.addEventListener('resize', renderPage);
     </script>
 @endpush
