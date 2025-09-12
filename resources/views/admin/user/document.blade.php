@@ -8,14 +8,11 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
 
         @forelse ($data as $d)
-            <a href="{{ URL::previous() }}" class="btn btn-success btn-sm"><i class="bi bi-arrow-left-circle"></i>
+            <a href="{{ URL::previous() }}" class="btn btn-success btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i>
                 Kembali</a>
             <p class="fs-5 text-center">Bukti pembayaran {{ $d->name }}</p>
             <hr>
             @if ($d->type == 'upload_pembayaran')
-                {{-- ini setting untuk hosting di strage folder --}}
-                {{-- <img src="{{ url('storage/public/img-document/' . $d->document) }}" alt="document" class="img-fluid"> --}}
-
                 {{-- ini setting untuk hosting di public folder --}}
                 <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="img-fluid">
 

@@ -2,6 +2,8 @@
 
 @section('title', 'Form Page')
 @section('content')
+
+
     <div class="container-fluid">
         <div class="row min-vh-100">
             <div class="col-12 col-md-4 bg-orange p-3 p-md-5">
@@ -21,7 +23,22 @@
             </div>
 
             <div class="col-12 col-md-8 p-3 p-md-5">
-                <form id="multiStepForm" action="{{ route('student.store') }}" method="POST">
+                <div>
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
+                <form id="multiStepForm" action="{{ route('student.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <!-- STEP 1: Identitas Siswa -->
@@ -347,9 +364,40 @@
                         </div>
                         <div class="w-100 mt-3">
                             <button type="button" class="btn btn-secondary prev w-25 float-start">Kembali</button>
-                            <button type="submit" class="btn btn-success w-25 float-end"
-                                onclick="return confirm('Pastikan Data yang anda isi sudah benar!')">
-                                Simpan Data
+                            <button type="button" class="btn btn-orange next w-25 float-end ">Lanjut</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="step">
+                        <p class="fs-4">Upload Foto</p>
+
+                        <p>Ketentuan file foto</p>
+                        <div class="mb-3">
+                            <ul class="list-group">
+                                <li class="list-group-item">File foto berukuran 4x6</li>
+                                <li class="list-group-item">File foto berupa .pn atau .jpg</li>
+                                <li class="list-group-item">Maksimal ukuran foto 1mb</li>
+                            </ul>
+                        </div>
+
+                        <p>Upload file foto</p>
+                        <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                        <input type="hidden" name="type" value="upload_foto">
+                        <div class="mb-3">
+                            <input class="form-control @error('document') is-invalid @enderror" type="file"
+                                id="document" name="document" accept="image/png, image/jpeg">
+                        </div>
+                        <p class="d-block py-2 text-start">*Ukuran maksimal 1 MB</p>
+                        <!-- Preview -->
+                        <div id="preview-container" class="border border-orange border-2 text-center p-2 hfoto">
+                            <img id="preview-photo" src="#" alt="Preview Foto"
+                                class="img-fluid mx-auto d-block hifoto" style="max-height: 200px;">
+
+                        </div>
+                        <div class="w-100 mt-3">
+                            <button type="button" class="btn btn-secondary prev w-25 float-start">Kembali</button>
+                            <button type="submit" class="btn btn-success w-25 float-end">
+                                Simpan
                             </button>
                         </div>
                     </fieldset>
@@ -359,33 +407,42 @@
     </div>
 
     <!-- Modal Persiapan -->
-    <div class="modal fade" id="prepareModal" tabindex="-1" aria-labelledby="prepareModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-orange text-white">
-                    <h5 class="modal-title" id="prepareModalLabel">Persiapan Pengisian Formulir</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="mb-3">Assalamualaikum Warahmatullahi Wabarakatuh</p>
-                    <p>Mohon siapkan terlebih dahulu data berikut sebelum mengisi formulir pendaftaran:</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">Data diri calon siswa</li>
-                        <li class="list-group-item">Data asal sekolah/TK</li>
-                        <li class="list-group-item">Alamat lengkap calon siswa</li>
-                        <li class="list-group-item">Data Orang Tua </li>
-                        <li class="list-group-item">File pas foto ukuran 3x4</li>
-                    </ul>
-                    <p class="mt-3">Setelah menyiapkan semua, silakan lanjutkan pengisian formulir dengan benar</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Saya Siap!</button>
+    @if ($showPopup)
+        <div class="modal fade" id="prepareModal" tabindex="-1" aria-labelledby="prepareModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-orange text-white">
+                        <h5 class="modal-title" id="prepareModalLabel">Persiapan Pengisian Formulir</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-3">Assalamualaikum Warahmatullahi Wabarakatuh</p>
+                        <p>Mohon siapkan terlebih dahulu data berikut sebelum mengisi formulir pendaftaran:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item fw-bold">Data diri calon siswa dan alamat</li>
+                            <li class="list-group-item fw-bold">Data asal sekolah/TK</li>
+                            <li class="list-group-item fw-bold">Data Orang Tua </li>
+                            <li class="list-group-item fw-bold">File pas foto ukuran 3x4</li>
+                        </ul>
+                        <p class="mt-3">Setelah menyiapkan semua, silakan lanjutkan pengisian formulir dengan benar</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Saya Siap!</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+        @push('scripts')
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var popup = new bootstrap.Modal(document.getElementById('popupInfo'));
+                    popup.show();
+                });
+            </script>
+        @endpush
+    @endif
 @endsection
 
 @push('css')
@@ -396,6 +453,15 @@
 
         .modal-header.bg-orange {
             background: #f97316;
+        }
+
+        .hfoto {
+            padding-top: 50px;
+            height: 100px;
+        }
+
+        .hifoto {
+            padding-top: 30px;
         }
 
         @media (max-width: 600px) {
@@ -488,5 +554,42 @@
             });
         });
         showStep(currentStep);
+
+        document.getElementById("document").addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            let imgPreview = document.getElementById("preview-photo");
+            let container = document.getElementById("preview-container");
+            let photo = document.getElementById('preview-photo')
+
+            if (file) {
+                // validasi ukuran
+                if (file.size > 1048576) {
+                    alert("Ukuran file maksimal 1 MB!");
+                    event.target.value = "";
+                    container.classList.add("d-none");
+                    return;
+                }
+
+                // validasi format
+                const allowedTypes = ["image/jpeg", "image/png"];
+                if (!allowedTypes.includes(file.type)) {
+                    alert("Format file harus JPG atau PNG!");
+                    event.target.value = "";
+                    container.classList.add("d-none");
+                    return;
+                }
+
+                // tampilkan preview
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    imgPreview.src = e.target.result;
+                    container.classList.remove("hfoto");
+                    photo.classList.remove("hifoto");
+                }
+                reader.readAsDataURL(file);
+            } else {
+                container.classList.add("d-none");
+            }
+        });
     </script>
 @endpush

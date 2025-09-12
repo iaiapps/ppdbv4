@@ -72,21 +72,20 @@
             </li>
             <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                 <a class="nav-link hover rounded text-center text-md-start
-                {{ Route::currentRouteName() == 'student.timeline' ? 'bg-menu' : '' }}"
-                    href="{{ route('student.timeline') }}">
-                    <i class="menu-icon bi bi-calendar-week me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Jadwal PPDB</span>
-                    <small class="d-block d-md-none ">Jadwal PPDB</small></a>
-            </li>
-            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
-                <a class="nav-link hover rounded text-center text-md-start
                 {{ Route::currentRouteName() == 'student.profile' ? 'bg-menu' : '' }}"
                     href="{{ route('student.profile') }}">
                     <i class="menu-icon bi bi-person-circle me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Data Pendaftar</span>
                     <small class="d-block d-md-none ">Data Pendaftar</small></a>
             </li>
-
+            <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
+                <a class="nav-link hover rounded text-center text-md-start
+                {{ Route::currentRouteName() == 'student.timeline' ? 'bg-menu' : '' }}"
+                    href="{{ route('student.timeline') }}">
+                    <i class="menu-icon bi bi-calendar-week me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Jadwal PPDB</span>
+                    <small class="d-block d-md-none ">Jadwal PPDB</small></a>
+            </li>
             @if (Auth::user()->hasRole('akun_diterima'))
                 <li class="nav-item my-0 my-md-1 mx-md-0 mx-1">
                     <a class="nav-link hover rounded text-center text-md-start

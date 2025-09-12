@@ -41,7 +41,7 @@
                                     class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
                                 <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
                                     class="btn btn-success btn-sm mt-1">
-                                    <i class="bi bi-whatsapp"></i> kirim notif
+                                    <i class="bi bi-whatsapp"></i> notif
                                 </a>
                             </td>
                             <td>{{ $user->roles->first()->name }}</td>

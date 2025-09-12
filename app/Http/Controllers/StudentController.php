@@ -27,7 +27,15 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student.form');
+        // cek apakah popup sudah pernah ditampilkan dalam sesi ini
+        if (!session()->has('popup_shown')) {
+            session(['popup_shown' => true]);
+            $showPopup = true;
+        } else {
+            $showPopup = false;
+        }
+
+        return view('student.form', compact('showPopup'));
     }
 
     /**
@@ -40,12 +48,47 @@ class StudentController extends Controller
         $user = Auth::user();
         $id = $user->id;
 
-        $data = $request->all();
-        $data['user_id'] = $id;
+        try {
+            // Validasi inputan form
+            $validated = $request->validate([
+                'full_name'   => 'required|string|max:255',
+                'nick_name'   => 'required|string|max:100',
+                'nik'         => 'required|string|max:20',
+                'kk'          => 'required|string|max:20',
+                'school_origin' => 'required|string|max:255',
+                'gender'      => 'required|string',
+                'place_birth' => 'required|string|max:100',
+                'date_birth'  => 'required|date',
+                // dst field student...
+                'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
+            ]);
 
-        Student::create($data);
-        $user->syncRoles('akun_isi_formulir');
-        return redirect()->route('student.home');
+            // ✅ Ambil semua data request
+            $data = $request->all();
+            unset($data['document']); // jangan masukkan file ke tabel student
+            $data['user_id'] = $id;
+
+            Student::create($data);
+
+            // Upload dokumen foto
+            $file = $request->file('document');
+            $file_name = $id . '-user-' . time() . '-' . $file->getClientOriginalName();
+            $file->move(public_path('img-document'), $file_name);
+
+            Document::create([
+                'name'     => $request->input('full_name'),
+                'type'     => 'upload_foto',
+                'document' => $file_name,
+                'user_id'  => $id,
+            ]);
+
+            // Update role user
+            $user->syncRoles('akun_isi_formulir');
+
+            return redirect()->route('student.home')->with('success', 'Data berhasil disimpan');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Ada formulir yang belum terisi ');
+        }
     }
 
     /**
@@ -139,7 +182,8 @@ class StudentController extends Controller
         $id = Auth::user()->id;
         // dd($id);
         $student = Student::where('user_id', $id)->get()->first();
-        return view('student.profile', compact('student'));
+        $data = Document::where('user_id', $id)->where('type', 'upload_foto')->first();
+        return view('student.profile', compact('student', 'data'));
     }
 
     public function studentcost()
