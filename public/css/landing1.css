@@ -156,11 +156,11 @@
     margin: 0 auto 1rem;
 }
 
-.schedule-grid {
+/* .schedule-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-}
+} */
 
 .schedule-card {
     background: white;

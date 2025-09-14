@@ -7,8 +7,8 @@
     <style>
         #backToTop {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
             display: none;
             /* hidden by default */

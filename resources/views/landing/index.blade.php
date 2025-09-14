@@ -190,40 +190,39 @@
 
                 </div>
 
-                <div class="schedule-grid">
-                    <div class="schedule-card">
-                        <div class="schedule-header green">
-                            <h3 class="mb-0">{{ $schedule->desc }}</h3>
-                            <div class="px-3 py-2 fw-bold fs-5 rounded-pill d-inline-block mt-3 mb-0"
-                                style="background: rgba(255, 255, 255, 0.331);">
-                                {{ $schedule->value }}
-                            </div>
+                <div class="schedule-card">
+                    <div class="schedule-header green">
+                        <h3 class="mb-0">{{ $schedule->desc }}</h3>
+                        <div class="px-3 py-2 fw-bold fs-5 rounded-pill d-inline-block mt-3 mb-0"
+                            style="background: rgba(255, 255, 255, 0.331);">
+                            {{ $schedule->value }}
                         </div>
-                        <div class="schedule-content">
-                            <div class="row">
-                                @foreach ($timelines->chunk(ceil($timelines->count() / 2)) as $col)
-                                    <div class="col-md-6 col-12">
-                                        @foreach ($col as $timeline)
-                                            <div class="schedule-item">
-                                                {!! $timeline->icon !!}
-                                                <div>
-                                                    <h4 class="fw-bold mb-1">{{ $timeline->name }}</h4>
-                                                    <p class="fs-5 text-muted">{{ $timeline->date }}</p>
-                                                </div>
+                    </div>
+                    <div class="schedule-content">
+                        <div class="row">
+                            @foreach ($timelines->chunk(ceil($timelines->count() / 2)) as $col)
+                                <div class="col-md-6 col-12">
+                                    @foreach ($col as $timeline)
+                                        <div class="schedule-item">
+                                            {!! $timeline->icon !!}
+                                            <div>
+                                                <h4 class="fw-bold mb-1">{{ $timeline->name }}</h4>
+                                                <p class="fs-5 text-muted">{{ $timeline->date }}</p>
                                             </div>
-                                        @endforeach
-                                    </div>
-                                @endforeach
-                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
 
-                            <div class="p-3 rounded text-center mt-2"
-                                style="background: #dcfce7; border: 2px solid #16a34a; ">
-                                <p class="mb-0" style="color: #15803d; font-size:1.1rem">{{ $early->desc }}
-                                    {{ $early->value }} </p>
-                            </div>
+                        <div class="p-3 rounded text-center mt-2"
+                            style="background: #dcfce7; border: 2px solid #16a34a; ">
+                            <p class="mb-0" style="color: #15803d; font-size:1.1rem">{{ $early->desc }}
+                                {{ $early->value }} </p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
