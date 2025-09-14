@@ -10,7 +10,7 @@
             rgba(230, 230, 230, 0.4) 30%,
             rgba(255, 127, 22, 0.6) 100%
         ),
-        url("../img/back2.jpg");
+        url("../img/coba.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -32,7 +32,7 @@
     padding: 12px 24px;
     border-radius: 20px;
     margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     border: 2px solid #f97f2a;
 }
 .text {
@@ -83,12 +83,6 @@
 }
 
 /* Features */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-}
-
 .feature-card {
     background: white;
     padding: 2rem;
@@ -132,12 +126,12 @@
 }
 
 /* Registration */
-.registration-steps {
+/* .registration-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
-}
+} */
 
 .step-card {
     background: white;
@@ -245,7 +239,7 @@
 
     .logosdit {
         margin-top: 40px !important;
-        margin-bottom: 40px !important;
+        margin-bottom: 30px !important;
         width: 100px;
     }
 

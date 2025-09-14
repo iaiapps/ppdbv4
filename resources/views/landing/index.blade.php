@@ -49,62 +49,70 @@
                     inovatif</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-open"></i>
+            <div class="row gy-4">
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Kurikulum Terpadu</h3>
+                        <p>Menerapkan Kurikulum Nasional dan Kurikulum Kekhasan JSIT Indonesia. Disertai dengan program
+                            keislaman
+                            dan karakter serta keterampilan yang dibutuhkan dalam
+                            abad 21.</p>
                     </div>
-                    <h3>Kurikulum Terpadu</h3>
-                    <p>Menerapkan Kurikulum Nasional dan Kurikulum Kekhasan JSIT Indonesia. Disertai dengan program
-                        keislaman
-                        dan karakter serta keterampilan yang dibutuhkan dalam
-                        abad 21.</p>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart "></i>
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart "></i>
+                        </div>
+                        <h3>Program Unggulan</h3>
+                        <p>Terdapat Kelas Minat dan Bakat, Kelas Qur'an, Kelas Sains. Program Literasi dan Bilingual. BTAQ
+                            dengan Metode Otak
+                            Kanan (WAFA). Parenting berkala untuk Orang Tua.</p>
                     </div>
-                    <h3>Program Unggulan</h3>
-                    <p>Terdapat Kelas Minat dan Bakat, Kelas Qur'an, Kelas Sains. Program Literasi dan Bilingual. BTAQ
-                        dengan Metode Otak
-                        Kanan (WAFA). Parenting berkala untuk Orang Tua.</p>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-trophy"></i>
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Ekstrakurikuler dan Pembinaan</h3>
+                        <p>Esktrakurikuler wajib siswa adalah Pramuka SIT. Serta berbagai pilihan Ekstrakurikuler lain yang
+                            beragam. Terdapat juga Pembinaan siswa untuk Olimpiade dan Lomba-lomba. </p>
                     </div>
-                    <h3>Ekstrakurikuler dan Pembinaan</h3>
-                    <p>Esktrakurikuler wajib siswa adalah Pramuka SIT. Serta berbagai pilihan Ekstrakurikuler lain yang
-                        beragam. Terdapat juga Pembinaan siswa untuk Olimpiade dan Lomba-lomba. </p>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Guru Proporsional </h3>
+                        <p>Rasio guru dan siswa yang ideal, memungkinkan pendekatan pembelajaran yang lebih personal dan
+                            efektif. Serta terciptanya suasana belajar yang nyaman dan kondusif.
+                        </p>
                     </div>
-                    <h3>Guru Proporsional </h3>
-                    <p>Rasio guru dan siswa yang ideal memungkinkan pendekatan pembelajaran yang lebih personal dan efektif.
-                    </p>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Fasilitas Lengkap</h3>
+                        <p>Ruang kelas represntatif, laboratorium terpadu, perpustakaan, Toilet bersih, Masjid 2 lantai,
+                            Ruang hijau terbuka, Kantin sehat, Ruang UKS, Koperasi siswa, Lapangan olahraga</p>
                     </div>
-                    <h3>Fasilitas Lengkap</h3>
-                    <p>Ruang kelas represntatif, laboratorium terpadu, perpustakaan, Toilet bersih, Masjid 2 lantai, Ruang
-                        hijau terbuka, Kantin sehat, Ruang UKS, Koperasi siswa, Lapangan olahraga</p>
                 </div>
-
-                <div class="feature-card" data-aos="fade-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb"></i>
+                <div class="col-12 col-md-4">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Pembelajaran Inovatif</h3>
+                        <p>Menerapkan metode pembelajaran aktif, dan menyenangkan yang sesuai dengan perkembangan
+                            zaman. Sehingga tercipta pengalaman belajar yang bermakna.</p>
                     </div>
-                    <h3>Pembelajaran Inovatif</h3>
-                    <p>Menerapkan metode pembelajaran aktif, kreatif, dan menyenangkan yang sesuai dengan perkembangan
-                        zaman.</p>
                 </div>
             </div>
         </div>
@@ -119,51 +127,61 @@
                 <p>Ikuti langkah-langkah mudah berikut untuk mendaftarkan putra/putri Anda</p>
             </div>
 
-            <div class="registration-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 class="mb-3">Membuat Akun</h3>
-                    <p class="fs-5"> Membuat akun SPMB di <a
-                            href="https://spmb.sditharum.id/">https://spmb.sditharum.id/</a></p>
+            <div class="row gy-4">
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="mb-3">Membuat Akun</h3>
+                        <p class="fs-5"> Calon siswa membuat akun di website SPMB SDIT Harum Jember dengan alamat <a
+                                href="https://spmb.sditharum.id/">https://spmb.sditharum.id/</a></p>
+                    </div>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 class="mb-3">Biaya Pendaftaran</h3>
-                    <p class="fs-5">
-                        Membayar biaya pendaftaran sebesar :
-                        <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 350.000</span>
-                        ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 2005720055</span> a.n.
-                        SDIT HARAPAN UMAT
-                    </p>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="mb-3">Biaya Pendaftaran</h3>
+                        <p class="fs-5">
+                            Membayar biaya pendaftaran sebesar :
+                            <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 350.000</span>
+                            ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 2005720055</span>
+                            a.n.
+                            SDIT HARAPAN UMAT
+                        </p>
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 class="mb-3">Bukti Pembayaran</h3>
-                    <p class="fs-5">
-                        Upload bukti pembayaran di <a href="https://spmb.sditharum.id/">https://spmb.sditharum.id/</a> dan
-                        tunggu konfirmasi admin (maks 1 x 24 jam).
-                    </p>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="mb-3">Bukti Pembayaran</h3>
+                        <p class="fs-5">
+                            Upload bukti pembayaran di <a href="https://spmb.sditharum.id/">https://spmb.sditharum.id/</a>
+                            dan
+                            tunggu konfirmasi admin (maks 1 x 24 jam).
+                        </p>
+                    </div>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3 class="mb-3">Isi Formulir Online</h3>
-                    <p class="fs-5">Lengkapi formulir pendaftaran online di web dan upload foto terbaru</p>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="mb-3">Isi Formulir Online</h3>
+                        <p class="fs-5">Lengkapi formulir pendaftaran online di web dan upload foto terbaru</p>
+                    </div>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-number">5</div>
-                    <h3 class="mb-3">Psikotes & Observasi</h3>
-                    <p class="fs-5">Mengikuti Psikotes dan Observasi sesuai jadwal yang telah ditentukan</p>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3 class="mb-3">Psikotes & Observasi</h3>
+                        <p class="fs-5">Mengikuti Psikotes dan Observasi sesuai jadwal yang telah ditentukan</p>
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">5</div>
-                    <h3 class="mb-3">Pengumuman</h3>
-                    <p class="fs-5">Menunggu pengumuman penerimaan ananda sesuai jadwal yang telah ditentukan</p>
+                <div class="col-12 col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <h3 class="mb-3">Pengumuman</h3>
+                        <p class="fs-5">Menunggu pengumuman penerimaan ananda sesuai jadwal yang telah ditentukan</p>
+                    </div>
                 </div>
             </div>
-
             <!-- Jadwal Pendaftaran -->
             <div id="schedule">
                 <div class="section-title">
