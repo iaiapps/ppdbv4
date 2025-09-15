@@ -38,7 +38,7 @@
 @push('css')
     <style>
         .imgpembayaran {
-            width: 50vw;
+            width: 40vw;
         }
 
         @media (max-width: 700px) {

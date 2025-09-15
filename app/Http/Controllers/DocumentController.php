@@ -92,7 +92,7 @@ class DocumentController extends Controller
         // ini delete file di public folder
         File::delete('img-document/' . $document->document);
         $document->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('document.show');
     }
 
     public function destroyPhoto(Document $document)
