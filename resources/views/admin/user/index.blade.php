@@ -37,15 +37,16 @@
 ❇️ Semoga ananda menjadi anak shalih shalihah. Aamiin.");
                                 $phone = '628' . substr($user->email_number, 2);
                             @endphp
-                            <td>{{ $user->name }} <span
-                                    class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
+                            <td>{{ $user->name }} <br>
+                                <span class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
 
                                 @desktop
                                     <a href="https://web.whatsapp.com/send/?phone={{ $phone }}?text={{ $message }}"
-                                        target="_blank" class="btn btn-success btn-sm"> notif</a>
+                                        target="_blank" class="btn btn-success btn-sm mt-1"> notif</a>
                                 @elsedesktop
                                     <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
-                                        class="btn btn-success btn-sm"> notif</a>
+                                        class="btn btn-success btn-sm mt-1"> notif
+                                        notif</a>
                                 @enddesktop
                             </td>
                             <td>{{ $user->roles->first()->name }}</td>
