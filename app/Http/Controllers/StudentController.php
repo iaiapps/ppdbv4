@@ -70,7 +70,10 @@ class StudentController extends Controller
             unset($data['document']); // jangan masukkan file ke tabel student
             $data['user_id'] = $id;
 
-            Student::create($data);
+            Student::updateOrCreate(
+                ['user_id' => $id], // kondisi unik
+                $data // data yang diupdate/isi
+            );
 
             // Upload dokumen foto
             $file = $request->file('document');
@@ -137,7 +140,17 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $documents = Document::where('user_id', $student->user_id)
+            ->where('type', 'upload_foto')
+            ->first();
+        // dd($documents);
+        $filePath = public_path('img-document/' . $documents->document);
+        if (file_exists($filePath)) {
+            unlink($filePath); // hapus file fisik
+        }
+        $documents->delete(); // hapus dari DB
+        $student->delete();
+        return redirect()->route('student.index');
     }
 
     // all student

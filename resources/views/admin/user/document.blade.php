@@ -12,23 +12,39 @@
                 Kembali</a>
             <p class="fs-5 text-center">Bukti pembayaran {{ $d->name }}</p>
             <hr>
-            @if ($d->type == 'upload_pembayaran')
-                {{-- ini setting untuk hosting di public folder --}}
-                <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="img-fluid">
+            <div class="text-center">
+                @if ($d->type == 'upload_pembayaran')
+                    {{-- ini setting untuk hosting di public folder --}}
+                    <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="imgpembayaran">
 
-                <br><br>
-                <form class="text-center" onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
-                    action="{{ route('document.delete', $d->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash3"></i> <br> hapus bukti
-                        pembayaran
+                    <br><br>
+                    <form class="text-center" onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                        action="{{ route('document.delete', $d->id) }}" method="post" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash3"></i> <br> hapus bukti
+                            pembayaran
 
-                    </button>
-                </form>
-            @endif
-        @empty
-            <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
+                        </button>
+                    </form>
+                @endif
+            @empty
+                <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
         @endforelse
     </div>
+    </div>
 @endsection
+
+@push('css')
+    <style>
+        .imgpembayaran {
+            width: 50vw;
+        }
+
+        @media (max-width: 700px) {
+            .imgpembayaran {
+                width: 80vw;
+            }
+        }
+    </style>
+@endpush

@@ -17,8 +17,8 @@
                         <th class="text-center" scope="col">#</th>
                         <th class="text-center" scope="col">Nama/Gender</th>
                         <th class="text-center" scope="col">Asal Sekolah</th>
-                        <th class="text-center" scope="col">Detail</th>
                         <th class="text-center" scope="col">Status</th>
+                        <th class="text-center" scope="col">Dgr</th>
                         <th class="text-center" scope="col">Act1</th>
                         <th class="text-center" scope="col">Act2</th>
                     </tr>
@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}
-                                <span class="border border-success rounded px-2 py-1 ms-1">
+                                <span class="border border-success rounded px-2 py-0 ms-1">
                                     @if ($student->gender == 'laki-laki')
                                         {{ 'L' }}
                                     @elseif($student->gender == 'perempuan')
@@ -36,12 +36,27 @@
                                     @else
                                         {{ 'belum ditentukan' }}
                                     @endif
-                                </span>
+                                </span> <br>
+                                <a href="{{ route('student.show', $student->id) }}"
+                                    class="btn btn-primary btn-sm mt-1 py-0">detail</a>
                             </td>
-                            <td>{{ $student->school_origin }}</td>
-                            <td><a href="{{ route('student.show', $student->id) }}"
-                                    class="btn btn-primary btn-sm ">detail</a></td>
+                            <td>{{ $student->school_origin }} <br>
+                                ({{ $student->school_address }})
+                            </td>
+
                             <td>{{ $student->user->roles->first()->name }}</td>
+                            <td class="text-center">
+                                <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-title="Delete"
+                                    onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                                    action="{{ route('student.destroy', $student->id) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash3"></i> del
+                                    </button>
+                                </form>
+                            </td>
                             <td>
                                 <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
                                     href="{{ route('student.edit', $student->id) }}"
