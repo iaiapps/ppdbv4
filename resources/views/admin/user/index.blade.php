@@ -39,10 +39,14 @@
                             @endphp
                             <td>{{ $user->name }} <span
                                     class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
-                                <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
-                                    class="btn btn-success btn-sm mt-1">
-                                    <i class="bi bi-whatsapp"></i> notif
-                                </a>
+
+                                @desktop
+                                    <a href="https://web.whatsapp.com/send/?phone={{ $phone }}?text={{ $message }}"
+                                        target="_blank" class="btn btn-success btn-sm"> notif</a>
+                                @elsedesktop
+                                    <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
+                                        class="btn btn-success btn-sm"> notif</a>
+                                @enddesktop
                             </td>
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
