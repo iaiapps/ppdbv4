@@ -45,8 +45,7 @@
                                         target="_blank" class="btn btn-success btn-sm mt-1"> notif</a>
                                 @elsedesktop
                                     <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
-                                        class="btn btn-success btn-sm mt-1"> notif
-                                        notif</a>
+                                        class="btn btn-success btn-sm mt-1"> notif</a>
                                 @enddesktop
                             </td>
                             <td>{{ $user->roles->first()->name }}</td>
