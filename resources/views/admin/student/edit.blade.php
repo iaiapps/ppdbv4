@@ -12,7 +12,6 @@
                     </p>
                 </div>
                 <hr class="hr" />
-
             </div>
             <div class="col-12 col-md-8 p-3 p-md-5">
                 <form action="{{ route('student.update', $student->id) }}" method="POST">
@@ -58,19 +57,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mb-3">
 
-                            <div class="mb-3">
-                                <label class="form-label" for="school_origin">Asal TK</label>
-                                <input class="form-control" id="school_origin" name="school_origin" type="text"
-                                    value="{{ $student->school_origin }}" required />
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label" for="school_origin">Asal TK</label>
+                                    <input class="form-control" id="school_origin" name="school_origin" type="text"
+                                        value="{{ $student->school_origin }}" required />
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="school_address">Alamat TK</label>
+                                        <input class="form-control" id="school_address" name="school_address" type="text"
+                                            value="{{ $student->school_address }}" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label" for="school_nisn">NISN TK</label>
+                                    <input class="form-control" id="school_nisn" name="school_nisn" type="text"
+                                        value="{{ $student->school_nisn }}" placeholder="Diisi jika memiliki NISN di TK" />
+                                </div>
+
                             </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="school_nisn">NISN TK</label>
-                                <input class="form-control" id="school_nisn" name="school_nisn" type="text"
-                                    value="{{ $student->school_nisn }}" placeholder="Diisi jika memiliki NISN di TK" />
-                            </div>
-
                             <div class="mb-3">
                                 <label class="form-label" for="gender">Jenis Kelamin</label>
                                 <select class="form-select" id="gender" name="gender">
@@ -255,20 +262,8 @@
                                 <label class="form-label" for="dad_income">
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
-                                <select class="form-select" id="dad_income" name="dad_income">
-                                    <option selected>{{ $student->dad_income }}</option>
-                                    <hr>
-                                    <option>kurang dari Rp. 1.000.000</option>
-                                    <option> Rp. 1.000.000 - Rp. 2.000.000 </option>
-                                    <option> Rp. 2.000.000 - Rp. 3.000.000 </option>
-                                    <option> Rp. 3.000.000 - Rp. 4.000.000 </option>
-                                    <option> Rp. 4.000.000 - Rp. 5.000.000 </option>
-                                    <option> Rp. 5.000.000 - Rp. 7.500.000 </option>
-                                    <option> Rp. 7.500.000 - Rp. 10.000.000 </option>
-                                    <option> Rp. 10.000.000 - Rp. 20.000.000 </option>
-                                    <option>Lebih dari Rp. 20.000.000</option>
-                                    <option>Tidak berpenghasilan</option>
-                                </select>
+                                <input class="form-control" id="dad_income" name="dad_income"
+                                    placeholder="Rp. xxx.xxx.xxx" value="{{ $student->dad_income }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="dad_phone">Nomor Telpon Ayah</label>
@@ -334,20 +329,8 @@
                                 <label class="form-label" for="mom_income">
                                     Penghasilan (gaji pokok dan pendapatan lain)
                                 </label>
-                                <select class="form-select" id="mom_income" name="mom_income">
-                                    <option selected>{{ $student->mom_income }}</option>
-                                    <hr>
-                                    <option>kurang dari Rp. 1.000.000</option>
-                                    <option> Rp. 1.000.000 - Rp. 2.000.000 </option>
-                                    <option> Rp. 2.000.000 - Rp. 3.000.000 </option>
-                                    <option> Rp. 3.000.000 - Rp. 4.000.000 </option>
-                                    <option> Rp. 4.000.000 - Rp. 5.000.000 </option>
-                                    <option> Rp. 5.000.000 - Rp. 7.500.000 </option>
-                                    <option> Rp. 7.500.000 - Rp. 10.000.000 </option>
-                                    <option> Rp. 10.000.000 - Rp. 20.000.000 </option>
-                                    <option>Lebih dari Rp. 20.000.000</option>
-                                    <option>Tidak berpenghasilan</option>
-                                </select>
+                                <input class="form-control" id="mom_income" name="mom_income"
+                                    placeholder="Rp. xxx.xxx.xxx" value="{{ $student->mom_income }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="mom_phone">Nomor Telpon Ibu</label>
@@ -367,7 +350,7 @@
 @push('css')
     <style>
         .img {
-            width: 40vh;
+            width: 25vh;
         }
 
         @media (max-width: 600px) {
