@@ -41,7 +41,7 @@
                                 <span class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
 
                                 @desktop
-                                    <a href="https://web.whatsapp.com/send/?phone={{ $phone }}?text={{ $message }}"
+                                    <a href="https://web.whatsapp.com/send/?phone={{ $phone }}&text={{ $message }}"
                                         target="_blank" class="btn btn-success btn-sm mt-1"> notif</a>
                                 @elsedesktop
                                     <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank"
