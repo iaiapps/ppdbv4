@@ -9,10 +9,11 @@
             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange position-absolute"
                 src="{{ asset('img/administrator.png') }}" alt="user" />
         </div>
-        <p class="fs-4 m-0 text-center">
+        <p class="fs-4 mb-2 text-center">
             Selamat Datang Admin di Dashboard Website SPMB SDIT Harapan Umat
             Jember
         </p>
+        <p class="text-center mb-2">Waktu server sekarang: {{ \Carbon\Carbon::now()->translatedFormat('d-m-Y H:i:s') }}</p>
         <hr>
         <p class="mb-2">Statistik Web SPMB SDIT Harapan Umat Jember</p>
         <div class="row pt-1 py-3">

@@ -369,7 +369,7 @@
                     </fieldset>
 
                     <fieldset class="step">
-                        <p class="fs-4">Upload Foto</p>
+                        <p class="fs-4">Upload Foto Ananda</p>
 
                         <p>Ketentuan file foto</p>
                         <div class="mb-3">
@@ -424,7 +424,7 @@
                             <li class="list-group-item fw-bold">Data diri calon siswa dan alamat</li>
                             <li class="list-group-item fw-bold">Data asal sekolah/TK</li>
                             <li class="list-group-item fw-bold">Data Orang Tua </li>
-                            <li class="list-group-item fw-bold">File pas foto ukuran 3x4</li>
+                            <li class="list-group-item fw-bold">File foto ananda</li>
                         </ul>
                         <p class="mt-3">Setelah menyiapkan semua, silakan lanjutkan pengisian formulir dengan benar</p>
                     </div>
