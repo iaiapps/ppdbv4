@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="kk">No KK</label>
+                                        <label class="form-label" for="kk">Nomor KK</label>
                                         <input class="form-control" id="kk" name="kk" type="text" required />
                                     </div>
                                 </div>
