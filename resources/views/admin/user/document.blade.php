@@ -6,7 +6,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100 ">
-
+        <a href="{{ route('user.index') }}" class="btn btn-success">kembali</a>
         @forelse ($data as $d)
             <a href="{{ URL::previous() }}" class="btn btn-success btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i>
                 Kembali</a>
@@ -30,6 +30,7 @@
                 @endif
             @empty
                 <p class="fs-5 text-center">Belum ada bukti pembayaran</p>
+                <hr>
         @endforelse
     </div>
     </div>

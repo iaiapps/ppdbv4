@@ -89,10 +89,12 @@ class DocumentController extends Controller
      */
     public function destroyDoc(Document $document)
     {
+        $id = $document->user_id;
+        // dd($id);
         // ini delete file di public folder
         File::delete('img-document/' . $document->document);
         $document->delete();
-        return redirect()->route('document.show');
+        return redirect()->route('document.show', ['user' => $id]);
     }
 
     public function destroyPhoto(Document $document)

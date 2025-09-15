@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $student->full_name }}
-                                <span class="border border-success rounded px-2 py-0 ms-1">
+                                <span class="border border-success rounded px-2 py-0 mx-1">
                                     @if ($student->gender == 'laki-laki')
                                         {{ 'L' }}
                                     @elseif($student->gender == 'perempuan')
