@@ -374,9 +374,10 @@
                         <p>Ketentuan file foto</p>
                         <div class="mb-3">
                             <ul class="list-group">
+                                <li class="list-group-item">Foto dengan seragam TK background polos </li>
                                 <li class="list-group-item">File foto berukuran 4x6</li>
-                                <li class="list-group-item">File foto berupa .pn atau .jpg</li>
-                                <li class="list-group-item">Maksimal ukuran foto 1mb</li>
+                                <li class="list-group-item">File foto berupa .png atau .jpg</li>
+                                <li class="list-group-item">Maksimal ukuran foto 1 mb</li>
                             </ul>
                         </div>
 
