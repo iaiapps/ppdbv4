@@ -51,12 +51,13 @@
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
                                 {!! $user->document->where('type', 'upload_pembayaran')->first()
-                                    ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY - hh:mm:ss')
+                                    ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY - HH:mm')
                                     : 'belum upload <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i></button>' !!}
 
                                 @if ($user->document->where('type', 'upload_pembayaran')->first())
+                                    <br>
                                     <a href="{{ route('document.show', ['user' => $user->id]) }}"
-                                        class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i></a>
+                                        class="btn btn-outline-primary btn-sm w-100"><i class="bi bi-image"></i> lihat</a>
                                 @endif
                             </td>
                             <td>
