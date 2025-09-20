@@ -13,7 +13,8 @@
             Selamat Datang Admin di Dashboard Website SPMB SDIT Harapan Umat
             Jember
         </p>
-        <p class="text-center mb-2">Waktu server sekarang: {{ \Carbon\Carbon::now()->translatedFormat('d-m-Y H:i:s') }}</p>
+        <p class="text-center mb-2">Waktu server sekarang: <span
+                id="server-time">{{ \Carbon\Carbon::now()->translatedFormat('d/m/Y H:i:s') }}</span></p>
         <hr>
         <p class="mb-2">Statistik Web SPMB SDIT Harapan Umat Jember</p>
         <div class="row pt-1 py-3">
@@ -102,7 +103,7 @@
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">
-                        <p class="fs-4 mb-0">Mengundurkan Diri</p>
+                        <p class="fs-4 mb-0">Undur Diri</p>
                     </div>
                 </div>
             </div>
@@ -113,3 +114,30 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        // Ambil waktu server dari Blade
+        let serverTime = new Date("{{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}");
+
+        function updateTime() {
+            // Tambah 1 detik setiap kali
+            serverTime.setSeconds(serverTime.getSeconds() + 1);
+
+            // Format tampilan
+            const options = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            };
+            document.getElementById("server-time").innerText =
+                serverTime.toLocaleString("id-ID", options).replace(",", "");
+        }
+
+        // Jalankan setiap 1 detik
+        setInterval(updateTime, 1000);
+    </script>
+@endpush
