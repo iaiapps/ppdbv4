@@ -52,7 +52,7 @@
                             <td>
                                 {!! $user->document->where('type', 'upload_pembayaran')->first()
                                     ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY - HH:mm')
-                                    : 'belum upload <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i></button>' !!}
+                                    : '<button class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-x-circle"></i> belum upload </button>' !!}
 
                                 @if ($user->document->where('type', 'upload_pembayaran')->first())
                                     <br>
