@@ -51,9 +51,7 @@
                             <td>{{ $user->roles->first()->name }}</td>
                             <td>
                                 {!! $user->document->where('type', 'upload_pembayaran')->first()
-                                    ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY') <
-                                        br >
-                                        $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('hh:mm:ss')
+                                    ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY - hh:mm:ss')
                                     : 'belum upload <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i></button>' !!}
 
                                 @if ($user->document->where('type', 'upload_pembayaran')->first())
