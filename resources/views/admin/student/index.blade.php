@@ -27,15 +27,9 @@
                     @foreach ($students as $student)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $student->full_name }}
-                                <span class="border border-success rounded px-2 py-0 mx-1">
-                                    @if ($student->gender == 'laki-laki')
-                                        {{ 'L' }}
-                                    @elseif($student->gender == 'perempuan')
-                                        {{ 'P' }}
-                                    @else
-                                        {{ 'belum ditentukan' }}
-                                    @endif
+                            <td>{{ $student->full_name }} <br>
+                                <span class="btn btn-sm btn-outline-primary py-0">
+                                    {{ $student->gender }}
                                 </span> <br>
                                 <a href="{{ route('student.show', $student->id) }}"
                                     class="btn btn-primary btn-sm mt-1 py-0">detail</a>

@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Home Page')
+@section('title', 'Bukti Pembayaran')
 
 @section('content')
 
     @include('layouts.partial.name')
     <div class="bg-white rounded p-3 mb-3">
-        <a href="{{ url()->previous() }}" class="btn btn-orange">kembali</a>
+        <a href="{{ url()->previous() }}" class="btn btn-orange text-white btn-sm">kembali</a>
         <hr>
         <div class="text-center">
             <img src="{{ asset('img-document/' . $document->document) }}" alt="document" class="p-2 bg-white foto">

@@ -7,7 +7,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white p-3 rounded mb-3 d-flex justify-content-between">
-        <a href="{{ url()->previous() }}" class="btn btn-sm btn-orange"> <i class="bi bi-arrow-left-circle"></i>
+        <a href="{{ url()->previous() }}" class="btn btn-sm btn-orange text-white"> <i class="bi bi-arrow-left-circle"></i>
             kembali</a>
         <p class="fs-5 text-center mb-0">Detail Data Pendaftar</p>
     </div>

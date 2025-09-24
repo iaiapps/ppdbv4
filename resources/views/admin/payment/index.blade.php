@@ -37,7 +37,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($student->payment->sum('value') == $student->cost_category->total)
+
+                                    @if (is_null($student->cost_category))
+                                        belum ditentukan
+                                    @elseif ($student->payment->sum('value') == $student->cost_category->total)
                                         sudah lunas
                                     @elseif ($student->payment->sum('value') == 0)
                                         belum membayar
@@ -46,6 +49,7 @@
                                     @elseif ($student->payment->sum('value') < $student->cost_category->total)
                                         belum lunas
                                     @endif
+
                                 </td>
                                 <td>
                                     <a href="{{ route('payment.showall', $student->id) }}" class="btn btn-primary btn-sm"><i
@@ -61,14 +65,6 @@
 
 @endsection
 @include('layouts.partial.scripts')
-
-@push('css')
-    <style>
-        #table {
-            font-size: 14px;
-        }
-    </style>
-@endpush
 
 @push('scripts')
     <script>
