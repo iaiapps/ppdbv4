@@ -16,10 +16,11 @@
                         <th class="text-center" scope="col">#</th>
                         <th class="text-center" scope="col">Tgl_Daftar</th>
                         <th class="text-center" scope="col">Nama</th>
+                        <th class="text-center" scope="col">No_Hp</th>
                         <th class="text-center" scope="col">Status</th>
                         <th class="text-center" scope="col">Bukti_Upload*</th>
-                        <th class="text-center" scope="col">Aktfkan</th>
-                        <th class="text-center" scope="col">Action_Button</th>
+                        <th class="text-center" scope="col">Aktifkan</th>
+                        <th class="text-center" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,10 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
+
+                            <td>{{ $user->name }} <br>
+
+                            </td>
                             @php
                                 $message = urlencode("Assalamualaikum wr wb
 
@@ -37,8 +42,9 @@
 ❇️ Semoga ananda menjadi anak shalih shalihah. Aamiin.");
                                 $phone = '628' . substr($user->email_number, 2);
                             @endphp
-                            <td>{{ $user->name }} <br>
-                                <span class=" bg-success text-white rounded badge">{{ $user->email_number }}</span> <br>
+                            <td>
+                                <span class="px-1 border border-success rounded">{{ $user->email_number }}</span>
+                                <br>
 
                                 @desktop
                                     <a href="https://web.whatsapp.com/send/?phone={{ $phone }}&text={{ $message }}"
