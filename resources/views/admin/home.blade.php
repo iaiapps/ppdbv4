@@ -15,6 +15,8 @@
         </p>
         <p class="text-center mb-2">Waktu server sekarang: <span
                 id="server-time">{{ \Carbon\Carbon::now()->translatedFormat('d/m/Y H:i:s') }}</span></p>
+
+
         <hr>
         <p class="mb-2">Statistik Web SPMB SDIT Harapan Umat Jember</p>
         <div class="row pt-1 py-3">
@@ -108,8 +110,10 @@
                 </div>
             </div>
         </div>
+        <hr>
         <div class="text-center mt-4">
-            <a class="btn btn-warning w-50 my-4 btn-orange text-white" href="{{ route('user.index') }}">
+            <a href="{{ route('statistic') }}" class="btn btn-orange text-white btn-sm mb-3">lihat statsitik</a> <br>
+            <a class="btn btn-warning w-50 btn-orange text-white" href="{{ route('user.index') }}">
                 Informasi pendaftar</a>
         </div>
     </div>

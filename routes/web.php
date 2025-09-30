@@ -30,6 +30,7 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     // home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/statistic', [HomeController::class, 'statistic'])->name('statistic');
 
     // admin
     Route::middleware('role:admin')->group(function () {

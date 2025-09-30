@@ -8,6 +8,7 @@ use App\Models\Setting;
 use App\Models\Document;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -75,5 +76,51 @@ class HomeController extends Controller
 
         $tanggalInggris = strtr($tanggal, $mapBulan);
         return Carbon::parse($tanggalInggris);
+    }
+
+    public function statistic()
+    {
+        // Data per hari (7 hari terakhir)
+        $daily = User::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->where('name', '!=', 'admin')
+            ->groupBy('date')
+            ->orderBy('date', 'ASC')
+            ->get()
+            ->map(function ($item) {
+                $item->label = Carbon::parse($item->date)->translatedFormat('d M Y'); // contoh: 14 Sep 2025
+                return $item;
+            });
+
+        // Data per bulan (12 bulan terakhir)
+        $monthly = User::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'), DB::raw('count(*) as total'))
+            ->where('name', '!=', 'admin')
+            ->groupBy('month')
+            ->orderBy('month', 'ASC')
+            ->get()
+            ->map(function ($item) {
+                $item->label = Carbon::createFromFormat('Y-m', $item->month)->translatedFormat('F Y'); // contoh: September 2025
+                return $item;
+            });
+
+        // Data per minggu (7 minggu terakhir)
+        $weekly = User::select(DB::raw('YEARWEEK(created_at, 1) as week'), DB::raw('count(*) as total'))
+            ->where('name', '!=', 'admin')
+            ->groupBy('week')
+            ->orderBy('week', 'ASC')
+            ->get()
+            ->map(function ($item) {
+                // Ambil tahun & minggu
+                $year = substr($item->week, 0, 4);
+                $week = substr($item->week, 4);
+
+                // Tentukan awal minggu
+                $startOfWeek = Carbon::now()->setISODate($year, $week)->startOfWeek();
+                $endOfWeek = Carbon::now()->setISODate($year, $week)->endOfWeek();
+
+                $item->label = $startOfWeek->translatedFormat('d M') . ' - ' . $endOfWeek->translatedFormat('d M Y');
+                return $item;
+            });
+
+        return view('admin.statistic', compact('daily', 'weekly', 'monthly'));
     }
 }
