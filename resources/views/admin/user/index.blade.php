@@ -14,8 +14,8 @@
             <thead>
                 <tr>
                     <th class="text-center" scope="col">#</th>
-                    <th class="text-center" scope="col">Tgl_Daftar</th>
                     <th class="text-center" scope="col">Nama</th>
+                    <th class="text-center" scope="col">Tgl_Daftar</th>
                     <th class="text-center" scope="col">No_Hp</th>
                     <th class="text-center" scope="col">Status</th>
                     <th class="text-center" scope="col">Bukti_Upload*</th>
@@ -37,8 +37,6 @@
                             $phone = '628' . substr($user->email_number, 2);
                         @endphp
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
-
                         <td>{{ $user->name }} <br>
                             @desktop
                                 <a href="https://web.whatsapp.com/send/?phone={{ $phone }}" target="_blank"
@@ -48,7 +46,7 @@
                                     hubungi</a>
                             @enddesktop
                         </td>
-
+                        <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
                         <td>
                             <span class="px-1 border border-success rounded">{{ $user->email_number }}</span>
                             <br>

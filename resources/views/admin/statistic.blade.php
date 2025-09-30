@@ -1,13 +1,11 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Home Page')
+@section('title', 'Statistik Pendaftaran')
 
 @section('content')
     @include('layouts.partial.name')
     <div class="bg-white rounded p-3 min-vh-100">
         <div class="container-fluid">
-            <h4 class="mb-3">Dashboard Pendaftaran</h4>
-
             <div class="row">
                 <!-- Chart Harian -->
                 <div class="col-md-12 mb-3">
