@@ -41,22 +41,33 @@
     </div>
 @endsection
 
+@push('css')
+    <style>
+        .ba {
+            background-color: rgba(24, 245, 12, 0.7) rgb(70, 176, 70) rgb(23, 143, 87) rgb(255, 193, 5)
+        }
+    </style>
+@endpush
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
     <script>
         // Data Harian
         const dailyLabels = @json($daily->pluck('label'));
         const dailyData = @json($daily->pluck('total'));
 
         new Chart(document.getElementById('dailyChart'), {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: dailyLabels,
                 datasets: [{
                     label: 'User Terdaftar',
                     data: dailyData,
-                    borderColor: 'blue',
-                    fill: false
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    maxBarThickness: 40
                 }]
             },
             options: {
@@ -70,8 +81,22 @@
                         },
                         beginAtZero: true
                     }
+                },
+                plugins: {
+                    datalabels: {
+                        align: 'top', // posisi di atas titik/bar
+                        anchor: 'center', // tempel di ujung
+                        color: 'black',
+                        font: {
+                            weight: 'bold'
+                        },
+                        formatter: function(value) {
+                            return value; // tampilkan angkanya langsung
+                        }
+                    }
                 }
-            }
+            },
+            plugins: [ChartDataLabels],
         });
 
         // Data Mingguan
@@ -85,7 +110,10 @@
                 datasets: [{
                     label: 'User Terdaftar',
                     data: weeklyData,
-                    backgroundColor: 'green'
+                    backgroundColor: 'rgba(23, 143, 87, 0.7)',
+                    borderColor: 'rgba(23, 143, 87, 1)',
+                    borderWidth: 2,
+                    maxBarThickness: 40
                 }]
             },
             options: {
@@ -99,8 +127,22 @@
                         },
                         beginAtZero: true
                     }
+                },
+                plugins: {
+                    datalabels: {
+                        align: 'top', // posisi di atas titik/bar
+                        anchor: 'center', // tempel di ujung
+                        color: 'black',
+                        font: {
+                            weight: 'bold'
+                        },
+                        formatter: function(value) {
+                            return value; // tampilkan angkanya langsung
+                        }
+                    }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
 
         // Data Bulanan
@@ -108,14 +150,16 @@
         const monthlyData = @json($monthly->pluck('total'));
 
         new Chart(document.getElementById('monthlyChart'), {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: monthlyLabels,
                 datasets: [{
                     label: 'User Terdaftar',
                     data: monthlyData,
-                    borderColor: 'orange',
-                    fill: false
+                    backgroundColor: 'rgba(255, 193, 5, 0.7)',
+                    borderColor: 'rgba(255, 193, 5, 1)',
+                    borderWidth: 2,
+                    maxBarThickness: 40
                 }]
             },
             options: {
@@ -130,7 +174,21 @@
                         beginAtZero: true
                     }
                 }
-            }
+            },
+            plugins: {
+                datalabels: {
+                    align: 'top', // posisi di atas titik/bar
+                    anchor: 'center', // tempel di ujung
+                    color: 'black',
+                    font: {
+                        weight: 'bold'
+                    },
+                    formatter: function(value) {
+                        return value; // tampilkan angkanya langsung
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
         });
     </script>
 @endpush
