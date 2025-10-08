@@ -14,17 +14,20 @@
                     <br />Jawa Timur - Indonesia
                 </p>
                 <div class="py-3 ">
-                    <a href="https://sditharum.id/" class="btn btn-outline-light me-3">
+                    <a href="https://sditharum.id/" aria-label="Website SDIT Harum Jember"
+                        class="btn btn-outline-light me-3">
                         <i class="bi bi-globe"></i>
                     </a>
-                    <a href="https://web.facebook.com/sditharumjember" class="btn btn-outline-light me-3">
+                    <a href="https://web.facebook.com/sditharumjember" aria-label="Facebook SDIT Harum Jember"
+                        class="btn btn-outline-light me-3">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="https://web.facebook.com/sditharumjember" class="btn btn-outline-light me-3">
+                    <a href="https://www.instagram.com/sditharumjember/" aria-label="Instagram SDIT Harum Jember"
+                        class="btn btn-outline-light me-3">
                         <i class="bi bi-instagram"></i>
                     </a>
                     <a href="https://www.youtube.com/channel/UC6i6NQY1oxXL5MloBQGc8KA"
-                        class="btn btn-outline-light me-3">
+                        aria-label="Youtube SDIT Harum Jember" class="btn btn-outline-light me-3">
                         <i class="bi bi-youtube"></i>
                     </a>
                 </div>
@@ -35,7 +38,7 @@
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15797.908907834912!2d113.7174303!3d-8.1545784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x97c9df8f080eb4b5!2sSDIT%20Harum%20(Harapan%20Umat)%20Jember!5e0!3m2!1sid!2sid!4v1659948289547!5m2!1sid!2sid"
                         width="100%" height="250px" style="border:0;" allowfullscreen loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade" title="SDIT Harum Jember"></iframe>
                 </div>
             </div>
         </div>
