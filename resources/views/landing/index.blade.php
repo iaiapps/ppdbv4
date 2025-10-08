@@ -8,7 +8,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="text-center">
-                    <img src="{{ asset('img/logosdit.png') }}" class="logosdit" alt="logo">
+                    <img src="{{ asset('img/logoutama.svg') }}" class="logosdit" alt="logo">
                 </div>
                 <div class="item animate__animated animate__fadeInUp">
                     <span class="fs-2 text mb-1"> Sekolah Dasar Islam Terpadu Harapan Umat Jember</span>
@@ -53,7 +53,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-book-open"></i>
+                            <i class="bi bi-book-fill"></i>
                         </div>
                         <h3>Kurikulum Terpadu</h3>
                         <p>Menerapkan Kurikulum Nasional dan Kurikulum Kekhasan JSIT Indonesia. Disertai dengan program
@@ -65,7 +65,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-heart "></i>
+                            <i class="bi bi-heart-fill"></i>
                         </div>
                         <h3>Program Unggulan</h3>
                         <p>Terdapat Kelas Minat dan Bakat, Kelas Qur'an, Kelas Sains. Program Literasi dan Bilingual. BTAQ
@@ -76,7 +76,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-trophy"></i>
+                            <i class="bi bi-trophy-fill"></i>
                         </div>
                         <h3>Ekstrakurikuler dan Pembinaan</h3>
                         <p>Esktrakurikuler wajib siswa adalah Pramuka SIT. Serta berbagai pilihan Ekstrakurikuler lain yang
@@ -86,7 +86,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-users"></i>
+                            <i class="bi bi-people-fill"></i>
                         </div>
                         <h3>Guru Proporsional </h3>
                         <p>Rasio guru dan siswa yang ideal, memungkinkan pendekatan pembelajaran yang lebih personal dan
@@ -97,7 +97,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
+                            <i class="bi bi-globe"></i>
                         </div>
                         <h3>Fasilitas Lengkap</h3>
                         <p>Ruang kelas represntatif, laboratorium terpadu, perpustakaan, Toilet bersih, Masjid 2 lantai,
@@ -107,7 +107,7 @@
                 <div class="col-12 col-md-4">
                     <div class="feature-card" data-aos="fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="bi bi-lightbulb-fill"></i>
                         </div>
                         <h3>Pembelajaran Inovatif</h3>
                         <p>Menerapkan metode pembelajaran aktif, dan menyenangkan yang sesuai dengan perkembangan
