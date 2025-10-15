@@ -7,7 +7,8 @@
         <div class="col-12 col-md-6">
             <div class="text-center bg-white p-3 py-5 rounded">
                 <div class="px-0 px-md-5 mb-4">
-                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset('img/logosdit.png') }}" alt="logosdit" />
+                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset('img/logoutama.svg') }}"
+                        alt="logosdit" />
                     <h4>Buat Akun PPDB</h4>
                     <hr />
                 </div>

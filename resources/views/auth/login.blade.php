@@ -16,7 +16,7 @@
                     {{-- @endforeach --}}
                 @endif
                 <div class="p-0 p-md-3 text-center ">
-                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset('img/logosdit.png') }}"
+                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset('img/logoutama.svg') }}"
                         alt="logosdit" />
                     <p class="fs-3 mb-0">Login Website SPMB SDIT Harapan Umat Jember </p>
                     <hr class="mb-2">

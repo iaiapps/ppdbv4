@@ -40,7 +40,7 @@
 
 <div class="bg-white p-2 rounded menu">
     <div class="text-center">
-        <img class="logosdit" src="{{ asset('img/logosdit.png') }}" alt="logo" />
+        <img class="logosdit" src="{{ asset('img/logoutama.svg') }}" alt="logo" />
     </div>
     <p class="text-center mt-2 py-1 text-capitalize ">
         {{ Auth::user()->name }}

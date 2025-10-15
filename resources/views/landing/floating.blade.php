@@ -1,6 +1,6 @@
 <!-- Floating Back to Top Button -->
 <button id="backToTop" class="btn btn-orange rounded-circle shadow ">
-    <i class="fas fa-arrow-up text-white"></i>
+    <i class="bi bi-arrow-up text-white"></i>
 </button>
 
 @push('css')
