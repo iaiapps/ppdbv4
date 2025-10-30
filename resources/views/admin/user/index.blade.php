@@ -78,13 +78,11 @@
                                     <form onsubmit="return confirm('Apakah anda yakin untuk mengaktifkan akun ini ?');"
                                         action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                                class="bi bi-check-circle"></i> aktifkan?</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">aktifkan?</button>
                                     </form>
                                 </div>
                             @else
-                                <button type="submit" class="btn btn-danger btn-sm" disabled><i
-                                        class="bi bi-check-circle"></i>
+                                <button type="submit" class="btn btn-danger btn-sm" disabled>
                                     aktifkan?</button>
                             @endif
 
@@ -111,13 +109,14 @@
                                 <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="bi bi-trash3"></i>
                                 </button>
-                            </form> <br>
+                            </form>
 
-                            <form onsubmit="return confirm('Apakah anda yakin untuk menonaktifkan akun ini?');"
+                            <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Nonaktifkan"
+                                onsubmit="return confirm('Apakah anda yakin untuk menonaktifkan akun ini?');"
                                 action="{{ route('user.notactive', ['id' => $user->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="bi bi-check-circle"></i>
-                                    nonaktifkan</button>
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i></button>
                             </form>
                         </td>
                     </tr>
