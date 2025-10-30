@@ -6,6 +6,7 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100 ">
+        <a href="{{ route('user.nonactive') }}" class="btn btn-primary">Cek akun non aktif</a>
         <p class="fs-5 text-center">Data Seluruh Pendaftar</p>
         <hr>
         {{-- <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small> --}}
@@ -74,7 +75,7 @@
                             @if ($user->hasRole('akun_dibuat'))
                                 <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-title="Aktifkan">
-                                    <form onsubmit="return confirm('Apakah anda yakin untuk mengkatifkan akun ini ?');"
+                                    <form onsubmit="return confirm('Apakah anda yakin untuk mengaktifkan akun ini ?');"
                                         action="{{ route('user.activated', ['id' => $user->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm"><i
@@ -110,8 +111,14 @@
                                 <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="bi bi-trash3"></i>
                                 </button>
-                            </form>
+                            </form> <br>
 
+                            <form onsubmit="return confirm('Apakah anda yakin untuk menonaktifkan akun ini?');"
+                                action="{{ route('user.notactive', ['id' => $user->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="bi bi-check-circle"></i>
+                                    nonaktifkan</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

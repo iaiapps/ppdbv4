@@ -31,11 +31,20 @@ class ActionController extends Controller
         return redirect()->route('student.index');
     }
 
-    // Function tolak
+    // Function undur diri
     public function retire(Request $request)
     {
         $user = User::where('id', $request->id)->get()->first();
         $user->syncRoles('akun_mengundurkan_diri');
         return redirect()->route('student.index');
+    }
+
+    // Function menonaktifkan akun
+    public function notactive(Request $request)
+    {
+        $user = User::where('id', $request->id)->get()->first();
+        // dd($user);
+        $user->syncRoles('akun_nonaktif');
+        return redirect()->route('user.index');
     }
 }

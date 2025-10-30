@@ -112,4 +112,10 @@ class UserController extends Controller
             return redirect()->route('setting.index')->with('msg', 'Data tidak dihapus');
         }
     }
+
+    public function nonactiveaccount()
+    {
+        $users = User::role('akun_nonaktif')->get();
+        return view('admin.user.nonactive', compact('users'));
+    }
 }

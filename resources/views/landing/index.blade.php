@@ -245,8 +245,9 @@
                         <div class="col-md-6 col-12 mb-3">
                             <div class="bg-radiant">
                                 <div class="d-flex mb-3">
-                                    <span class="rounded me-3 bg-radiant2 text-white fs-4">
-                                        <i class="fa-regular fa-circle-user"></i>
+                                    <span
+                                        class="rounded me-3 bg-radiant2 text-white fs-4 justify-content-center d-flex align-items-center">
+                                        <i class="bi bi-person-circle fs-4"></i>
                                     </span>
                                     <div>
                                         <h5 class="fw-bold mb-1">{{ $contact->name }}</h5>
@@ -254,8 +255,9 @@
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="rounded me-3 bg-radiant2 text-white fs-4">
-                                        <i class="fab fa-whatsapp"></i>
+                                    <div
+                                        class="rounded me-3 bg-radiant2 text-white fs-4 justify-content-center d-flex align-items-center">
+                                        <i class="bi bi-whatsapp"></i>
                                     </div>
                                     <div>
                                         @php

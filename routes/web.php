@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             // user
             Route::resource('user', UserController::class);
+            Route::get('nonactive', [UserController::class, 'nonactiveaccount'])->name('user.nonactive');
+
             Route::put('reset-pass', [UserController::class, 'resetpass'])->name('reset.pass');
             //delete user
             Route::post('delete-all', [UserController::class, 'deleteAll'])->name('user.delete.all');
@@ -57,8 +59,10 @@ Route::middleware('auth')->group(function () {
             // delete user photo
             Route::delete('delete-photo/{document}', [DocumentController::class, 'destroyPhoto'])->name('photo.delete');
 
-            //tombol helper action
+            //tombol helper action user
             Route::post('activated', [ActionController::class, 'activated'])->name('user.activated');
+            Route::post('notactive', [ActionController::class, 'notactive'])->name('user.notactive');
+            //tombol helper action student
             Route::post('accepted', [ActionController::class, 'accepted'])->name('student.accepted');
             Route::post('rejected', [ActionController::class, 'rejected'])->name('student.rejected');
             Route::post('retire', [ActionController::class, 'retire'])->name('student.retire');
