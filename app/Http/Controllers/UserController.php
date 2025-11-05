@@ -118,4 +118,11 @@ class UserController extends Controller
         $users = User::role('akun_nonaktif')->get();
         return view('admin.user.nonactive', compact('users'));
     }
+
+    public function all()
+    {
+        $users = User::where('name', '!=', 'admin')->get();
+        // dd($users);
+        return view('admin.user.all', compact('users'));
+    }
 }

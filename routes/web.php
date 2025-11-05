@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
             // user
             Route::resource('user', UserController::class);
             Route::get('nonactive', [UserController::class, 'nonactiveaccount'])->name('user.nonactive');
+            Route::get('all', [UserController::class, 'all'])->name('user.all');
 
             Route::put('reset-pass', [UserController::class, 'resetpass'])->name('reset.pass');
             //delete user
