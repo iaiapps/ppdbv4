@@ -89,36 +89,44 @@
 
                         </td>
                         <td>
-                            <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
-                                href="{{ route('user.edit', $user->id) }}" class="btn btn-warning btn-sm"><i
-                                    class="bi bi-pencil-square"></i></a>
-                            <form class="d-inline-block"
-                                onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
-                                action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <button type="submit" class="btn btn-secondary btn-sm"><i
-                                        class="bi bi-arrow-clockwise"></i>
-                                </button>
-                            </form>
-                            <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-title="Delete"
-                                onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
-                                action="{{ route('user.destroy', $user->id) }}" method="post" class="d-inline">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="bi bi-trash3"></i>
-                                </button>
-                            </form>
+                            <div class="mb-1">
+                                <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="edit"
+                                    href="{{ route('user.edit', $user->id) }}" class="btn btn-warning btn-sm"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <form class="d-inline-block"
+                                    onsubmit="return confirm('Apakah anda yakin untuk mereset password ?');"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset"
+                                    action="{{ route('reset.pass', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-secondary btn-sm"><i
+                                            class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div>
 
-                            <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-title="Nonaktifkan"
-                                onsubmit="return confirm('Apakah anda yakin untuk menonaktifkan akun ini?');"
-                                action="{{ route('user.notactive', ['id' => $user->id]) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i></button>
-                            </form>
+                                <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-title="Delete"
+                                    onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"
+                                    action="{{ route('user.destroy', $user->id) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </form>
+
+                                <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-title="Nonaktifkan"
+                                    onsubmit="return confirm('Apakah anda yakin untuk menonaktifkan akun ini?');"
+                                    action="{{ route('user.notactive', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                            class="bi bi-x-circle"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
