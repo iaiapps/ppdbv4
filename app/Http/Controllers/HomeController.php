@@ -49,7 +49,7 @@ class HomeController extends Controller
         $today = Carbon::now();
 
         if ($user->hasRole('admin')) {
-            return view('admin.home', compact('pengumuman', 'today', 'total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak'));
+            return view('admin.home', compact('pengumuman', 'today', 'total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak', 'akun_mengundurkan_diri'));
         } elseif ($user->hasRole('akun_dibuat')) {
             return view('student.bridge', compact('user'));
         } elseif ($user->hasRole('akun_aktif')) {
