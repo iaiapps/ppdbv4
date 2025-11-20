@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
             Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
             Route::put('set-cost/{student}', [StudentController::class, 'update_cost'])->name('set.cost');
             Route::get('card', [StudentController::class, 'card'])->name('student.card');
+            Route::get('undur-diri', [StudentController::class, 'undurdiri'])->name('student.undur.diri');
 
             // document
             Route::get('document', [DocumentController::class, 'show'])->name('document.show');

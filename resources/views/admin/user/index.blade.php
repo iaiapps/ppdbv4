@@ -6,8 +6,8 @@
     @include('layouts.partial.name')
 
     <div class="bg-white rounded p-3 min-vh-100 ">
-        <a href="{{ route('user.nonactive') }}" class="btn btn-primary">Cek akun non aktif</a>
-        <a href="{{ route('user.all') }}" class="btn btn-success">Semua akun</a>
+        <a href="{{ route('user.nonactive') }}" class="btn btn-primary btn-sm">Cek akun non aktif</a>
+        <a href="{{ route('user.all') }}" class="btn btn-success btn-sm">Semua akun</a>
         <p class="fs-5 text-center">Data Seluruh Pendaftar</p>
         <hr>
         {{-- <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small> --}}

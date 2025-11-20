@@ -203,6 +203,12 @@ class StudentController extends Controller
         return Carbon::parse($tanggalInggris);
     }
 
+    // undur diri
+    public function undurdiri()
+    {
+        $users = User::role('akun_mengundurkan_diri')->get();
+        return view('admin.student.undur', compact('users'));
+    }
     // handle dari user //
     public function home()
     {

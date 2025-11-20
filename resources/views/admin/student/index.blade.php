@@ -10,6 +10,7 @@
         <hr>
         <a href="{{ route('student.export') }}" class="btn btn-success btn-sm mb-3"> export data user</a>
         <a href="{{ route('student.card') }}" class="btn btn-success btn-sm mb-3"> print kartu peserta </a>
+        <a href="{{ route('student.undur') }}" class="btn btn-secondary btn-sm mb-3"> peserta mengundurkan diri </a>
 
         <table id="table" class="table table-bordered rounded align-middle">
             <thead>
