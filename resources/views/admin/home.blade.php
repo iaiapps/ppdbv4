@@ -101,7 +101,7 @@
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-radiant2 text-white p-2">
                         <span class="display-5 px-3 ">
-                            {{ $akun_diterima->count() }}
+                            {{ $akun_mengundurkan_diri->count() }}
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">

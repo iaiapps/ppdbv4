@@ -41,6 +41,7 @@ class HomeController extends Controller
         $akun_isi_formulir = User::role('akun_isi_formulir')->get();
         $akun_diterima = User::role('akun_diterima')->get();
         $akun_ditolak = User::role('akun_ditolak')->get();
+        $akun_mengundurkan_diri = User::role('akun_mengundurkan_diri')->get();
 
         // Ambil timeline pengumuman
         $tanggal = Timeline::where('name', 'Pengumuman Hasil SPMB')->first()->date;
