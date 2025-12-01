@@ -7,12 +7,12 @@
     @include('layouts.partial.name')
 
     <!-- Informasi Jadwal Pengumuman -->
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-orange text-white">
+    <div class="bg-white mb-4 shadow p-3 rounded">
+        {{-- <div class="card-header bg-primary text-white">
             <div class="align-items-center">
                 <h5 class="mb-0 text-center">Jadwal Pengumuman Hasil PPDB</h5>
             </div>
-        </div>
+        </div> --}}
         <div class="card-body">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -47,7 +47,7 @@
     <!-- Konten utama berdasarkan waktu dan role -->
     @if ($today->lt($tanggal_pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
         <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
-            <p class="m-0">Status PPDB</p>
+            <p class="mb-2">Status PPDB</p>
             <p class="my-1 text-white bg-secondary p-2 rounded fs-5 fw-bold">
                 Menunggu Hasil Pengumuman PPDB
             </p>
@@ -96,7 +96,7 @@
         <!-- Jika sudah melewati waktu pengumuman -->
         @if (Auth::user()->hasRole('akun_diterima'))
             <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
-                <p class="m-0">Status PPDB</p>
+                <p class="mb-2">Status PPDB</p>
                 <p class="my-1 text-white bg-primary p-2 rounded fs-5 fw-bold">
                     Selamat, ananda "DITERIMA" di SDIT Harum Jember
                 </p>
