@@ -77,12 +77,11 @@
                     <li class="list-group-item">Dibayarkan melalui transfer ke No. Rek. BSI 2005720055. a/n
                         : SDIT HARAPAN UMAT </li>
                     <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer
-                        dengan format: PPDB#nama pengirim#nama siswa. Dikirim ke <span><a class="btn btn-primary btn-sm"
+                        dengan format: SPMB#nama pengirim#nama siswa. Dikirim ke <span><a class="btn btn-primary btn-sm"
                                 href="https://wa.me/628113717716">admin keuangan</a></span>
                     </li>
-                    <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga waktu yang
-                        telah di tentukan, maka kami nyatakan
-                        mengundurkan diri.</li>
+                    <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga 10 Desember
+                        2025, maka kami nyatakan mengundurkan diri.</li>
                 </ol>
             </div>
         @else
@@ -91,7 +90,7 @@
 
                 <p>Tunggu pengumuman pada <span class="link"> <a href="{{ route('student.timeline') }}">jadwal yang
                             ditentukan</a> </span></p>
-                <p> atau silahkan hubungi <a href="https://wa.me/085232213939" target="_blank"
+                <p> atau silahkan hubungi <a href="https://wa.me/628113717716" target="_blank"
                         class="btn btn-success ">Admin</a> </p>
             </div>
         @endif
