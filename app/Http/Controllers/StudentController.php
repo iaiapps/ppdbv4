@@ -182,25 +182,47 @@ class StudentController extends Controller
         return view('admin.student.card', compact('cards'));
     }
 
-    function parseIndonesianDate($tanggal)
+    private function formatToIndonesian(Carbon $date)
     {
-        $mapBulan = [
-            'Januari' => 'January',
-            'Februari' => 'February',
-            'Maret' => 'March',
+        $months = [
+            'January' => 'Januari',
+            'February' => 'Februari',
+            'March' => 'Maret',
             'April' => 'April',
-            'Mei' => 'May',
-            'Juni' => 'June',
-            'Juli' => 'July',
-            'Agustus' => 'August',
+            'May' => 'Mei',
+            'June' => 'Juni',
+            'July' => 'Juli',
+            'August' => 'Agustus',
             'September' => 'September',
-            'Oktober' => 'October',
+            'October' => 'Oktober',
             'November' => 'November',
-            'Desember' => 'December',
+            'December' => 'Desember',
         ];
 
-        $tanggalInggris = strtr($tanggal, $mapBulan);
-        return Carbon::parse($tanggalInggris);
+        // Format dengan hari, tanggal bulan tahun jam:menit
+        $formatted = $date->format('l, d F Y H:i');
+
+        // Ganti nama bulan Inggris ke Indonesia
+        foreach ($months as $en => $id) {
+            $formatted = str_replace($en, $id, $formatted);
+        }
+
+        // Ganti nama hari Inggris ke Indonesia
+        $days = [
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu',
+        ];
+
+        foreach ($days as $en => $id) {
+            $formatted = str_replace($en, $id, $formatted);
+        }
+
+        return $formatted . ' WIB';
     }
 
     // undur diri
@@ -213,11 +235,16 @@ class StudentController extends Controller
     public function home()
     {
         $user = Auth::user();
-        $id = $user->id;
-        $tanggal = Timeline::where('name', 'Pengumuman Hasil SPMB')->first()->date;
-        $pengumuman = $this->parseIndonesianDate($tanggal);
+        $timeline = Timeline::where('name', 'Pengumuman Hasil SPMB')->first();
+
+        // Tanggal dari database sudah format Y-m-d H:i:s
+        $tanggal_pengumuman = Carbon::parse($timeline->date);
         $today = Carbon::now();
-        return view('student.home', compact('pengumuman', 'today'));
+
+        // Format untuk tampilan di view (ke format Indonesia)
+        $pengumuman = $this->formatToIndonesian($tanggal_pengumuman);
+
+        return view('student.home', compact('pengumuman', 'today', 'tanggal_pengumuman'));
     }
 
     public function studentprofil()
