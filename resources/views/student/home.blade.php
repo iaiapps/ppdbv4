@@ -5,44 +5,49 @@
 @section('content')
 
     @include('layouts.partial.name')
+    @if (Auth::user()->hasRole('akun_nonaktif'))
+        <div class="bg-white mb-4 shadow p-3 rounded">
+            <div class="card-body">
+                <h5 class="text-primary mb-0">Akun anda telah dinonaktifkan!</h5>
+            </div>
+        </div>
+    @endif
 
     <!-- Informasi Jadwal Pengumuman -->
-    <div class="bg-white mb-4 shadow p-3 rounded">
-        {{-- <div class="card-header bg-primary text-white">
-            <div class="align-items-center">
-                <h5 class="mb-0 text-center">Jadwal Pengumuman Hasil PPDB</h5>
-            </div>
-        </div> --}}
-        <div class="card-body">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <p class="mb-1 text-muted">
-                        Tanggal & Jam Pengumuman:
-                    </p>
-                    <h5 class="text-primary mb-0">{{ $pengumuman }}</h5>
+    @if (!Auth::user()->hasRole('akun_mengundurkan_diri'))
+        <div class="bg-white mb-4 shadow p-3 rounded">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p class="mb-1 text-muted">
+                            Tanggal & Jam Pengumuman:
+                        </p>
+                        <h5 class="text-primary mb-0">{{ $pengumuman }}</h5>
 
-                    @if ($today->lt($tanggal_pengumuman))
-                        <div class="mt-2">
-                            <div class="d-flex align-items-center text-warning">
-                                <div>
-                                    <p class="mb-1 fw-bold">Menunggu Pengumuman</p>
+                        @if ($today->lt($tanggal_pengumuman))
+                            <div class="mt-2">
+                                <div class="d-flex align-items-center text-warning">
+                                    <div>
+                                        <p class="mb-1 fw-bold">Menunggu Pengumuman</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @else
-                        <div class="mt-3">
-                            <div class="d-flex align-items-center text-success">
-                                <div>
-                                    <p class="mb-0 fw-bold">Pengumuman Telah Dibuka</p>
-                                    <p class="mb-0 text-muted">Hasil dapat dilihat di bawah</p>
+                        @else
+                            <div class="mt-3">
+                                <div class="d-flex align-items-center text-success">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Pengumuman Telah Dibuka</p>
+                                        <p class="mb-0 text-muted">Hasil dapat dilihat di bawah</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
 
     <!-- Konten utama berdasarkan waktu dan role -->
     @if ($today->lt($tanggal_pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
@@ -126,7 +131,7 @@
         @elseif (Auth::user()->hasRole('akun_mengundurkan_diri'))
             <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
                 <p class="my-1 text-white bg-secondary p-2 rounded fs-5">
-                    <i class="bi bi-person-x me-2"></i>Mohon Maaf, Anda telah mengundurkan diri dari SPMB SDIT Harum Jember
+                    Mohon Maaf, Anda telah mengundurkan diri dari SPMB SDIT Harum Jember
                 </p>
             </div>
             <div class="bg-white rounded p-3 text-center shadow-sm">

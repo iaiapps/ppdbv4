@@ -25,9 +25,11 @@
         @include('layouts.partial.navbar')
         <div class="container-fluid back">
             <div class="d-block d-md-flex py-3 ">
-                <div class="px-0 px-md-2 mb-3 mb-md-0 ">
-                    @include('layouts.partial.sidemenu ')
-                </div>
+                @if (!Auth::user()->hasRole('akun_nonaktif'))
+                    <div class="px-0 px-md-2 mb-3 mb-md-0 ">
+                        @include('layouts.partial.sidemenu ')
+                    </div>
+                @endif
                 <div class="px-0 px-md-2 page">
                     @yield('content')
                 </div>

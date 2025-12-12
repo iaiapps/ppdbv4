@@ -260,7 +260,14 @@ class StudentController extends Controller
     {
         $id = Auth::user()->id;
         $student = Student::where('user_id', $id)->get()->first();
+        $date_cost = Timeline::where('name', 'Pembayaran Daftar Ulang')->first();
         // dd($students);
-        return view('student.costreg', compact('student'));
+        return view('student.costreg', compact('student', 'date_cost'));
+    }
+
+    public function nonactive()
+    {
+        $user = Auth::user();
+        return view('student.nonactive', compact('user'));
     }
 }

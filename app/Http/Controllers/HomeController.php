@@ -54,8 +54,10 @@ class HomeController extends Controller
             return view('student.bridge', compact('user'));
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');
-        } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak'])) {
+        } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak', 'akun_mengundurkan_diri'])) {
             return redirect()->route('student.home', compact('user', 'pengumuman', 'today'));
+        } elseif ($user->hasRole('akun_nonaktif')) {
+            return redirect()->route('nonactive', compact('user', 'pengumuman', 'today'));
         }
     }
     function parseIndonesianDate($tanggal)

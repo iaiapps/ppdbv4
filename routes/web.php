@@ -115,4 +115,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('student', [StudentController::class, 'isiform'])->name('isiform');
         // });
     });
+    Route::middleware('role:akun_nonaktif')->group(function () {
+        Route::get('nonactive', [StudentController::class, 'nonactive'])->name('nonactive');
+    });
 });

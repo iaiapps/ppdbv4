@@ -80,8 +80,9 @@
                         dengan format: SPMB#nama pengirim#nama siswa. Dikirim ke <span><a class="btn btn-primary btn-sm"
                                 href="https://wa.me/628113717716">admin keuangan</a></span>
                     </li>
-                    <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga 15 Desember
-                        2025, maka kami nyatakan mengundurkan diri.</li>
+                    <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga
+                        {{ trim(explode('-', $date_cost->date)[1]) }}, maka kami nyatakan
+                        mengundurkan diri.</li>
                 </ol>
             </div>
         @else
