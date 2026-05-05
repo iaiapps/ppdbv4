@@ -10,6 +10,7 @@ use App\Models\Timeline;
 use App\Models\CostCategory;
 use Illuminate\Http\Request;
 use App\Exports\StudentExport;
+use App\Exports\RegExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -164,6 +165,12 @@ class StudentController extends Controller
     public function exportstudent()
     {
         return Excel::download(new StudentExport, 'pendaftar.xls');
+    }
+
+    //export re-registrasi
+    public function exportreg()
+    {
+        return Excel::download(new RegExport, 're-registrasi.xls');
     }
 
     // set biaya registrasi ulang

@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
             Route::get('student-all', [StudentController::class, 'studentall'])->name('student.all');
             Route::get('student-export', [StudentController::class, 'exportstudent'])->name('student.export');
             Route::get('re-registrasi', [StudentController::class, 'setreg'])->name('set.reg');
+            Route::get('re-registrasi-export', [StudentController::class, 'exportreg'])->name('set.reg.export');
             Route::put('set-cost/{student}', [StudentController::class, 'update_cost'])->name('set.cost');
             Route::get('card', [StudentController::class, 'card'])->name('student.card');
             Route::get('undur-diri', [StudentController::class, 'undurdiri'])->name('student.undur');

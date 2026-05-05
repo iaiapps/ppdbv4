@@ -10,6 +10,9 @@
             data-bs-target="#exampleModal">
             Lihat Biaya Daftar ulang
         </button>
+        <a href="{{ route('set.reg.export') }}" class="btn btn-success btn-sm mb-3">
+            <i class="bi bi-download"></i> Export Data
+        </a>
         <p class="fs-5 text-center">Tentukan Data Biaya Daftar Ulang </p>
         <hr>
 
