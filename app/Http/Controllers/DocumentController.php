@@ -45,11 +45,11 @@ class DocumentController extends Controller
         $file = $request->file('document');
         $file_name = $id . '-user' . '-' . time() . '-' . $file->getClientOriginalName();
 
-        // simpan di folder public
-        $request->file('document')->move(public_path('img-document'), $file_name);
+        // simpan di folder storage/app/public/photos
+        $request->file('document')->move(storage_path('app/public/photos'), $file_name);
 
         //masukkan ke array validate
-        $imgDocument['document'] = $file_name;
+        $imgDocument['document'] = 'photos/' . $file_name;
         $imgDocument['user_id'] = $id;
 
         //simpan ke database
@@ -61,10 +61,13 @@ class DocumentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, Document $document)
+    public function show(Request $request)
     {
-        $id = $request->user;
-        $data = Document::where('user_id', $id)->where('type', 'upload_pembayaran')->get();
+        $validated = $request->validate([
+            'user' => 'required|exists:users,id',
+        ]);
+
+        $data = Document::where('user_id', $validated['user'])->where('type', 'upload_pembayaran')->get();
         return view('admin.user.document', compact('data'));
     }
 
@@ -90,15 +93,20 @@ class DocumentController extends Controller
     public function destroyDoc(Document $document)
     {
         $id = $document->user_id;
-        // dd($id);
-        // ini delete file di public folder
-        File::delete('img-document/' . $document->document);
+        $filePath = storage_path('app/public/' . $document->document);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         $document->delete();
         return redirect()->route('document.show', ['user' => $id]);
     }
 
     public function destroyPhoto(Document $document)
     {
+        $filePath = storage_path('app/public/' . $document->document);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         $document->delete();
         return redirect()->route('student.index');
     }

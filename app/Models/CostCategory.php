@@ -11,8 +11,8 @@ class CostCategory extends Model
 
     protected $guarded = ['id'];
 
-    public function student()
+    public function students()
     {
-        return $this->hasOne(Student::class);
+        return $this->hasMany(Student::class);
     }
 }

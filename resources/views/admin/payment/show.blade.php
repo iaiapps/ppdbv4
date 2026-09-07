@@ -61,7 +61,7 @@
                                 // dd($photo);
                             @endphp
                             <td>
-                                <img src="{{ isset($photo->document) ? asset('img-document/' . $photo->document) : 'belum ada dokumen' }}"
+                                <img src="{{ isset($photo) ? $photo->file_url : '' }}"
                                     alt="document" class="p-2 bg-white border border-2 border-orange foto">
                                 <a href="{{ isset($photo->document) ? route('payment.photo', $photo->id) : '#belum ada id' }}"
                                     class="btn btn-sm btn-primary">lihat</a>

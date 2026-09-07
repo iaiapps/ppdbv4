@@ -21,7 +21,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::with(['user', 'costCategory', 'document', 'payment'])->get();
         return view('admin.student.index', compact('students'));
     }
 
@@ -66,10 +66,10 @@ class StudentController extends Controller
                 'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
             ]);
 
-            // ✅ Ambil semua data request
-            $data = $request->all();
-            unset($data['document']); // jangan masukkan file ke tabel student
+            // ✅ Ambil data dari validasi
+            $data = $validated;
             $data['user_id'] = $id;
+            unset($data['document']);
 
             Student::updateOrCreate(
                 ['user_id' => $id], // kondisi unik
@@ -79,12 +79,12 @@ class StudentController extends Controller
             // Upload dokumen foto
             $file = $request->file('document');
             $file_name = $id . '-user-' . time() . '-' . $file->getClientOriginalName();
-            $file->move(public_path('img-document'), $file_name);
+            $file->move(storage_path('app/public/photos'), $file_name);
 
             Document::create([
                 'name'     => $request->input('full_name'),
                 'type'     => 'upload_foto',
-                'document' => $file_name,
+                'document' => 'photos/' . $file_name,
                 'user_id'  => $id,
             ]);
 
@@ -120,18 +120,48 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        // dd($request->all());
-        $student->update($request->all());
+        $validated = $request->validate([
+            'full_name'   => 'required|string|max:255',
+            'nick_name'   => 'required|string|max:100',
+            'nik'         => 'required|string|max:20',
+            'kk'          => 'required|string|max:20',
+            'school_origin' => 'required|string|max:255',
+            'gender'      => 'required|string',
+            'place_birth' => 'required|string|max:100',
+            'date_birth'  => 'required|date',
+            'address'     => 'nullable|string',
+            'rtrw'        => 'nullable|string|max:20',
+            'desa'        => 'nullable|string|max:100',
+            'kecamatan'   => 'nullable|string|max:100',
+            'kota'        => 'nullable|string|max:100',
+            'provinsi'    => 'nullable|string|max:100',
+            'special_needs' => 'nullable|string|max:255',
+            'saudara_kandung_di_sdit' => 'nullable|integer',
+            'living'      => 'nullable|string|max:100',
+            'dad'         => 'nullable|string|max:255',
+            'dad_edu'     => 'nullable|string|max:100',
+            'dad_occupation' => 'nullable|string|max:100',
+            'dad_income'  => 'nullable|string|max:100',
+            'dad_phone'   => 'nullable|string|max:20',
+            'mom'         => 'nullable|string|max:255',
+            'mom_edu'     => 'nullable|string|max:100',
+            'mom_occupation' => 'nullable|string|max:100',
+            'mom_income'  => 'nullable|string|max:100',
+            'mom_phone'   => 'nullable|string|max:20',
+        ]);
+
+        $student->update($validated);
         return redirect()->route('student.index');
-        // return redirect()->route('set.reg');
     }
 
     // update cost-reg
     public function update_cost(Request $request, Student $student)
     {
-        // dd($request->all());
-        $student->update($request->all());
-        // return redirect()->route('student.index');
+        $validated = $request->validate([
+            'cost_category_id' => 'nullable|exists:cost_categories,id',
+        ]);
+
+        $student->update($validated);
         return redirect()->route('set.reg');
     }
 
@@ -144,12 +174,15 @@ class StudentController extends Controller
         $documents = Document::where('user_id', $student->user_id)
             ->where('type', 'upload_foto')
             ->first();
-        // dd($documents);
-        $filePath = public_path('img-document/' . $documents->document);
-        if (file_exists($filePath)) {
-            unlink($filePath); // hapus file fisik
+
+        if ($documents) {
+            $filePath = storage_path('app/public/' . $documents->document);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $documents->delete();
         }
-        $documents->delete(); // hapus dari DB
+
         $student->delete();
         return redirect()->route('student.index');
     }
@@ -157,7 +190,7 @@ class StudentController extends Controller
     // all student
     public function studentall()
     {
-        $students = Student::all();
+        $students = Student::with(['user', 'costCategory'])->get();
         return view('admin.student.all', compact('students'));
     }
 
@@ -176,7 +209,7 @@ class StudentController extends Controller
     // set biaya registrasi ulang
     public function setreg()
     {
-        $students  = Student::all();
+        $students = Student::with(['user', 'costCategory'])->get();
         $costs = CostCategory::all();
         return view('admin.setcostreg.index', compact('students', 'costs'));
     }
@@ -184,8 +217,7 @@ class StudentController extends Controller
     // handle card
     public function card()
     {
-        $cards = Student::all();
-        // dd($cards);
+        $cards = Student::with(['user.document'])->get();
         return view('admin.student.card', compact('cards'));
     }
 

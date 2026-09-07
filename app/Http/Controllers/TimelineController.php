@@ -54,8 +54,13 @@ class TimelineController extends Controller
      */
     public function update(Request $request, Timeline $timeline)
     {
-        // dd($request->all());
-        $timeline->update($request->all());
+        $validated = $request->validate([
+            'icon' => 'required|string|regex:/^bi(\s+bi-[a-z0-9-]+)+$/',
+            'name' => 'required|string|max:255',
+            'date' => 'required|string|max:255',
+        ]);
+
+        $timeline->update($validated);
         return redirect()->route('timeline.index');
     }
 

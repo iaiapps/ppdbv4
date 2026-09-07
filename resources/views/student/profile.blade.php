@@ -17,7 +17,7 @@
                 <div class=" text-center">
                     @if (isset($data->document))
                         <div class=" p-3 mb-3">
-                            <img src="{{ asset('img-document/' . $data->document) }}" alt="document"
+                            <img src="{{ $data->file_url }}" alt="document"
                                 class="p-2 bg-white border border-4 border-orange foto ">
                         </div>
                     @else

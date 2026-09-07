@@ -29,8 +29,20 @@ class CostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        CostCategory::create($data);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'gender' => 'required|string|max:50',
+            'gedung' => 'required|integer|min:0',
+            'perpustakaan' => 'required|integer|min:0',
+            'kegiatan' => 'required|integer|min:0',
+            'bukumedia' => 'required|integer|min:0',
+            'seragam' => 'required|integer|min:0',
+            'jilbab' => 'required|integer|min:0',
+            'ipp' => 'required|integer|min:0',
+            'total' => 'required|integer|min:0',
+        ]);
+
+        CostCategory::create($validated);
         return redirect()->route('costCategory.index');
     }
 
@@ -55,9 +67,20 @@ class CostCategoryController extends Controller
      */
     public function update(Request $request, CostCategory $costCategory)
     {
-        $data = $request->all();
-        // dd($data);
-        $costCategory->update($data);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'gender' => 'required|string|max:50',
+            'gedung' => 'required|integer|min:0',
+            'perpustakaan' => 'required|integer|min:0',
+            'kegiatan' => 'required|integer|min:0',
+            'bukumedia' => 'required|integer|min:0',
+            'seragam' => 'required|integer|min:0',
+            'jilbab' => 'required|integer|min:0',
+            'ipp' => 'required|integer|min:0',
+            'total' => 'required|integer|min:0',
+        ]);
+
+        $costCategory->update($validated);
         return redirect()->route('costCategory.index');
     }
 

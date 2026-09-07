@@ -16,7 +16,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::with(['user', 'payment'])->get();
         return view('admin.payment.index', compact('students'));
     }
 
@@ -34,38 +34,46 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // pembayaran
-        $id = $request->student_id;
-        $id_admin = 1;
-        $data = $request->all();
-        Payment::create($data);
-        // return redirect()->route('payment.showall', $id);
-
-        // upload bukti pembayaran
-        //validate
-        $imgDocument = $request->validate([
+        // Validasi data pembayaran
+        $validated = $request->validate([
+            'student_id' => 'required|exists:students,id',
+            'name' => 'required|string|max:255',
+            'payment_from' => 'required|string|max:255',
+            'date' => 'required|string|max:100',
+            'value' => 'required|integer|min:0',
+            'payment_says' => 'required|string|max:255',
+            'name_pembayaran' => 'required|string|max:255',
             'type' => 'required',
             'document' => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
         ]);
 
-        //beri nama
+        // Simpan data pembayaran
+        $id = $validated['student_id'];
+        Payment::create([
+            'student_id' => $validated['student_id'],
+            'name' => $validated['name'],
+            'payment_from' => $validated['payment_from'],
+            'date' => $validated['date'],
+            'value' => $validated['value'],
+            'payment_says' => $validated['payment_says'],
+        ]);
+
+        // Upload bukti pembayaran
         $file = $request->file('document');
-        $file_name = $id_admin . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
+        $file_name = $id . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
+        $file->move(storage_path('app/public/payments'), $file_name);
 
-        // simpan di folder public
-        // dd($request->file());
-        $request->file('document')->move(public_path('img-document'), $file_name);
+        // Get user_id dari student
+        $student = Student::find($id);
+        $user_id = $student ? $student->user_id : Auth::id();
 
-        //masukkan ke array validate
-        $imgDocument['name'] = $request->name_pembayaran;
-        $imgDocument['document'] = $file_name;
-        $imgDocument['user_id'] = $id_admin;
+        Document::create([
+            'name' => $validated['name_pembayaran'],
+            'type' => 'upload_bukti_daftar_ulang',
+            'document' => 'payments/' . $file_name,
+            'user_id' => $user_id,
+        ]);
 
-        //simpan ke database
-        Document::create($imgDocument);
-
-        // kembali ke payment
         return redirect()->route('payment.showall', $id);
     }
 
@@ -98,9 +106,20 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment, Request $request)
     {
-        $doc = Document::where('document', $request->photo)->first();
-        File::delete('img-document/' . $request->photo);
-        $doc->delete();
+        // Find document by payment relationship, not user input
+        $doc = Document::where('name', $payment->name)
+            ->where('type', 'upload_bukti_daftar_ulang')
+            ->where('user_id', $payment->student->user_id)
+            ->first();
+
+        if ($doc) {
+            $filePath = storage_path('app/public/' . $doc->document);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $doc->delete();
+        }
+
         $payment->delete();
         return redirect()->back();
     }
@@ -108,26 +127,27 @@ class PaymentController extends Controller
     // untuk melihat pembayaran
     public function paymentshow($id)
     {
-        $student = Student::where('id', '=', $id)->first();
+        $student = Student::findOrFail($id);
         $payments = Payment::where('student_id', '=', $id)->get();
 
-        $bukti = Document::where('name', $student->full_name)->where('type', 'upload_bukti_daftar_ulang')->get();
-        // dd($bukti);
+        $bukti = Document::where('user_id', $student->user_id)->where('type', 'upload_bukti_daftar_ulang')->get();
         return view('admin.payment.show', compact('payments', 'id', 'student', 'bukti'));
     }
 
     // untuk melihat bukti pembayaran
     public function paymentphoto($id)
     {
-        $document = Document::where('id', $id)->first();
+        $document = Document::where('id', $id)
+            ->where('type', 'upload_bukti_daftar_ulang')
+            ->firstOrFail();
         return view('admin.payment.paymentphoto', compact('document'));
     }
 
     // melihat semua pembayaran
     public function paymentall()
     {
-        $students = Student::all();
-        $payments = Payment::all();
+        $students = Student::with(['user'])->get();
+        $payments = Payment::with(['student'])->get();
         return view('admin.payment.all', compact('payments', 'students'));
     }
 }

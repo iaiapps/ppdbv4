@@ -9,7 +9,11 @@
         <p class="fs-5 text-center">Edit Data Timeline</p>
         <hr>
         <div class=" mb-3">
-            <p class="mb-2">Icon menggunakan font awesome</p>
+            <p class="mb-2">Icon menggunakan Bootstrap Icons (format: <code>bi bi-nama-icon</code>)</p>
+            <small class="text-muted">Contoh: <code>bi bi-calendar-check</code>, <code>bi bi-clock-history</code>, <code>bi bi-person-check</code></small>
+            <div class="mt-2">
+                <span>Preview: </span><i class="{{ $timeline->icon }}"></i> <span>{{ $timeline->icon }}</span>
+            </div>
         </div>
         <form action="{{ route('timeline.update', $timeline->id) }}" method="POST">
             @csrf

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RoleSeeder extends Seeder
 {
@@ -13,44 +12,21 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create([
-            'name' => 'admin',
-            'guard_name' => 'web'
-        ]);
+        $roles = [
+            'admin',
+            'akun_dibuat',
+            'akun_aktif',
+            'akun_isi_formulir',
+            'akun_diterima',
+            'akun_ditolak',
+            'akun_mengundurkan_diri',
+            'akun_nonaktif',
+        ];
 
-        Role::create([
-            'name' => 'akun_dibuat',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_aktif',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_isi_formulir',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_diterima',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_ditolak',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_mengundurkan_diri',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'akun_nonaktif',
-            'guard_name' => 'web'
-        ]);
+        foreach ($roles as $role) {
+            Role::firstOrCreate(
+                ['name' => $role, 'guard_name' => 'web']
+            );
+        }
     }
 }

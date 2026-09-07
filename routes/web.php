@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\CostCategoryController;
+use App\Http\Controllers\FileServeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::get('/', [LandingController::class, 'index'])->name('landing')->middlewar
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
+    // file serve (secure)
+    Route::get('file/{folder}/{filename}', [FileServeController::class, 'serve'])->name('file.serve');
+
     // home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/statistic', [HomeController::class, 'statistic'])->name('statistic');

@@ -34,7 +34,7 @@
                                 <td rowspan="2" class="text-center pdl wphoto">
                                     <div class="d-flex align-items-center">
                                         @if (!$card->user->document->where('type', 'upload_foto')->isEmpty())
-                                            <img src="{{ asset('img-document/' . $card->user->document->where('type', 'upload_foto')->first()->document) }}"
+                                            <img src="{{ $card->user->document->where('type', 'upload_foto')->first()->file_url }}"
                                                 class="profil" alt="foto">
                                         @else
                                             <img class="logouser p-2 rounded-circle bg-white border border-5 border-orange"
@@ -123,8 +123,8 @@
 @endpush
 @push('scripts')
     <script>
-        print() {
+        function printCard() {
             window.print();
-        },
+        }
     </script>
 @endpush

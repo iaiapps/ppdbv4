@@ -27,12 +27,14 @@ class SettingController extends Controller
     public function contactstore(Request $request, Setting $setting)
     {
         $id = $request->id;
-        $data = [
-            'name' => $request->name,
-            'desc' => $request->desc,
-            'value' => $request->value,
-        ];
-        Setting::where('id', $id)->update($data);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::where('id', $id)->update($validated);
         return redirect()->route('setting.contact');
     }
 
@@ -51,10 +53,13 @@ class SettingController extends Controller
     public function landsetupdate(Request $request, $id)
     {
         $setting = Setting::findOrFail($id);
-        $setting->update([
-            'desc' => $request->desc,
-            'value' => $request->value,
+
+        $validated = $request->validate([
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
         ]);
+
+        $setting->update($validated);
 
         return redirect()->route('landset.setting')->with('success', 'Setting berhasil diperbarui!');
     }

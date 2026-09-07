@@ -10,7 +10,11 @@ class ActionController extends Controller
     // Function aktifkan akun
     public function activated(Request $request)
     {
-        $user = User::where('id', $request->id)->get()->first();
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        $user = User::findOrFail($validated['id']);
         $user->syncRoles('akun_aktif');
         return redirect()->route('user.index');
     }
@@ -18,7 +22,11 @@ class ActionController extends Controller
     // Function terima
     public function accepted(Request $request)
     {
-        $user = User::where('id', $request->id)->get()->first();
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        $user = User::findOrFail($validated['id']);
         $user->syncRoles('akun_diterima');
         return redirect()->route('student.index');
     }
@@ -26,7 +34,11 @@ class ActionController extends Controller
     // Function tolak
     public function rejected(Request $request)
     {
-        $user = User::where('id', $request->id)->get()->first();
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        $user = User::findOrFail($validated['id']);
         $user->syncRoles('akun_ditolak');
         return redirect()->route('student.index');
     }
@@ -34,7 +46,11 @@ class ActionController extends Controller
     // Function undur diri
     public function retire(Request $request)
     {
-        $user = User::where('id', $request->id)->get()->first();
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        $user = User::findOrFail($validated['id']);
         $user->syncRoles('akun_mengundurkan_diri');
         return redirect()->route('student.index');
     }
@@ -42,8 +58,11 @@ class ActionController extends Controller
     // Function menonaktifkan akun
     public function notactive(Request $request)
     {
-        $user = User::where('id', $request->id)->get()->first();
-        // dd($user);
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        $user = User::findOrFail($validated['id']);
         $user->syncRoles('akun_nonaktif');
         return redirect()->route('user.index');
     }

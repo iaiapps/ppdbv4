@@ -9,7 +9,7 @@
         <a href="{{ url()->previous() }}" class="btn btn-orange text-white btn-sm">kembali</a>
         <hr>
         <div class="text-center">
-            <img src="{{ asset('img-document/' . $document->document) }}" alt="document" class="p-2 bg-white foto">
+            <img src="{{ $document->file_url }}" alt="document" class="p-2 bg-white foto">
         </div>
     </div>
 

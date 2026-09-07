@@ -15,7 +15,7 @@
             <div class="text-center">
                 @if ($d->type == 'upload_pembayaran')
                     {{-- ini setting untuk hosting di public folder --}}
-                    <img src="{{ asset('img-document/' . $d->document) }}" alt="document" class="imgpembayaran">
+                    <img src="{{ $d->file_url }}" alt="document" class="imgpembayaran">
 
                     <br><br>
                     <form class="text-center" onsubmit="return confirm('Apakah anda yakin untuk menghapus data ?');"

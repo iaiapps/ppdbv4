@@ -8,7 +8,6 @@ use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -17,8 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('name', '!=', 'admin')->get();
-        // dd($users);
+        $users = User::with(['student', 'document', 'roles'])->where('name', '!=', 'admin')->get();
         return view('admin.user.index', compact('users'));
     }
 
@@ -59,13 +57,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $name = $request->name;
-        $email_number = $request->email_number;
-
-        $user->update([
-            'name' => $name,
-            'email_number' => $email_number,
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email_number' => 'required|string|max:255',
         ]);
+
+        $user->update($validated);
         return redirect()->route('user.index');
     }
 
@@ -81,29 +78,39 @@ class UserController extends Controller
     // helper
     public function resetpass(Request $request)
     {
-        $id = $request->id;
-        User::where('id', $id)->update(['password' => Hash::make('password')]);
-        // dd($id);
-        return redirect()->route('user.index');
+        $validated = $request->validate([
+            'id' => 'required|exists:users,id',
+        ]);
+
+        User::where('id', $validated['id'])->update(['password' => Hash::make('password')]);
+        return redirect()->route('user.index')->with('msg', 'Password berhasil direset ke: password');
     }
 
     public function deleteAll(Request $request)
     {
-        if (isset($request->key) == 'DELETE') {
+        if ($request->input('key') === 'DELETE') {
             DB::transaction(function () {
-                $users = User::where('name', '!=', 'admin')->get();
+                $users = User::with(['student', 'document', 'roles'])->where('name', '!=', 'admin')->get();
                 foreach ($users as $user) {
-                    // Hapus student (jika ada)
+                    // Hapus file fisik dari storage
+                    foreach ($user->document as $doc) {
+                        $filePath = storage_path('app/public/' . $doc->document);
+                        if (file_exists($filePath)) {
+                            unlink($filePath);
+                        }
+                    }
                     $user->student()->delete();
-
-                    // Hapus documents
                     $user->document()->delete();
-
-                    // Hapus role spatie
                     $user->roles()->detach();
-
-                    // Terakhir hapus user
                     $user->delete();
+                }
+                // Hapus file dan record dokumen yang tersisa (orphan)
+                $orphanDocs = DB::table('documents')->get();
+                foreach ($orphanDocs as $doc) {
+                    $filePath = storage_path('app/public/' . $doc->document);
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
                 }
                 DB::table('documents')->delete();
             });
@@ -121,8 +128,7 @@ class UserController extends Controller
 
     public function all()
     {
-        $users = User::where('name', '!=', 'admin')->get();
-        // dd($users);
+        $users = User::with(['student', 'roles'])->where('name', '!=', 'admin')->get();
         return view('admin.user.all', compact('users'));
     }
 }

@@ -204,7 +204,7 @@
                                 <div class="col-md-6 col-12">
                                     @foreach ($col as $timeline)
                                         <div class="schedule-item">
-                                            {!! $timeline->icon !!}
+                                            <i class="{{ $timeline->icon }}"></i>
                                             <div>
                                                 <h4 class="fw-bold mb-1">{{ $timeline->name }}</h4>
                                                 <p class="fs-5 text-muted">{{ $timeline->date }}</p>
