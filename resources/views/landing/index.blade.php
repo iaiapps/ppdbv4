@@ -24,7 +24,8 @@
                     <a href="{{ url('register') }}" class="btn btn-orange btn-lg text-white">
                         Daftar Sekarang
                     </a>
-                    <a href="https://wa.me/62{{ $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939' }}" class="btn btn-success btn-lg" target="_blank">
+                    <a href="https://wa.me/62{{ $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939' }}"
+                        class="btn btn-success btn-lg" target="_blank">
                         Tanya Admin
                     </a>
                 </div>
@@ -51,7 +52,7 @@
 
             <div class="row gy-4">
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-book-fill"></i>
                         </div>
@@ -63,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-heart-fill"></i>
                         </div>
@@ -74,17 +75,20 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-trophy-fill"></i>
                         </div>
                         <h3>Ekstrakurikuler dan Pembinaan</h3>
-                        <p>Esktrakurikuler wajib siswa adalah Pramuka SIT. Serta berbagai pilihan Ekstrakurikuler lain yang
-                            beragam. Terdapat juga Pembinaan siswa untuk Olimpiade dan Lomba-lomba. </p>
+                        <p>Ekstrakurikuler wajib siswa adalah Pramuka SIT.
+                            Ekskul pilihan diantaranya craft,
+                            culinar, merajut, sains club, dokcil, panahan,
+                            badminton, basket, pencak silat, taekwondo, design grafis, cinematography, nasyid, hadrah.
+                            Dan pembinaan olimpiade, futsal, kaligrafi, marching band </p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-people-fill"></i>
                         </div>
@@ -95,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-globe"></i>
                         </div>
@@ -105,7 +109,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card h-100" data-aos="fade-up">
                         <div class="feature-icon">
                             <i class="bi bi-lightbulb-fill"></i>
                         </div>
@@ -142,8 +146,11 @@
                         <h3 class="mb-3">Biaya Pendaftaran</h3>
                         <p class="fs-5">
                             Membayar biaya pendaftaran sebesar :
-                            <span class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>
-                            ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['bank_name'] ?? 'BSI' }} {{ $landing['bank_number'] ?? '2005720055' }}</span>
+                            <span
+                                class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>
+                            ke rekening <span
+                                class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['bank_name'] ?? 'BSI' }}
+                                {{ $landing['bank_number'] ?? '2005720055' }}</span>
                             a.n.
                             {{ $landing['bank_account'] ?? 'SDIT HARAPAN UMAT' }}
                         </p>

@@ -96,4 +96,96 @@ class SettingController extends Controller
 
         return redirect()->route('landset.setting')->with('success', 'Setting berhasil diperbarui!');
     }
+
+    // Inline update contact
+    public function updateContact(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:settings,id',
+            'name' => 'required|string|max:255',
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::where('id', $request->id)->update([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'value' => $request->value,
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    // Delete contact
+    public function deleteContact(Request $request)
+    {
+        $request->validate(['id' => 'required|exists:settings,id']);
+        Setting::where('id', $request->id)->delete();
+        return response()->json(['success' => true]);
+    }
+
+    // Add contact
+    public function addContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::create([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'value' => $request->value,
+            'type' => 'kontak',
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    // Inline update pelayanan
+    public function updatePelayanan(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:settings,id',
+            'name' => 'required|string|max:255',
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::where('id', $request->id)->update([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'value' => $request->value,
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    // Delete pelayanan
+    public function deletePelayanan(Request $request)
+    {
+        $request->validate(['id' => 'required|exists:settings,id']);
+        Setting::where('id', $request->id)->delete();
+        return response()->json(['success' => true]);
+    }
+
+    // Add pelayanan
+    public function addPelayanan(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'desc' => 'nullable|string',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::create([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'value' => $request->value,
+            'type' => 'pelayanan',
+        ]);
+
+        return response()->json(['success' => true]);
+    }
 }

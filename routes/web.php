@@ -82,6 +82,13 @@ Route::middleware('auth')->group(function () {
             Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');
             Route::put('contact', [SettingController::class, 'contactstore'])->name('setting.contact.store');
+            Route::post('contact/update-inline', [SettingController::class, 'updateContact'])->name('setting.contact.update-inline');
+            Route::post('contact/delete', [SettingController::class, 'deleteContact'])->name('setting.contact.delete');
+            Route::post('contact/add', [SettingController::class, 'addContact'])->name('setting.contact.add');
+            // pelayanan
+            Route::post('pelayanan/update-inline', [SettingController::class, 'updatePelayanan'])->name('setting.pelayanan.update-inline');
+            Route::post('pelayanan/delete', [SettingController::class, 'deletePelayanan'])->name('setting.pelayanan.delete');
+            Route::post('pelayanan/add', [SettingController::class, 'addPelayanan'])->name('setting.pelayanan.add');
             // set landing
             Route::get('landset', [SettingController::class, 'landset'])->name('landset.setting');
             Route::get('landset/{id}/edit', [SettingController::class, 'landsetedit'])->name('landset.edit');
@@ -90,6 +97,9 @@ Route::middleware('auth')->group(function () {
             Route::resource('costCategory', CostCategoryController::class);
             // timeline
             Route::resource('timeline', TimelineController::class);
+            Route::post('timeline/update-inline', [TimelineController::class, 'updateInline'])->name('timeline.update-inline');
+            Route::post('timeline/delete', [TimelineController::class, 'deleteTimeline'])->name('timeline.delete');
+            Route::post('timeline/add', [TimelineController::class, 'addTimeline'])->name('timeline.add');
 
             // payment
             Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');

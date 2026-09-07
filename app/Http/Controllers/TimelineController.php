@@ -72,6 +72,51 @@ class TimelineController extends Controller
         //
     }
 
+    // Inline update timeline
+    public function updateInline(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:timelines,id',
+            'icon' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'date' => 'required|string|max:255',
+        ]);
+
+        Timeline::where('id', $request->id)->update([
+            'icon' => $request->icon,
+            'name' => $request->name,
+            'date' => $request->date,
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    // Delete timeline
+    public function deleteTimeline(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:timelines,id',
+        ]);
+
+        Timeline::where('id', $request->id)->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    // Add new timeline
+    public function addTimeline(Request $request)
+    {
+        $request->validate([
+            'icon' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'date' => 'required|string|max:255',
+        ]);
+
+        $timeline = Timeline::create($request->only('icon', 'name', 'date'));
+
+        return response()->json(['success' => true, 'id' => $timeline->id]);
+    }
+
     public function showtimeline()
     {
         $times = Timeline::all();

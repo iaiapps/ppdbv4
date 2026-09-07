@@ -19,33 +19,39 @@
         <!-- Tabs Navigation -->
         <ul class="nav nav-tabs mb-3" id="settingsTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="website-tab" data-bs-toggle="tab" data-bs-target="#website"
+                <button class="nav-link active" id="umum-tab" data-bs-toggle="tab" data-bs-target="#umum"
                     type="button" role="tab">
-                    Website
+                    <i class="bi bi-gear"></i> Umum
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="jadwal-tab" data-bs-toggle="tab" data-bs-target="#jadwal" type="button"
+                <button class="nav-link" id="landing-tab" data-bs-toggle="tab" data-bs-target="#landing" type="button"
                     role="tab">
-                    Jadwal
+                    <i class="bi bi-house"></i> Landing
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="countdown-tab" data-bs-toggle="tab" data-bs-target="#countdown" type="button"
+                    role="tab">
+                    <i class="bi bi-clock-history"></i> Countdown
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="kontak-tab" data-bs-toggle="tab" data-bs-target="#kontak" type="button"
                     role="tab">
-                    Kontak
+                    <i class="bi bi-telephone"></i> Kontak
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="biaya-tab" data-bs-toggle="tab" data-bs-target="#biaya" type="button"
                     role="tab">
-                    Biaya
+                    <i class="bi bi-cash"></i> Biaya
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link text-danger" id="danger-tab" data-bs-toggle="tab" data-bs-target="#danger"
                     type="button" role="tab">
-                    Danger
+                    <i class="bi bi-exclamation-triangle"></i> Danger
                 </button>
             </li>
         </ul>
@@ -53,8 +59,8 @@
         <!-- Tabs Content -->
         <div class="tab-content" id="settingsTabContent">
 
-            <!-- TAB: Website -->
-            <div class="tab-pane fade show active" id="website" role="tabpanel">
+            <!-- TAB: Umum -->
+            <div class="tab-pane fade show active" id="umum" role="tabpanel">
                 <div class="table-responsive">
                     <table class="table table-bordered align-middle">
                         <thead class="table-light">
@@ -87,7 +93,7 @@
                             <tr>
                                 <td>
                                     Tagline
-                                    <br><small class="text-muted">Pesan header</small>
+                                    <br><small class="text-muted">Pesan header (semua halaman)</small>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control form-control-sm"
@@ -101,44 +107,28 @@
                                     </button>
                                 </td>
                             </tr>
-                            <!-- Countdown Heading -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB: Landing -->
+            <div class="tab-pane fade" id="landing" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
                             <tr>
-                                <td>
-                                    Judul Countdown
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control form-control-sm"
-                                        id="setting-{{ $landing['countdown_heading']->id ?? '' }}"
-                                        value="{{ $landing['countdown_heading']->value ?? '' }}">
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-orange"
-                                        onclick="saveInline({{ $landing['countdown_heading']->id ?? 0 }}, document.getElementById('setting-{{ $landing['countdown_heading']->id ?? '' }}').value, this)">
-                                        <i class="bi bi-check-lg"></i> simpan
-                                    </button>
-                                </td>
+                                <th width="200">Setting</th>
+                                <th>Value</th>
+                                <th width="130">Aksi</th>
                             </tr>
-                            <!-- Countdown Date -->
-                            <tr>
-                                <td>
-                                    Tanggal Countdown
-                                </td>
-                                <td>
-                                    <input type="datetime-local" class="form-control form-control-sm"
-                                        id="setting-{{ $landing['countdown']->id ?? '' }}"
-                                        value="{{ str_replace(' ', 'T', $landing['countdown']->value ?? '') }}">
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-orange"
-                                        onclick="saveInline({{ $landing['countdown']->id ?? 0 }}, document.getElementById('setting-{{ $landing['countdown']->id ?? '' }}').value, this)">
-                                        <i class="bi bi-check-lg"></i> simpan
-                                    </button>
-                                </td>
-                            </tr>
+                        </thead>
+                        <tbody>
                             <!-- Jadwal -->
                             <tr>
                                 <td>
                                     Jadwal
+                                    <br><small class="text-muted">Tahun ajaran</small>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control form-control-sm"
@@ -156,6 +146,7 @@
                             <tr>
                                 <td>
                                     Early Bird
+                                    <br><small class="text-muted">Diskon uang gedung</small>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control form-control-sm"
@@ -237,44 +228,48 @@
                                     </button>
                                 </td>
                             </tr>
+                            <!-- Timelines (Jadwal Pendaftaran) -->
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <!-- TAB: Jadwal (Timeline) -->
-            <div class="tab-pane fade" id="jadwal" role="tabpanel">
-                <a href="{{ route('timeline.create') }}" class="btn btn-primary btn-sm mb-3">
-                    <i class="bi bi-plus-circle"></i> tambah jadwal
-                </a>
+                <hr>
+                <p class="fs-6 fw-bold"><i class="bi bi-calendar-event"></i> Jadwal Pendaftaran</p>
                 <div class="table-responsive">
                     <table class="table table-bordered align-middle">
                         <thead>
                             <tr>
                                 <th width="50">#</th>
-                                <th width="100">Icon</th>
+                                <th width="150">Icon</th>
                                 <th>Nama</th>
                                 <th>Tanggal</th>
-                                <th width="150">Aksi</th>
+                                <th width="100">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($timelines as $time)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><i class="{{ $time->icon }}"></i></td>
-                                    <td>{{ $time->name }}</td>
-                                    <td>{{ $time->date }}</td>
                                     <td>
-                                        <a href="{{ route('timeline.edit', $time->id) }}" class="btn btn-sm btn-orange">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <form action="{{ route('timeline.destroy', $time->id) }}" method="POST"
-                                            class="d-inline" onsubmit="return confirm('Hapus jadwal ini?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3"></i></button>
-                                        </form>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="timeline-icon-{{ $time->id }}" value="{{ $time->icon }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="timeline-name-{{ $time->id }}" value="{{ $time->name }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="timeline-date-{{ $time->id }}" value="{{ $time->date }}">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-orange"
+                                            onclick="saveTimeline({{ $time->id }}, this)">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="deleteTimeline({{ $time->id }}, this)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @empty
@@ -282,6 +277,89 @@
                                     <td colspan="5" class="text-center text-muted">Belum ada jadwal</td>
                                 </tr>
                             @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Form tambah jadwal baru -->
+                <div class="card border mt-3">
+                    <div class="card-header bg-light">
+                        <strong><i class="bi bi-plus-circle"></i> Tambah Jadwal Baru</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-3">
+                                <label class="form-label small">Icon (BI)</label>
+                                <input type="text" class="form-control form-control-sm" id="new-timeline-icon"
+                                    placeholder="bi-calendar-event">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small">Nama</label>
+                                <input type="text" class="form-control form-control-sm" id="new-timeline-name"
+                                    placeholder="Contoh: Pendaftaran Online">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Tanggal</label>
+                                <input type="text" class="form-control form-control-sm" id="new-timeline-date"
+                                    placeholder="Contoh: 14 - 21 September 2026">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary btn-sm w-100" onclick="addTimeline(this)">
+                                    <i class="bi bi-plus-lg"></i> Tambah
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Countdown -->
+            <div class="tab-pane fade" id="countdown" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th width="200">Setting</th>
+                                <th>Value</th>
+                                <th width="130">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Countdown Heading -->
+                            <tr>
+                                <td>
+                                    Judul Countdown
+                                    <br><small class="text-muted">Judul halaman countdown</small>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="setting-{{ $landing['countdown_heading']->id ?? '' }}"
+                                        value="{{ $landing['countdown_heading']->value ?? '' }}">
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-orange"
+                                        onclick="saveInline({{ $landing['countdown_heading']->id ?? 0 }}, document.getElementById('setting-{{ $landing['countdown_heading']->id ?? '' }}').value, this)">
+                                        <i class="bi bi-check-lg"></i> simpan
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Countdown Date -->
+                            <tr>
+                                <td>
+                                    Tanggal Pembukaan
+                                    <br><small class="text-muted">Kapan countdown berakhir</small>
+                                </td>
+                                <td>
+                                    <input type="datetime-local" class="form-control form-control-sm"
+                                        id="setting-{{ $landing['countdown']->id ?? '' }}"
+                                        value="{{ str_replace(' ', 'T', $landing['countdown']->value ?? '') }}">
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-orange"
+                                        onclick="saveInline({{ $landing['countdown']->id ?? 0 }}, document.getElementById('setting-{{ $landing['countdown']->id ?? '' }}').value, this)">
+                                        <i class="bi bi-check-lg"></i> simpan
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -298,21 +376,34 @@
                                 <th>Nama</th>
                                 <th>Jabatan</th>
                                 <th>No. HP</th>
-                                <th width="120">Aksi</th>
+                                <th width="100">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($contacts as $contact)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $contact->name }}</td>
-                                    <td>{{ $contact->desc }}</td>
-                                    <td>{{ $contact->value }}</td>
                                     <td>
-                                        <a href="{{ route('setting.contact.edit', ['id' => $contact->id]) }}"
-                                            class="btn btn-sm btn-orange">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="contact-name-{{ $contact->id }}" value="{{ $contact->name }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="contact-desc-{{ $contact->id }}" value="{{ $contact->desc }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="contact-value-{{ $contact->id }}" value="{{ $contact->value }}">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-orange"
+                                            onclick="saveContact({{ $contact->id }}, this)">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="deleteContact({{ $contact->id }}, this)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @empty
@@ -323,9 +414,39 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- Form tambah kontak baru -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <strong><i class="bi bi-plus-circle"></i> Tambah Kontak Baru</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-3">
+                                <label class="form-label small">Nama</label>
+                                <input type="text" class="form-control form-control-sm" id="new-contact-name"
+                                    placeholder="Contoh: Pak Ahmad">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Jabatan</label>
+                                <input type="text" class="form-control form-control-sm" id="new-contact-desc"
+                                    placeholder="Contoh: Koordinator SPMB">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">No. HP</label>
+                                <input type="text" class="form-control form-control-sm" id="new-contact-value"
+                                    placeholder="Contoh: 08123456789">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-sm w-100" onclick="addContact(this)">
+                                    <i class="bi bi-plus-lg"></i> Tambah
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <p class="fs-6 fw-bold">Jam Pelayanan</p>
-                <div class="table-responsive">
+                <div class="table-responsive mb-3">
                     <table class="table table-bordered align-middle">
                         <thead>
                             <tr>
@@ -333,28 +454,73 @@
                                 <th>Kegiatan</th>
                                 <th>Hari</th>
                                 <th>Jam</th>
+                                <th width="100">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($pelayanans as $pelayanan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $pelayanan->name }}</td>
-                                    <td>{{ $pelayanan->desc }}</td>
                                     <td>
-                                        <span
-                                            class="badge {{ $pelayanan->value === 'Tutup' ? 'bg-danger' : 'bg-success' }}">
-                                            {{ $pelayanan->value }}
-                                        </span>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="pelayanan-name-{{ $pelayanan->id }}" value="{{ $pelayanan->name }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="pelayanan-desc-{{ $pelayanan->id }}" value="{{ $pelayanan->desc }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="pelayanan-value-{{ $pelayanan->id }}" value="{{ $pelayanan->value }}">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-orange"
+                                            onclick="savePelayanan({{ $pelayanan->id }}, this)">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="deletePelayanan({{ $pelayanan->id }}, this)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="text-center text-muted">Belum ada jadwal pelayanan</td>
+                                    <td colspan="5" class="text-center text-muted">Belum ada jadwal pelayanan</td>
                                 </tr>
                             @endforelse
                         </tbody>
                     </table>
+                </div>
+                <!-- Form tambah pelayanan baru -->
+                <div class="card border">
+                    <div class="card-header bg-light">
+                        <strong><i class="bi bi-plus-circle"></i> Tambah Pelayanan Baru</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-3">
+                                <label class="form-label small">Kegiatan</label>
+                                <input type="text" class="form-control form-control-sm" id="new-pelayanan-name"
+                                    placeholder="Contoh: Jam Sekolah">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Hari</label>
+                                <input type="text" class="form-control form-control-sm" id="new-pelayanan-desc"
+                                    placeholder="Contoh: Senin s/d Jumat">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Jam</label>
+                                <input type="text" class="form-control form-control-sm" id="new-pelayanan-value"
+                                    placeholder="Contoh: 07.15-15.15">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-sm w-100" onclick="addPelayanan(this)">
+                                    <i class="bi bi-plus-lg"></i> Tambah
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -501,7 +667,11 @@
 
             // Konversi datetime-local format: 2026-09-14T00:00 → 2026-09-14 00:00:00
             if (value && value.includes('T')) {
-                value = value.replace('T', ' ') + ':00';
+                value = value.replace('T', ' ');
+                // Tambah detik jika belum ada
+                if (value.split(':').length === 2) {
+                    value += ':00';
+                }
             }
 
             // Show loading
@@ -574,12 +744,327 @@
             setTimeout(() => toast.remove(), 3000);
         }
 
-        // Enter key to save
-        document.querySelectorAll('#website input[type="text"], #website input[type="datetime-local"]').forEach(input => {
+        // Save Timeline Inline
+        function saveTimeline(id, btnEl) {
+            const btn = btnEl;
+            const originalHtml = btn.innerHTML;
+            const fields = ['icon', 'name', 'date'];
+            const data = { id: id };
+
+            fields.forEach(field => {
+                const input = document.getElementById(`timeline-${field}-${id}`);
+                if (input) data[field] = input.value;
+            });
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('timeline.update-inline') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-success');
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-success');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+
+                    if (data.success) {
+                        showToast('Jadwal diperbarui!');
+                    }
+                })
+                .catch(() => {
+                    btn.innerHTML = '<i class="bi bi-x-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-danger');
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-danger');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+                });
+        }
+
+        // Delete Timeline
+        function deleteTimeline(id, btnEl) {
+            if (!confirm('Hapus jadwal ini?')) return;
+
+            const btn = btnEl;
+            const originalHtml = btn.innerHTML;
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('timeline.delete') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ id: id })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        btn.closest('tr').remove();
+                        showToast('Jadwal dihapus!');
+                    }
+                });
+        }
+
+        // Add Timeline
+        function addTimeline(btnEl) {
+            const icon = document.getElementById('new-timeline-icon').value;
+            const name = document.getElementById('new-timeline-name').value;
+            const date = document.getElementById('new-timeline-date').value;
+
+            if (!icon || !name || !date) {
+                alert('Semua field harus diisi!');
+                return;
+            }
+
+            const btn = btnEl;
+            const originalHtml = btn.innerHTML;
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('timeline.add') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ icon, name, date })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showToast('Jadwal ditambahkan!');
+                        location.reload();
+                    }
+                });
+        }
+
+        // Save Contact Inline
+        function saveContact(id, btnEl) {
+            const btn = btnEl;
+            const originalHtml = btn.innerHTML;
+            const data = {
+                id: id,
+                name: document.getElementById(`contact-name-${id}`).value,
+                desc: document.getElementById(`contact-desc-${id}`).value,
+                value: document.getElementById(`contact-value-${id}`).value
+            };
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.contact.update-inline') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-success');
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-success');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+                    if (data.success) showToast('Kontak diperbarui!');
+                })
+                .catch(() => {
+                    btn.innerHTML = '<i class="bi bi-x-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-danger');
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-danger');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+                });
+        }
+
+        // Delete Contact
+        function deleteContact(id, btnEl) {
+            if (!confirm('Hapus kontak ini?')) return;
+            const btn = btnEl;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.contact.delete') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ id: id })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        btn.closest('tr').remove();
+                        showToast('Kontak dihapus!');
+                    }
+                });
+        }
+
+        // Add Contact
+        function addContact(btnEl) {
+            const name = document.getElementById('new-contact-name').value;
+            const desc = document.getElementById('new-contact-desc').value;
+            const value = document.getElementById('new-contact-value').value;
+            if (!name) { alert('Nama harus diisi!'); return; }
+
+            const btn = btnEl;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.contact.add') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ name, desc, value })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showToast('Kontak ditambahkan!');
+                        location.reload();
+                    }
+                });
+        }
+
+        // Save Pelayanan Inline
+        function savePelayanan(id, btnEl) {
+            const btn = btnEl;
+            const originalHtml = btn.innerHTML;
+            const data = {
+                id: id,
+                name: document.getElementById(`pelayanan-name-${id}`).value,
+                desc: document.getElementById(`pelayanan-desc-${id}`).value,
+                value: document.getElementById(`pelayanan-value-${id}`).value
+            };
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.pelayanan.update-inline') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-success');
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-success');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+                    if (data.success) showToast('Pelayanan diperbarui!');
+                })
+                .catch(() => {
+                    btn.innerHTML = '<i class="bi bi-x-lg"></i>';
+                    btn.classList.remove('btn-orange');
+                    btn.classList.add('btn-danger');
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                        btn.classList.remove('btn-danger');
+                        btn.classList.add('btn-orange');
+                        btn.disabled = false;
+                    }, 1500);
+                });
+        }
+
+        // Delete Pelayanan
+        function deletePelayanan(id, btnEl) {
+            if (!confirm('Hapus pelayanan ini?')) return;
+            const btn = btnEl;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.pelayanan.delete') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ id: id })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        btn.closest('tr').remove();
+                        showToast('Pelayanan dihapus!');
+                    }
+                });
+        }
+
+        // Add Pelayanan
+        function addPelayanan(btnEl) {
+            const name = document.getElementById('new-pelayanan-name').value;
+            const desc = document.getElementById('new-pelayanan-desc').value;
+            const value = document.getElementById('new-pelayanan-value').value;
+            if (!name) { alert('Kegiatan harus diisi!'); return; }
+
+            const btn = btnEl;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+            btn.disabled = true;
+
+            fetch('{{ route('setting.pelayanan.add') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ name, desc, value })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showToast('Pelayanan ditambahkan!');
+                        location.reload();
+                    }
+                });
+        }
+
+        // Enter key to save - all tabs
+        document.querySelectorAll('.tab-pane input[type="text"], .tab-pane input[type="datetime-local"]').forEach(input => {
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     const btn = this.closest('tr').querySelector('button');
-                    btn.click();
+                    if (btn) btn.click();
                 }
             });
         });
@@ -600,10 +1085,6 @@
         .form-check-input:checked {
             background-color: #198754;
             border-color: #198754;
-        }
-
-        #table {
-            font-size: 14px;
         }
     </style>
 @endpush
