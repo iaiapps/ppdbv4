@@ -3,14 +3,14 @@
 @section('content')
     @include('landing.up')
     <!-- Countdown Section -->
-    <section class="d-flex align-items-center justify-content-center text-white text-center bg-gradient">
+    <section class="d-flex align-items-center justify-content-center text-white text-center bg-gradient min-vh-100">
         <div class="top">
             <div class="text-center mt-5 mb-4">
-                <img class="logo" src="{{ asset('img/logosdit.png') }}" alt="logo">
+                <img class="logo" src="{{ asset('img/logoutama.svg') }}" alt="logo">
             </div>
             <h2 class="mb-3 fw-bold fs-1">SEGERA DIBUKA</h2>
             <p class="mb-4 px-3 fs-4" style="max-width: 600px; margin:auto;">
-                Sistem Penerimaan Murid Baru SDIT Harapan Umat Jember tahun 2026/2027.
+                {{ $tagline->value }}
             </p>
             <hr>
             <div id="timer" class="countdown-grid">
@@ -44,7 +44,7 @@
         }
 
         .top {
-            margin-bottom: 150px;
+            margin-bottom: 0;
         }
 
         .countdown-grid {

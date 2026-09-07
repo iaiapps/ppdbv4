@@ -28,6 +28,9 @@ class LandingController extends Controller
         $onoff = Setting::where('name', 'onoff')->first();
         $status = $onoff ? (int)$onoff->value : 1; // default ON
 
+        // tagline
+        $tagline = Setting::where('name', 'tagline')->first();
+
         // countdown
         $countdown = Setting::where('name', 'countdown')->first();
         $countdownDate = $countdown ? Carbon::parse($countdown->value) : null;
@@ -39,7 +42,7 @@ class LandingController extends Controller
 
         // Kalau countdown ada dan belum lewat, tampilkan halaman countdown
         if ($countdownDate && now()->lt($countdownDate)) {
-            return view('landing.countdown', compact('countdownDate'));
+            return view('landing.countdown', compact('countdownDate', 'tagline'));
         }
 
         // Default tampil landing normal
