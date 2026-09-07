@@ -8,7 +8,7 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Edit Data Contact</p>
         <hr>
-        <form action="{{ route('setting.contact', ['id' => $contact->id]) }}" method="POST">
+        <form action="{{ route('setting.contact.store', ['id' => $contact->id]) }}" method="POST">
             @csrf
             @method('PUT')
             <table id="table" class="table table-bordered rounded align-middle">

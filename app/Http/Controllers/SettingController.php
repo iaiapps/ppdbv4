@@ -24,7 +24,7 @@ class SettingController extends Controller
         $contact = Setting::find($id);
         return view('admin.setting.contact.edit', compact('contact'));
     }
-    public function contactstore(Request $request, Setting $setting)
+    public function contactstore(Request $request)
     {
         $id = $request->id;
 

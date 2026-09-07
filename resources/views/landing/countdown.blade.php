@@ -100,8 +100,7 @@
 @endpush
 @push('scripts')
     <script>
-        // Atur tanggal target (15 September 2025, 00:00:00)
-        const countdownDate = new Date("Sep 15, 2025 00:00:00").getTime();
+        const countdownDate = new Date("{{ $countdownDate->format('Y-m-d\TH:i:s') }}").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();

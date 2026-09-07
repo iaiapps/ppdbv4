@@ -55,7 +55,7 @@ class TimelineController extends Controller
     public function update(Request $request, Timeline $timeline)
     {
         $validated = $request->validate([
-            'icon' => 'required|string|regex:/^bi(\s+bi-[a-z0-9-]+)+$/',
+            'icon' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'date' => 'required|string|max:255',
         ]);
