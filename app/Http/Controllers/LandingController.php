@@ -31,6 +31,12 @@ class LandingController extends Controller
         // tagline
         $tagline = Setting::where('name', 'tagline')->first();
 
+        // landing settings (bank, fee, heading, etc)
+        $landing = Setting::where('type', 'landing')->pluck('value', 'name');
+
+        // primary whatsapp (first kontak)
+        $primaryWa = $contacts->first();
+
         // countdown
         $countdown = Setting::where('name', 'countdown')->first();
         $countdownDate = $countdown ? Carbon::parse($countdown->value) : null;
@@ -42,10 +48,10 @@ class LandingController extends Controller
 
         // Kalau countdown ada dan belum lewat, tampilkan halaman countdown
         if ($countdownDate && now()->lt($countdownDate)) {
-            return view('landing.countdown', compact('countdownDate', 'tagline'));
+            return view('landing.countdown', compact('countdownDate', 'tagline', 'landing', 'primaryWa'));
         }
 
         // Default tampil landing normal
-        return view('landing.index', compact('contacts', 'timelines', 'pelayanans', 'schedule', 'early'));
+        return view('landing.index', compact('contacts', 'timelines', 'pelayanans', 'schedule', 'early', 'landing', 'primaryWa'));
     }
 }

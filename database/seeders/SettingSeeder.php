@@ -15,24 +15,24 @@ class SettingSeeder extends Seeder
     {
         // tagline
         Setting::create([
-            'name' => 'Tagline',
+            'name' => 'tagline',
             'desc' => 'Pesan Header SPMB',
-            'value' => 'Sistem Penerimaan Murid Baru SDIT Harapan Umat Jember Tahun 2026/2027',
+            'value' => 'Sistem Penerimaan Murid Baru SDIT Harapan Umat Jember Tahun 2027/2028',
             'type' => "tagline"
         ]);
 
         // schedule
         Setting::create([
-            'name' => 'Jadwal',
+            'name' => 'jadwal',
             'desc' => 'Pendaftaran SPMB SDIT Harapan Umat Jember',
-            'value' => 'Tahun Ajaran 2026/2027',
+            'value' => 'Tahun Ajaran 2027/2028',
             'type' => "jadwal"
         ]);
         // early bird
         Setting::create([
-            'name' => 'Early Bird',
-            'desc' => 'Eearly bird, Diskon uang gedung 10%',
-            'value' => '(15-25 september 2025)',
+            'name' => 'early_bird',
+            'desc' => 'Early bird, Diskon uang gedung 10%',
+            'value' => '(14-21 september 2026)',
             'type' => "early"
         ]);
 
@@ -44,9 +44,9 @@ class SettingSeeder extends Seeder
             'type' => "kontak"
         ]);
         Setting::create([
-            'name' => 'Pak Ikrom',
+            'name' => 'Pak Syauqi',
             'desc' => 'Admin Web SPMB',
-            'value' => '085232213939',
+            'value' => '08113717716',
             'type' => "kontak"
         ]);
 
@@ -72,7 +72,7 @@ class SettingSeeder extends Seeder
 
         // onoff
         Setting::create([
-            'name' => 'OnOff',
+            'name' => 'onoff',
             'desc' => 'Setting buka tutup web ppdb',
             'value' => 1,
             'type' => "onoff"
@@ -80,10 +80,42 @@ class SettingSeeder extends Seeder
 
         // countdown
         Setting::create([
-            'name' => 'Countdown',
+            'name' => 'countdown',
             'desc' => 'Tanggal pembukaan SPMB',
-            'value' => "2025-09-15 00:00:00",
+            'value' => "2026-09-14 00:00:00",
             'type' => "countdown"
+        ]);
+
+        // landing page content
+        Setting::create([
+            'name' => 'countdown_heading',
+            'desc' => 'Judul halaman countdown',
+            'value' => 'SEGERA DIBUKA',
+            'type' => "landing"
+        ]);
+        Setting::create([
+            'name' => 'registration_fee',
+            'desc' => 'Biaya pendaftaran',
+            'value' => 'Rp 350.000',
+            'type' => "landing"
+        ]);
+        Setting::create([
+            'name' => 'bank_name',
+            'desc' => 'Nama bank',
+            'value' => 'BSI',
+            'type' => "landing"
+        ]);
+        Setting::create([
+            'name' => 'bank_number',
+            'desc' => 'Nomor rekening',
+            'value' => '2005720055',
+            'type' => "landing"
+        ]);
+        Setting::create([
+            'name' => 'bank_account',
+            'desc' => 'Nama pemegang rekening',
+            'value' => 'SDIT HARAPAN UMAT',
+            'type' => "landing"
         ]);
     }
 }

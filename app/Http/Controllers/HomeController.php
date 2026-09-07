@@ -51,7 +51,10 @@ class HomeController extends Controller
         if ($user->hasRole('admin')) {
             return view('admin.home', compact('pengumuman', 'today', 'total', 'akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak', 'akun_mengundurkan_diri'));
         } elseif ($user->hasRole('akun_dibuat')) {
-            return view('student.bridge', compact('user'));
+            $landing = Setting::where('type', 'landing')->pluck('value', 'name');
+            $contacts = Setting::where('type', 'kontak')->get();
+            $primaryWa = $contacts->first();
+            return view('student.bridge', compact('user', 'landing', 'primaryWa'));
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');
         } elseif ($user->hasRole(['akun_isi_formulir', 'akun_diterima', 'akun_ditolak', 'akun_mengundurkan_diri'])) {

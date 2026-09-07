@@ -3,13 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\Timeline;
+use App\Models\CostCategory;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
     public function index()
     {
-        return view('admin.setting.index');
+        $landing = Setting::whereIn('type', ['tagline', 'jadwal', 'early', 'onoff', 'countdown', 'landing'])
+            ->get()
+            ->keyBy('name');
+        $contacts = Setting::where('type', 'kontak')->get();
+        $pelayanans = Setting::where('type', 'pelayanan')->get();
+        $timelines = Timeline::all();
+        $costcats = CostCategory::all();
+
+        return view('admin.setting.index', compact('landing', 'contacts', 'pelayanans', 'timelines', 'costcats'));
+    }
+
+    // inline update setting
+    public function updateInline(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:settings,id',
+            'value' => 'nullable|string',
+        ]);
+
+        Setting::where('id', $request->id)->update(['value' => $request->value]);
+
+        return response()->json(['success' => true]);
+    }
+
+    // toggle on/off
+    public function toggleOnOff(Request $request)
+    {
+        $setting = Setting::where('name', 'onoff')->first();
+        if ($setting) {
+            $setting->update(['value' => $request->value]);
+        }
+        return response()->json(['success' => true]);
     }
 
     //setting contact

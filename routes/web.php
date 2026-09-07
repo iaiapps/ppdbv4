@@ -76,6 +76,8 @@ Route::middleware('auth')->group(function () {
 
             //setting
             Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+            Route::post('setting/update-inline', [SettingController::class, 'updateInline'])->name('setting.update-inline');
+            Route::post('setting/toggle-onoff', [SettingController::class, 'toggleOnOff'])->name('setting.toggle-onoff');
             //contact
             Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
             Route::get('contact-edit', [SettingController::class, 'contactedit'])->name('setting.contact.edit');

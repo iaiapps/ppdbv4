@@ -33,9 +33,9 @@
                         </li>
                         <li class="list-group-item lh-med">
                             Biaya pendaftaran sebesar:
-                            <span class="badge bg-orange textt">Rp 350.000</span>, pembayaran melalui
-                            rekening sekolah <span class="badge bg-orange textt">BSI 2005720055</span><br />
-                            a.n SDIT HARAPAN UMAT
+                            <span class="badge bg-orange textt">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>, pembayaran melalui
+                            rekening sekolah <span class="badge bg-orange textt">{{ $landing['bank_name'] ?? 'BSI' }} {{ $landing['bank_number'] ?? '2005720055' }}</span><br />
+                            a.n {{ $landing['bank_account'] ?? 'SDIT HARAPAN UMAT' }}
                         </li>
                         <li class="list-group-item lh-med">
                             Upload bukti pembayaran disini
@@ -56,11 +56,14 @@
                         <li class="list-group-item lh-med">
                             Bukti pembayaran akan divalidasi, dan Akun akan aktif dalam 1 x 24 jam, jika akun belum aktif
                             silahkan hubungi ke
+                            @php
+                                $phone = $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939';
+                            @endphp
                             @desktop
-                                <a href="https://web.whatsapp.com/send/?phone=6285232213939" target="_blank"
+                                <a href="https://web.whatsapp.com/send/?phone=62{{ $phone }}" target="_blank"
                                     class="btn btn-success btn-sm"> No. WA Admin</a>
                             @elsedesktop
-                                <a href="https://wa.me/6285232213939" target="_blank" class="btn btn-success btn-sm"> No. WA
+                                <a href="https://wa.me/62{{ $phone }}" target="_blank" class="btn btn-success btn-sm"> No. WA
                                     Admin</a>
                             @enddesktop
                         </li>

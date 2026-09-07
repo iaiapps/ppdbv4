@@ -24,7 +24,7 @@
                     <a href="{{ url('register') }}" class="btn btn-orange btn-lg text-white">
                         Daftar Sekarang
                     </a>
-                    <a href="https://wa.me/6285232213939" class="btn btn-success btn-lg" target="_blank">
+                    <a href="https://wa.me/62{{ $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939' }}" class="btn btn-success btn-lg" target="_blank">
                         Tanya Admin
                     </a>
                 </div>
@@ -142,10 +142,10 @@
                         <h3 class="mb-3">Biaya Pendaftaran</h3>
                         <p class="fs-5">
                             Membayar biaya pendaftaran sebesar :
-                            <span class="bg-orange text-white px-1 rounded fw-bold badge">Rp 350.000</span>
-                            ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">BSI 2005720055</span>
+                            <span class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>
+                            ke rekening <span class="bg-orange text-white px-1 rounded fw-bold badge">{{ $landing['bank_name'] ?? 'BSI' }} {{ $landing['bank_number'] ?? '2005720055' }}</span>
                             a.n.
-                            SDIT HARAPAN UMAT
+                            {{ $landing['bank_account'] ?? 'SDIT HARAPAN UMAT' }}
                         </p>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
             <div class="text-center mt-5 mb-4">
                 <img class="logo" src="{{ asset('img/logoutama.svg') }}" alt="logo">
             </div>
-            <h2 class="mb-3 fw-bold fs-1">SEGERA DIBUKA</h2>
+            <h2 class="mb-3 fw-bold fs-1">{{ $landing['countdown_heading'] ?? 'SEGERA DIBUKA' }}</h2>
             <p class="mb-4 px-3 fs-4" style="max-width: 600px; margin:auto;">
                 {{ $tagline->value }}
             </p>
@@ -31,7 +31,10 @@
                     <p>DETIK</p>
                 </div>
             </div>
-            <a href="https://wa.me/6285232213939" target="_blank" class="btn btn-success btn-lg text-white mt-5">Hubungi
+            @php
+                $phone = $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939';
+            @endphp
+            <a href="https://wa.me/62{{ $phone }}" target="_blank" class="btn btn-success btn-lg text-white mt-5">Hubungi
                 Admin</a>
         </div>
     </section>
