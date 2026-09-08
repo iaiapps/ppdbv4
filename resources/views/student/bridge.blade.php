@@ -3,7 +3,6 @@
 @section('title', 'Bridge Page')
 
 @section('content')
-    @include('landing.up')
     <div class="bg-orange">
         <div class="container">
             <div class="d-flex flex-column pt-4 pt-md-0 justify-content-md-center vh-100">
@@ -36,8 +35,10 @@
                         </li>
                         <li class="list-group-item lh-med">
                             Biaya pendaftaran sebesar:
-                            <span class="badge bg-orange textt">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>, pembayaran melalui
-                            rekening sekolah <span class="badge bg-orange textt">{{ $landing['bank_name'] ?? 'BSI' }} {{ $landing['bank_number'] ?? '2005720055' }}</span><br />
+                            <span class="badge bg-orange textt">{{ $landing['registration_fee'] ?? 'Rp 350.000' }}</span>,
+                            pembayaran melalui
+                            rekening sekolah <span class="badge bg-orange textt">{{ $landing['bank_name'] ?? 'BSI' }}
+                                {{ $landing['bank_number'] ?? '2005720055' }}</span><br />
                             a.n {{ $landing['bank_account'] ?? 'SDIT HARAPAN UMAT' }}
                         </li>
                         <li class="list-group-item lh-med">
@@ -66,7 +67,8 @@
                                 <a href="https://web.whatsapp.com/send/?phone=62{{ $phone }}" target="_blank"
                                     class="btn btn-success btn-sm"> No. WA Admin</a>
                             @elsedesktop
-                                <a href="https://wa.me/62{{ $phone }}" target="_blank" class="btn btn-success btn-sm"> No. WA
+                                <a href="https://wa.me/62{{ $phone }}" target="_blank" class="btn btn-success btn-sm">
+                                    No. WA
                                     Admin</a>
                             @enddesktop
                         </li>

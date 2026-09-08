@@ -7,7 +7,11 @@
         <div class="col-12 col-md-6">
             <div class="text-center bg-white p-3 py-5 rounded">
                 <div class="px-0 px-md-5 mb-4">
-                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset('img/logoutama.svg') }}"
+                    @php
+                        $branch = session('branch', 'sditharum_1');
+                        $logo = $branch === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg';
+                    @endphp
+                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset($logo) }}"
                         alt="logosdit" />
                     <h4>Buat Akun PPDB</h4>
                     @if(session('branch_name'))

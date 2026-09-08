@@ -24,7 +24,7 @@
                         </p>
                         <h5 class="text-primary mb-0">{{ $pengumuman }}</h5>
 
-                        @if ($today->lt($tanggal_pengumuman))
+                        @if ($today->lt($pengumuman))
                             <div class="mt-2">
                                 <div class="d-flex align-items-center text-warning">
                                     <div>
@@ -50,7 +50,7 @@
 
 
     <!-- Konten utama berdasarkan waktu dan role -->
-    @if ($today->lt($tanggal_pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
+    @if ($today->lt($pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
         <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
             <p class="mb-2">Status PPDB</p>
             <p class="my-1 text-white bg-secondary p-2 rounded fs-5 fw-bold">
@@ -61,7 +61,7 @@
         <div class="bg-white rounded p-3 min-vh-100 text-center shadow-sm">
             <div class="text-rata">
                 <p>
-                    Terima Kasih telah mengisi formulir pendaftaran di Web SPMB SDIT Harapan Umat Jember
+                    Terima Kasih telah mengisi formulir pendaftaran di Web SPMB {{ Auth::user()->branch_label }}
                 </p>
                 <p>
                     Tahap selanjutnya adalah Psikotest, Observasi dan Wawancara, yang dilaksanakan sesuai jadwal yang
@@ -103,7 +103,7 @@
             <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
                 <p class="mb-2">Status PPDB</p>
                 <p class="my-1 text-white bg-primary p-2 rounded fs-5 fw-bold">
-                    Selamat, ananda "DITERIMA" di SDIT Harum Jember
+                    Selamat, ananda "DITERIMA" di {{ Auth::user()->branch_label }}
                 </p>
             </div>
             <div id="lanjut" class="bg-white rounded p-3 text-center shadow-sm">
@@ -118,7 +118,7 @@
         @elseif (Auth::user()->hasRole('akun_ditolak'))
             <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
                 <p class="my-1 text-white bg-danger p-2 rounded fs-5">
-                    Mohon Maaf ananda Belum Diterima di SDIT Harum Jember
+                    Mohon Maaf ananda Belum Diterima di {{ Auth::user()->branch_label }}
                 </p>
             </div>
             <div class="bg-white rounded p-3 text-center shadow-sm">
@@ -131,7 +131,7 @@
         @elseif (Auth::user()->hasRole('akun_mengundurkan_diri'))
             <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
                 <p class="my-1 text-white bg-secondary p-2 rounded fs-5">
-                    Mohon Maaf, Anda telah mengundurkan diri dari SPMB SDIT Harum Jember
+                    Mohon Maaf, Anda telah mengundurkan diri dari SPMB {{ Auth::user()->branch_label }}
                 </p>
             </div>
             <div class="bg-white rounded p-3 text-center shadow-sm">

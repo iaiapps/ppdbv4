@@ -58,8 +58,8 @@ class User extends Authenticatable
     public function getBranchLabelAttribute(): string
     {
         return match($this->branch) {
-            'sditharum_1' => 'SDIT Harapan Umat 1',
-            'sditharum_2' => 'SDIT Harapan Umat 2',
+            'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',
+            'sditharum_2' => 'HARAPAN UMAT - Nature and Bilingual Class Program',
             default => 'Belum Ditentukan',
         };
     }

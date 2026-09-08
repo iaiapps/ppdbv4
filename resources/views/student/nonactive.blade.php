@@ -11,7 +11,7 @@
             <h5 class="text-primary ">Mohon maaf!</h5>
             <h5 class="text-primary">Akun anda telah dinonaktifkan</h5>
         </div>
-        <p>Alasan: Setelah beberapa konfirmasi anda tidak melanjutkan proses pendaftaran di SDIT Harapan Umat Jember</p>
+        <p>Alasan: Setelah beberapa konfirmasi anda tidak melanjutkan proses pendaftaran di {{ Auth::user()->branch_label }}</p>
     </div>
 
 @endsection

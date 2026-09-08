@@ -31,7 +31,7 @@
                         @php
                             $message = urlencode("Assalamualaikum wr wb
 
-❇️ Terimakasih telah memilih SDIT Harapan Umat Jember sebagai partner dalam membersamai setiap tahapan pendidikan ananda.
+❇️ Terimakasih telah memilih {$user->branch_label} sebagai partner dalam membersamai setiap tahapan pendidikan ananda.
 
 ✅ Akun ananda sudah *\"Aktif\"* silahkan melanjutkan Proses *Pengisian Formulir* di web http://spmb.sditharum.id
 

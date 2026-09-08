@@ -4,6 +4,12 @@
 
 @section('content')
     @include('layouts.partial.name')
+    @php
+        use App\Models\Setting;
+        $contacts = Setting::where('type', 'kontak')->get();
+        $financeWa = $contacts->first();
+        $financeWaNumber = $financeWa ? ltrim($financeWa->value, '0') : '8113717716';
+    @endphp
 
     <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center mb-1">Rincian Biaya Daftar Ulang Ananda :</p>
@@ -78,7 +84,7 @@
                         : SDIT HARAPAN UMAT </li>
                     <li class="list-group-item">Konfirmasi pembayaran dengan melampirkan bukti transfer
                         dengan format: SPMB#nama pengirim#nama siswa. Dikirim ke <span><a class="btn btn-primary btn-sm"
-                                href="https://wa.me/628113717716">admin keuangan</a></span>
+                                href="https://wa.me/62{{ $financeWaNumber }}">admin keuangan</a></span>
                     </li>
                     <li class="list-group-item">Bagi yang tidak melakukan daftar ulang (tanpa konfirmasi) hingga
                         {{ trim(explode('-', $date_cost->date)[1]) }}, maka kami nyatakan
@@ -91,7 +97,7 @@
 
                 <p>Tunggu pengumuman pada <span class="link"> <a href="{{ route('student.timeline') }}">jadwal yang
                             ditentukan</a> </span></p>
-                <p> atau silahkan hubungi <a href="https://wa.me/628113717716" target="_blank"
+                <p> atau silahkan hubungi <a href="https://wa.me/62{{ $financeWaNumber }}" target="_blank"
                         class="btn btn-success ">Admin</a> </p>
             </div>
         @endif

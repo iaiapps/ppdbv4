@@ -8,7 +8,7 @@
                 <div class="text-md-end text-center">
                     <img src="{{ asset('/img/gbr.png') }}" class="img" alt="logoppdb" />
                     <p class="fs-3 my-4 text-white">
-                        Formulir Pendaftaran Siswa Baru SDIT Harapan Umat Jember
+                        Formulir Pendaftaran Siswa Baru {{ $student->user->branch_label }}
                     </p>
                 </div>
                 <hr class="hr" />

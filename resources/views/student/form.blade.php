@@ -12,17 +12,16 @@
                     <p class="fs-3 my-4 text-white">
                         Formulir Pendaftaran Siswa Baru
                     </p>
-                    <div class="badge bg-white text-orange fs-6 px-3 py-2">
+                    <div class="badge bg-white text-orange fs-6 px-3 py-2 text-wrap">
                         <i class="bi bi-building me-1"></i> {{ $user->branch_label }}
                     </div>
                 </div>
                 <hr class="hr" />
                 <!-- Progress -->
                 <div class="progress mt-4">
-                    <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 25%">
-                        Langkah 1 dari 4
-                    </div>
+                    <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
                 </div>
+                <p id="progress-text" class="text-white text-center mt-2 mb-0">Tahap 1 dari 5</p>
             </div>
 
             <div class="col-12 col-md-8 p-3 p-md-5">
@@ -513,6 +512,7 @@
         const nextBtns = document.querySelectorAll(".next");
         const prevBtns = document.querySelectorAll(".prev");
         const progressBar = document.getElementById("progress-bar");
+        const progressText = document.getElementById("progress-text");
         let currentStep = 0;
 
         function showStep(step) {
@@ -520,7 +520,7 @@
                 s.classList.toggle("active", i === step);
             });
             progressBar.style.width = ((step + 1) / steps.length) * 100 + "%";
-            progressBar.innerText = `Tahap ${step + 1} dari ${steps.length}`;
+            progressText.innerText = `Tahap ${step + 1} dari ${steps.length}`;
         }
 
         function validateStep(stepIndex) {
