@@ -25,7 +25,7 @@
                         <td> {{ $user->email_number }} </td>
                         <td>{{ $user->name }} </td>
                         <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
-                        <td>{{ $user->roles->first()->name }}</td>
+                        <td>{{ $user->roles->first()?->name ?? '-' }}</td>
                     </tr>
                 @endforeach
             </tbody>

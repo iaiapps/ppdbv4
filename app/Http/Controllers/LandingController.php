@@ -34,8 +34,8 @@ class LandingController extends Controller
         // landing settings (bank, fee, heading, etc)
         $landing = Setting::where('type', 'landing')->pluck('value', 'name');
 
-        // primary whatsapp (first kontak)
-        $primaryWa = $contacts->first();
+        // primary whatsapp (kontak #2 = admin web)
+        $primaryWa = $contacts->skip(1)->first();
 
         // countdown
         $countdown = Setting::where('name', 'countdown')->first();

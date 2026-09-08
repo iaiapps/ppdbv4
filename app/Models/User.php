@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email_number',
         'password',
+        'branch',
     ];
 
     /**
@@ -52,5 +53,32 @@ class User extends Authenticatable
     public function document()
     {
         return $this->hasMany(Document::class);
+    }
+
+    public function getBranchLabelAttribute(): string
+    {
+        return match($this->branch) {
+            'sditharum_1' => 'SDIT Harapan Umat 1',
+            'sditharum_2' => 'SDIT Harapan Umat 2',
+            default => 'Belum Ditentukan',
+        };
+    }
+
+    public function getBranchShortAttribute(): string
+    {
+        return match($this->branch) {
+            'sditharum_1' => 'Harum 1',
+            'sditharum_2' => 'Harum 2',
+            default => '-',
+        };
+    }
+
+    public function getBranchBadgeClassAttribute(): string
+    {
+        return match($this->branch) {
+            'sditharum_1' => 'success',
+            'sditharum_2' => 'info',
+            default => 'secondary',
+        };
     }
 }

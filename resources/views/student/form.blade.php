@@ -10,8 +10,11 @@
                 <div class="text-md-end text-center">
                     <img src="{{ asset('/img/gbr.png') }}" class="img" alt="logoppdb" />
                     <p class="fs-3 my-4 text-white">
-                        Formulir Pendaftaran Siswa Baru SDIT Harapan Umat Jember
+                        Formulir Pendaftaran Siswa Baru
                     </p>
+                    <div class="badge bg-white text-orange fs-6 px-3 py-2">
+                        <i class="bi bi-building me-1"></i> {{ $user->branch_label }}
+                    </div>
                 </div>
                 <hr class="hr" />
                 <!-- Progress -->

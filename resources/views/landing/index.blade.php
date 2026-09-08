@@ -21,7 +21,7 @@
                 </h1>
 
                 <div class="cta-buttons animate__animated animate__zoomIn animate__fadeInDown pb-5">
-                    <a href="{{ url('register') }}" class="btn btn-orange btn-lg text-white">
+                    <a href="{{ route('branch.select') }}" class="btn btn-orange btn-lg text-white">
                         Daftar Sekarang
                     </a>
                     <a href="https://wa.me/62{{ $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939' }}"

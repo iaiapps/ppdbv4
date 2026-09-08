@@ -28,6 +28,13 @@ use App\Http\Controllers\FileServeController;
 Route::get('/', [LandingController::class, 'index'])->name('landing')->middleware('guest');
 
 Auth::routes();
+
+// Branch selection (before register) — only for guests
+Route::middleware('guest')->group(function () {
+    Route::get('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'show'])->name('branch.select');
+    Route::post('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'store'])->name('branch.store');
+});
+
 Route::middleware('auth')->group(function () {
     // file serve (secure)
     Route::get('file/{folder}/{filename}', [FileServeController::class, 'serve'])->name('file.serve');

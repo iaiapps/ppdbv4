@@ -8,6 +8,19 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
         <p class="fs-5 text-center">Data yang sudah mengisi Formulir Pendaftaran</p>
         <hr>
+
+        <div class="d-flex gap-2 mb-3">
+            <a href="{{ route('student.index') }}" class="btn btn-sm {{ !request('branch') || request('branch') === 'all' ? 'btn-primary' : 'btn-outline-primary' }}">
+                Semua
+            </a>
+            <a href="{{ route('student.index', ['branch' => 'sditharum_1']) }}" class="btn btn-sm {{ request('branch') === 'sditharum_1' ? 'btn-success' : 'btn-outline-success' }}">
+                Harum 1
+            </a>
+            <a href="{{ route('student.index', ['branch' => 'sditharum_2']) }}" class="btn btn-sm {{ request('branch') === 'sditharum_2' ? 'btn-info' : 'btn-outline-info' }}">
+                Harum 2
+            </a>
+        </div>
+
         <a href="{{ route('student.export') }}" class="btn btn-success btn-sm mb-3"> export data user</a>
         <a href="{{ route('student.card') }}" class="btn btn-success btn-sm mb-3"> print kartu peserta </a>
         <a href="{{ route('student.undur') }}" class="btn btn-secondary btn-sm mb-3"> peserta mengundurkan diri </a>
@@ -32,6 +45,9 @@
                             <span class="btn btn-sm btn-outline-primary py-0">
                                 {{ $student->gender }}
                             </span> <br>
+                            <span class="badge bg-{{ $student->user->branch_badge_class }} mt-1">
+                                {{ $student->user->branch_short }}
+                            </span>
                             <a href="{{ route('student.show', $student->id) }}"
                                 class="btn btn-primary btn-sm mt-1 py-0">detail</a>
                         </td>
@@ -39,7 +55,7 @@
                             ({{ $student->school_address }})
                         </td>
 
-                        <td>{{ $student->user->roles->first()->name }}</td>
+                        <td>{{ $student->user->roles->first()?->name ?? '-' }}</td>
                         <td>
                             <a onclick="return confirm('Apakah anda yakin untuk mengedit akun ini ?');"
                                 href="{{ route('student.edit', $student->id) }}"

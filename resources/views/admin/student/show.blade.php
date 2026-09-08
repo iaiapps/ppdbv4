@@ -56,6 +56,14 @@
                             <td>{{ $student->full_name }}</td>
                         </tr>
                         <tr>
+                            <td>Cabang</td>
+                            <td>
+                                <span class="badge bg-{{ $student->user->branch_badge_class }}">
+                                    {{ $student->user->branch_label }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Panggilan</td>
                             <td>{{ $student->nick_name }}</td>
                         </tr>

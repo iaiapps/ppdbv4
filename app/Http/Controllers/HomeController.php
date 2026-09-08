@@ -53,7 +53,7 @@ class HomeController extends Controller
         } elseif ($user->hasRole('akun_dibuat')) {
             $landing = Setting::where('type', 'landing')->pluck('value', 'name');
             $contacts = Setting::where('type', 'kontak')->get();
-            $primaryWa = $contacts->first();
+            $primaryWa = $contacts->skip(1)->first();
             return view('student.bridge', compact('user', 'landing', 'primaryWa'));
         } elseif ($user->hasRole('akun_aktif')) {
             return redirect()->route('student.create');

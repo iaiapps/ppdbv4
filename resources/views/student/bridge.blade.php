@@ -25,6 +25,9 @@
                     <div class="text-center">
                         <img class="logobridge rounded p-1 mb-2" src="{{ asset('img/user.png') }}" alt="user" />
                         <p class="fs-4 text-black"> Assalamualaikum, <strong>{{ $user->name }} </strong> </p>
+                        <div class="badge bg-orange text-white fs-6 px-3 py-2 mb-2">
+                            <i class="bi bi-building me-1"></i> {{ $user->branch_label }}
+                        </div>
                     </div>
                     <ul class="list-group mb-3">
                         <li class="list-group-item lh-med">

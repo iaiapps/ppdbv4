@@ -10,11 +10,18 @@
                     <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset('img/logoutama.svg') }}"
                         alt="logosdit" />
                     <h4>Buat Akun PPDB</h4>
+                    @if(session('branch_name'))
+                        <div class="alert alert-warning py-2 mb-3">
+                            <i class="bi bi-building me-1"></i> <strong>{{ session('branch_name') }}</strong>
+                            <a href="{{ route('branch.select') }}" class="ms-2 small text-decoration-underline">ganti</a>
+                        </div>
+                    @endif
                     <hr />
                 </div>
                 <div class="px-0 px-md-5">
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="branch" value="{{ session('branch', 'sditharum_1') }}">
                         {{-- name --}}
                         <div class="mb-3">
                             <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name"
@@ -28,7 +35,7 @@
                         {{-- number --}}
                         <div class="mb-3">
                             <input type="text" class="form-control  @error('email_number') is-invalid @enderror"
-                                name="email_number" placeholder="No Wa Aktif (cth: 085xxxx)" />
+                                name="email_number" placeholder="No Wa Aktif (cth: 085xxxx)" required />
                             @error('email_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -38,7 +45,7 @@
                         {{-- password --}}
                         <div class="form-group mb-3">
                             <input type="password" class="form-control  @error('password') is-invalid @enderror "
-                                name="password" placeholder="Password (min 8 karakter)" />
+                                name="password" placeholder="Password (min 8 karakter)" required />
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +56,7 @@
                         <div class="form-group mb-3">
                             <input type="password"
                                 class="form-control  @error('password_confirmation') is-invalid @enderror"
-                                name="password_confirmation" placeholder="Ulangi Password" />
+                                name="password_confirmation" placeholder="Ulangi Password" required />
                             @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

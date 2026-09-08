@@ -19,9 +19,17 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::with(['user', 'costCategory', 'document', 'payment'])->get();
+        $query = Student::with(['user', 'costCategory', 'document', 'payment']);
+
+        if ($request->has('branch') && $request->branch !== 'all') {
+            $query->whereHas('user', function ($q) use ($request) {
+                $q->where('branch', $request->branch);
+            });
+        }
+
+        $students = $query->get();
         return view('admin.student.index', compact('students'));
     }
 
@@ -38,7 +46,9 @@ class StudentController extends Controller
             $showPopup = false;
         }
 
-        return view('student.form', compact('showPopup'));
+        $user = Auth::user();
+
+        return view('student.form', compact('showPopup', 'user'));
     }
 
     /**
@@ -69,6 +79,7 @@ class StudentController extends Controller
             // ✅ Ambil data dari validasi
             $data = $validated;
             $data['user_id'] = $id;
+            $data['branch'] = $user->branch; // Copy branch dari User
             unset($data['document']);
 
             Student::updateOrCreate(
@@ -93,7 +104,8 @@ class StudentController extends Controller
 
             return redirect()->route('student.home')->with('success', 'Data berhasil disimpan');
         } catch (\Exception $e) {
-            return back()->with('error', 'Ada formulir yang belum terisi ');
+            \Log::error('Student store failed for user ' . $id . ': ' . $e->getMessage());
+            return back()->with('error', 'Terjadi kesalahan saat menyimpan data');
         }
     }
 

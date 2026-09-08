@@ -34,7 +34,7 @@
                         <td>{{ $user->created_at->isoFormat('DD/MM/YY') }} </td>
 
                         <td>{{ $user->email_number }}</td>
-                        <td>{{ $user->roles->first()->name }}</td>
+                        <td>{{ $user->roles->first()?->name ?? '-' }}</td>
                         <td>
 
                             <form class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"

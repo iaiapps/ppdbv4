@@ -40,6 +40,9 @@
                         @endphp
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $user->name }} <br>
+                            <span class="badge bg-{{ $user->branch_badge_class }} mt-1">
+                                {{ $user->branch_short }}
+                            </span>
                             @desktop
                                 <a href="https://web.whatsapp.com/send/?phone={{ $phone }}" target="_blank"
                                     class="btn btn-success btn-sm mt-1"> hubungi</a>
@@ -60,7 +63,7 @@
                                     class="btn btn-success btn-sm mt-1"> notif</a>
                             @enddesktop
                         </td>
-                        <td>{{ $user->roles->first()->name }}</td>
+                        <td>{{ $user->roles->first()?->name ?? '-' }}</td>
                         <td>
                             {!! $user->document->where('type', 'upload_pembayaran')->first()
                                 ? $user->document->where('type', 'upload_pembayaran')->first()->created_at->isoFormat('DD/MM/YY - HH:mm')

@@ -36,6 +36,14 @@ return new class extends Migration
         Schema::table('payments', function (Blueprint $table) {
             $table->index('student_id');
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->index('branch');
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->index('branch');
+        });
     }
 
     /**
@@ -61,6 +69,14 @@ return new class extends Migration
 
         Schema::table('payments', function (Blueprint $table) {
             $table->dropIndex(['student_id']);
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropIndex(['branch']);
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropIndex(['branch']);
         });
     }
 };
