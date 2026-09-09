@@ -129,20 +129,59 @@
                                     <option>Autis</option>
                                 </select>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Pertanyaan Khusus</label>
+                                <div class="card border-orange">
+                                    <div class="card-body">
+                                        @php
+                                            $questions = [
+                                                'is_hyperactive' =>
+                                                    'Apakah ananda termasuk anak yang terlalu aktif tidak bisa duduk tenang dan perhatian sangat mudah teralih?',
+                                                'is_difficult_focus' => 'Apakah ananda termasuk anak yang sulit fokus?',
+                                                'is_impulse_control' =>
+                                                    'Apakah ananda memiliki kesulitan dalam mengontrol impuls (suka memukul, merebut, tidak mau antri)?',
+                                                'is_extreme_tantrum' =>
+                                                    'Apakah ananda memiliki tantrum yang ekstrim (mudah frustasi saat menghadapi rutinitas kecil)?',
+                                                'needs_shadow_teacher' =>
+                                                    'Apakah ananda membutuhkan shadow teacher atau guru pendamping khusus dalam pembelajaran?',
+                                            ];
+                                        @endphp
+                                        @foreach ($questions as $field => $label)
+                                            <div class="mb-3">
+                                                <label class="form-label">{{ $label }}</label>
+                                                <select class="form-select" name="{{ $field }}">
+                                                    <option selected>{{ $student->$field }}</option>
+                                                    <hr>
+                                                    <option value="Ya">Ya</option>
+                                                    <option value="Tidak">Tidak</option>
+                                                </select>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="mb-3">
                                 <label class="form-label" for="saudara_kandung_di_sdit">
-                                    Jumlah saudara kandung yang masih sekolah di SDIT Harum Jember
+                                    Saudara kandung di SDIT Harum Jember
                                 </label>
-                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit">
+                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit" onchange="toggleSiblingFields(this)">
                                     <option selected>{{ $student->saudara_kandung_di_sdit }}</option>
                                     <hr>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="Ya">Ya</option>
+                                    <option value="Tidak">Tidak</option>
                                 </select>
+                            </div>
+                            <div id="sibling-fields" class="{{ $student->saudara_kandung_di_sdit === 'Ya' ? '' : 'd-none' }}">
+                                <div class="mb-3">
+                                    <label class="form-label">Berapa jumlahnya?</label>
+                                    <input type="number" class="form-control" name="saudara_count" value="{{ $student->saudara_count }}" min="1" max="10" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Siapa namanya?</label>
+                                    <input type="text" class="form-control" name="saudara_names" value="{{ $student->saudara_names }}" placeholder="Nama saudara (opsional)" />
+                                </div>
                             </div>
                             <hr />
                             <div class="mb-3">
@@ -359,4 +398,17 @@
             }
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        function toggleSiblingFields(select) {
+            const fields = document.getElementById('sibling-fields');
+            if (select.value === 'Ya') {
+                fields.classList.remove('d-none');
+            } else {
+                fields.classList.add('d-none');
+            }
+        }
+    </script>
 @endpush

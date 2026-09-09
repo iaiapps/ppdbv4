@@ -21,7 +21,7 @@
                 <div class="progress mt-4">
                     <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 25%"></div>
                 </div>
-                <p id="progress-text" class="text-white text-center mt-2 mb-0">Tahap 1 dari 5</p>
+                <p id="progress-text" class="text-white text-center mt-2 mb-0">Tahap 1 dari 6</p>
             </div>
 
             <div class="col-12 col-md-8 p-3 p-md-5">
@@ -82,29 +82,28 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="school_origin">Asal TK</label>
                                         <input class="form-control" id="school_origin" name="school_origin" type="text"
                                             required />
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="school_address">Alamat TK</label>
-                                        <input class="form-control" id="school_address" name="school_address" type="text"
-                                            required />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="school_nisn">NISN TK</label>
                                         <input class="form-control" id="school_nisn" name="school_nisn" type="text"
                                             placeholder="Diisi jika memiliki NISN di TK" />
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="school_address">Alamat TK</label>
+                                        <input class="form-control" id="school_address" name="school_address" type="text"
+                                            required />
+                                    </div>
+                                </div>
                             </div>
-
 
                             <div class="mb-3">
                                 <label class="form-label" for="gender">Jenis Kelamin</label>
@@ -133,44 +132,117 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="special_needs">Berkebutuhan Khusus</label>
-                                <select class="form-select" id="special_needs" name="special_needs">
+                                <label class="form-label" for="saudara_kandung_di_sdit">
+                                    Apakah ananda memiliki saudara kandung yang masih sekolah di SDIT Harum Jember pada
+                                    @if ($jadwal)
+                                        tahun ajaran {{ $jadwal->value }}
+                                    @endif
+                                    ?
+                                </label>
+                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit"
+                                    onchange="toggleSiblingFields(this)">
                                     <option selected disabled>--- pilih ---</option>
-                                    <option>Tidak</option>
-                                    <option>Netra</option>
-                                    <option>Rungu</option>
-                                    <option>Grahita ringan</option>
-                                    <option>Grahita sedang</option>
-                                    <option>Daksa ringan</option>
-                                    <option>Daksa sedang</option>
-                                    <option>Laras</option>
-                                    <option>Wicara</option>
-                                    <option>Tuna Ganda</option>
-                                    <option>Hiperaktif</option>
-                                    <option>Cerdas Istimewa</option>
-                                    <option>Bakat Istimewa</option>
-                                    <option>Kesulitan Belajar</option>
-                                    <option>Indigo</option>
-                                    <option>Down Syndrome</option>
-                                    <option>Autis</option>
+                                    <option value="Ya">Ya</option>
+                                    <option value="Tidak">Tidak</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="saudara_kandung_di_sdit">
-                                    Jumlah saudara kandung yang masih sekolah di SDIT Harum Jember
-                                </label>
-                                <select class="form-select" id="saudara_kandung_di_sdit" name="saudara_kandung_di_sdit">
-                                    <option selected disabled>--- pilih ---</option>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+
+                            <div id="sibling-fields" class="d-none">
+                                <div class="mb-3">
+                                    <label class="form-label">Berapa jumlahnya?</label>
+                                    <input type="number" class="form-control" name="saudara_count" min="1"
+                                        max="10" placeholder="Jumlah saudara" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Siapa namanya? (Jika tidak ada, kosongi. Jika lebih dari
+                                        satu,
+                                        pisahkan dengan koma)</label>
+                                    <input type="text" class="form-control" name="saudara_names"
+                                        placeholder="Nama saudara (opsional)" />
+                                </div>
                             </div>
                         </div>
                         <div class="w-100 mt-3">
+                            <button type="button" class="btn btn-orange next w-25 float-end">Lanjut</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="step active">
+                        <div class="form-card">
+                            <p class="fs-4">Pertanyaan Khusus</p>
+                            <div class="card border-orange">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Apakah ananda termasuk Anak Berkebutuhan Khusus?</label>
+                                        <select class="form-select" name="special_needs" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option>Tidak</option>
+                                            <option>Netra</option>
+                                            <option>Rungu</option>
+                                            <option>Grahita ringan</option>
+                                            <option>Grahita sedang</option>
+                                            <option>Daksa ringan</option>
+                                            <option>Daksa sedang</option>
+                                            <option>Laras</option>
+                                            <option>Wicara</option>
+                                            <option>Tuna Ganda</option>
+                                            <option>Hiperaktif</option>
+                                            <option>Cerdas Istimewa</option>
+                                            <option>Bakat Istimewa</option>
+                                            <option>Kesulitan Belajar</option>
+                                            <option>Indigo</option>
+                                            <option>Down Syndrome</option>
+                                            <option>Autis</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Apakah ananda termasuk anak yang terlalu aktif tidak bisa
+                                            duduk tenang dan perhatian sangat mudah teralih?</label>
+                                        <select class="form-select" name="is_hyperactive" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option value="Ya">Ya</option>
+                                            <option value="Tidak">Tidak</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Apakah ananda termasuk anak yang sulit fokus?</label>
+                                        <select class="form-select" name="is_difficult_focus" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option value="Ya">Ya</option>
+                                            <option value="Tidak">Tidak</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Apakah ananda memiliki kesulitan dalam mengontrol impuls
+                                            (suka memukul, merebut, tidak mau antri)?</label>
+                                        <select class="form-select" name="is_impulse_control" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option value="Ya">Ya</option>
+                                            <option value="Tidak">Tidak</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Apakah ananda memiliki tantrum yang ekstrim (mudah
+                                            frustasi saat menghadapi rutinitas kecil)?</label>
+                                        <select class="form-select" name="is_extreme_tantrum" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option value="Ya">Ya</option>
+                                            <option value="Tidak">Tidak</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-0">
+                                        <label class="form-label">Apakah ananda membutuhkan shadow teacher atau guru
+                                            pendamping khusus dalam pembelajaran?</label>
+                                        <select class="form-select" name="needs_shadow_teacher" required>
+                                            <option selected disabled>--- pilih ---</option>
+                                            <option value="Ya">Ya</option>
+                                            <option value="Tidak">Tidak</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mt-3">
+                            <button type="button" class="btn btn-orange prev w-25 float-start">Kembali</button>
                             <button type="button" class="btn btn-orange next w-25 float-end">Lanjut</button>
                         </div>
                     </fieldset>
@@ -595,5 +667,14 @@
                 container.classList.add("d-none");
             }
         });
+
+        function toggleSiblingFields(select) {
+            const fields = document.getElementById('sibling-fields');
+            if (select.value === 'Ya') {
+                fields.classList.remove('d-none');
+            } else {
+                fields.classList.add('d-none');
+            }
+        }
     </script>
 @endpush

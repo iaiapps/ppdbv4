@@ -47,8 +47,9 @@ class StudentController extends Controller
         }
 
         $user = Auth::user();
+        $jadwal = \App\Models\Setting::where('name', 'jadwal')->first();
 
-        return view('student.form', compact('showPopup', 'user'));
+        return view('student.form', compact('showPopup', 'user', 'jadwal'));
     }
 
     /**
@@ -69,10 +70,38 @@ class StudentController extends Controller
                 'nik'         => 'required|string|max:20',
                 'kk'          => 'required|string|max:20',
                 'school_origin' => 'required|string|max:255',
+                'school_address' => 'nullable|string|max:255',
+                'school_nisn' => 'nullable|string|max:20',
                 'gender'      => 'required|string',
                 'place_birth' => 'required|string|max:100',
                 'date_birth'  => 'required|date',
-                // dst field student...
+                'special_needs' => 'nullable|string',
+                'is_hyperactive' => 'required|string|in:Ya,Tidak',
+                'is_difficult_focus' => 'required|string|in:Ya,Tidak',
+                'is_impulse_control' => 'required|string|in:Ya,Tidak',
+                'is_extreme_tantrum' => 'required|string|in:Ya,Tidak',
+                'needs_shadow_teacher' => 'required|string|in:Ya,Tidak',
+                'saudara_kandung_di_sdit' => 'required|string|in:Ya,Tidak',
+                'saudara_count' => 'nullable|integer|min:1|max:10',
+                'saudara_names' => 'nullable|string|max:255',
+                'living'      => 'nullable|string|max:100',
+                'address'     => 'nullable|string',
+                'rtrw'        => 'nullable|string|max:20',
+                'postalcode'  => 'nullable|string|max:10',
+                'desa'        => 'nullable|string|max:100',
+                'kecamatan'   => 'nullable|string|max:100',
+                'kota'        => 'nullable|string|max:100',
+                'provinsi'    => 'nullable|string|max:100',
+                'dad'         => 'nullable|string|max:255',
+                'dad_edu'     => 'nullable|string|max:100',
+                'dad_occupation' => 'nullable|string|max:100',
+                'dad_income'  => 'nullable|string|max:100',
+                'dad_phone'   => 'nullable|string|max:20',
+                'mom'         => 'nullable|string|max:255',
+                'mom_edu'     => 'nullable|string|max:100',
+                'mom_occupation' => 'nullable|string|max:100',
+                'mom_income'  => 'nullable|string|max:100',
+                'mom_phone'   => 'nullable|string|max:20',
                 'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
             ]);
 
@@ -138,17 +167,27 @@ class StudentController extends Controller
             'nik'         => 'required|string|max:20',
             'kk'          => 'required|string|max:20',
             'school_origin' => 'required|string|max:255',
+            'school_address' => 'nullable|string|max:255',
+            'school_nisn' => 'nullable|string|max:20',
             'gender'      => 'required|string',
             'place_birth' => 'required|string|max:100',
             'date_birth'  => 'required|date',
             'address'     => 'nullable|string',
             'rtrw'        => 'nullable|string|max:20',
+            'postalcode'  => 'nullable|string|max:10',
             'desa'        => 'nullable|string|max:100',
             'kecamatan'   => 'nullable|string|max:100',
             'kota'        => 'nullable|string|max:100',
             'provinsi'    => 'nullable|string|max:100',
             'special_needs' => 'nullable|string|max:255',
-            'saudara_kandung_di_sdit' => 'nullable|integer',
+            'is_hyperactive' => 'nullable|string|in:Ya,Tidak',
+            'is_difficult_focus' => 'nullable|string|in:Ya,Tidak',
+            'is_impulse_control' => 'nullable|string|in:Ya,Tidak',
+            'is_extreme_tantrum' => 'nullable|string|in:Ya,Tidak',
+            'needs_shadow_teacher' => 'nullable|string|in:Ya,Tidak',
+            'saudara_kandung_di_sdit' => 'nullable|string|in:Ya,Tidak',
+            'saudara_count' => 'nullable|integer|min:1|max:10',
+            'saudara_names' => 'nullable|string|max:255',
             'living'      => 'nullable|string|max:100',
             'dad'         => 'nullable|string|max:255',
             'dad_edu'     => 'nullable|string|max:100',

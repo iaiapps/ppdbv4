@@ -28,7 +28,14 @@ return new class extends Migration
             $table->string('place_birth')->nullable();
             $table->string('date_birth')->nullable();
             $table->string('special_needs')->nullable();
+            $table->string('is_hyperactive')->nullable()->default('Tidak');
+            $table->string('is_difficult_focus')->nullable()->default('Tidak');
+            $table->string('is_impulse_control')->nullable()->default('Tidak');
+            $table->string('is_extreme_tantrum')->nullable()->default('Tidak');
+            $table->string('needs_shadow_teacher')->nullable()->default('Tidak');
             $table->string('saudara_kandung_di_sdit')->nullable();
+            $table->integer('saudara_count')->nullable();
+            $table->string('saudara_names')->nullable();
             $table->string('living')->nullable();
             $table->string('address')->nullable();
             $table->string('rtrw')->nullable();

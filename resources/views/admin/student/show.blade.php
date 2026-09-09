@@ -98,13 +98,43 @@
                                 {{ $student->kecamatan }} {{ $student->kota }} {{ $student->provinsi }}</td>
                         </tr>
                         <tr>
-                            <td>Kebutuhan Khusus</td>
+                            <td>Anak Berkebutuhan Khusus</td>
                             <td>{{ $student->special_needs }}</td>
                         </tr>
                         <tr>
-                            <td>Jumlah saudara kandung yang masih sekolah di SDIT Harum Jember</td>
+                            <td>Terlalu aktif / sulit duduk tenang</td>
+                            <td>{{ $student->is_hyperactive }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sulit fokus</td>
+                            <td>{{ $student->is_difficult_focus }}</td>
+                        </tr>
+                        <tr>
+                            <td>Kesulitan mengontrol impuls</td>
+                            <td>{{ $student->is_impulse_control }}</td>
+                        </tr>
+                        <tr>
+                            <td>Tantrum ekstrim</td>
+                            <td>{{ $student->is_extreme_tantrum }}</td>
+                        </tr>
+                        <tr>
+                            <td>Membutuhkan shadow teacher</td>
+                            <td>{{ $student->needs_shadow_teacher }}</td>
+                        </tr>
+                        <tr>
+                            <td>Saudara kandung di SDIT</td>
                             <td>{{ $student->saudara_kandung_di_sdit }}</td>
                         </tr>
+                        @if ($student->saudara_kandung_di_sdit === 'Ya')
+                            <tr>
+                                <td>Jumlah saudara</td>
+                                <td>{{ $student->saudara_count }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama saudara</td>
+                                <td>{{ $student->saudara_names ?: '-' }}</td>
+                            </tr>
+                        @endif
                         <tr>
                             <td>Tinggal bersama</td>
                             <td>{{ $student->living }}</td>
