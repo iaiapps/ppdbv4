@@ -41,7 +41,7 @@
 <div class="bg-white p-2 rounded menu">
     <div class="text-center">
         @php
-            $sideLogo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg';
+            $sideLogo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : (Auth::user()->branch ? 'img/logoutama.svg' : 'img/logoppdb.svg');
         @endphp
         <img class="logosdit" src="{{ asset($sideLogo) }}" alt="logo" />
     </div>

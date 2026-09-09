@@ -19,11 +19,10 @@
                     @php
                         $logo = 'img/logoutama.svg';
                         if (Auth::check()) {
-                            $logo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg';
+                            $logo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : (Auth::user()->branch ? 'img/logoutama.svg' : 'img/logoppdb.svg');
                         }
                     @endphp
-                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset($logo) }}"
-                        alt="logosdit" />
+                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset($logo) }}" alt="logosdit" />
                     <p class="fs-3 mb-0">Login Website SPMB {{ session('branch_name', 'SDIT Harapan Umat Jember') }}</p>
                     <hr class="mb-2">
                     <!-- <h1>ADMIN PPDB</h1> -->

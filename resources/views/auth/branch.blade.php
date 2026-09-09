@@ -48,7 +48,7 @@
                                     <img class="border rounded-circle" src="{{ asset('img/harum2.jpg') }}" alt="logo"
                                         style="width: 80px;">
                                 </div>
-                                <h5 class="fw-bold">HARAPAN UMAT - Nature and Bilingual Class Program</h5>
+                                <h5 class="fw-bold">HARAPAN UMAT - Nature and Bilingual School</h5>
                                 <p class="text-muted mb-3">
                                     <i class="bi bi-geo-alt me-1"></i> Jl. Parang tritis Rt 01, Rw 07 lingkungan Pelinggian
                                     Antirogo Jember

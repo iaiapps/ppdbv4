@@ -2,10 +2,7 @@
 <nav id="nav" class="navbar navbar-expand-lg navbar-white bg-white py-1 fs-5 sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('landing') }}">
-            @php
-                $headerLogo = session('branch', 'sditharum_1') === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg';
-            @endphp
-            <img src="{{ asset($headerLogo) }}" alt="logoppdb" class="imglogo" />
+            <img src="{{ asset('img/logoppdb.svg') }}" alt="logoppdb" class="imglogo" />
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

@@ -34,6 +34,18 @@ class HomeController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
 
+        // Set session branch dari User model (hanya untuk user yang punya branch)
+        $branches = [
+            'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',
+            'sditharum_2' => 'HARAPAN UMAT - Nature and Bilingual Class Program',
+        ];
+        if ($user->branch) {
+            session(['branch' => $user->branch]);
+            session(['branch_name' => $branches[$user->branch] ?? 'SDIT HARAPAN UMAT JEMBER']);
+        } else {
+            session()->forget(['branch', 'branch_name']);
+        }
+
         //jika pakai spatie
         $total = User::where('name', '!=', 'admin')->get();
         $akun_dibuat = User::role('akun_dibuat')->get();

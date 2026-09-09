@@ -28,16 +28,21 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        @php
-                            $message = urlencode("Assalamualaikum wr wb
+                    @php
+                        $branchName = $user->branch_label;
+                        $message = $user->branch
+                            ? urlencode("Assalamualaikum wr wb
 
-❇️ Terimakasih telah memilih {$user->branch_label} sebagai partner dalam membersamai setiap tahapan pendidikan ananda.
+❇️ Terimakasih telah memilih {$branchName} sebagai partner dalam membersamai setiap tahapan pendidikan ananda.
 
 ✅ Akun ananda sudah *\"Aktif\"* silahkan melanjutkan Proses *Pengisian Formulir* di web http://spmb.sditharum.id
 
-❇️ Semoga ananda menjadi anak shalih shalihah. Aamiin.");
-                            $phone = '628' . substr($user->email_number, 2);
-                        @endphp
+❇️ Semoga ananda menjadi anak shalih shalihah. Aamiin.")
+                            : urlencode("Assalamualaikum wr wb
+
+✅ Akun Anda sudah *\"Aktif\"* silahkan login di web http://spmb.sditharum.id");
+                        $phone = '628' . substr($user->email_number, 2);
+                    @endphp
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $user->name }} <br>
                             <span class="badge bg-{{ $user->branch_badge_class }} mt-1">
