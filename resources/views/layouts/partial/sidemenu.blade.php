@@ -23,7 +23,10 @@
             'November' => 'November',
             'Desember' => 'December',
         ];
-        $tanggalInggris = strtr($timeline->date, $mapBulan);
+        $dateStr = $timeline->date;
+        $dateStr = preg_replace('/^[A-Za-z]+,\s*/', '', $dateStr);
+        $dateStr = preg_replace('/\s*(WIB|WITA|WIT)\s*$/', '', $dateStr);
+        $tanggalInggris = strtr($dateStr, $mapBulan);
         $pengumuman = Carbon::parse($tanggalInggris);
 
         if ($today->lt($pengumuman)) {
@@ -40,10 +43,11 @@
 
 <div class="bg-white p-2 rounded menu">
     <div class="text-center">
-        @php
-            $sideLogo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : (Auth::user()->branch ? 'img/logoutama.svg' : 'img/logoppdb.svg');
-        @endphp
-        <img class="logosdit" src="{{ asset($sideLogo) }}" alt="logo" />
+        @if (Auth::user()->branch)
+            <img class="logosdit" src="{{ asset(Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg') }}" alt="logo" />
+        @else
+            <img class="logosdit" src="{{ asset('img/logoutama.svg') }}" alt="logo" />
+        @endif
     </div>
     <p class="text-center mt-2 py-1 text-capitalize ">
         {{ Auth::user()->name }}

@@ -92,7 +92,10 @@ class HomeController extends Controller
             'Desember' => 'December',
         ];
 
-        $tanggalInggris = strtr($tanggal, $mapBulan);
+        $dateStr = $tanggal;
+        $dateStr = preg_replace('/^[A-Za-z]+,\s*/', '', $dateStr);
+        $dateStr = preg_replace('/\s*(WIB|WITA|WIT)\s*$/', '', $dateStr);
+        $tanggalInggris = strtr($dateStr, $mapBulan);
         return Carbon::parse($tanggalInggris);
     }
 

@@ -327,8 +327,20 @@ class StudentController extends Controller
         $user = Auth::user();
         $timeline = Timeline::where('name', 'Pengumuman Hasil SPMB')->first();
 
-        // Tanggal dari database sudah format Y-m-d H:i:s
-        $tanggal_pengumuman = Carbon::parse($timeline->date);
+        // Tanggal dari database format Indonesia, convert ke English dulu
+        $indonesianMonths = [
+            'Januari' => 'January', 'Februari' => 'February', 'Maret' => 'March',
+            'April' => 'April', 'Mei' => 'May', 'Juni' => 'June',
+            'Juli' => 'July', 'Agustus' => 'August', 'September' => 'September',
+            'Oktober' => 'October', 'November' => 'November', 'Desember' => 'December',
+        ];
+        $dateStr = $timeline->date;
+        // Hapus nama hari di awal (Jumat, Senin, dll)
+        $dateStr = preg_replace('/^[A-Za-z]+,\s*/', '', $dateStr);
+        // Hapus WIB/WITA di akhir
+        $dateStr = preg_replace('/\s*(WIB|WITA|WIT)\s*$/', '', $dateStr);
+        $englishDate = strtr($dateStr, $indonesianMonths);
+        $tanggal_pengumuman = Carbon::parse($englishDate);
         $today = Carbon::now();
 
         // Format untuk tampilan di view (ke format Indonesia)

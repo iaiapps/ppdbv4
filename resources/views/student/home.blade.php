@@ -24,7 +24,7 @@
                         </p>
                         <h5 class="text-primary mb-0">{{ $pengumuman }}</h5>
 
-                        @if ($today->lt($pengumuman))
+                        @if ($today->lt($tanggal_pengumuman))
                             <div class="mt-2">
                                 <div class="d-flex align-items-center text-warning">
                                     <div>
@@ -50,7 +50,7 @@
 
 
     <!-- Konten utama berdasarkan waktu dan role -->
-    @if ($today->lt($pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
+    @if ($today->lt($tanggal_pengumuman) || Auth::user()->hasRole('akun_isi_formulir'))
         <div class="bg-white rounded p-3 mb-3 text-center shadow-sm">
             <p class="mb-2">Status PPDB</p>
             <p class="my-1 text-white bg-secondary p-2 rounded fs-5 fw-bold">

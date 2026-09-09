@@ -1,4 +1,4 @@
-    @include('landing.up')
+    {{-- @include('landing.up') --}}
     @php
         use App\Models\Setting;
         $contacts = Setting::where('type', 'kontak')->get();
@@ -8,7 +8,12 @@
     <nav class="row py-2 gx-0 px-3 px-md-4 bg-white">
         <div class="col-6">
             @php
-                $navLogo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : (Auth::user()->branch ? 'img/logoutama.svg' : 'img/logoppdb.svg');
+                $navLogo =
+                    Auth::user()->branch === 'sditharum_2'
+                        ? 'img/harum2.jpg'
+                        : (Auth::user()->branch
+                            ? 'img/logoutama.svg'
+                            : 'img/logoppdb.svg');
             @endphp
             <img src="{{ asset($navLogo) }}" alt="logoppdb" class="logonav" />
         </div>
