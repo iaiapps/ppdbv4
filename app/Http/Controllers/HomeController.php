@@ -34,6 +34,21 @@ class HomeController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
 
+        // Countdown check — non-admin users see countdown page
+        if (!$user->hasRole('admin')) {
+            $countdown = Setting::where('name', 'countdown')->first();
+            if ($countdown && $countdown->value) {
+                $countdownDate = Carbon::parse($countdown->value);
+                if (now()->lt($countdownDate)) {
+                    $tagline = Setting::where('name', 'tagline')->first();
+                    $landing = Setting::where('type', 'landing')->pluck('value', 'name');
+                    $contacts = Setting::where('type', 'kontak')->get();
+                    $primaryWa = $contacts->skip(1)->first();
+                    return view('landing.countdown', compact('countdownDate', 'tagline', 'landing', 'primaryWa'));
+                }
+            }
+        }
+
         // Set session branch dari User model (hanya untuk user yang punya branch)
         $branches = [
             'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',

@@ -29,8 +29,8 @@ Route::get('/', [LandingController::class, 'index'])->name('landing')->middlewar
 
 Auth::routes();
 
-// Branch selection (before register) — only for guests
-Route::middleware('guest')->group(function () {
+// Branch selection (before register) — only for guests, blocked during countdown
+Route::middleware(['guest', 'countdown'])->group(function () {
     Route::get('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'show'])->name('branch.select');
     Route::post('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'store'])->name('branch.store');
     Route::get('/harum2-detail', function () {

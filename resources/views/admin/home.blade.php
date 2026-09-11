@@ -24,7 +24,7 @@
                 <div class="d-flex justify-content-between border-0 bg-secondary">
                     <div class="bg-radiant2 text-white p-3 d-flex align-items-center justify-content-center">
                         <span class="display-5 px-2">
-                            {{ $total->count() }}
+                            {{ $total }}
                         </span>
                     </div>
                     <div class="text-white p-3 text-end">
@@ -39,8 +39,8 @@
                     <div class="bg-radiant2 text-white p-3 d-flex align-items-center justify-content-center">
                         <span class="display-5 px-2">
                             @php
-                                $aktif = $akun_aktif->count();
-                                $form = $akun_isi_formulir->count();
+                                $aktif = $akun_aktif;
+                                $form = $akun_isi_formulir;
                             @endphp
                             {{ $aktif + $form }}
                         </span>
@@ -60,7 +60,7 @@
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-radiant2 text-white p-2">
                         <span class="display-5 px-3 ">
-                            {{ $akun_isi_formulir->count() }}
+                            {{ $akun_isi_formulir }}
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">
@@ -72,7 +72,7 @@
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-radiant2 text-white p-2">
                         <span class="display-5 px-3 ">
-                            {{ $akun_diterima->count() }}
+                            {{ $akun_diterima }}
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">
@@ -84,7 +84,7 @@
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-radiant2 text-white p-2">
                         <span class="display-5 px-3 ">
-                            {{ $akun_ditolak->count() }}
+                            {{ $akun_ditolak }}
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">
@@ -101,7 +101,7 @@
                 <div class="d-block border-0 bg-secondary card h-100">
                     <div class="float-start bg-radiant2 text-white p-2">
                         <span class="display-5 px-3 ">
-                            {{ $akun_mengundurkan_diri->count() }}
+                            {{ $akun_mengundurkan_diri }}
                         </span>
                     </div>
                     <div class="float-end text-white py-2 px-3 d-flex h-100 align-items-center">
