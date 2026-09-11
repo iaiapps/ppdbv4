@@ -11,10 +11,9 @@
                         $branch = session('branch', 'sditharum_1');
                         $logo = $branch === 'sditharum_2' ? 'img/harum2.jpg' : 'img/logoutama.svg';
                     @endphp
-                    <img class="logo rounded-circle bg-orange p-1 mb-3" src="{{ asset($logo) }}"
-                        alt="logosdit" />
+                    <img class="logo p-1 mb-3" src="{{ asset($logo) }}" alt="logosdit" />
                     <h4>Buat Akun PPDB</h4>
-                    @if(session('branch_name'))
+                    @if (session('branch_name'))
                         <div class="alert alert-warning py-2 mb-3">
                             <i class="bi bi-building me-1"></i> <strong>{{ session('branch_name') }}</strong>
                             <a href="{{ route('branch.select') }}" class="ms-2 small text-decoration-underline">ganti</a>
@@ -83,7 +82,7 @@
 @push('css')
     <style>
         .logo {
-            width: 80px;
+            height: 80px;
         }
 
         .pattern {

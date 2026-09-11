@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Detail HARAPAN UMAT - Nature Bilingual School')
+@section('title', 'HARAPAN UMAT - Nature Bilingual School')
 
 @section('content')
     @include('landing.up')
@@ -28,16 +28,16 @@
                     <div class="hero-quote">
                         <blockquote class="blockquote">
                             <p class="fst-italic text-white mb-2">
-                                "Bertumbuh Bersama Alam, Menebar Manfaat untuk Semesta"
+                                "Growing with Nature Blessing the World"
                             </p>
                         </blockquote>
                     </div>
                     <div class="d-flex gap-3 mt-4">
                         <a href="{{ route('branch.select') }}" class="btn btn-light btn-lg px-4 shadow">
-                            <i class="bi bi-arrow-left me-1"></i> Pilih Cabang
+                            <i class="bi bi-arrow-left me-1"></i> Choose Another Branch
                         </a>
                         <a href="#vision" class="btn btn-outline-light btn-lg px-4">
-                            <i class="bi bi-arrow-down me-1"></i> Jelajahi
+                            <i class="bi bi-arrow-down me-1"></i> Explore
                         </a>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     <div class="vision-card text-center p-5 rounded-4">
 
                         <h2 class="vision-heading mb-3">
-                            "Growing the awareness to lead oneself and nature to build the future and civilization"
+                            "Cultivating self-leadership and ecological awareness to shape the future and civilization."
                         </h2>
                         <div class="vision-divider"></div>
                         <p class="vision-label mt-3 mb-0">School Vision</p>
@@ -89,7 +89,7 @@
             <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
                 <span class="section-tag">What We Offer</span>
                 <h3 class="fw-bold">Flagship Programs</h3>
-                <p class="text-muted">Program unggulan yang membedakan kami</p>
+                <p class="text-muted">Our signature programs that set us apart</p>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
@@ -97,9 +97,9 @@
                         <div class="program-card-icon mx-auto mb-3">
                             <i class="bi bi-book-half"></i>
                         </div>
-                        <h5 class="fw-bold mb-2">Tahfidz Quran</h5>
-                        <p class="text-muted mb-3">Hafalan Juz 29 & 30 dengan pendampingan intensif</p>
-                        <div class="program-card-tag">Juz 29/30</div>
+                        <h5 class="fw-bold mb-2">Tahfidz & Tahsin Quran</h5>
+                        <p class="text-muted mb-3">Memorize Juz 1 or 2 and get a tahsin certification</p>
+                        <div class="program-card-tag">Wafa/IWR</div>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
@@ -107,9 +107,10 @@
                         <div class="program-card-icon mx-auto mb-3">
                             <i class="bi bi-check2-circle"></i>
                         </div>
-                        <h5 class="fw-bold mb-2">Tahsin</h5>
-                        <p class="text-muted mb-3">Perbaikan bacaan Al-Quran pasca Munaqasyah</p>
-                        <div class="program-card-tag">Pasca Munaqasyah</div>
+                        <h5 class="fw-bold mb-2">Nature Learning </h5>
+                        <p class="text-muted mb-3">Turning the environment into a living classroom for hands-on exploration
+                            and sustainability</p>
+                        <div class="program-card-tag">JSAN</div>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
@@ -212,25 +213,25 @@
                         [
                             'icon' => 'bi-book',
                             'title' => 'Lifelong Learner',
-                            'desc' => 'Resilient & Eager to Learn',
+                            'desc' => 'Resilient & Curious',
                             'delay' => '100',
                         ],
                         [
                             'icon' => 'bi-person-check',
-                            'title' => 'Independent',
-                            'desc' => 'Independent & Productive',
+                            'title' => 'Independent & Productive',
+                            'desc' => 'Discovering Personal Talents',
                             'delay' => '150',
                         ],
                         [
                             'icon' => 'bi-hand-thumbs-up',
-                            'title' => 'Beneficial',
-                            'desc' => 'Beneficial Human Being',
+                            'title' => 'Beneficial Citizen',
+                            'desc' => 'Loving the motherland & contributing to others ',
                             'delay' => '200',
                         ],
                         [
                             'icon' => 'bi-translate',
                             'title' => 'Global Communicator',
-                            'desc' => 'Fluent in English & Basic Arabic',
+                            'desc' => 'Confident in English & Able to read Basic Arabic texts',
                             'delay' => '250',
                         ],
                     ];
@@ -268,7 +269,7 @@
                             'Dhuha, Dhuhur, Ashr Prayer',
                             'Tahsin Holy Quran',
                             'Subject Learning',
-                            'Asr Prayer',
+                            'Daily English',
                         ],
                     ],
                     'Weekly' => [
@@ -277,17 +278,11 @@
                     ],
                     'Monthly' => [
                         'icon' => 'bi-calendar-month',
-                        'items' => [
-                            'Mini Podcast',
-                            'Show & Tell',
-                            'Flag Ceremony',
-                            'Daily English',
-                            'Student of Month',
-                        ],
+                        'items' => ['Mini Podcast', 'Show & Tell', 'Flag Ceremony', 'Outing Class', 'Student of Month'],
                     ],
                     'Annual' => [
                         'icon' => 'bi-calendar-event',
-                        'items' => ['Project Showcase', 'Student Led Conference', 'English Festival', 'Outing Class'],
+                        'items' => ['Project Showcase', 'Student Led Conference', 'English Festival'],
                     ],
                 ];
             @endphp
@@ -330,11 +325,11 @@
                     </p>
                     <a href="https://wa.me/62853620127542?text=Assalamualaikum%20Pak%20Firdaus%2C%20saya%20tertarik%20dengan%20PPDB%20Harum%202"
                         target="_blank" class="btn btn-success btn-lg px-3 shadow-lg">
-                        <i class="bi bi-whatsapp me-2"></i> Hubungi via WhatsApp
+                        <i class="bi bi-whatsapp me-2"></i> Contact via WhatsApp
                     </a>
                     <div class="mt-3">
                         <a href="{{ route('branch.select') }}" class="btn btn-outline-light px-4">
-                            <i class="bi bi-arrow-left me-1"></i> Kembali ke Pilihan Cabang
+                            <i class="bi bi-arrow-left me-1"></i> back to Branch Selection
                         </a>
                     </div>
                 </div>
@@ -638,7 +633,7 @@
         }
 
         .schedule-item {
-            padding: 0.4rem 0;
+            padding: 0.25rem 0;
             border-bottom: 1px solid #f5f3ee;
         }
 
