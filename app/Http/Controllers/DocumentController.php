@@ -43,7 +43,7 @@ class DocumentController extends Controller
 
         //beri nama
         $file = $request->file('document');
-        $file_name = $id . '-user' . '-' . time() . '-' . $file->getClientOriginalName();
+        $file_name = $id . '-user-' . time() . '.' . $file->getClientOriginalExtension();
 
         // simpan di folder storage/app/public/photos
         $request->file('document')->move(storage_path('app/public/photos'), $file_name);

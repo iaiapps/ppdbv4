@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('desc');
             $table->string('value');
-            $table->string('type');
+            $table->string('type')->index();
             $table->timestamps();
         });
     }

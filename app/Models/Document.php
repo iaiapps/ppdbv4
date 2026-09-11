@@ -16,11 +16,6 @@ class Document extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
-
     /**
      * Get file URL via secure route
      */

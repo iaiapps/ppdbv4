@@ -39,28 +39,31 @@
 
                 <!-- SDITHarum 2 -->
                 <div class="col-md-5 d-flex">
-                    <form action="{{ route('branch.store') }}" method="POST" class="w-100">
-                        @csrf
-                        <input type="hidden" name="branch" value="sditharum_2">
-                        <div class="card border-0 shadow-sm branch-card h-100" onclick="this.closest('form').submit()">
-                            <div class="card-body text-center p-4 d-flex flex-column">
-                                <div class="mb-3">
-                                    <img class="border rounded-circle" src="{{ asset('img/harum2.jpg') }}" alt="logo"
-                                        style="width: 80px;">
-                                </div>
-                                <h5 class="fw-bold">HARAPAN UMAT - Nature and Bilingual School</h5>
-                                <p class="text-muted mb-3">
-                                    <i class="bi bi-geo-alt me-1"></i> Jl. Parang tritis Rt 01, Rw 07 lingkungan Pelinggian
-                                    Antirogo Jember
-                                </p>
-                                <div class="mt-auto pt-3">
-                                    <button type="submit" class="btn btn-orange text-white w-50">
-                                        Pilih Cabang Ini <i class="bi bi-arrow-right ms-2"></i>
+                    <div class="card border-0 shadow-sm branch-card h-100">
+                        <div class="card-body text-center p-4 d-flex flex-column">
+                            <div class="mb-3">
+                                <img class="border" src="{{ asset('img/harum2.jpg') }}" alt="logo"
+                                    style="height: 80px;">
+                            </div>
+                            <h5 class="fw-bold">HARAPAN UMAT - Nature Bilingual School</h5>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt me-1"></i> Jl. Parang tritis Rt 01, Rw 07 lingkungan Pelinggian
+                                Antirogo Jember
+                            </p>
+                            <div class="mt-auto pt-3 d-flex gap-2 justify-content-center">
+                                <a href="{{ route('branch.harum2') }}" class="btn btn-outline-orange flex-fill">
+                                    <i class="bi bi-info-circle me-1"></i> Detail
+                                </a>
+                                <form action="{{ route('branch.store') }}" method="POST" class="flex-fill">
+                                    @csrf
+                                    <input type="hidden" name="branch" value="sditharum_2">
+                                    <button type="submit" class="btn btn-orange text-white w-100">
+                                        Pilih <i class="bi bi-arrow-right ms-1"></i>
                                     </button>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 

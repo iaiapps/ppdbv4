@@ -21,7 +21,7 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Student::with(['user', 'costCategory', 'document', 'payment']);
+        $query = Student::with(['user', 'cost_category', 'document', 'payment']);
 
         if ($request->has('branch') && $request->branch !== 'all') {
             $query->whereHas('user', function ($q) use ($request) {
@@ -84,8 +84,8 @@ class StudentController extends Controller
                 'saudara_kandung_di_sdit' => 'required|string|in:Ya,Tidak',
                 'saudara_count' => 'nullable|integer|min:1|max:10',
                 'saudara_names' => 'nullable|string|max:255',
-                'living'      => 'nullable|string|max:100',
-                'address'     => 'nullable|string',
+                'living'      => 'required|string|max:100',
+                'address'     => 'required|string',
                 'rtrw'        => 'nullable|string|max:20',
                 'postalcode'  => 'nullable|string|max:10',
                 'desa'        => 'nullable|string|max:100',
@@ -118,7 +118,7 @@ class StudentController extends Controller
 
             // Upload dokumen foto
             $file = $request->file('document');
-            $file_name = $id . '-user-' . time() . '-' . $file->getClientOriginalName();
+            $file_name = $id . '-user-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(storage_path('app/public/photos'), $file_name);
 
             Document::create([
@@ -241,7 +241,7 @@ class StudentController extends Controller
     // all student
     public function studentall()
     {
-        $students = Student::with(['user', 'costCategory'])->get();
+        $students = Student::with(['user', 'cost_category'])->get();
         return view('admin.student.all', compact('students'));
     }
 
@@ -260,7 +260,7 @@ class StudentController extends Controller
     // set biaya registrasi ulang
     public function setreg()
     {
-        $students = Student::with(['user', 'costCategory'])->get();
+        $students = Student::with(['user', 'cost_category'])->get();
         $costs = CostCategory::all();
         return view('admin.setcostreg.index', compact('students', 'costs'));
     }
@@ -352,8 +352,10 @@ class StudentController extends Controller
     public function studentprofil()
     {
         $id = Auth::user()->id;
-        // dd($id);
-        $student = Student::where('user_id', $id)->get()->first();
+        $student = Student::where('user_id', $id)->first();
+        if (!$student) {
+            return redirect()->route('student.create')->with('error', 'Silakan isi formulir pendaftaran terlebih dahulu');
+        }
         $data = Document::where('user_id', $id)->where('type', 'upload_foto')->first();
         return view('student.profile', compact('student', 'data'));
     }

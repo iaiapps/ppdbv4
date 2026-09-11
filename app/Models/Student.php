@@ -21,7 +21,7 @@ class Student extends Model
     }
     public function document()
     {
-        return $this->hasMany(Document::class);
+        return $this->hasMany(Document::class, 'user_id', 'user_id');
     }
     public function payment()
     {

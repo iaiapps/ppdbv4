@@ -37,7 +37,7 @@ class HomeController extends Controller
         // Set session branch dari User model (hanya untuk user yang punya branch)
         $branches = [
             'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',
-            'sditharum_2' => 'HARAPAN UMAT - Nature and Bilingual Class Program',
+            'sditharum_2' => 'HARAPAN UMAT - Nature Bilingual School',
         ];
         if ($user->branch) {
             session(['branch' => $user->branch]);
@@ -47,13 +47,15 @@ class HomeController extends Controller
         }
 
         //jika pakai spatie
-        $total = User::where('name', '!=', 'admin')->get();
-        $akun_dibuat = User::role('akun_dibuat')->get();
-        $akun_aktif = User::role('akun_aktif')->get();
-        $akun_isi_formulir = User::role('akun_isi_formulir')->get();
-        $akun_diterima = User::role('akun_diterima')->get();
-        $akun_ditolak = User::role('akun_ditolak')->get();
-        $akun_mengundurkan_diri = User::role('akun_mengundurkan_diri')->get();
+        $roles = ['akun_dibuat', 'akun_aktif', 'akun_isi_formulir', 'akun_diterima', 'akun_ditolak', 'akun_mengundurkan_diri'];
+        $roleCounts = User::role($roles)->get()->countBy(fn($u) => $u->getRoleNames()->first());
+        $total = User::where('name', '!=', 'admin')->count();
+        $akun_dibuat = $roleCounts['akun_dibuat'] ?? 0;
+        $akun_aktif = $roleCounts['akun_aktif'] ?? 0;
+        $akun_isi_formulir = $roleCounts['akun_isi_formulir'] ?? 0;
+        $akun_diterima = $roleCounts['akun_diterima'] ?? 0;
+        $akun_ditolak = $roleCounts['akun_ditolak'] ?? 0;
+        $akun_mengundurkan_diri = $roleCounts['akun_mengundurkan_diri'] ?? 0;
 
         // Ambil timeline pengumuman
         $tanggal = Timeline::where('name', 'Pengumuman Hasil SPMB')->first()->date;

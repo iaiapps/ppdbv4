@@ -19,7 +19,7 @@ class BranchController extends Controller
 
         $branches = [
             'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',
-            'sditharum_2' => 'HARAPAN UMAT - Nature and Bilingual Class Program',
+            'sditharum_2' => 'HARAPAN UMAT - Nature Bilingual School',
         ];
 
         session(['branch' => $request->branch]);

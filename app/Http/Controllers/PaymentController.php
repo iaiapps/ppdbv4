@@ -60,7 +60,7 @@ class PaymentController extends Controller
 
         // Upload bukti pembayaran
         $file = $request->file('document');
-        $file_name = $id . '-du' . '-' . time() . '-' . $file->getClientOriginalName();
+        $file_name = $id . '-du-' . time() . '.' . $file->getClientOriginalExtension();
         $file->move(storage_path('app/public/payments'), $file_name);
 
         // Get user_id dari student

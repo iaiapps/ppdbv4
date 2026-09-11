@@ -33,6 +33,9 @@ Auth::routes();
 Route::middleware('guest')->group(function () {
     Route::get('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'show'])->name('branch.select');
     Route::post('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'store'])->name('branch.store');
+    Route::get('/harum2-detail', function () {
+        return view('auth.harum2-detail');
+    })->name('branch.harum2');
 });
 
 Route::middleware('auth')->group(function () {

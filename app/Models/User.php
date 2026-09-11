@@ -57,16 +57,16 @@ class User extends Authenticatable
 
     public function getBranchLabelAttribute(): string
     {
-        return match($this->branch) {
+        return match ($this->branch) {
             'sditharum_1' => 'SDIT HARAPAN UMAT JEMBER',
-            'sditharum_2' => 'HARAPAN UMAT - Nature and Bilingual Class Program',
+            'sditharum_2' => 'HARAPAN UMAT - Nature Bilingual School',
             default => 'Belum Ditentukan',
         };
     }
 
     public function getBranchShortAttribute(): string
     {
-        return match($this->branch) {
+        return match ($this->branch) {
             'sditharum_1' => 'Harum 1',
             'sditharum_2' => 'Harum 2',
             default => '-',
@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     public function getBranchBadgeClassAttribute(): string
     {
-        return match($this->branch) {
+        return match ($this->branch) {
             'sditharum_1' => 'success',
             'sditharum_2' => 'info',
             default => 'secondary',

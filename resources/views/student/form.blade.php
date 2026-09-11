@@ -43,6 +43,11 @@
                 <form id="multiStepForm" action="{{ route('student.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <small>Pastikan data yang diisi tidak ada kesalahan huruf, angka, tanda baca, atau spasi.</small>
+                    </div>
+
                     <!-- STEP 1: Identitas Siswa -->
                     <fieldset class="step active">
                         <div class="form-card">
@@ -166,7 +171,7 @@
                             <button type="button" class="btn btn-orange next w-25 float-end">Lanjut</button>
                         </div>
                     </fieldset>
-                    <fieldset class="step active">
+                    <fieldset class="step">
                         <div class="form-card">
                             <p class="fs-4">Pertanyaan Khusus</p>
                             <div class="card border-orange">
@@ -246,7 +251,7 @@
                             <button type="button" class="btn btn-orange next w-25 float-end">Lanjut</button>
                         </div>
                     </fieldset>
-                    <fieldset class="step active">
+                    <fieldset class="step">
                         <div class="form-card">
                             <p class="fs-4">Alamat Calon Siswa</p>
 
@@ -471,7 +476,8 @@
                         </div>
                         <div class="w-100 mt-3">
                             <button type="button" class="btn btn-secondary prev w-25 float-start">Kembali</button>
-                            <button type="submit" class="btn btn-success w-25 float-end">
+                            <button type="submit" class="btn btn-success w-25 float-end"
+                                onclick="return confirm('Pastikan semua data yang diisi sudah benar. Apakah anda yakin ingin menyimpan?')">
                                 Simpan
                             </button>
                         </div>
@@ -512,7 +518,7 @@
         @push('scripts')
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    var popup = new bootstrap.Modal(document.getElementById('popupInfo'));
+                    var popup = new bootstrap.Modal(document.getElementById('prepareModal'));
                     popup.show();
                 });
             </script>
