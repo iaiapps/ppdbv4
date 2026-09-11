@@ -33,10 +33,12 @@ Auth::routes();
 Route::middleware(['guest', 'countdown'])->group(function () {
     Route::get('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'show'])->name('branch.select');
     Route::post('/pilih-cabang', [App\Http\Controllers\BranchController::class, 'store'])->name('branch.store');
-    Route::get('/harum2-detail', function () {
-        return view('auth.harum2-detail');
-    })->name('branch.harum2');
 });
+
+// Harum 2 detail — open to all guests, not blocked by countdown
+Route::get('/harum2-detail', function () {
+    return view('auth.harum2-detail');
+})->name('branch.harum2')->middleware('guest');
 
 Route::middleware('auth')->group(function () {
     // file serve (secure)
