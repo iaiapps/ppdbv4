@@ -98,7 +98,7 @@
                             <i class="bi bi-book-half"></i>
                         </div>
                         <h5 class="fw-bold mb-2">Tahfidz & Tahsin Quran</h5>
-                        <p class="text-muted mb-3">Memorize Juz 1 or 2 and get a tahsin certification</p>
+                        <p class="text-muted mb-3">Juz 30: Required | Juz 29: Optional. And get a tahsin certification</p>
                         <div class="program-card-tag">Wafa/IWR</div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                             <i class="bi bi-globe2"></i>
                         </div>
                         <h5 class="fw-bold mb-2">Bilingual Program</h5>
-                        <p class="text-muted mb-3">Active communication in English & Arabic reading skill</p>
+                        <p class="text-muted mb-3">Speaking English confidently & understanding basic Arabic texts</p>
                         <div class="program-card-tag">Pearson GSE Partner</div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                         [
                             'icon' => 'bi-moon-stars',
                             'title' => 'Islamic Consciousness',
-                            'desc' => 'Aqidah, Worship, Adab & Muslim Self-Concept',
+                            'desc' => 'Aqidah, Ibadah, Adab & Muslim Self-Concept',
                             'delay' => '100',
                         ],
                         [
@@ -165,7 +165,7 @@
                         [
                             'icon' => 'bi-globe',
                             'title' => 'Bilingual Program',
-                            'desc' => 'Active Communication in English & Arabic Reading Skill',
+                            'desc' => 'Speaking English confidently & understanding basic Arabic texts',
                             'delay' => '400',
                         ],
                     ];
