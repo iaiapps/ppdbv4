@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->name('fk_students_user_id')->onUpdate('cascade')->onDelete('cascade');
             // $table->foreignId('cost_categories_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('cost_category_id')->nullable();
             $table->string('branch')->nullable()->index();
