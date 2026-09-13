@@ -10,9 +10,10 @@
                 <img style="height: 100px;" src="{{ asset('img/harum2.jpg') }}" alt="logo">
             </div>
             <h2 class="mb-3 fw-bold fs-1">{{ $landing['countdown_heading'] ?? 'SEGERA DIBUKA' }}</h2>
-            <p class="mb-4 px-3 fs-4" style="max-width: 600px; margin:auto;">
-                {{ $tagline->value }}
+            <p class="mb-2 px-3 fs-4" style="max-width: 600px; margin:auto;">
+                Sistem Penerimaan Murid Baru SDIT Harapan Umat & Harapan Umat Bilingual School
             </p>
+            <p class="mb-4 px-3 fs-4">{{ $schedule->value }}</p>
             <hr>
             <div id="timer" class="countdown-grid">
                 <div class="countdown-card">

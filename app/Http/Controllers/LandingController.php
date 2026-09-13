@@ -48,7 +48,7 @@ class LandingController extends Controller
 
         // Kalau countdown ada dan belum lewat, tampilkan halaman countdown
         if ($countdownDate && now()->lt($countdownDate)) {
-            return view('landing.countdown', compact('countdownDate', 'tagline', 'landing', 'primaryWa'));
+            return view('landing.countdown', compact('countdownDate', 'tagline', 'landing', 'primaryWa', 'schedule'));
         }
 
         // Default tampil landing normal
