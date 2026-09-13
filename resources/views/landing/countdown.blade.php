@@ -5,8 +5,9 @@
     <!-- Countdown Section -->
     <section class="d-flex align-items-center justify-content-center text-white text-center bg-gradient min-vh-100">
         <div class="top">
-            <div class="text-center mt-5 mb-4">
+            <div class="mt-5 mb-4 d-flex gap-3 justify-content-center align-items-center">
                 <img class="logo" src="{{ asset('img/logoutama.svg') }}" alt="logo">
+                <img style="height: 100px;" src="{{ asset('img/harum2.jpg') }}" alt="logo">
             </div>
             <h2 class="mb-3 fw-bold fs-1">{{ $landing['countdown_heading'] ?? 'SEGERA DIBUKA' }}</h2>
             <p class="mb-4 px-3 fs-4" style="max-width: 600px; margin:auto;">
@@ -34,7 +35,8 @@
             @php
                 $phone = $primaryWa ? ltrim($primaryWa->value, '0') : '85232213939';
             @endphp
-            <a href="https://wa.me/62{{ $phone }}" target="_blank" class="btn btn-success btn-lg text-white mt-5">Hubungi
+            <a href="https://wa.me/62{{ $phone }}" target="_blank"
+                class="btn btn-success btn-lg text-white mt-5">Hubungi
                 Admin</a>
         </div>
     </section>
@@ -43,7 +45,7 @@
 @push('css')
     <style>
         .logo {
-            width: 110px;
+            width: 100px;
         }
 
         .top {
