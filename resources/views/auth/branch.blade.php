@@ -6,8 +6,8 @@
     @include('landing.up')
 
     <section class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
+        <div class="container mb-4">
+            <div class="mt-4 text-center mb-4">
                 <h2 class="fw-bold">Pilih Cabang Pendaftaran</h2>
                 <p class="text-muted fs-5">Silakan pilih cabang sekolah yang ingin didaftarkan</p>
             </div>

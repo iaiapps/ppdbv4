@@ -16,14 +16,18 @@
                     {{-- @endforeach --}}
                 @endif
                 <div class="p-0 p-md-3 text-center ">
-                    @php
+                    {{-- @php
                         $logo = 'img/logoutama.svg';
                         if (Auth::check()) {
                             $logo = Auth::user()->branch === 'sditharum_2' ? 'img/harum2.jpg' : (Auth::user()->branch ? 'img/logoutama.svg' : 'img/logoppdb.svg');
                         }
-                    @endphp
-                    <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset($logo) }}" alt="logosdit" />
-                    <p class="fs-3 mb-0">Login Website SPMB {{ session('branch_name', 'SDIT Harapan Umat Jember') }}</p>
+                    @endphp --}}
+                    {{-- <img class="logo rounded-circle bg-orange p-1 mb-4" src="{{ asset($logo) }}" alt="logosdit" /> --}}
+                    <div class="mt-5 mb-4 d-flex gap-3 justify-content-center align-items-center">
+                        <img class="logo" src="{{ asset('img/logoutama.svg') }}" alt="logo">
+                        <img class="logo" src="{{ asset('img/harum2.jpg') }}" alt="logo">
+                    </div>
+                    <p class="fs-4 mb-0">Login Website SPMB SDIT Harapan Umat & Harapan Umat Nature Bilingual School</p>
                     <hr class="mb-2">
                     <!-- <h1>ADMIN PPDB</h1> -->
                     <form class="mt-4" action="{{ route('login') }}" method="POST">
@@ -56,7 +60,7 @@
 
                         @if ($show == 'on')
                             <span>atau</span>
-                            <a href="{{ route('register') }}" class="btn btn-sm btn-outline-dark w-100 mt-3">Buat
+                            <a href="{{ route('branch.select') }}" class="btn btn-sm btn-outline-dark w-100 mt-3">Buat
                                 akun</a>
                         @endif
                     </form>
@@ -72,7 +76,7 @@
 @push('css')
     <style>
         .logo {
-            width: 85px;
+            height: 75px;
         }
     </style>
 @endpush
