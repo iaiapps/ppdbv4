@@ -104,8 +104,8 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label class="form-label" for="school_address">Alamat TK</label>
-                                        <input class="form-control" id="school_address" name="school_address" type="text"
-                                            required />
+                                        <input class="form-control" id="school_address" name="school_address"
+                                            type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -453,10 +453,10 @@
                         <p>Ketentuan file foto</p>
                         <div class="mb-3">
                             <ul class="list-group">
-                                <li class="list-group-item">Foto dengan seragam TK background polos </li>
-                                <li class="list-group-item">File foto berukuran 4x6</li>
-                                <li class="list-group-item">File foto berupa .png atau .jpg</li>
-                                <li class="list-group-item">Maksimal ukuran foto 1 mb</li>
+                                <li class="list-group-item">Foto dengan seragam TK background polos</li>
+                                <li class="list-group-item">Foto berukuran 4x6</li>
+                                <li class="list-group-item">File foto berupa .png atau .jpg/.jpeg</li>
+                                <li class="list-group-item">Maksimal ukuran foto 3 mb</li>
                             </ul>
                         </div>
 
@@ -467,7 +467,7 @@
                             <input class="form-control @error('document') is-invalid @enderror" type="file"
                                 id="document" name="document" accept="image/png, image/jpeg">
                         </div>
-                        <p class="d-block py-2 text-start">*Ukuran maksimal 1 MB</p>
+                        <p class="d-block py-2 text-start">*Ukuran maksimal 3 MB</p>
                         <!-- Preview -->
                         <div id="preview-container" class="border border-orange border-2 text-center p-2 hfoto">
                             <img id="preview-photo" src="#" alt="Preview Foto"
@@ -645,8 +645,8 @@
 
             if (file) {
                 // validasi ukuran
-                if (file.size > 1048576) {
-                    alert("Ukuran file maksimal 1 MB!");
+                if (file.size > 3145728) {
+                    alert("Ukuran file maksimal 3 MB!");
                     event.target.value = "";
                     container.classList.add("d-none");
                     return;

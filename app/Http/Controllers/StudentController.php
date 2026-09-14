@@ -102,7 +102,7 @@ class StudentController extends Controller
                 'mom_occupation' => 'nullable|string|max:100',
                 'mom_income'  => 'nullable|string|max:100',
                 'mom_phone'   => 'nullable|string|max:20',
-                'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:1024',
+                'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:3072',
             ]);
 
             // ✅ Ambil data dari validasi
@@ -121,12 +121,29 @@ class StudentController extends Controller
             $file_name = $id . '-user-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(storage_path('app/public/photos'), $file_name);
 
-            Document::create([
-                'name'     => $request->input('full_name'),
-                'type'     => 'upload_foto',
-                'document' => 'photos/' . $file_name,
-                'user_id'  => $id,
-            ]);
+            // Cek apakah sudah ada foto sebelumnya
+            $existingDoc = Document::where('user_id', $id)->where('type', 'upload_foto')->first();
+
+            if ($existingDoc) {
+                // Hapus file lama
+                $oldPath = storage_path('app/public/' . $existingDoc->document);
+                if (file_exists($oldPath)) {
+                    unlink($oldPath);
+                }
+                // Update record
+                $existingDoc->update([
+                    'name'     => $request->input('full_name'),
+                    'document' => 'photos/' . $file_name,
+                ]);
+            } else {
+                // Buat record baru
+                Document::create([
+                    'name'     => $request->input('full_name'),
+                    'type'     => 'upload_foto',
+                    'document' => 'photos/' . $file_name,
+                    'user_id'  => $id,
+                ]);
+            }
 
             // Update role user
             $user->syncRoles('akun_isi_formulir');
