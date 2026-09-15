@@ -22,6 +22,14 @@
                         <div class="form-card">
                             <p class="fs-4">Identitas Calon Siswa</p>
 
+                            <div class="mb-3">
+                                <label class="form-label" for="branch">Cabang</label>
+                                <select class="form-select" id="branch" name="branch">
+                                    <option value="sditharum_1" {{ $student->branch === 'sditharum_1' ? 'selected' : '' }}>SDIT HARAPAN UMAT JEMBER</option>
+                                    <option value="sditharum_2" {{ $student->branch === 'sditharum_2' ? 'selected' : '' }}>HARAPAN UMAT - Nature Bilingual School</option>
+                                </select>
+                            </div>
+
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="mb-3">

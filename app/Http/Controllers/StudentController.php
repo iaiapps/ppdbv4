@@ -189,6 +189,7 @@ class StudentController extends Controller
             'gender'      => 'required|string',
             'place_birth' => 'required|string|max:100',
             'date_birth'  => 'required|date',
+            'branch'      => 'required|string|in:sditharum_1,sditharum_2',
             'address'     => 'nullable|string',
             'rtrw'        => 'nullable|string|max:20',
             'postalcode'  => 'nullable|string|max:10',
@@ -219,6 +220,10 @@ class StudentController extends Controller
         ]);
 
         $student->update($validated);
+
+        // Sync branch ke User
+        $student->user->update(['branch' => $validated['branch']]);
+
         return redirect()->route('student.index');
     }
 
@@ -346,10 +351,18 @@ class StudentController extends Controller
 
         // Tanggal dari database format Indonesia, convert ke English dulu
         $indonesianMonths = [
-            'Januari' => 'January', 'Februari' => 'February', 'Maret' => 'March',
-            'April' => 'April', 'Mei' => 'May', 'Juni' => 'June',
-            'Juli' => 'July', 'Agustus' => 'August', 'September' => 'September',
-            'Oktober' => 'October', 'November' => 'November', 'Desember' => 'December',
+            'Januari' => 'January',
+            'Februari' => 'February',
+            'Maret' => 'March',
+            'April' => 'April',
+            'Mei' => 'May',
+            'Juni' => 'June',
+            'Juli' => 'July',
+            'Agustus' => 'August',
+            'September' => 'September',
+            'Oktober' => 'October',
+            'November' => 'November',
+            'Desember' => 'December',
         ];
         $dateStr = $timeline->date;
         // Hapus nama hari di awal (Jumat, Senin, dll)
