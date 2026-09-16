@@ -17,7 +17,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with(['student', 'document', 'roles'])->where('name', '!=', 'admin')->get();
-        return view('admin.user.index', compact('users'));
+
+        // Hitung user yang sudah upload bukti pembayaran tapi belum diaktifkan
+        $uploadPending = User::role('akun_dibuat')
+            ->whereHas('document', fn($q) => $q->where('type', 'upload_pembayaran'))
+            ->count();
+
+        return view('admin.user.index', compact('users', 'uploadPending'));
     }
 
     /**

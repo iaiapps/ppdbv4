@@ -8,6 +8,15 @@
     <div class="bg-white rounded p-3 min-vh-100 ">
         <a href="{{ route('user.nonactive') }}" class="btn btn-primary btn-sm">Cek akun non aktif</a>
         <a href="{{ route('user.all') }}" class="btn btn-success btn-sm">Semua akun</a>
+
+        @if ($uploadPending > 0)
+            <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>{{ $uploadPending }} akun</strong> sudah upload bukti pembayaran tapi belum diaktifkan.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <p class="fs-5 text-center">Data Seluruh Pendaftar</p>
         <hr>
         {{-- <small class="mb-3 d-block">*early bid terhitung ketika sudah upload bukti pembayaran</small> --}}
