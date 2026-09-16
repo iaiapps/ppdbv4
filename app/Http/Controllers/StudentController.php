@@ -103,6 +103,26 @@ class StudentController extends Controller
                 'mom_income'  => 'nullable|string|max:100',
                 'mom_phone'   => 'nullable|string|max:20',
                 'document'    => 'required|file|image|mimes:jpeg,jpg,png|max:3072',
+            ], [
+                'full_name.required' => 'Nama lengkap wajib diisi',
+                'nick_name.required' => 'Nama panggilan wajib diisi',
+                'nik.required' => 'NIK wajib diisi',
+                'kk.required' => 'Nomor KK wajib diisi',
+                'school_origin.required' => 'Asal sekolah wajib diisi',
+                'gender.required' => 'Jenis kelamin wajib dipilih',
+                'place_birth.required' => 'Tempat lahir wajib diisi',
+                'date_birth.required' => 'Tanggal lahir wajib diisi',
+                'is_hyperactive.required' => 'Pertanyaan hiperaktif wajib dipilih',
+                'is_difficult_focus.required' => 'Pertanyaan sulit fokus wajib dipilih',
+                'is_impulse_control.required' => 'Pertanyaan kontrol impuls wajib dipilih',
+                'is_extreme_tantrum.required' => 'Pertanyaan tantrum ekstrim wajib dipilih',
+                'needs_shadow_teacher.required' => 'Pertanyaan shadow teacher wajib dipilih',
+                'saudara_kandung_di_sdit.required' => 'Pertanyaan saudara kandung wajib dipilih',
+                'living.required' => 'Tempat tinggal wajib dipilih',
+                'address.required' => 'Alamat wajib diisi',
+                'document.required' => 'Foto wajib diunggah',
+                'document.mimes' => 'Format foto harus JPG atau PNG',
+                'document.max' => 'Ukuran foto maksimal 3 MB',
             ]);
 
             // ✅ Ambil data dari validasi

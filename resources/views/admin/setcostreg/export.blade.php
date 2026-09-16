@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>No</th>
+            <th>Cabang</th>
             <th>Nama</th>
             <th>No HP</th>
             <th>Role</th>
@@ -11,6 +12,7 @@
         @foreach ($users as $user)
             <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>{{ $user->branch_label }}</td>
                 <td>{{ $user->student->full_name ?? '-' }}</td>
                 <td>{{ $user->email_number }}</td>
                 <td>{{ $user->roles->first()->name ?? '-' }}</td>
