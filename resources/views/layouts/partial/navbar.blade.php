@@ -15,7 +15,7 @@
                             ? 'img/logoutama.svg'
                             : 'img/logoppdb.svg');
             @endphp
-            <img src="{{ asset($navLogo) }}" alt="logoppdb" class="logonav" />
+            <img src="{{ asset($navLogo) }}" alt="logoppdb" class="logonav" style="height: 50px;" />
         </div>
 
         <div class="col-6 text-end align-content-center">
